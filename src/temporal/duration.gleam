@@ -186,26 +186,40 @@ fn set_hours(d: Duration, td: TemporaryDuration) -> Result(Duration, Nil) {
           days: _,
           hours: _,
         ) -> {
-          let assert Ok(h_minutes) = float.modulo(td.hours, 1.0)
-          let minutes = h_minutes *. 60.0
-          let assert Ok(m_seconds) = float.modulo(minutes, 1.0)
-          let seconds = m_seconds *. 60.0
-          let assert Ok(s_milliseconds) = float.modulo(seconds, 1.0)
-          let milliseconds = s_milliseconds *. 1000.0
-          let assert Ok(ms_microseconds) = float.modulo(milliseconds, 1.0)
-          let microseconds = ms_microseconds *. 1000.0
-          let assert Ok(us_nanoseconds) = float.modulo(microseconds, 1.0)
-          let nanoseconds = us_nanoseconds *. 1000.0
+          // Convert hours to minutes (1 hour = 60 minutes)
+          let total_minutes = td.hours *. 60.0
+          let hours = float.floor(td.hours)
+          let minutes_part = total_minutes -. hours *. 60.0
+
+          // Convert remaining minutes to seconds
+          let total_seconds = minutes_part *. 60.0
+          let minutes = float.floor(minutes_part)
+          let seconds_part = total_seconds -. minutes *. 60.0
+
+          // Convert remaining seconds to milliseconds
+          let total_milliseconds = seconds_part *. 1000.0
+          let seconds = float.floor(seconds_part)
+          let milliseconds_part = total_milliseconds -. seconds *. 1000.0
+
+          // Convert remaining milliseconds to microseconds
+          let total_microseconds = milliseconds_part *. 1000.0
+          let milliseconds = float.floor(milliseconds_part)
+          let microseconds_part = total_microseconds -. milliseconds *. 1000.0
+
+          // Convert remaining microseconds to nanoseconds
+          let total_nanoseconds = microseconds_part *. 1000.0
+          let microseconds = float.floor(microseconds_part)
+          let nanoseconds = total_nanoseconds -. microseconds *. 1000.0
 
           Ok(
             Duration(
               ..d,
-              hours: to_base(td.hours),
-              minutes: to_base(minutes),
-              seconds: to_base(seconds),
-              milliseconds: to_base(milliseconds),
-              microseconds: to_base(microseconds),
-              nanoseconds: to_base(nanoseconds),
+              hours: float.round(hours),
+              minutes: float.round(minutes),
+              seconds: float.round(seconds),
+              milliseconds: float.round(milliseconds),
+              microseconds: float.round(microseconds),
+              nanoseconds: float.round(nanoseconds),
             ),
           )
         }
@@ -238,23 +252,34 @@ fn set_minutes(d: Duration, td: TemporaryDuration) -> Result(Duration, Nil) {
           hours: _,
           minutes: _,
         ) -> {
-          let assert Ok(m_seconds) = float.modulo(td.minutes, 1.0)
-          let seconds = m_seconds *. 60.0
-          let assert Ok(s_milliseconds) = float.modulo(seconds, 1.0)
-          let milliseconds = s_milliseconds *. 1000.0
-          let assert Ok(ms_microseconds) = float.modulo(milliseconds, 1.0)
-          let microseconds = ms_microseconds *. 1000.0
-          let assert Ok(us_nanoseconds) = float.modulo(microseconds, 1.0)
-          let nanoseconds = us_nanoseconds *. 1000.0
+          // Convert minutes to seconds
+          let total_seconds = td.minutes *. 60.0
+          let minutes = float.floor(td.minutes)
+          let seconds_part = total_seconds -. minutes *. 60.0
+
+          // Convert remaining seconds to milliseconds
+          let total_milliseconds = seconds_part *. 1000.0
+          let seconds = float.floor(seconds_part)
+          let milliseconds_part = total_milliseconds -. seconds *. 1000.0
+
+          // Convert remaining milliseconds to microseconds
+          let total_microseconds = milliseconds_part *. 1000.0
+          let milliseconds = float.floor(milliseconds_part)
+          let microseconds_part = total_microseconds -. milliseconds *. 1000.0
+
+          // Convert remaining microseconds to nanoseconds
+          let total_nanoseconds = microseconds_part *. 1000.0
+          let microseconds = float.floor(microseconds_part)
+          let nanoseconds = total_nanoseconds -. microseconds *. 1000.0
 
           Ok(
             Duration(
               ..d,
-              minutes: to_base(td.minutes),
-              seconds: to_base(seconds),
-              milliseconds: to_base(milliseconds),
-              microseconds: to_base(microseconds),
-              nanoseconds: to_base(nanoseconds),
+              minutes: float.round(minutes),
+              seconds: float.round(seconds),
+              milliseconds: float.round(milliseconds),
+              microseconds: float.round(microseconds),
+              nanoseconds: float.round(nanoseconds),
             ),
           )
         }
@@ -274,20 +299,28 @@ fn set_seconds(d: Duration, td: TemporaryDuration) -> Result(Duration, Nil) {
 
     // Value is set to an irregular float, convert to all the other subunits
     _, _ -> {
-      let assert Ok(s_milliseconds) = float.modulo(td.seconds, 1.0)
-      let milliseconds = s_milliseconds *. 1000.0
-      let assert Ok(ms_microseconds) = float.modulo(milliseconds, 1.0)
-      let microseconds = ms_microseconds *. 1000.0
-      let assert Ok(us_nanoseconds) = float.modulo(microseconds, 1.0)
-      let nanoseconds = us_nanoseconds *. 1000.0
+      // Convert seconds to milliseconds
+      let total_milliseconds = td.seconds *. 1000.0
+      let seconds = float.floor(td.seconds)
+      let milliseconds_part = total_milliseconds -. seconds *. 1000.0
+
+      // Convert remaining milliseconds to microseconds
+      let total_microseconds = milliseconds_part *. 1000.0
+      let milliseconds = float.floor(milliseconds_part)
+      let microseconds_part = total_microseconds -. milliseconds *. 1000.0
+
+      // Convert remaining microseconds to nanoseconds
+      let total_nanoseconds = microseconds_part *. 1000.0
+      let microseconds = float.floor(microseconds_part)
+      let nanoseconds = total_nanoseconds -. microseconds *. 1000.0
 
       Ok(
         Duration(
           ..d,
-          seconds: to_base(td.seconds),
-          milliseconds: to_base(milliseconds),
-          microseconds: to_base(microseconds),
-          nanoseconds: to_base(nanoseconds),
+          seconds: float.round(seconds),
+          milliseconds: float.round(milliseconds),
+          microseconds: float.round(microseconds),
+          nanoseconds: float.round(nanoseconds),
         ),
       )
     }
@@ -306,8 +339,4 @@ fn is_regular(number: Float) -> Bool {
     Ok(0.0) -> True
     _ -> False
   }
-}
-
-fn to_base(number: Float) -> Int {
-  float.floor(number) |> float.round()
 }
