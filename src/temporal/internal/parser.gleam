@@ -30,8 +30,7 @@ pub type TokenReader {
 }
 
 pub type Designator {
-  PositiveDesignator
-  NegativeDesignator
+  SignDesignator
   DurationDesignator
   YearDesignator
   MonthOrMinuteDesignator
@@ -89,6 +88,21 @@ pub fn designator(d: Designator, to_token: fn(Designator) -> Token) -> Parser {
   }
 }
 
+pub fn sign() -> Parser {
+  fn(chars) {
+    use #(_designator, rest) <- result.try(read_designator(
+      chars,
+      SignDesignator,
+    ))
+    use first <- result.try(list.first(chars))
+    case first {
+      "+" -> Ok(#(Sign(Positive), rest))
+      "-" -> Ok(#(Sign(Negative), rest))
+      _ -> Error(Nil)
+    }
+  }
+}
+
 pub fn to_designator_token(designator: Designator) -> Token {
   Designator(designator)
 }
@@ -124,8 +138,8 @@ fn read_designator(
 
     [char, ..rest] ->
       case want, char {
-        PositiveDesignator, "+" -> Ok(#(PositiveDesignator, rest))
-        NegativeDesignator, "-" -> Ok(#(NegativeDesignator, rest))
+        SignDesignator, "+" -> Ok(#(SignDesignator, rest))
+        SignDesignator, "-" -> Ok(#(SignDesignator, rest))
 
         DurationDesignator, "P" -> Ok(#(DurationDesignator, rest))
         DurationDesignator, "p" -> Ok(#(DurationDesignator, rest))
@@ -230,8 +244,7 @@ fn parse_int_list(number: List(String)) -> Result(Int, Nil) {
     [] -> Error(Nil)
     value ->
       value
-      |> list.reverse
-      |> string.join("")
+      |> list_to_string
       |> int.base_parse(10)
   }
 }
@@ -239,10 +252,25 @@ fn parse_int_list(number: List(String)) -> Result(Int, Nil) {
 fn parse_float_list(number: List(String)) -> Result(Float, Nil) {
   case number {
     [] -> Error(Nil)
-    value ->
-      value
-      |> list.reverse
-      |> string.join("")
-      |> float.parse()
+    value -> {
+      let v = list_to_string(value)
+
+      case float.parse(v) {
+        Ok(val) -> Ok(val)
+        Error(Nil) -> {
+          // Try to parse as integer
+          case int.base_parse(v, 10) {
+            Ok(val) -> Ok(int.to_float(val))
+            Error(Nil) -> Error(Nil)
+          }
+        }
+      }
+    }
   }
+}
+
+fn list_to_string(list: List(String)) -> String {
+  list
+  |> list.reverse
+  |> string.join("")
 }

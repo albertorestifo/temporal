@@ -38,10 +38,7 @@ pub type Duration {
 pub fn from_iso_8601(value: String) -> Result(Duration, Nil) {
   value
   |> p.read_sequence([
-    p.Maybe(
-      parser: p.designator(p.NegativeDesignator, fn(_d) { p.Sign(p.Negative) }),
-      default: p.Sign(p.Positive),
-    ),
+    p.Maybe(parser: p.sign(), default: p.Sign(p.Positive)),
     p.Must(parser: p.designator(p.DurationDesignator, p.to_designator_token)),
     p.Maybe(
       parser: p.int(ends_with: p.YearDesignator, to_token: fn(val) {
