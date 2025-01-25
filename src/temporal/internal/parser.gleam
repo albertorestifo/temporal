@@ -6,8 +6,10 @@ import gleam/string
 pub type Token {
   EnfOfInput
   Sign(Sign)
-  DurationDesignator
+  Designator(Designator)
   Years(Int)
+  Months(Int)
+  Days(Int)
 }
 
 pub type Sign {
@@ -21,6 +23,17 @@ pub type Parser =
 pub type TokenReader {
   Maybe(parser: Parser, default: Token)
   Must(parser: Parser)
+}
+
+pub type Designator {
+  PositiveDesignator
+  NegativeDesignator
+  DurationDesignator
+  YearDesignator
+  MonthOrMinuteDesignator
+  DayDesignator
+  HourDesignator
+  SecondDesignator
 }
 
 /// Reads the specified sequence of tokens. If any of the Must parser fails,
@@ -59,66 +72,78 @@ fn read_sequence_loop(
   }
 }
 
-pub fn char(char: String, token: Token) -> Parser {
+pub fn designator(d: Designator, to_token: fn(Designator) -> Token) -> Parser {
   fn(chars) {
-    use #(_value, rest) <- result.try(read_char(chars, char))
-    Ok(#(token, rest))
+    chars
+    |> read_designator(d)
+    |> result.map(fn(res) {
+      let #(designator, rest) = res
+      #(to_token(designator), rest)
+    })
   }
 }
 
-pub fn any_of_chars(want: List(String), token: Token) -> Parser {
-  fn(chars) {
-    case
-      list.find(in: want, one_that: fn(char) {
-        result.is_ok(read_char(chars, char))
-      })
-    {
-      Ok(_) ->
-        case chars {
-          [_char, ..rest] -> Ok(#(token, rest))
-          [] -> Error(Nil)
-        }
-
-      Error(Nil) -> Error(Nil)
-    }
-  }
+pub fn to_designator_token(designator: Designator) -> Token {
+  Designator(designator)
 }
 
 pub fn int(
-  max_length: Int,
-  discriminator: String,
-  to_token: fn(Int) -> Token,
+  ends_with designator: Designator,
+  to_token to_token: fn(Int) -> Token,
 ) -> Parser {
   fn(chars) {
-    use #(value, rest) <- result.try(read_int(chars, max_length, []))
-    use #(_char, rest) <- result.try(read_char(rest, discriminator))
+    use #(value, rest) <- result.try(read_int(chars, []))
+    use #(_char, rest) <- result.try(read_designator(rest, designator))
     Ok(#(to_token(value), rest))
   }
 }
 
-fn read_char(
+fn read_designator(
   chars: List(String),
-  want: String,
-) -> Result(#(String, List(String)), Nil) {
+  want: Designator,
+) -> Result(#(Designator, List(String)), Nil) {
   case chars {
-    [char, ..rest] if want == char -> Ok(#(char, rest))
-    _other -> Error(Nil)
+    [] -> Error(Nil)
+
+    [char, ..rest] ->
+      case want, char {
+        PositiveDesignator, "+" -> Ok(#(PositiveDesignator, rest))
+        NegativeDesignator, "-" -> Ok(#(NegativeDesignator, rest))
+
+        DurationDesignator, "P" -> Ok(#(DurationDesignator, rest))
+        DurationDesignator, "p" -> Ok(#(DurationDesignator, rest))
+
+        YearDesignator, "Y" -> Ok(#(YearDesignator, rest))
+        YearDesignator, "y" -> Ok(#(YearDesignator, rest))
+
+        MonthOrMinuteDesignator, "M" -> Ok(#(MonthOrMinuteDesignator, rest))
+        MonthOrMinuteDesignator, "m" -> Ok(#(MonthOrMinuteDesignator, rest))
+
+        DayDesignator, "D" -> Ok(#(DayDesignator, rest))
+        DayDesignator, "d" -> Ok(#(DayDesignator, rest))
+
+        HourDesignator, "H" -> Ok(#(HourDesignator, rest))
+        HourDesignator, "h" -> Ok(#(HourDesignator, rest))
+
+        SecondDesignator, "S" -> Ok(#(SecondDesignator, rest))
+        SecondDesignator, "s" -> Ok(#(SecondDesignator, rest))
+
+        _, _ -> Error(Nil)
+      }
   }
 }
 
 fn read_int(
   chars: List(String),
-  remaining_length: Int,
   acc: List(String),
 ) -> Result(#(Int, List(String)), Nil) {
   let maybe_digit =
     chars
-    |> read_next_char(remaining_length)
+    |> read_next_char()
     |> result.try(is_digit)
 
   case maybe_digit {
-    Ok(#(digit, remaining_chars)) ->
-      read_int(remaining_chars, remaining_length - 1, [digit, ..acc])
+    Ok(#(digit, remaining_chars)) -> read_int(remaining_chars, [digit, ..acc])
 
     Error(Nil) ->
       acc
@@ -127,14 +152,10 @@ fn read_int(
   }
 }
 
-fn read_next_char(
-  chars: List(String),
-  remaining_length: Int,
-) -> Result(#(String, List(String)), Nil) {
-  case chars, remaining_length {
-    _, 0 -> Error(Nil)
-    [], _ -> Error(Nil)
-    [char, ..rest], _ -> Ok(#(char, rest))
+fn read_next_char(chars: List(String)) -> Result(#(String, List(String)), Nil) {
+  case chars {
+    [] -> Error(Nil)
+    [char, ..rest] -> Ok(#(char, rest))
   }
 }
 

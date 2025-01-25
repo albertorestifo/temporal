@@ -28,10 +28,28 @@ pub fn from_iso_8601(value: String) -> Result(Duration, Nil) {
   let tokens =
     p.read_sequence(value, [
       p.Maybe(
-        parser: p.char("-", p.Sign(p.Negative)),
+        parser: p.designator(p.NegativeDesignator, fn(_d) { p.Sign(p.Negative) }),
         default: p.Sign(p.Positive),
       ),
-      p.Must(parser: p.any_of_chars(["P", "p"], p.DurationDesignator)),
+      p.Must(parser: p.designator(p.DurationDesignator, p.to_designator_token)),
+      p.Maybe(
+        parser: p.int(ends_with: p.YearDesignator, to_token: fn(val) {
+          p.Years(val)
+        }),
+        default: p.Years(0),
+      ),
+      p.Maybe(
+        parser: p.int(ends_with: p.MonthOrMinuteDesignator, to_token: fn(val) {
+          p.Months(val)
+        }),
+        default: p.Months(0),
+      ),
+      p.Maybe(
+        parser: p.int(ends_with: p.DayDesignator, to_token: fn(val) {
+          p.Days(val)
+        }),
+        default: p.Days(0),
+      ),
     ])
 
   Error(Nil)
