@@ -19,6 +19,22 @@ pub type Duration {
     months: Int,
     weeks: Int,
     days: Int,
+    hours: Int,
+    minutes: Int,
+    seconds: Int,
+    milliseconds: Int,
+    microseconds: Int,
+    nanoseconds: Int,
+  )
+}
+
+type TemporaryDuration {
+  TemporaryDuration(
+    is_negative: Bool,
+    years: Int,
+    months: Int,
+    weeks: Int,
+    days: Int,
     hours: Float,
     minutes: Float,
     seconds: Float,
@@ -84,7 +100,7 @@ pub fn from_iso_8601(value: String) -> Result(Duration, Nil) {
       default: p.Seconds(0.0),
     ),
   ])
-  |> tokens_to_duration(Duration(
+  |> tokens_to_temporary_duration(TemporaryDuration(
     is_negative: False,
     years: 0,
     months: 0,
@@ -94,81 +110,187 @@ pub fn from_iso_8601(value: String) -> Result(Duration, Nil) {
     minutes: 0.0,
     seconds: 0.0,
   ))
-  |> validate_hours()
-  |> result.try(validate_minutes)
+  |> to_duration()
 }
 
-fn tokens_to_duration(tokens: List(p.Token), acc: Duration) -> Duration {
+fn tokens_to_temporary_duration(
+  tokens: List(p.Token),
+  acc: TemporaryDuration,
+) -> TemporaryDuration {
   case tokens {
     [] -> acc
-    [token, ..rest] -> tokens_to_duration(rest, token_to_duration(token, acc))
+    [token, ..rest] ->
+      tokens_to_temporary_duration(
+        rest,
+        token_to_temporary_duration(token, acc),
+      )
   }
 }
 
-fn token_to_duration(token: p.Token, acc: Duration) -> Duration {
+fn token_to_temporary_duration(
+  token: p.Token,
+  acc: TemporaryDuration,
+) -> TemporaryDuration {
   case token {
-    p.Sign(p.Negative) -> Duration(..acc, is_negative: True)
+    p.Sign(p.Negative) -> TemporaryDuration(..acc, is_negative: True)
     p.Sign(p.Positive) -> acc
     p.Designator(_any) -> acc
-    p.Years(val) -> Duration(..acc, years: val)
-    p.Months(val) -> Duration(..acc, months: val)
-    p.Weeks(val) -> Duration(..acc, weeks: val)
-    p.Days(val) -> Duration(..acc, days: val)
-    p.Hours(val) -> Duration(..acc, hours: val)
-    p.Minutes(val) -> Duration(..acc, minutes: val)
-    p.Seconds(val) -> Duration(..acc, seconds: val)
+    p.Years(val) -> TemporaryDuration(..acc, years: val)
+    p.Months(val) -> TemporaryDuration(..acc, months: val)
+    p.Weeks(val) -> TemporaryDuration(..acc, weeks: val)
+    p.Days(val) -> TemporaryDuration(..acc, days: val)
+    p.Hours(val) -> TemporaryDuration(..acc, hours: val)
+    p.Minutes(val) -> TemporaryDuration(..acc, minutes: val)
+    p.Seconds(val) -> TemporaryDuration(..acc, seconds: val)
   }
 }
 
-fn validate_hours(duration: Duration) -> Result(Duration, Nil) {
-  case duration, is_set(duration.hours), is_regular(duration.hours) {
-    // Value is not set, no need to run any validations
-    duration, False, _ -> Ok(duration)
+fn to_duration(td: TemporaryDuration) -> Result(Duration, Nil) {
+  Duration(
+    is_negative: td.is_negative,
+    years: td.years,
+    months: td.months,
+    weeks: td.weeks,
+    days: td.days,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    milliseconds: 0,
+    microseconds: 0,
+    nanoseconds: 0,
+  )
+  |> set_hours(td)
+  |> result.try(set_minutes(_, td))
+  |> result.try(set_seconds(_, td))
+}
 
-    duration, True, True -> Ok(duration)
+fn set_hours(d: Duration, td: TemporaryDuration) -> Result(Duration, Nil) {
+  case is_set(td.hours), is_regular(td.hours) {
+    // Value is not set, leave blank
+    False, _ -> Ok(d)
+
+    // Value is set to a regular float, round it to an integer
+    True, True -> Ok(Duration(..d, hours: float.round(td.hours)))
 
     // Value is set to an irregular float, we need to ensure all other subunits are zero
-    Duration(
-      minutes: 0.0,
-      seconds: 0.0,
-      years: _,
-      months: _,
-      weeks: _,
-      days: _,
-      hours: _,
-      is_negative: _,
-    ),
-      True,
-      False
-    -> Ok(duration)
+    // then convert the value to all the other subunits
+    _, _ ->
+      case td {
+        TemporaryDuration(
+          minutes: 0.0,
+          seconds: 0.0,
+          is_negative: _,
+          years: _,
+          months: _,
+          weeks: _,
+          days: _,
+          hours: _,
+        ) -> {
+          let assert Ok(h_minutes) = float.modulo(td.hours, 1.0)
+          let minutes = h_minutes *. 60.0
+          let assert Ok(m_seconds) = float.modulo(minutes, 1.0)
+          let seconds = m_seconds *. 60.0
+          let assert Ok(s_milliseconds) = float.modulo(seconds, 1.0)
+          let milliseconds = s_milliseconds *. 1000.0
+          let assert Ok(ms_microseconds) = float.modulo(milliseconds, 1.0)
+          let microseconds = ms_microseconds *. 1000.0
+          let assert Ok(us_nanoseconds) = float.modulo(microseconds, 1.0)
+          let nanoseconds = us_nanoseconds *. 1000.0
 
-    _, _, _ -> Error(Nil)
+          Ok(
+            Duration(
+              ..d,
+              hours: to_base(td.hours),
+              minutes: to_base(minutes),
+              seconds: to_base(seconds),
+              milliseconds: to_base(milliseconds),
+              microseconds: to_base(microseconds),
+              nanoseconds: to_base(nanoseconds),
+            ),
+          )
+        }
+
+        // Some subunits were set, invalid
+        _ -> Error(Nil)
+      }
   }
 }
 
-fn validate_minutes(duration: Duration) -> Result(Duration, Nil) {
-  case duration, is_set(duration.minutes), is_regular(duration.minutes) {
-    // Value is not set, no need to run any validations
-    duration, False, _ -> Ok(duration)
+fn set_minutes(d: Duration, td: TemporaryDuration) -> Result(Duration, Nil) {
+  case is_set(td.minutes), is_regular(td.minutes) {
+    // Value is not set, leave blank
+    False, _ -> Ok(d)
 
-    duration, True, True -> Ok(duration)
+    // Value is set to a regular float, round it to an integer
+    True, True -> Ok(Duration(..d, minutes: float.round(td.minutes)))
 
-    // Value is set to an irregular float, we need to ensure all other subunits are zero
-    Duration(
-      seconds: 0.0,
-      years: _,
-      months: _,
-      weeks: _,
-      days: _,
-      hours: _,
-      minutes: _,
-      is_negative: _,
-    ),
-      True,
-      False
-    -> Ok(duration)
+    // Value is set to an irregular float, we need to ensure seconds are zero
+    // then convert the value to all the other subunits
+    _, _ ->
+      case td {
+        TemporaryDuration(
+          seconds: 0.0,
+          is_negative: _,
+          years: _,
+          months: _,
+          weeks: _,
+          days: _,
+          hours: _,
+          minutes: _,
+        ) -> {
+          let assert Ok(m_seconds) = float.modulo(td.minutes, 1.0)
+          let seconds = m_seconds *. 60.0
+          let assert Ok(s_milliseconds) = float.modulo(seconds, 1.0)
+          let milliseconds = s_milliseconds *. 1000.0
+          let assert Ok(ms_microseconds) = float.modulo(milliseconds, 1.0)
+          let microseconds = ms_microseconds *. 1000.0
+          let assert Ok(us_nanoseconds) = float.modulo(microseconds, 1.0)
+          let nanoseconds = us_nanoseconds *. 1000.0
 
-    _, _, _ -> Error(Nil)
+          Ok(
+            Duration(
+              ..d,
+              minutes: to_base(td.minutes),
+              seconds: to_base(seconds),
+              milliseconds: to_base(milliseconds),
+              microseconds: to_base(microseconds),
+              nanoseconds: to_base(nanoseconds),
+            ),
+          )
+        }
+
+        _ -> Error(Nil)
+      }
+  }
+}
+
+fn set_seconds(d: Duration, td: TemporaryDuration) -> Result(Duration, Nil) {
+  case is_set(td.seconds), is_regular(td.seconds) {
+    // Value is not set, leave blank
+    False, _ -> Ok(d)
+
+    // Value is set to a regular float, round it to an integer
+    True, True -> Ok(Duration(..d, seconds: float.round(td.seconds)))
+
+    // Value is set to an irregular float, convert to all the other subunits
+    _, _ -> {
+      let assert Ok(s_milliseconds) = float.modulo(td.seconds, 1.0)
+      let milliseconds = s_milliseconds *. 1000.0
+      let assert Ok(ms_microseconds) = float.modulo(milliseconds, 1.0)
+      let microseconds = ms_microseconds *. 1000.0
+      let assert Ok(us_nanoseconds) = float.modulo(microseconds, 1.0)
+      let nanoseconds = us_nanoseconds *. 1000.0
+
+      Ok(
+        Duration(
+          ..d,
+          seconds: to_base(td.seconds),
+          milliseconds: to_base(milliseconds),
+          microseconds: to_base(microseconds),
+          nanoseconds: to_base(nanoseconds),
+        ),
+      )
+    }
   }
 }
 
@@ -184,4 +306,8 @@ fn is_regular(number: Float) -> Bool {
     Ok(0.0) -> True
     _ -> False
   }
+}
+
+fn to_base(number: Float) -> Int {
+  float.floor(number) |> float.round()
 }
