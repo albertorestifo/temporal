@@ -1,15 +1,19 @@
+import gleam/float
 import gleam/int
 import gleam/list
 import gleam/result
 import gleam/string
 
 pub type Token {
-  EnfOfInput
   Sign(Sign)
   Designator(Designator)
   Years(Int)
   Months(Int)
+  Weeks(Int)
   Days(Int)
+  Hours(Float)
+  Minutes(Float)
+  Seconds(Float)
 }
 
 pub type Sign {
@@ -31,7 +35,9 @@ pub type Designator {
   DurationDesignator
   YearDesignator
   MonthOrMinuteDesignator
+  WeekDesignator
   DayDesignator
+  TimeDesignator
   HourDesignator
   SecondDesignator
 }
@@ -98,6 +104,17 @@ pub fn int(
   }
 }
 
+pub fn float(
+  ends_with designator: Designator,
+  to_token to_token: fn(Float) -> Token,
+) -> Parser {
+  fn(chars) {
+    use #(value, rest) <- result.try(read_float(chars, []))
+    use #(_char, rest) <- result.try(read_designator(rest, designator))
+    Ok(#(to_token(value), rest))
+  }
+}
+
 fn read_designator(
   chars: List(String),
   want: Designator,
@@ -119,8 +136,14 @@ fn read_designator(
         MonthOrMinuteDesignator, "M" -> Ok(#(MonthOrMinuteDesignator, rest))
         MonthOrMinuteDesignator, "m" -> Ok(#(MonthOrMinuteDesignator, rest))
 
+        WeekDesignator, "W" -> Ok(#(WeekDesignator, rest))
+        WeekDesignator, "w" -> Ok(#(WeekDesignator, rest))
+
         DayDesignator, "D" -> Ok(#(DayDesignator, rest))
         DayDesignator, "d" -> Ok(#(DayDesignator, rest))
+
+        TimeDesignator, "T" -> Ok(#(TimeDesignator, rest))
+        TimeDesignator, "t" -> Ok(#(TimeDesignator, rest))
 
         HourDesignator, "H" -> Ok(#(HourDesignator, rest))
         HourDesignator, "h" -> Ok(#(HourDesignator, rest))
@@ -152,6 +175,25 @@ fn read_int(
   }
 }
 
+fn read_float(
+  chars: List(String),
+  acc: List(String),
+) -> Result(#(Float, List(String)), Nil) {
+  let maybe_decimal =
+    chars
+    |> read_next_char()
+    |> result.try(is_decimal)
+
+  case maybe_decimal {
+    Ok(#(digit, remaining_chars)) -> read_float(remaining_chars, [digit, ..acc])
+
+    Error(Nil) ->
+      acc
+      |> parse_float_list()
+      |> result.try(fn(val) { Ok(#(val, chars)) })
+  }
+}
+
 fn read_next_char(chars: List(String)) -> Result(#(String, List(String)), Nil) {
   case chars {
     [] -> Error(Nil)
@@ -171,6 +213,18 @@ fn is_digit(
   }
 }
 
+fn is_decimal(
+  char: #(String, List(String)),
+) -> Result(#(String, List(String)), Nil) {
+  let #(char, rest) = char
+  case char {
+    "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "." | "," ->
+      Ok(#(char, rest))
+
+    _ -> Error(Nil)
+  }
+}
+
 fn parse_int_list(number: List(String)) -> Result(Int, Nil) {
   case number {
     [] -> Error(Nil)
@@ -179,5 +233,16 @@ fn parse_int_list(number: List(String)) -> Result(Int, Nil) {
       |> list.reverse
       |> string.join("")
       |> int.base_parse(10)
+  }
+}
+
+fn parse_float_list(number: List(String)) -> Result(Float, Nil) {
+  case number {
+    [] -> Error(Nil)
+    value ->
+      value
+      |> list.reverse
+      |> string.join("")
+      |> float.parse()
   }
 }
