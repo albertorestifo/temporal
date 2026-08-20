@@ -61,8 +61,11 @@ pub type PlatformOperation {
   LocalTimeZoneDiscovery
   ZonedDateTimeFromIso8601
   ZonedDateTimeFromPlainDateTime
+  ZonedDateTimeToPlainDateTime
   ZonedDateTimeAdd
   ZonedDateTimeSubtract
+  ZonedDateTimeDifference
+  ZonedDateTimeRound
   ZonedDateTimeStartOfDay
   ZonedDateTimeHoursInDay
   ZonedDateTimeToIso8601

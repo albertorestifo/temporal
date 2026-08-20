@@ -29,8 +29,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-timezone-abstract-ops",
       "summary": "Abstract Operations",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_timezone_abstract_ops_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -59,8 +61,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-getisopartsfromepoch",
       "summary": "GetISOPartsFromEpoch ( _epochNanoseconds_: an integer, ): an ISO Date-Time Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_getisopartsfromepoch_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -133,8 +137,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-formatdatetimeutcoffsetrounded",
       "summary": "FormatDateTimeUTCOffsetRounded ( _offsetNanoseconds_: an integer in the interval from -86400 \u00d7 109 (exclusive) to 86400 \u00d7 109 (exclusive), ): a String",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_formatdatetimeutcoffsetrounded_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -179,8 +185,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-getisodatetimefor",
       "summary": "GetISODateTimeFor ( _timeZone_: an available time zone identifier, _epochNs_: a BigInt, ): an ISO Date-Time Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_getisodatetimefor_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -193,8 +201,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-getepochnanosecondsfor",
       "summary": "GetEpochNanosecondsFor ( _timeZone_: an available time zone identifier, _isoDateTime_: an ISO Date-Time Record, _disambiguation_: one of ~compatible~, ~earlier~, ~later~, or ~reject~, ): either a normal completion containing a BigInt or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_getepochnanosecondsfor_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -207,8 +217,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-disambiguatepossibleepochnanoseconds",
       "summary": "DisambiguatePossibleEpochNanoseconds ( _possibleEpochNs_: a List of BigInts, _timeZone_: an available time zone identifier, _isoDateTime_: an ISO Date-Time Record, _disambiguation_: one of ~compatible~, ~earlier~, ~later~, or ~reject~, ): either a normal completion containing a BigInt or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_disambiguatepossibleepochnanoseconds_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -221,8 +233,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-getpossibleepochnanoseconds",
       "summary": "GetPossibleEpochNanoseconds ( _timeZone_: an available time zone identifier, _isoDateTime_: an ISO Date-Time Record, ): either a normal completion containing a List of BigInts or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_getpossibleepochnanoseconds_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -235,8 +249,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-getstartofday",
       "summary": "GetStartOfDay ( _timeZone_: an available time zone identifier, _isoDate_: an ISO Date Record, ): either a normal completion containing a BigInt or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_getstartofday_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"

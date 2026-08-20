@@ -29,8 +29,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal-zoneddatetime-constructor",
       "summary": "The Temporal.ZonedDateTime Constructor",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_zoneddatetime_constructor_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-exact-time"
@@ -107,8 +109,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal.zoneddatetime.from",
       "summary": "Temporal.ZonedDateTime.from ( _item_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_zoneddatetime_from_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/from/argument-object.js",
         "test/built-ins/Temporal/ZonedDateTime/from/argument-propertybag-calendar-case-insensitive.js",
@@ -397,8 +401,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.year",
       "summary": "get Temporal.ZonedDateTime.prototype.year",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_year_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/year/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/year/branding.js",
@@ -415,8 +421,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.month",
       "summary": "get Temporal.ZonedDateTime.prototype.month",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_month_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/month/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/month/branding.js",
@@ -433,8 +441,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.monthcode",
       "summary": "get Temporal.ZonedDateTime.prototype.monthCode",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_monthcode_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/monthCode/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/monthCode/branding.js",
@@ -452,8 +462,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.day",
       "summary": "get Temporal.ZonedDateTime.prototype.day",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_day_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/day/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/day/basic.js",
@@ -471,8 +483,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.hour",
       "summary": "get Temporal.ZonedDateTime.prototype.hour",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_hour_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/hour/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/hour/basic.js",
@@ -490,8 +504,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.minute",
       "summary": "get Temporal.ZonedDateTime.prototype.minute",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_minute_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/minute/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/minute/basic.js",
@@ -509,8 +525,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.second",
       "summary": "get Temporal.ZonedDateTime.prototype.second",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_second_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/second/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/second/basic.js",
@@ -528,8 +546,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.millisecond",
       "summary": "get Temporal.ZonedDateTime.prototype.millisecond",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_millisecond_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/millisecond/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/millisecond/basic.js",
@@ -548,8 +568,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.microsecond",
       "summary": "get Temporal.ZonedDateTime.prototype.microsecond",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_microsecond_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/microsecond/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/microsecond/basic.js",
@@ -568,8 +590,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.nanosecond",
       "summary": "get Temporal.ZonedDateTime.prototype.nanosecond",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_nanosecond_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/nanosecond/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/nanosecond/branding.js",
@@ -627,8 +651,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.dayofweek",
       "summary": "get Temporal.ZonedDateTime.prototype.dayOfWeek",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_dayofweek_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/dayOfWeek/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/dayOfWeek/branding.js",
@@ -645,8 +671,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.dayofyear",
       "summary": "get Temporal.ZonedDateTime.prototype.dayOfYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_dayofyear_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/dayOfYear/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/dayOfYear/branding.js",
@@ -663,8 +691,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.weekofyear",
       "summary": "get Temporal.ZonedDateTime.prototype.weekOfYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_weekofyear_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/weekOfYear/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/weekOfYear/branding.js",
@@ -681,8 +711,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.yearofweek",
       "summary": "get Temporal.ZonedDateTime.prototype.yearOfWeek",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_yearofweek_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/yearOfWeek/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/yearOfWeek/branding.js",
@@ -699,8 +731,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.hoursinday",
       "summary": "get Temporal.ZonedDateTime.prototype.hoursInDay",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_hoursinday_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/hoursInDay/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/hoursInDay/branding.js",
@@ -719,8 +753,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.daysinweek",
       "summary": "get Temporal.ZonedDateTime.prototype.daysInWeek",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_daysinweek_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/daysInWeek/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/daysInWeek/branding.js",
@@ -737,8 +773,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.daysinmonth",
       "summary": "get Temporal.ZonedDateTime.prototype.daysInMonth",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_daysinmonth_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/daysInMonth/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/daysInMonth/branding.js",
@@ -755,8 +793,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.daysinyear",
       "summary": "get Temporal.ZonedDateTime.prototype.daysInYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_daysinyear_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/daysInYear/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/daysInYear/branding.js",
@@ -773,8 +813,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.monthsinyear",
       "summary": "get Temporal.ZonedDateTime.prototype.monthsInYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_monthsinyear_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/monthsInYear/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/monthsInYear/branding.js",
@@ -791,8 +833,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.inleapyear",
       "summary": "get Temporal.ZonedDateTime.prototype.inLeapYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::get_temporal_zoneddatetime_prototype_inleapyear_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/inLeapYear/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/inLeapYear/branding.js",
@@ -1017,8 +1061,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal.zoneddatetime.prototype.add",
       "summary": "Temporal.ZonedDateTime.prototype.add ( _temporalDurationLike_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_zoneddatetime_prototype_add_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/add/add-duration.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/add/add-large-subseconds.js",
@@ -1078,8 +1124,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal.zoneddatetime.prototype.subtract",
       "summary": "Temporal.ZonedDateTime.prototype.subtract ( _temporalDurationLike_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_zoneddatetime_prototype_subtract_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/subtract/argument-duration-max-plus-min-date.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/subtract/argument-duration-max.js",
@@ -1132,8 +1180,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal.zoneddatetime.prototype.until",
       "summary": "Temporal.ZonedDateTime.prototype.until ( _other_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_zoneddatetime_prototype_until_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/until/argument-at-limits.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/until/argument-propertybag-calendar-case-insensitive.js",
@@ -1246,8 +1296,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal.zoneddatetime.prototype.since",
       "summary": "Temporal.ZonedDateTime.prototype.since ( _other_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_zoneddatetime_prototype_since_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/since/argument-at-limits.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/since/argument-propertybag-calendar-case-insensitive.js",
@@ -1362,8 +1414,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal.zoneddatetime.prototype.round",
       "summary": "Temporal.ZonedDateTime.prototype.round ( _roundTo_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_zoneddatetime_prototype_round_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/round/branding.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/round/builtin.js",
@@ -1495,8 +1549,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal.zoneddatetime.prototype.tostring",
       "summary": "Temporal.ZonedDateTime.prototype.toString ( [ _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_zoneddatetime_prototype_tostring_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/toString/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/toString/branding.js",
@@ -1571,8 +1627,8 @@
       "spec_anchor": "sec-temporal.zoneddatetime.prototype.tolocalestring",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal.zoneddatetime.prototype.tolocalestring",
       "summary": "Temporal.ZonedDateTime.prototype.toLocaleString ( [ _locales_ [ , _options_ ] ] )",
-      "disposition": "direct",
-      "coverage_status": "planned",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
       "gleam_test_ids": [],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/toLocaleString/branding.js",
@@ -1586,7 +1642,7 @@
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-exact-time"
       ],
-      "rationale": null
+      "rationale": "Locale formatting is ECMA-402 behavior and is explicitly outside the documented Gleam API."
     },
     {
       "id": "TEMP-S06-SEC-TEMPORAL-ZONEDDATETIME-PROTOTYPE-TOJSON",
@@ -1594,8 +1650,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal.zoneddatetime.prototype.tojson",
       "summary": "Temporal.ZonedDateTime.prototype.toJSON ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_zoneddatetime_prototype_tojson_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/toJSON/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/toJSON/basic.js",
@@ -1640,8 +1698,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal.zoneddatetime.prototype.startofday",
       "summary": "Temporal.ZonedDateTime.prototype.startOfDay ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_zoneddatetime_prototype_startofday_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/startOfDay/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/startOfDay/branding.js",
@@ -1720,8 +1780,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal.zoneddatetime.prototype.toplaindate",
       "summary": "Temporal.ZonedDateTime.prototype.toPlainDate ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_zoneddatetime_prototype_toplaindate_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/toPlainDate/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/toPlainDate/branding.js",
@@ -1742,8 +1804,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal.zoneddatetime.prototype.toplaintime",
       "summary": "Temporal.ZonedDateTime.prototype.toPlainTime ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_zoneddatetime_prototype_toplaintime_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/toPlainTime/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/toPlainTime/basic.js",
@@ -1766,8 +1830,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal.zoneddatetime.prototype.toplaindatetime",
       "summary": "Temporal.ZonedDateTime.prototype.toPlainDateTime ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_zoneddatetime_prototype_toplaindatetime_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/toPlainDateTime/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/toPlainDateTime/basic.js",
@@ -1803,8 +1869,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal-zoneddatetime-abstract-ops",
       "summary": "Abstract Operations",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_zoneddatetime_abstract_ops_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-exact-time"
@@ -1817,8 +1885,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal-interpretisodatetimeoffset",
       "summary": "InterpretISODateTimeOffset ( _isoDate_: an ISO Date Record, _time_: either a Time Record or ~start-of-day~, _offsetBehaviour_: one of ~option~, ~exact~, or ~wall~, _offsetNanoseconds_: an integer in the interval from -86400 \u00d7 109 (exclusive) to 86400 \u00d7 109 (exclusive), _timeZone_: an available time zone identifier, _disambiguation_: one of ~earlier~, ~later~, ~compatible~, or ~reject~, _offsetOption_: one of ~ignore~, ~use~, ~prefer~, or ~reject~, _matchBehaviour_: either ~match-exactly~ or ~match-minutes~, ): either a normal completion containing a BigInt or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_interpretisodatetimeoffset_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-exact-time"
@@ -1831,8 +1901,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal-totemporalzoneddatetime",
       "summary": "ToTemporalZonedDateTime ( _item_: an ECMAScript language value, optional _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.ZonedDateTime, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_totemporalzoneddatetime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-exact-time"
@@ -1861,8 +1933,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal-temporalzoneddatetimetostring",
       "summary": "TemporalZonedDateTimeToString ( _zonedDateTime_: a Temporal.ZonedDateTime, _precision_: either an integer between 0 and 9 inclusive, ~minute~, or ~auto~, _showCalendar_: one of ~auto~, ~always~, ~never~, or ~critical~, _showTimeZone_: one of ~auto~, ~never~, or ~critical~, _showOffset_: either ~auto~ or ~never~, optional _increment_: a positive integer, optional _unit_: one of ~minute~, ~second~, ~millisecond~, ~microsecond~, or ~nanosecond~, optional _roundingMode_: a rounding mode, ): a String",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_temporalzoneddatetimetostring_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-exact-time"
@@ -1875,8 +1949,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal-addzoneddatetime",
       "summary": "AddZonedDateTime ( _epochNanoseconds_: a BigInt, _timeZone_: an available time zone identifier, _calendar_: a calendar type, _duration_: an Internal Duration Record, _overflow_: either ~constrain~ or ~reject~, ): either a normal completion containing a BigInt or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_addzoneddatetime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-exact-time"
@@ -1889,8 +1965,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal-differencezoneddatetime",
       "summary": "DifferenceZonedDateTime ( _ns1_: a BigInt, _ns2_: a BigInt, _timeZone_: an available time zone identifier, _calendar_: a calendar type, _largestUnit_: a Temporal unit, ): either a normal completion containing an Internal Duration Record, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_differencezoneddatetime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-exact-time"
@@ -1903,8 +1981,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal-differencezoneddatetimewithrounding",
       "summary": "DifferenceZonedDateTimeWithRounding ( _ns1_: a BigInt, _ns2_: a BigInt, _timeZone_: an available time zone identifier, _calendar_: a calendar type, _largestUnit_: a Temporal unit, _roundingIncrement_: a positive integer, _smallestUnit_: a Temporal unit, _roundingMode_: a rounding mode, ): either a normal completion containing an Internal Duration Record, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_differencezoneddatetimewithrounding_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-exact-time"
@@ -1917,8 +1997,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal-differencezoneddatetimewithtotal",
       "summary": "DifferenceZonedDateTimeWithTotal ( _ns1_: a BigInt, _ns2_: a BigInt, _timeZone_: an available time zone identifier, _calendar_: a calendar type, _unit_: a Temporal unit, ): either a normal completion containing a mathematical value, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_differencezoneddatetimewithtotal_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-exact-time"
@@ -1931,8 +2013,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal-differencetemporalzoneddatetime",
       "summary": "DifferenceTemporalZonedDateTime ( _operation_: either ~until~ or ~since~, _zonedDateTime_: a Temporal.ZonedDateTime, _other_: an ECMAScript language value, _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.Duration or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_differencetemporalzoneddatetime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-exact-time"
@@ -1945,8 +2029,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-temporal-adddurationtozoneddatetime",
       "summary": "AddDurationToZonedDateTime ( _operation_: either ~add~ or ~subtract~, _zonedDateTime_: a Temporal.ZonedDateTime, _temporalDurationLike_: an ECMAScript language value, _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.ZonedDateTime or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/zone_calendar_planned_test::temporal_adddurationtozoneddatetime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-exact-time"

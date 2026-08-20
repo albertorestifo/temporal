@@ -5,6 +5,7 @@
 //// compile-clean provider stubs until the PlainDateTime foundation lands.
 
 import bigi
+import gleam/option.{type Option}
 import gleam/order.{type Order, Eq}
 import temporal
 import temporal/calendar
@@ -61,6 +62,112 @@ pub fn from_plain_date_time(
 /// Return the exact instant represented by a zoned date-time.
 pub fn to_instant(value: ZonedDateTime) -> instant.Instant {
   value.instant
+}
+
+/// Return the local ISO date-time represented in this value's time zone.
+pub fn to_plain_date_time(
+  _value: ZonedDateTime,
+) -> Result(plain_date_time.PlainDateTime, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the local calendar year.
+pub fn year(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the local calendar month.
+pub fn month(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the local calendar month code.
+pub fn month_code(_value: ZonedDateTime) -> Result(String, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the local calendar day.
+pub fn day(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the local hour.
+pub fn hour(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the local minute.
+pub fn minute(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the local second.
+pub fn second(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the local millisecond.
+pub fn millisecond(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the local microsecond.
+pub fn microsecond(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the local nanosecond.
+pub fn nanosecond(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the local ISO day of week.
+pub fn day_of_week(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the local ISO day of year.
+pub fn day_of_year(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the local ISO week number.
+pub fn week_of_year(
+  _value: ZonedDateTime,
+) -> Result(Option(Int), temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the local ISO week-numbering year.
+pub fn year_of_week(
+  _value: ZonedDateTime,
+) -> Result(Option(Int), temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return seven for the ISO calendar.
+pub fn days_in_week(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the number of days in the local month.
+pub fn days_in_month(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the number of days in the local year.
+pub fn days_in_year(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return twelve for the ISO calendar.
+pub fn months_in_year(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Report whether the local ISO year is a leap year.
+pub fn in_leap_year(_value: ZonedDateTime) -> Result(Bool, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
 }
 
 /// Return whole epoch milliseconds, flooring negative sub-milliseconds.
@@ -127,6 +234,34 @@ pub fn subtract(
   _overflow: temporal.Overflow,
 ) -> Result(ZonedDateTime, temporal.Error) {
   unavailable(temporal.ZonedDateTimeSubtract)
+}
+
+/// Return the elapsed duration until another zoned date-time.
+pub fn until(
+  _first: ZonedDateTime,
+  _second: ZonedDateTime,
+  _options: duration.DifferenceOptions,
+) -> Result(duration.Duration, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeDifference)
+}
+
+/// Return the elapsed duration since another zoned date-time.
+pub fn since(
+  _first: ZonedDateTime,
+  _second: ZonedDateTime,
+  _options: duration.DifferenceOptions,
+) -> Result(duration.Duration, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeDifference)
+}
+
+/// Round a zoned date-time to an increment of a unit.
+pub fn round(
+  _value: ZonedDateTime,
+  _smallest_unit: duration.Unit,
+  _rounding_increment: Int,
+  _rounding_mode: temporal.RoundingMode,
+) -> Result(ZonedDateTime, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeRound)
 }
 
 /// Return the start of the local calendar day.
