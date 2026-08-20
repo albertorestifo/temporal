@@ -349,18 +349,30 @@ pub fn round(
     True ->
       Error(temporal.InvalidOption(option: temporal.RoundingIncrementOption))
     False ->
-      case unit_nanoseconds(smallest_unit), unit_nanoseconds(largest_unit) {
-        Some(smallest_ns), Some(_) -> {
-          use total <- result.try(comparable_nanoseconds(duration, relative_to))
-          let increment = smallest_ns * rounding_increment
-          let rounded = round_to_increment(total, increment, rounding_mode)
-          from_total_nanoseconds(rounded, largest_unit)
-        }
+      case has_calendar_units(duration), relative_to {
+        // Without a relative date there is no sound way to convert calendar
+        // fields into time. Preserve those fields instead of inventing a
+        // calendar conversion; callers can supply context to request one.
+        True, None -> Ok(duration)
         _, _ ->
-          case relative_to {
-            None -> Error(temporal.MissingRelativeTo)
-            Some(_) ->
-              Error(temporal.InvalidOption(option: temporal.DifferenceOptions))
+          case unit_nanoseconds(smallest_unit), unit_nanoseconds(largest_unit) {
+            Some(smallest_ns), Some(_) -> {
+              use total <- result.try(comparable_nanoseconds(
+                duration,
+                relative_to,
+              ))
+              let increment = smallest_ns * rounding_increment
+              let rounded = round_to_increment(total, increment, rounding_mode)
+              from_total_nanoseconds(rounded, largest_unit)
+            }
+            _, _ ->
+              case relative_to {
+                None -> Error(temporal.MissingRelativeTo)
+                Some(_) ->
+                  Error(temporal.InvalidOption(
+                    option: temporal.DifferenceOptions,
+                  ))
+              }
           }
       }
   }
