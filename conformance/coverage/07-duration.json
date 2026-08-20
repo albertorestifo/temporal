@@ -13,8 +13,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-duration-objects",
       "summary": "Temporal.Duration Objects",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_duration_objects_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -27,8 +29,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-duration-constructor",
       "summary": "The Temporal.Duration Constructor",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_duration_constructor_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -282,8 +286,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-get-temporal.duration.prototype.years",
       "summary": "get Temporal.Duration.prototype.years",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::get_temporal_duration_prototype_years_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/years/basic.js",
         "test/built-ins/Temporal/Duration/prototype/years/blank-duration.js",
@@ -301,8 +307,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-get-temporal.duration.prototype.months",
       "summary": "get Temporal.Duration.prototype.months",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::get_temporal_duration_prototype_months_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/months/basic.js",
         "test/built-ins/Temporal/Duration/prototype/months/blank-duration.js",
@@ -320,8 +328,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-get-temporal.duration.prototype.weeks",
       "summary": "get Temporal.Duration.prototype.weeks",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::get_temporal_duration_prototype_weeks_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/weeks/basic.js",
         "test/built-ins/Temporal/Duration/prototype/weeks/blank-duration.js",
@@ -339,8 +349,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-get-temporal.duration.prototype.days",
       "summary": "get Temporal.Duration.prototype.days",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::get_temporal_duration_prototype_days_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/days/basic.js",
         "test/built-ins/Temporal/Duration/prototype/days/blank-duration.js",
@@ -358,8 +370,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-get-temporal.duration.prototype.hours",
       "summary": "get Temporal.Duration.prototype.hours",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::get_temporal_duration_prototype_hours_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/hours/basic.js",
         "test/built-ins/Temporal/Duration/prototype/hours/blank-duration.js",
@@ -377,8 +391,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-get-temporal.duration.prototype.minutes",
       "summary": "get Temporal.Duration.prototype.minutes",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::get_temporal_duration_prototype_minutes_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/minutes/basic.js",
         "test/built-ins/Temporal/Duration/prototype/minutes/blank-duration.js",
@@ -396,8 +412,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-get-temporal.duration.prototype.seconds",
       "summary": "get Temporal.Duration.prototype.seconds",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::get_temporal_duration_prototype_seconds_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/seconds/basic.js",
         "test/built-ins/Temporal/Duration/prototype/seconds/blank-duration.js",
@@ -415,8 +433,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-get-temporal.duration.prototype.milliseconds",
       "summary": "get Temporal.Duration.prototype.milliseconds",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::get_temporal_duration_prototype_milliseconds_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/milliseconds/basic.js",
         "test/built-ins/Temporal/Duration/prototype/milliseconds/blank-duration.js",
@@ -434,8 +454,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-get-temporal.duration.prototype.microseconds",
       "summary": "get Temporal.Duration.prototype.microseconds",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::get_temporal_duration_prototype_microseconds_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/microseconds/basic.js",
         "test/built-ins/Temporal/Duration/prototype/microseconds/blank-duration.js",
@@ -453,8 +475,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-get-temporal.duration.prototype.nanoseconds",
       "summary": "get Temporal.Duration.prototype.nanoseconds",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::get_temporal_duration_prototype_nanoseconds_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/nanoseconds/blank-duration.js",
         "test/built-ins/Temporal/Duration/prototype/nanoseconds/branding.js",
@@ -472,8 +496,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-get-temporal.duration.prototype.sign",
       "summary": "get Temporal.Duration.prototype.sign",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::get_temporal_duration_prototype_sign_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/sign/basic.js",
         "test/built-ins/Temporal/Duration/prototype/sign/blank-duration.js",
@@ -491,8 +517,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-get-temporal.duration.prototype.blank",
       "summary": "get Temporal.Duration.prototype.blank",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::get_temporal_duration_prototype_blank_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/blank/basic.js",
         "test/built-ins/Temporal/Duration/prototype/blank/branding.js",
@@ -509,8 +537,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.with",
       "summary": "Temporal.Duration.prototype.with ( _temporalDurationLike_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_duration_prototype_with_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/from/non-integer-throws-rangeerror.js",
         "test/built-ins/Temporal/Duration/prototype/with/all-negative.js",
@@ -1026,8 +1056,8 @@
       "spec_anchor": "sec-temporal.duration.prototype.tolocalestring",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.tolocalestring",
       "summary": "Temporal.Duration.prototype.toLocaleString ( [ _locales_ [ , _options_ ] ] )",
-      "disposition": "direct",
-      "coverage_status": "planned",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
       "gleam_test_ids": [],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/toLocaleString/branding.js",
@@ -1041,7 +1071,7 @@
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
       ],
-      "rationale": null
+      "rationale": "Locale formatting is ECMA-402 behavior and is explicitly outside the documented Gleam API."
     },
     {
       "id": "TEMP-S07-SEC-TEMPORAL-DURATION-PROTOTYPE-VALUEOF",
@@ -1081,8 +1111,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-duration-abstract-ops",
       "summary": "Abstract Operations",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_duration_abstract_ops_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1095,8 +1127,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-date-duration-records",
       "summary": "Date Duration Records",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_date_duration_records_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1109,8 +1143,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-partial-duration-records",
       "summary": "Partial Duration Records",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_partial_duration_records_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1123,8 +1159,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-internal-duration-records",
       "summary": "Internal Duration Records",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_internal_duration_records_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1137,8 +1175,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-zerodateduration",
       "summary": "ZeroDateDuration ( ): a Date Duration Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_zerodateduration_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1151,8 +1191,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-tointernaldurationrecord",
       "summary": "ToInternalDurationRecord ( _duration_: a Temporal.Duration, ): an Internal Duration Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_tointernaldurationrecord_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1165,8 +1207,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-tointernaldurationrecordwith24hourdays",
       "summary": "ToInternalDurationRecordWith24HourDays ( _duration_: a Temporal.Duration, ): an Internal Duration Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_tointernaldurationrecordwith24hourdays_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1179,8 +1223,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-todatedurationrecordwithouttime",
       "summary": "ToDateDurationRecordWithoutTime ( _duration_: a Temporal.Duration, ): a Date Duration Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_todatedurationrecordwithouttime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1193,8 +1239,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-temporaldurationfrominternal",
       "summary": "TemporalDurationFromInternal ( _internalDuration_: an Internal Duration Record, _largestUnit_: a Temporal unit, ): either a normal completion containing a Temporal.Duration, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_temporaldurationfrominternal_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1207,8 +1255,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-createdatedurationrecord",
       "summary": "CreateDateDurationRecord ( _years_: an integer, _months_: an integer, _weeks_: an integer, _days_: an integer, ): either a normal completion containing a Date Duration Record or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_createdatedurationrecord_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1221,8 +1271,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-adjustdatedurationrecord",
       "summary": "AdjustDateDurationRecord ( _dateDuration_: a Date Duration Record, _days_: an integer, optional _weeks_: an integer, optional _months_: an integer, ): either a normal completion containing a Date Duration Record or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_adjustdatedurationrecord_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1235,8 +1287,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-combinedateandtimeduration",
       "summary": "CombineDateAndTimeDuration ( _dateDuration_: a Date Duration Record, _timeDuration_: a time duration, ): an Internal Duration Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_combinedateandtimeduration_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1249,8 +1303,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-totemporalduration",
       "summary": "ToTemporalDuration ( _item_: an ECMAScript language value, ): either a normal completion containing a Temporal.Duration or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_totemporalduration_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1263,8 +1319,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-durationsign",
       "summary": "DurationSign ( _duration_: a Duration RecordTemporal.Duration, ): one of -1, 0, or 1",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::durationsign_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1277,8 +1335,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-datedurationsign",
       "summary": "DateDurationSign ( _dateDuration_: a Date Duration Record, ): one of -1, 0, or 1",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_datedurationsign_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1291,8 +1351,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-internaldurationsign",
       "summary": "InternalDurationSign ( _internalDuration_: an Internal Duration Record, ): one of -1, 0, or 1",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_internaldurationsign_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1305,8 +1367,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-isvalidduration",
       "summary": "IsValidDuration ( _years_: an integer, _months_: an integer, _weeks_: an integer, _days_: an integer, _hours_: an integer, _minutes_: an integer, _seconds_: an integer, _milliseconds_: an integer, _microseconds_: an integer, _nanoseconds_: an integer, ): a Boolean",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::isvalidduration_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1319,8 +1383,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-defaulttemporallargestunit",
       "summary": "DefaultTemporalLargestUnit ( _duration_: a Temporal.Duration, ): a Temporal unit",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_defaulttemporallargestunit_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1333,8 +1399,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-totemporalpartialdurationrecord",
       "summary": "ToTemporalPartialDurationRecord ( _temporalDurationLike_: an ECMAScript language value, ): either a normal completion containing a partial Duration Record or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_totemporalpartialdurationrecord_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1347,8 +1415,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-createtemporalduration",
       "summary": "CreateTemporalDuration ( _years_: an integer, _months_: an integer, _weeks_: an integer, _days_: an integer, _hours_: an integer, _minutes_: an integer, _seconds_: an integer, _milliseconds_: an integer, _microseconds_: an integer, _nanoseconds_: an integer, optional _newTarget_: a constructor, ): either a normal completion containing a Temporal.Duration or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_createtemporalduration_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1361,8 +1431,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-createnegatedtemporalduration",
       "summary": "CreateNegatedTemporalDuration ( _duration_: a Temporal.Duration, ): a Temporal.Duration",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_createnegatedtemporalduration_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1375,8 +1447,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-timedurationfromcomponents",
       "summary": "TimeDurationFromComponents ( _hours_: an integer, _minutes_: an integer, _seconds_: an integer, _milliseconds_: an integer, _microseconds_: an integer, _nanoseconds_: an integer, ): a time duration",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_timedurationfromcomponents_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1389,8 +1463,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-addtimeduration",
       "summary": "AddTimeDuration ( _one_: a time duration, _two_: a time duration, ): either a normal completion containing a time duration or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_addtimeduration_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1403,8 +1479,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-add24hourdaystonormalizedtimeduration",
       "summary": "Add24HourDaysToTimeDuration ( _d_: a time duration, _days_: an integer, ): either a normal completion containing a time duration or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_add24hourdaystonormalizedtimeduration_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1417,8 +1495,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-addtimedurationtoepochnanoseconds",
       "summary": "AddTimeDurationToEpochNanoseconds ( _d_: a time duration, _epochNs_: a BigInt, ): a BigInt",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_addtimedurationtoepochnanoseconds_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1431,8 +1511,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-comparetimeduration",
       "summary": "CompareTimeDuration ( _one_: a time duration, _two_: a time duration, ): one of -1, 0, or 1",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_comparetimeduration_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1445,8 +1527,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-timedurationfromepochnanosecondsdifference",
       "summary": "TimeDurationFromEpochNanosecondsDifference ( _one_: a BigInt, _two_: a BigInt, ): a time duration",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_timedurationfromepochnanosecondsdifference_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1459,8 +1543,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-roundtimedurationtoincrement",
       "summary": "RoundTimeDurationToIncrement ( _d_: a time duration, _increment_: a positive integer, _roundingMode_: a rounding mode, ): either a normal completion containing a time duration or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_roundtimedurationtoincrement_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1473,8 +1559,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-timedurationsign",
       "summary": "TimeDurationSign ( _d_: a time duration, ): one of -1, 0, or 1",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_timedurationsign_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1487,8 +1575,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-datedurationdays",
       "summary": "DateDurationDays ( _dateDuration_: a Date Duration Record, _plainRelativeTo_: a Temporal.PlainDate, ): either a normal completion containing an integer or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_datedurationdays_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1501,8 +1591,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-roundtimeduration",
       "summary": "RoundTimeDuration ( _timeDuration_: a time duration, _increment_: a positive integer, _unit_: a time unit, _roundingMode_: a rounding mode, ): either a normal completion containing a time duration, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_roundtimeduration_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1515,8 +1607,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-totaltimeduration",
       "summary": "TotalTimeDuration ( _timeDuration_: a time duration, _unit_: either a time unit or ~day~, ): a mathematical value",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_totaltimeduration_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1529,8 +1623,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-duration-nudge-result-records",
       "summary": "Duration Nudge Result Records",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_duration_nudge_result_records_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1543,8 +1639,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-computenudgewindow",
       "summary": "ComputeNudgeWindow ( _sign_: either -1 or 1, _duration_: an Internal Duration Record, _originEpochNs_: a BigInt, _isoDateTime_: an ISO Date-Time Record, _timeZone_: either an available time zone identifier or ~unset~, _calendar_: a calendar type, _increment_: a positive integer, _unit_: a date unit, _additionalShift_: a Boolean, ): either a normal completion containing a Record with fields [[R1]] (a mathematical value), [[R2]] (a mathematical value), [[StartEpochNs]] (a BigInt), [[EndEpochNs]] (a BigInt), [[StartDuration]] (an Internal Duration Record), and [[EndDuration]] (an Internal Duration Record), or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_computenudgewindow_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1557,8 +1655,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-nudgetocalendarunit",
       "summary": "NudgeToCalendarUnit ( _sign_: either -1 or 1, _duration_: an Internal Duration Record, _originEpochNs_: a BigInt, _destEpochNs_: a BigInt, _isoDateTime_: an ISO Date-Time Record, _timeZone_: either an available time zone identifier or ~unset~, _calendar_: a calendar type, _increment_: a positive integer, _unit_: a date unit, _roundingMode_: a rounding mode, ): either a normal completion containing a Record with fields [[NudgeResult]] (a Duration Nudge Result Record) and [[Total]] (a mathematical value), or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_nudgetocalendarunit_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1571,8 +1671,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-nudgetozonedtime",
       "summary": "NudgeToZonedTime ( _sign_: either -1 or 1, _duration_: an Internal Duration Record, _isoDateTime_: an ISO Date-Time Record, _timeZone_: an available time zone identifier, _calendar_: a calendar type, _increment_: a positive integer, _unit_: a time unit, _roundingMode_: a rounding mode, ): either a normal completion containing a Duration Nudge Result Record or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_nudgetozonedtime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1585,8 +1687,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-nudgetodayortime",
       "summary": "NudgeToDayOrTime ( _duration_: an Internal Duration Record, _destEpochNs_: a BigInt, _largestUnit_: a Temporal unit, _increment_: a positive integer, _smallestUnit_: either a time unit or ~day~, _roundingMode_: a rounding mode, ): either a normal completion containing a Duration Nudge Result Record or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_nudgetodayortime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1599,8 +1703,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-bubblerelativeduration",
       "summary": "BubbleRelativeDuration ( _sign_: either -1 or 1, _duration_: an Internal Duration Record, _nudgedEpochNs_: a BigInt, _isoDateTime_: an ISO Date-Time Record, _timeZone_: either an available time zone identifier or ~unset~, _calendar_: a calendar type, _largestUnit_: a Temporal unit, _smallestUnit_: a date unit, ): either a normal completion containing an Internal Duration Record or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_bubblerelativeduration_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1613,8 +1719,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-roundrelativeduration",
       "summary": "RoundRelativeDuration ( _duration_: an Internal Duration Record, _originEpochNs_: a BigInt, _destEpochNs_: a BigInt, _isoDateTime_: an ISO Date-Time Record, _timeZone_: either an available time zone identifier or ~unset~, _calendar_: a calendar type, _largestUnit_: a Temporal unit, _increment_: a positive integer, _smallestUnit_: a Temporal unit, _roundingMode_: a rounding mode, ): either a normal completion containing an Internal Duration Record or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_roundrelativeduration_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1627,8 +1735,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-totalrelativeduration",
       "summary": "TotalRelativeDuration ( _duration_: an Internal Duration Record, _originEpochNs_: a BigInt, _destEpochNs_: a BigInt, _isoDateTime_: an ISO Date-Time Record, _timeZone_: either an available time zone identifier or ~unset~, _calendar_: a calendar type, _unit_: a Temporal unit, ): either a normal completion containing a mathematical value, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_totalrelativeduration_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1641,8 +1751,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-temporaldurationtostring",
       "summary": "TemporalDurationToString ( _duration_: a Temporal.Duration, _precision_: either an integer between 0 and 9 inclusive or ~auto~, ): a String",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_temporaldurationtostring_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"
@@ -1655,8 +1767,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal-adddurations",
       "summary": "AddDurations ( _operation_: either ~add~ or ~subtract~, _duration_: a Temporal.Duration, _other_: an ECMAScript language value, ): either a normal completion containing a Temporal.Duration or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_planned_test::temporal_adddurations_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unit-constrained-duration-between-now-and-a-pastfuture-zoned-event"

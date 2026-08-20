@@ -13,8 +13,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal-instant-objects",
       "summary": "Temporal.Instant Objects",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_instant_objects_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/prototype/builtin.js"
       ],
@@ -29,8 +31,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal-instant-constructor",
       "summary": "The Temporal.Instant Constructor",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_instant_constructor_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
@@ -43,8 +47,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant",
       "summary": "Temporal.Instant ( _epochNanoseconds_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_instant_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/get-prototype-from-constructor-throws.js",
         "test/built-ins/Temporal/Instant/argument.js",
@@ -775,8 +781,8 @@
       "spec_anchor": "sec-temporal.instant.prototype.tolocalestring",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.prototype.tolocalestring",
       "summary": "Temporal.Instant.prototype.toLocaleString ( [ _locales_ [ , _options_ ] ] )",
-      "disposition": "direct",
-      "coverage_status": "planned",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
       "gleam_test_ids": [],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/prototype/toLocaleString/branding.js",
@@ -790,7 +796,7 @@
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
       ],
-      "rationale": null
+      "rationale": "Locale formatting is ECMA-402 behavior and is explicitly outside the documented Gleam API."
     },
     {
       "id": "TEMP-S08-SEC-TEMPORAL-INSTANT-PROTOTYPE-TOJSON",
@@ -845,8 +851,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.prototype.tozoneddatetimeiso",
       "summary": "Temporal.Instant.prototype.toZonedDateTimeISO ( _timeZone_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_instant_prototype_tozoneddatetimeiso_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/prototype/toZonedDateTimeISO/branding.js",
         "test/built-ins/Temporal/Instant/prototype/toZonedDateTimeISO/builtin.js",
@@ -890,8 +898,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal-instant-range",
       "summary": "Temporal.Instant range",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_instant_range_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
@@ -904,8 +914,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal-instant-abstract-ops",
       "summary": "Abstract Operations",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_instant_abstract_ops_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
@@ -918,8 +930,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal-isvalidepochnanoseconds",
       "summary": "IsValidEpochNanoseconds ( _epochNanoseconds_: a BigInt, ): a Boolean",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_isvalidepochnanoseconds_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
@@ -932,8 +946,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal-createtemporalinstant",
       "summary": "CreateTemporalInstant ( _epochNanoseconds_: a BigInt, optional _newTarget_: a constructor, ): either a normal completion containing a Temporal.Instant or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_createtemporalinstant_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
@@ -946,8 +962,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal-totemporalinstant",
       "summary": "ToTemporalInstant ( _item_: an ECMAScript language value, ): either a normal completion containing a Temporal.Instant or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_totemporalinstant_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
@@ -960,8 +978,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal-compareepochnanoseconds",
       "summary": "CompareEpochNanoseconds ( _epochNanosecondsOne_: a BigInt, _epochNanosecondsTwo_: a BigInt, ): either -1, 0, or 1",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_compareepochnanoseconds_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
@@ -974,8 +994,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal-addinstant",
       "summary": "AddInstant ( _epochNanoseconds_: a BigInt, _timeDuration_: a time duration, ): either a normal completion containing a BigInt or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_addinstant_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
@@ -988,8 +1010,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal-differenceinstant",
       "summary": "DifferenceInstant ( _ns1_: a BigInt, _ns2_: a BigInt, _roundingIncrement_: a positive integer, _smallestUnit_: a time unit, _roundingMode_: a rounding mode, ): an Internal Duration Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_differenceinstant_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
@@ -1002,8 +1026,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal-roundtemporalinstant",
       "summary": "RoundTemporalInstant ( _ns_: a BigInt, _increment_: a positive integer, _unit_: a time unit, _roundingMode_: a rounding mode, ): a BigInt",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_roundtemporalinstant_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
@@ -1016,8 +1042,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal-temporalinstanttostring",
       "summary": "TemporalInstantToString ( _instant_: a Temporal.Instant, _timeZone_: either an available time zone identifier or *undefined*, _precision_: either an integer in the inclusive interval from 0 to 9, ~minute~, or ~auto~, ): a String",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_temporalinstanttostring_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
@@ -1030,8 +1058,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal-differencetemporalinstant",
       "summary": "DifferenceTemporalInstant ( _operation_: either ~since~ or ~until~, _instant_: a Temporal.Instant, _other_: an ECMAScript language value, _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.Duration or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_differencetemporalinstant_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
@@ -1044,8 +1074,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal-adddurationtoinstant",
       "summary": "AddDurationToInstant ( _operation_: either ~add~ or ~subtract~, _instant_: a Temporal.Instant, _temporalDurationLike_: an ECMAScript language value, ): either a normal completion containing a Temporal.Instant or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_planned_test::temporal_adddurationtoinstant_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
