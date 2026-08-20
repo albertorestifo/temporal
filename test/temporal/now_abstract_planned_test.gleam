@@ -8,7 +8,6 @@ import temporal/now
 import temporal/plain_date
 import temporal/plain_date_time
 import temporal/plain_month_day
-import temporal/plain_time
 import temporal/support/assertions
 import temporal/time_zone
 
