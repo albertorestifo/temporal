@@ -13,8 +13,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-timezones",
       "summary": "Time Zones",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/time_zone_test::time_zone_utc_returns_canonical_id_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -41,8 +43,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-getavailablenamedtimezoneidentifier",
       "summary": "GetAvailableNamedTimeZoneIdentifier ( _timeZoneIdentifier_: a named time zone identifier, ): either a Time Zone Identifier Record or ~empty~",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/time_zone_test::time_zone_named_identifier_requires_provider_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -97,8 +101,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-formatoffsettimezoneidentifier",
       "summary": "FormatOffsetTimeZoneIdentifier ( _offsetMinutes_: an integer in the inclusive interval from -1439 to 1439, optional _style_: either ~separated~ or ~unseparated~, ): an offset time zone identifier",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/time_zone_test::time_zone_from_offset_preserves_canonical_offset_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -111,8 +117,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-formatutcoffsetnanoseconds",
       "summary": "FormatUTCOffsetNanoseconds ( _offsetNanoseconds_: an integer in the interval from -86400 \u00d7 109 (exclusive) to 86400 \u00d7 109 (exclusive), ): a String",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/time_zone_test::time_zone_offset_iso_8601_formats_negative_offset_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -139,8 +147,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-totemporaltimezoneidentifier",
       "summary": "ToTemporalTimeZoneIdentifier ( _temporalTimeZoneLike_: an ECMAScript value, ): either a normal completion containing an available time zone identifier or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/time_zone_test::time_zone_from_id_canonicalizes_utc_case_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -153,8 +163,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-getoffsetnanosecondsfor",
       "summary": "GetOffsetNanosecondsFor ( _timeZone_: an available time zone identifier, _epochNs_: a BigInt, ): an integer in the interval from -86400 \u00d7 109 (exclusive) to 86400 \u00d7 109 (exclusive)",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/time_zone_test::time_zone_offset_nanoseconds_is_fixed_for_instant_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -237,8 +249,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-timezoneequals",
       "summary": "TimeZoneEquals ( _one_: an available time zone identifier, _two_: an available time zone identifier, ): a Boolean",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/time_zone_test::time_zone_equal_compares_canonical_identifiers_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -251,8 +265,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-parsetimezoneidentifier",
       "summary": "ParseTimeZoneIdentifier ( _identifier_: a String, ): either a normal completion containing a Time Zone Identifier Parse Record, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/time_zone_test::time_zone_from_offset_rejects_out_of_range_value_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
