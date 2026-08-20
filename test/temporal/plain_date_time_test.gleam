@@ -1,6 +1,7 @@
 import gleam/option.{Some}
 import gleam/order.{Lt}
 import temporal
+import temporal/calendar
 import temporal/duration
 import temporal/plain_date_time
 import temporal/support/assertions
@@ -133,11 +134,11 @@ pub fn plain_date_time_nanosecond_returns_iso_value_test() {
 // Requirement: TEMP-S05-SEC-GET-TEMPORAL-PLAINDATETIME-PROTOTYPE-CALENDARID
 // Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.calendarid
 // test262: test/built-ins/Temporal/PlainDateTime/prototype/calendarid/basic.js
-pub fn plain_date_time_calendar_id_returns_iso_value_test() {
+pub fn plain_date_time_calendar_returns_iso_value_test() {
   assertions.equal_with_context(
-    "calendar_id",
-    plain_date_time.calendar_id(fixture()),
-    "iso8601",
+    "ISO calendar",
+    plain_date_time.calendar(fixture()),
+    calendar.Iso8601,
   )
 }
 

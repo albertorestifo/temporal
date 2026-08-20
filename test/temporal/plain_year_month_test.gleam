@@ -1,5 +1,6 @@
 import gleam/order.{Lt}
 import temporal
+import temporal/calendar
 import temporal/plain_year_month
 import temporal/support/assertions
 import temporal/support/plain_fixtures
@@ -71,11 +72,11 @@ pub fn plain_year_month_month_code_returns_iso_code_test() {
 // Requirement: TEMP-S09-SEC-GET-TEMPORAL-PLAINYEARMONTH-PROTOTYPE-CALENDARID
 // Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-get-temporal.plainyearmonth.prototype.calendarid
 // test262: test/built-ins/Temporal/PlainYearMonth/prototype/calendarId/basic.js
-pub fn plain_year_month_calendar_id_returns_iso8601_test() {
+pub fn plain_year_month_calendar_returns_iso8601_test() {
   assertions.equal_with_context(
-    "plain_year_month_calendar_id_returns_iso8601",
-    plain_year_month.calendar_id(fixture()),
-    "iso8601",
+    "ISO calendar",
+    plain_year_month.calendar(fixture()),
+    calendar.Iso8601,
   )
 }
 

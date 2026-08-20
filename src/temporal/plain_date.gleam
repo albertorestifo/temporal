@@ -82,9 +82,9 @@ pub fn day(date: PlainDate) -> Int {
   date.day
 }
 
-/// Returns `iso8601`.
-pub fn calendar_id(_date: PlainDate) -> String {
-  "iso8601"
+/// Returns the calendar of this date.
+pub fn calendar(_date: PlainDate) -> calendar.Calendar {
+  calendar.Iso8601
 }
 
 /// Returns the ISO day of week from 1 through 7.

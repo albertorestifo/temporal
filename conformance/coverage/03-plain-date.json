@@ -296,7 +296,7 @@
       "disposition": "indirect",
       "coverage_status": "active",
       "gleam_test_ids": [
-        "temporal/plain_date_test::plain_date_calendar_id_returns_iso8601_test"
+        "temporal/plain_date_test::plain_date_calendar_returns_iso8601_test"
       ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDate/prototype/calendarId/branding.js",

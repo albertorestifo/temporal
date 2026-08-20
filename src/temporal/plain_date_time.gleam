@@ -119,9 +119,9 @@ pub fn nanosecond(value: PlainDateTime) -> Int {
   plain_time.nanosecond(value.time)
 }
 
-/// Returns `iso8601`.
-pub fn calendar_id(value: PlainDateTime) -> String {
-  plain_date.calendar_id(value.date)
+/// Returns the calendar of this date-time.
+pub fn calendar(value: PlainDateTime) -> calendar.Calendar {
+  plain_date.calendar(value.date)
 }
 
 /// Returns the ISO day of week.

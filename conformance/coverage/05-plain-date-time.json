@@ -305,7 +305,7 @@
       "disposition": "indirect",
       "coverage_status": "active",
       "gleam_test_ids": [
-        "temporal/plain_date_time_test::plain_date_time_calendar_id_returns_iso_value_test"
+        "temporal/plain_date_time_test::plain_date_time_calendar_returns_iso_value_test"
       ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/calendarId/branding.js",

@@ -290,7 +290,7 @@
       "disposition": "indirect",
       "coverage_status": "active",
       "gleam_test_ids": [
-        "temporal/plain_year_month_test::plain_year_month_calendar_id_returns_iso8601_test"
+        "temporal/plain_year_month_test::plain_year_month_calendar_returns_iso8601_test"
       ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/calendarId/branding.js",

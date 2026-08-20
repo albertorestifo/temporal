@@ -37,9 +37,9 @@ pub fn day(value: PlainMonthDay) -> Int {
   value.day
 }
 
-/// Returns `iso8601`.
-pub fn calendar_id(_value: PlainMonthDay) -> String {
-  "iso8601"
+/// Returns the calendar of this month-day.
+pub fn calendar(_value: PlainMonthDay) -> calendar.Calendar {
+  calendar.Iso8601
 }
 
 /// Reports whether two month-day values and calendars are equal.

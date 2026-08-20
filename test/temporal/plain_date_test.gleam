@@ -1,6 +1,7 @@
 import gleam/option.{Some}
 import gleam/order.{Lt}
 import temporal
+import temporal/calendar
 import temporal/plain_date
 import temporal/support/assertions
 import temporal/support/plain_fixtures
@@ -83,11 +84,11 @@ pub fn plain_date_day_returns_iso_day_test() {
 // Requirement: TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-CALENDARID
 // Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.calendarid
 // test262: test/built-ins/Temporal/PlainDate/prototype/calendarId/basic.js
-pub fn plain_date_calendar_id_returns_iso8601_test() {
+pub fn plain_date_calendar_returns_iso8601_test() {
   assertions.equal_with_context(
-    "plain_date_calendar_id_returns_iso8601",
-    plain_date.calendar_id(fixture()),
-    "iso8601",
+    "ISO calendar",
+    plain_date.calendar(fixture()),
+    calendar.Iso8601,
   )
 }
 

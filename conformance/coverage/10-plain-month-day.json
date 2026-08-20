@@ -225,7 +225,7 @@
       "disposition": "indirect",
       "coverage_status": "active",
       "gleam_test_ids": [
-        "temporal/plain_month_day_test::plain_month_day_calendar_id_returns_iso8601_test"
+        "temporal/plain_month_day_test::plain_month_day_calendar_returns_iso8601_test"
       ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainMonthDay/prototype/calendarId/branding.js",

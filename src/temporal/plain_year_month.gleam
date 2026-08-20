@@ -44,9 +44,9 @@ pub fn month_code(value: PlainYearMonth) -> String {
   month_code_for(value.month)
 }
 
-/// Returns `iso8601`.
-pub fn calendar_id(_value: PlainYearMonth) -> String {
-  "iso8601"
+/// Returns the calendar of this year-month.
+pub fn calendar(_value: PlainYearMonth) -> calendar.Calendar {
+  calendar.Iso8601
 }
 
 /// Returns the number of days in the represented month.

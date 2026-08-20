@@ -1,4 +1,5 @@
 import temporal
+import temporal/calendar
 import temporal/plain_month_day
 import temporal/support/assertions
 import temporal/support/plain_fixtures
@@ -59,11 +60,11 @@ pub fn plain_month_day_day_returns_day_test() {
 // Requirement: TEMP-S10-SEC-GET-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-CALENDARID
 // Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-get-temporal.plainmonthday.prototype.calendarid
 // test262: test/built-ins/Temporal/PlainMonthDay/prototype/calendarId/basic.js
-pub fn plain_month_day_calendar_id_returns_iso8601_test() {
+pub fn plain_month_day_calendar_returns_iso8601_test() {
   assertions.equal_with_context(
-    "plain_month_day_calendar_id_returns_iso8601",
-    plain_month_day.calendar_id(fixture()),
-    "iso8601",
+    "ISO calendar",
+    plain_month_day.calendar(fixture()),
+    calendar.Iso8601,
   )
 }
 
