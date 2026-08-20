@@ -1,6 +1,7 @@
 //// ISO 8601 wall-clock times without a date or time zone.
 
 import gleam/int
+import gleam/option.{type Option}
 import gleam/order.{type Order, Eq}
 import temporal
 import temporal/duration
@@ -14,6 +15,18 @@ pub opaque type PlainTime {
     millisecond: Int,
     microsecond: Int,
     nanosecond: Int,
+  )
+}
+
+/// Optional time fields used by `with_fields`.
+pub type PartialTime {
+  PartialTime(
+    hour: Option(Int),
+    minute: Option(Int),
+    second: Option(Int),
+    millisecond: Option(Int),
+    microsecond: Option(Int),
+    nanosecond: Option(Int),
   )
 }
 
@@ -106,6 +119,15 @@ pub fn compare(first: PlainTime, second: PlainTime) -> Order {
 /// Reports whether two times have equal fields.
 pub fn equal(first: PlainTime, second: PlainTime) -> Bool {
   compare(first, second) == Eq
+}
+
+/// Replace the supplied wall-clock fields.
+pub fn with_fields(
+  _time: PlainTime,
+  _fields: PartialTime,
+  _overflow: temporal.Overflow,
+) -> Result(PlainTime, temporal.Error) {
+  Error(temporal.InvalidOption(temporal.OverflowOption))
 }
 
 /// Adds a duration, wrapping across midnight.

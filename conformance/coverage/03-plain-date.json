@@ -313,8 +313,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.era",
       "summary": "get Temporal.PlainDate.prototype.era",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::plain_date_iso_era_is_absent_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDate/prototype/era/basic.js",
         "test/built-ins/Temporal/PlainDate/prototype/era/branding.js",
@@ -331,8 +333,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.erayear",
       "summary": "get Temporal.PlainDate.prototype.eraYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::plain_date_iso_era_year_is_absent_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDate/prototype/eraYear/basic.js",
         "test/built-ins/Temporal/PlainDate/prototype/eraYear/branding.js",
@@ -772,8 +776,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.with",
       "summary": "Temporal.PlainDate.prototype.with ( _temporalDateLike_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::plain_date_with_fields_replaces_typed_year_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDate/prototype/with/basic-year-month-day.js",
         "test/built-ins/Temporal/PlainDate/prototype/with/branding.js",
@@ -812,8 +818,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.withcalendar",
       "summary": "Temporal.PlainDate.prototype.withCalendar ( _calendarLike_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::plain_date_with_calendar_accepts_variant_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDate/prototype/withCalendar/basic.js",
         "test/built-ins/Temporal/PlainDate/prototype/withCalendar/branding.js",

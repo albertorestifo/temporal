@@ -1,11 +1,21 @@
 //// ISO 8601 recurring month-day values.
 
+import gleam/option.{type Option}
 import temporal
 import temporal/calendar
 
 /// A validated ISO month-day with a reference year.
 pub opaque type PlainMonthDay {
   PlainMonthDay(month: Int, day: Int, reference_year: Int)
+}
+
+/// Optional month-day fields used by `with_fields`.
+pub type PartialMonthDay {
+  PartialMonthDay(
+    month: Option(Int),
+    month_code: Option(String),
+    day: Option(Int),
+  )
 }
 
 /// Builds an unvalidated month-day fixture for package tests.
@@ -55,6 +65,15 @@ pub fn calendar(_value: PlainMonthDay) -> calendar.Calendar {
 /// Reports whether two month-day values and calendars are equal.
 pub fn equal(first: PlainMonthDay, second: PlainMonthDay) -> Bool {
   first == second
+}
+
+/// Replace the supplied month-day fields.
+pub fn with_fields(
+  _value: PlainMonthDay,
+  _fields: PartialMonthDay,
+  _overflow: temporal.Overflow,
+) -> Result(PlainMonthDay, temporal.Error) {
+  Error(temporal.PlatformUnavailable(temporal.NonIsoCalendarProvider))
 }
 
 /// Serializes a month-day using ISO 8601.

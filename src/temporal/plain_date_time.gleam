@@ -13,6 +13,22 @@ pub opaque type PlainDateTime {
   PlainDateTime(date: plain_date.PlainDate, time: plain_time.PlainTime)
 }
 
+/// Optional date-time fields used by `with_fields`.
+pub type PartialDateTime {
+  PartialDateTime(
+    year: Option(Int),
+    month: Option(Int),
+    month_code: Option(String),
+    day: Option(Int),
+    hour: Option(Int),
+    minute: Option(Int),
+    second: Option(Int),
+    millisecond: Option(Int),
+    microsecond: Option(Int),
+    nanosecond: Option(Int),
+  )
+}
+
 /// Builds an unvalidated date-time fixture for package tests.
 @internal
 pub fn fixture(
@@ -133,6 +149,16 @@ pub fn calendar(value: PlainDateTime) -> calendar.Calendar {
   plain_date.calendar(value.date)
 }
 
+/// Return the calendar-specific era, or `None` for ISO 8601.
+pub fn era(_value: PlainDateTime) -> Option(calendar.Era) {
+  todo as "calendar era access is not implemented"
+}
+
+/// Return the calendar-specific era year, or `None` for ISO 8601.
+pub fn era_year(_value: PlainDateTime) -> Option(Int) {
+  todo as "calendar era-year access is not implemented"
+}
+
 /// Returns the ISO day of week.
 pub fn day_of_week(value: PlainDateTime) -> Int {
   plain_date.day_of_week(value.date)
@@ -189,6 +215,31 @@ pub fn compare(first: PlainDateTime, second: PlainDateTime) -> Order {
 /// Reports whether two date-times and calendars are equal.
 pub fn equal(first: PlainDateTime, second: PlainDateTime) -> Bool {
   first == second
+}
+
+/// Replace the supplied date-time fields.
+pub fn with_fields(
+  _value: PlainDateTime,
+  _fields: PartialDateTime,
+  _overflow: temporal.Overflow,
+) -> Result(PlainDateTime, temporal.Error) {
+  Error(temporal.PlatformUnavailable(temporal.NonIsoCalendarProvider))
+}
+
+/// Replace the time component, using midnight when absent.
+pub fn with_plain_time(
+  _value: PlainDateTime,
+  _time: Option(plain_time.PlainTime),
+) -> Result(PlainDateTime, temporal.Error) {
+  Error(temporal.PlatformUnavailable(temporal.NonIsoCalendarProvider))
+}
+
+/// Replace the calendar while retaining the ISO date-time.
+pub fn with_calendar(
+  _value: PlainDateTime,
+  _calendar: calendar.Calendar,
+) -> Result(PlainDateTime, temporal.Error) {
+  Error(temporal.PlatformUnavailable(temporal.NonIsoCalendarProvider))
 }
 
 /// Adds a duration.

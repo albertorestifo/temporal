@@ -13,6 +13,16 @@ pub opaque type PlainDate {
   PlainDate(year: Int, month: Int, day: Int)
 }
 
+/// Optional date fields used by `with_fields`.
+pub type PartialDate {
+  PartialDate(
+    year: Option(Int),
+    month: Option(Int),
+    month_code: Option(String),
+    day: Option(Int),
+  )
+}
+
 /// Builds an unvalidated date fixture for package tests.
 @internal
 pub fn fixture(year year: Int, month month: Int, day day: Int) -> PlainDate {
@@ -96,6 +106,16 @@ pub fn calendar(_date: PlainDate) -> calendar.Calendar {
   calendar.Iso8601
 }
 
+/// Return the calendar-specific era, or `None` for ISO 8601.
+pub fn era(_date: PlainDate) -> Option(calendar.Era) {
+  todo as "calendar era access is not implemented"
+}
+
+/// Return the calendar-specific era year, or `None` for ISO 8601.
+pub fn era_year(_date: PlainDate) -> Option(Int) {
+  todo as "calendar era-year access is not implemented"
+}
+
 /// Returns the ISO day of week from 1 through 7.
 pub fn day_of_week(_date: PlainDate) -> Int {
   0
@@ -152,6 +172,31 @@ pub fn compare(first: PlainDate, second: PlainDate) -> Order {
 /// Reports whether two dates and calendars are equal.
 pub fn equal(first: PlainDate, second: PlainDate) -> Bool {
   first == second
+}
+
+/// Replace the supplied date fields.
+pub fn with_fields(
+  _date: PlainDate,
+  _fields: PartialDate,
+  _overflow: temporal.Overflow,
+) -> Result(PlainDate, temporal.Error) {
+  Error(temporal.PlatformUnavailable(temporal.NonIsoCalendarProvider))
+}
+
+/// Replace the calendar while retaining the ISO date.
+pub fn with_calendar(
+  _date: PlainDate,
+  _calendar: calendar.Calendar,
+) -> Result(PlainDate, temporal.Error) {
+  Error(temporal.PlatformUnavailable(temporal.NonIsoCalendarProvider))
+}
+
+/// Report whether a typed partial date contains at least one field.
+pub fn has_any_fields(fields: PartialDate) -> Bool {
+  fields.year != None
+  || fields.month != None
+  || fields.month_code != None
+  || fields.day != None
 }
 
 /// Adds a duration to a date.

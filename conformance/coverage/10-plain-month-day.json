@@ -286,8 +286,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype.with",
       "summary": "Temporal.PlainMonthDay.prototype.with ( _temporalMonthDayLike_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::plain_month_day_with_fields_replaces_typed_day_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainMonthDay/prototype/with/basic.js",
         "test/built-ins/Temporal/PlainMonthDay/prototype/with/branding.js",

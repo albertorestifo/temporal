@@ -482,8 +482,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaintime.html#sec-temporal.plaintime.prototype.with",
       "summary": "Temporal.PlainTime.prototype.with ( _temporalTimeLike_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::plain_time_with_fields_replaces_typed_hour_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainTime/prototype/with/argument-not-object.js",
         "test/built-ins/Temporal/PlainTime/prototype/with/basic.js",

@@ -32,6 +32,9 @@ Final source declarations include implementations and `///` documentation.
   variants](#javascript-strings-mapped-to-gleam-variants).
 - The ISO 8601 calendar is required. Non-ISO calendar data and IANA time-zone
   rules are provider concerns and may ship separately.
+- Calendar eras, calendar fields, transition direction, partial Temporal
+  values, and built-in identifiers are closed typed models. Dynamic
+  JavaScript property bags and string field names are not part of the API.
 
 ## Shared types — `temporal`
 
@@ -144,6 +147,11 @@ pub type Display {
 pub type Precision {
   AutoPrecision
   Digits(Int)
+}
+
+pub type Direction {
+  Next
+  Previous
 }
 
 pub type DifferenceOptions {
@@ -327,6 +335,15 @@ module dependencies acyclic.
 ```gleam
 pub opaque type PlainDate
 
+pub type PartialDate {
+  PartialDate(
+    year: Option(Int),
+    month: Option(Int),
+    month_code: Option(String),
+    day: Option(Int),
+  )
+}
+
 pub fn new(
   year year: Int,
   month month: Int,
@@ -350,6 +367,8 @@ pub fn month(date: PlainDate) -> Int
 pub fn month_code(date: PlainDate) -> String
 pub fn day(date: PlainDate) -> Int
 pub fn calendar(date: PlainDate) -> calendar.Calendar
+pub fn era(date: PlainDate) -> Option(calendar.Era)
+pub fn era_year(date: PlainDate) -> Option(Int)
 pub fn day_of_week(date: PlainDate) -> Int
 pub fn day_of_year(date: PlainDate) -> Int
 pub fn week_of_year(date: PlainDate) -> Option(Int)
@@ -361,6 +380,15 @@ pub fn months_in_year(date: PlainDate) -> Int
 pub fn in_leap_year(date: PlainDate) -> Bool
 pub fn compare(first: PlainDate, second: PlainDate) -> order.Order
 pub fn equal(first: PlainDate, second: PlainDate) -> Bool
+pub fn with_fields(
+  date: PlainDate,
+  fields: PartialDate,
+  overflow: temporal.Overflow,
+) -> Result(PlainDate, temporal.Error)
+pub fn with_calendar(
+  date: PlainDate,
+  calendar: calendar.Calendar,
+) -> Result(PlainDate, temporal.Error)
 pub fn add(
   date: PlainDate,
   duration: duration.Duration,
@@ -389,13 +417,25 @@ pub fn to_iso_8601_with_options(
 ```
 
 Partial-field replacement corresponding to JavaScript `with` is named
-`with_fields` and is deferred until a Gleam-native partial-record type is
-designed. It must not emulate JavaScript property bags with dynamic values.
+`with_fields`. Each Plain or Zoned module exposes a labeled partial record
+whose fields are `Option` values. An omitted field is `None`; callers never
+pass dynamic maps or string field names.
 
 ## `temporal/plain_time`
 
 ```gleam
 pub opaque type PlainTime
+
+pub type PartialTime {
+  PartialTime(
+    hour: Option(Int),
+    minute: Option(Int),
+    second: Option(Int),
+    millisecond: Option(Int),
+    microsecond: Option(Int),
+    nanosecond: Option(Int),
+  )
+}
 
 pub fn new(
   hour hour: Int,
@@ -415,6 +455,11 @@ pub fn microsecond(time: PlainTime) -> Int
 pub fn nanosecond(time: PlainTime) -> Int
 pub fn compare(first: PlainTime, second: PlainTime) -> order.Order
 pub fn equal(first: PlainTime, second: PlainTime) -> Bool
+pub fn with_fields(
+  time: PlainTime,
+  fields: PartialTime,
+  overflow: temporal.Overflow,
+) -> Result(PlainTime, temporal.Error)
 pub fn add(
   time: PlainTime,
   duration: duration.Duration,
@@ -451,6 +496,21 @@ pub fn to_iso_8601_with_options(
 ```gleam
 pub opaque type PlainDateTime
 
+pub type PartialDateTime {
+  PartialDateTime(
+    year: Option(Int),
+    month: Option(Int),
+    month_code: Option(String),
+    day: Option(Int),
+    hour: Option(Int),
+    minute: Option(Int),
+    second: Option(Int),
+    millisecond: Option(Int),
+    microsecond: Option(Int),
+    nanosecond: Option(Int),
+  )
+}
+
 pub fn new(
   year year: Int,
   month month: Int,
@@ -482,8 +542,23 @@ pub fn millisecond(value: PlainDateTime) -> Int
 pub fn microsecond(value: PlainDateTime) -> Int
 pub fn nanosecond(value: PlainDateTime) -> Int
 pub fn calendar(value: PlainDateTime) -> calendar.Calendar
+pub fn era(value: PlainDateTime) -> Option(calendar.Era)
+pub fn era_year(value: PlainDateTime) -> Option(Int)
 pub fn compare(first: PlainDateTime, second: PlainDateTime) -> order.Order
 pub fn equal(first: PlainDateTime, second: PlainDateTime) -> Bool
+pub fn with_fields(
+  value: PlainDateTime,
+  fields: PartialDateTime,
+  overflow: temporal.Overflow,
+) -> Result(PlainDateTime, temporal.Error)
+pub fn with_plain_time(
+  value: PlainDateTime,
+  time: Option(plain_time.PlainTime),
+) -> Result(PlainDateTime, temporal.Error)
+pub fn with_calendar(
+  value: PlainDateTime,
+  calendar: calendar.Calendar,
+) -> Result(PlainDateTime, temporal.Error)
 pub fn add(
   value: PlainDateTime,
   duration: duration.Duration,
@@ -525,6 +600,14 @@ Calendar-derived accessors from `PlainDate`—for example `day_of_week`,
 ```gleam
 pub opaque type PlainYearMonth
 
+pub type PartialYearMonth {
+  PartialYearMonth(
+    year: Option(Int),
+    month: Option(Int),
+    month_code: Option(String),
+  )
+}
+
 pub fn new(
   year year: Int,
   month month: Int,
@@ -537,12 +620,19 @@ pub fn year(value: PlainYearMonth) -> Int
 pub fn month(value: PlainYearMonth) -> Int
 pub fn month_code(value: PlainYearMonth) -> String
 pub fn calendar(value: PlainYearMonth) -> calendar.Calendar
+pub fn era(value: PlainYearMonth) -> Option(calendar.Era)
+pub fn era_year(value: PlainYearMonth) -> Option(Int)
 pub fn days_in_month(value: PlainYearMonth) -> Int
 pub fn days_in_year(value: PlainYearMonth) -> Int
 pub fn months_in_year(value: PlainYearMonth) -> Int
 pub fn in_leap_year(value: PlainYearMonth) -> Bool
 pub fn compare(first: PlainYearMonth, second: PlainYearMonth) -> order.Order
 pub fn equal(first: PlainYearMonth, second: PlainYearMonth) -> Bool
+pub fn with_fields(
+  value: PlainYearMonth,
+  fields: PartialYearMonth,
+  overflow: temporal.Overflow,
+) -> Result(PlainYearMonth, temporal.Error)
 pub fn add(
   value: PlainYearMonth,
   duration: duration.Duration,
@@ -571,6 +661,14 @@ pub fn to_iso_8601(value: PlainYearMonth) -> String
 ```gleam
 pub opaque type PlainMonthDay
 
+pub type PartialMonthDay {
+  PartialMonthDay(
+    month: Option(Int),
+    month_code: Option(String),
+    day: Option(Int),
+  )
+}
+
 pub fn new(
   month month: Int,
   day day: Int,
@@ -583,6 +681,11 @@ pub fn month_code(value: PlainMonthDay) -> String
 pub fn day(value: PlainMonthDay) -> Int
 pub fn calendar(value: PlainMonthDay) -> calendar.Calendar
 pub fn equal(first: PlainMonthDay, second: PlainMonthDay) -> Bool
+pub fn with_fields(
+  value: PlainMonthDay,
+  fields: PartialMonthDay,
+  overflow: temporal.Overflow,
+) -> Result(PlainMonthDay, temporal.Error)
 pub fn to_iso_8601(value: PlainMonthDay) -> String
 ```
 
@@ -594,6 +697,69 @@ Temporal does not define ordering or duration arithmetic for
 ```gleam
 pub type Calendar {
   Iso8601
+  Buddhist
+  Chinese
+  Coptic
+  Dangi
+  Ethioaa
+  Ethiopian
+  Gregory
+  Hebrew
+  Indian
+  Islamic
+  IslamicCivil
+  IslamicRgsa
+  IslamicTabular
+  IslamicUmalqura
+  Japanese
+  Persian
+  Roc
+}
+
+pub type Era {
+  CommonEra
+  BeforeCommonEra
+  JapaneseEra(name: JapaneseEraName)
+  RocEra
+  BeforeRocEra
+}
+
+pub type JapaneseEraName {
+  Meiji
+  Taisho
+  Showa
+  Heisei
+  Reiwa
+}
+
+pub type FieldKey {
+  EraField
+  EraYearField
+  YearField
+  MonthField
+  MonthCodeField
+  DayField
+}
+
+pub type CalendarFields {
+  CalendarFields(
+    era: Option(Era),
+    era_year: Option(Int),
+    year: Option(Int),
+    month: Option(Int),
+    month_code: Option(String),
+    day: Option(Int),
+  )
+}
+
+pub type IsoDateFields {
+  IsoDateFields(year: Int, month: Int, day: Int)
+}
+
+pub type CalendarFieldType {
+  DateFields
+  YearMonthFields
+  MonthDayFields
 }
 
 pub fn iso_8601() -> Calendar
@@ -602,27 +768,86 @@ pub fn from_id(id: String) -> Result(Calendar, temporal.Error)
 pub fn to_string(calendar: Calendar) -> String
 pub fn id(calendar: Calendar) -> String
 pub fn equal(first: Calendar, second: Calendar) -> Bool
+pub fn prepare_fields(
+  calendar: Calendar,
+  fields: CalendarFields,
+) -> Result(CalendarFields, temporal.Error)
+pub fn field_keys_present(fields: CalendarFields) -> List(FieldKey)
+pub fn merge_fields(
+  calendar: Calendar,
+  fields: CalendarFields,
+  additional_fields: CalendarFields,
+) -> Result(CalendarFields, temporal.Error)
+pub fn non_iso_date_add(
+  calendar: Calendar,
+  iso_date: IsoDateFields,
+  duration: duration.Duration,
+  overflow: temporal.Overflow,
+) -> Result(IsoDateFields, temporal.Error)
+pub fn non_iso_date_until(
+  calendar: Calendar,
+  first: IsoDateFields,
+  second: IsoDateFields,
+  largest_unit: duration.Unit,
+) -> Result(duration.Duration, temporal.Error)
+pub fn non_iso_date_to_iso(
+  calendar: Calendar,
+  fields: CalendarFields,
+  overflow: temporal.Overflow,
+) -> Result(IsoDateFields, temporal.Error)
+pub fn non_iso_month_day_to_iso_reference_date(
+  calendar: Calendar,
+  fields: CalendarFields,
+  overflow: temporal.Overflow,
+) -> Result(IsoDateFields, temporal.Error)
+pub fn non_iso_iso_to_date(
+  calendar: Calendar,
+  iso_date: IsoDateFields,
+) -> Result(CalendarFields, temporal.Error)
+pub fn extra_fields(calendar: Calendar, fields: List(FieldKey)) -> List(FieldKey)
+pub fn non_iso_field_keys_to_ignore(
+  calendar: Calendar,
+  keys: List(FieldKey),
+) -> List(FieldKey)
+pub fn field_keys_to_ignore(
+  calendar: Calendar,
+  keys: List(FieldKey),
+) -> List(FieldKey)
+pub fn non_iso_resolve_fields(
+  calendar: Calendar,
+  fields: CalendarFields,
+  field_type: CalendarFieldType,
+) -> Result(CalendarFields, temporal.Error)
+pub fn resolve_fields(
+  calendar: Calendar,
+  fields: CalendarFields,
+  field_type: CalendarFieldType,
+) -> Result(CalendarFields, temporal.Error)
+pub fn iso_date_to_fields(
+  calendar: Calendar,
+  iso_date: IsoDateFields,
+  field_type: CalendarFieldType,
+) -> Result(CalendarFields, temporal.Error)
 ```
 
-`Calendar` is a closed variant type, not `Calendar(id: String)`. The first
-implementation provides only `Iso8601`. `from_string` / `from_id` parse the
-spec identifier (`"iso8601"`, case-insensitive) at the boundary;
+`Calendar` is a closed variant type, not `Calendar(id: String)`.
+`from_string` / `from_id` parse built-in spec identifiers at the boundary;
 `to_string` / `id` emit the canonical spec string for serialization. In-process
 APIs take and return `Calendar`, never the identifier string.
 
-Calendar-specific field access and arithmetic remain operations on the Plain
-types rather than a JavaScript-style calendar protocol object.
-
-Additional built-in calendars require a data source and conformance plan.
-User-defined JavaScript calendar protocol objects, method interception, and
-ECMA-402-only calendar behavior are out of scope.
+Calendar-specific field access and arithmetic remain typed operations rather
+than a JavaScript-style calendar protocol object. Built-in non-ISO variants are
+part of the model even while their calculations return `PlatformUnavailable`
+until a versioned calendar-data provider exists. ISO has no era and therefore
+its era accessors return `None`.
 
 ## `temporal/time_zone`
 
 ```gleam
-pub type TimeZone {
+pub opaque type TimeZone {
   Utc
   FixedOffset(total_minutes: Int)
+  Named(id: String)
 }
 
 pub fn utc() -> TimeZone
@@ -640,14 +865,27 @@ pub fn offset_iso_8601_for(
   time_zone: TimeZone,
   instant: instant.Instant,
 ) -> Result(String, temporal.Error)
+pub fn next_transition(
+  time_zone: TimeZone,
+  instant: instant.Instant,
+) -> Result(Option(instant.Instant), temporal.Error)
+pub fn previous_transition(
+  time_zone: TimeZone,
+  instant: instant.Instant,
+) -> Result(Option(instant.Instant), temporal.Error)
+pub fn possible_instants_for(
+  time_zone: TimeZone,
+  date_time: plain_date_time.PlainDateTime,
+) -> Result(List(instant.Instant), temporal.Error)
 ```
 
-Time-zone *kind* is a variant type, not `TimeZone(id: String)`. UTC is `Utc`.
-Fixed offsets are `FixedOffset` with a validated minute count; `from_offset`
-parses `+HH:MM` / `-HH:MM` at the boundary. Named IANA zones are not a closed
-core set: they require an explicit, versioned provider and must not be a
-freely constructed string field. The core API must not delegate silently to
-host-local rules because that would make Erlang and JavaScript results differ.
+Time-zone *kind* is a variant type. UTC is `Utc`. Fixed offsets are
+`FixedOffset` with a validated minute count; `from_offset` parses `+HH:MM` /
+`-HH:MM` at the boundary. Named IANA zones are open-ended and represented by
+an opaque `Named` payload that can only be constructed through validating
+`from_id` / `from_string`. Transition and local-time lookup use an explicit,
+versioned provider and return `PlatformUnavailable` until one is configured.
+The core API never delegates silently to host-local rules.
 
 Custom JavaScript time-zone protocol objects and method interception are out
 of scope.
@@ -656,6 +894,22 @@ of scope.
 
 ```gleam
 pub opaque type ZonedDateTime
+
+pub type PartialZonedDateTime {
+  PartialZonedDateTime(
+    year: Option(Int),
+    month: Option(Int),
+    month_code: Option(String),
+    day: Option(Int),
+    hour: Option(Int),
+    minute: Option(Int),
+    second: Option(Int),
+    millisecond: Option(Int),
+    microsecond: Option(Int),
+    nanosecond: Option(Int),
+    offset: Option(String),
+  )
+}
 
 pub fn from_iso_8601(value: String) -> Result(ZonedDateTime, temporal.Error)
 pub fn from_instant(
@@ -676,6 +930,8 @@ pub fn epoch_milliseconds(value: ZonedDateTime) -> Int
 pub fn epoch_nanoseconds(value: ZonedDateTime) -> bigi.BigInt
 pub fn time_zone(value: ZonedDateTime) -> time_zone.TimeZone
 pub fn calendar(value: ZonedDateTime) -> calendar.Calendar
+pub fn era(value: ZonedDateTime) -> Result(Option(calendar.Era), temporal.Error)
+pub fn era_year(value: ZonedDateTime) -> Result(Option(Int), temporal.Error)
 pub fn offset_nanoseconds(value: ZonedDateTime) -> Result(Int, temporal.Error)
 pub fn offset(value: ZonedDateTime) -> Result(String, temporal.Error)
 pub fn year(value: ZonedDateTime) -> Result(Int, temporal.Error)
@@ -690,6 +946,29 @@ pub fn microsecond(value: ZonedDateTime) -> Result(Int, temporal.Error)
 pub fn nanosecond(value: ZonedDateTime) -> Result(Int, temporal.Error)
 pub fn compare(first: ZonedDateTime, second: ZonedDateTime) -> order.Order
 pub fn equal(first: ZonedDateTime, second: ZonedDateTime) -> Bool
+pub fn with_fields(
+  value: ZonedDateTime,
+  fields: PartialZonedDateTime,
+  overflow: temporal.Overflow,
+  disambiguation: temporal.Disambiguation,
+  offset_behavior: temporal.OffsetBehavior,
+) -> Result(ZonedDateTime, temporal.Error)
+pub fn with_plain_time(
+  value: ZonedDateTime,
+  time: Option(plain_time.PlainTime),
+) -> Result(ZonedDateTime, temporal.Error)
+pub fn with_time_zone(
+  value: ZonedDateTime,
+  time_zone: time_zone.TimeZone,
+) -> Result(ZonedDateTime, temporal.Error)
+pub fn with_calendar(
+  value: ZonedDateTime,
+  calendar: calendar.Calendar,
+) -> Result(ZonedDateTime, temporal.Error)
+pub fn get_time_zone_transition(
+  value: ZonedDateTime,
+  direction: temporal.Direction,
+) -> Result(Option(ZonedDateTime), temporal.Error)
 pub fn add(
   value: ZonedDateTime,
   duration: duration.Duration,
@@ -857,11 +1136,10 @@ Display (`temporal.Display`), for `ToStringOptions` annotation flags:
 
 ## Deliberately deferred or out of scope
 
-Deferred until their data model is designed:
+Deferred provider algorithms:
 
-- Typed partial-field records and `with_fields` for Plain and Zoned types.
-- Named IANA zones beyond UTC/fixed offsets, including a versioned provider.
-- Non-ISO built-in calendars and locale-derived calendar behavior.
+- Named IANA transition and local-time data.
+- Non-ISO built-in calendar calculations and locale-derived calendar behavior.
 - Locale formatting (`toLocaleString`) and all other ECMA-402-only behavior.
 - Interop adapters to and from the separate `gleam_time` package.
 - A stable serialization format other than Temporal ISO strings.

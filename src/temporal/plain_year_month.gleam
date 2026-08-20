@@ -1,5 +1,6 @@
 //// ISO 8601 year-month values.
 
+import gleam/option.{type Option}
 import gleam/order.{type Order, Eq, Lt}
 import temporal
 import temporal/calendar
@@ -8,6 +9,15 @@ import temporal/duration
 /// A validated ISO year-month with a reference day.
 pub opaque type PlainYearMonth {
   PlainYearMonth(year: Int, month: Int, reference_day: Int)
+}
+
+/// Optional year-month fields used by `with_fields`.
+pub type PartialYearMonth {
+  PartialYearMonth(
+    year: Option(Int),
+    month: Option(Int),
+    month_code: Option(String),
+  )
 }
 
 /// Builds an unvalidated year-month fixture for package tests.
@@ -59,6 +69,16 @@ pub fn calendar(_value: PlainYearMonth) -> calendar.Calendar {
   calendar.Iso8601
 }
 
+/// Return the calendar-specific era, or `None` for ISO 8601.
+pub fn era(_value: PlainYearMonth) -> Option(calendar.Era) {
+  todo as "calendar era access is not implemented"
+}
+
+/// Return the calendar-specific era year, or `None` for ISO 8601.
+pub fn era_year(_value: PlainYearMonth) -> Option(Int) {
+  todo as "calendar era-year access is not implemented"
+}
+
 /// Returns the number of days in the represented month.
 pub fn days_in_month(_value: PlainYearMonth) -> Int {
   0
@@ -90,6 +110,15 @@ pub fn compare(first: PlainYearMonth, second: PlainYearMonth) -> Order {
 /// Reports whether two year-month values are equal.
 pub fn equal(first: PlainYearMonth, second: PlainYearMonth) -> Bool {
   first == second
+}
+
+/// Replace the supplied year-month fields.
+pub fn with_fields(
+  _value: PlainYearMonth,
+  _fields: PartialYearMonth,
+  _overflow: temporal.Overflow,
+) -> Result(PlainYearMonth, temporal.Error) {
+  Error(temporal.PlatformUnavailable(temporal.NonIsoCalendarProvider))
 }
 
 /// Adds a duration to a year-month.

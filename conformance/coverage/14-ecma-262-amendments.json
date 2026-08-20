@@ -221,8 +221,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-getnamedtimezoneepochnanoseconds",
       "summary": "GetNamedTimeZoneEpochNanoseconds ( _timeZoneIdentifier_: a String, _year_: an integer, _month_: an integer in the inclusive interval from 1 to 12, _day_: an integer in the inclusive interval from 1 to 31, _hour_: an integer in the inclusive interval from 0 to 23, _minute_: an integer in the inclusive interval from 0 to 59, _second_: an integer in the inclusive interval from 0 to 59, _millisecond_: an integer in the inclusive interval from 0 to 999, _microsecond_: an integer in the inclusive interval from 0 to 999, _nanosecond_: an integer in the inclusive interval from 0 to 999, _isoDateTime_: an ISO Date-Time Record, ): a List of BigInts",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::named_time_zone_possible_instants_require_provider_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null

@@ -200,8 +200,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-getdirectionoption",
       "summary": "GetDirectionOption ( _options_: an Object, ): either a normal completion containing either ~next~ or ~previous~, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::direction_option_is_a_closed_variant_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -352,8 +354,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-ispartialtemporalobject",
       "summary": "IsPartialTemporalObject ( _value_: an ECMAScript language value, ): either a normal completion containing a Boolean or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::partial_temporal_object_uses_labeled_options_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -641,8 +645,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-isodatetofields",
       "summary": "ISODateToFields ( _calendar_: a calendar type, _isoDate_: an ISO Date Record, _type_: one of ~date~, ~year-month~, or ~month-day~, ): a Calendar Fields Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::iso_date_to_fields_uses_typed_records_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null

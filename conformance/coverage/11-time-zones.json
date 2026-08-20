@@ -77,8 +77,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-getnamedtimezonenexttransition",
       "summary": "GetNamedTimeZoneNextTransition ( _timeZoneIdentifier_: an available named time zone identifier, _epochNanoseconds_: a BigInt, ): either a BigInt or *null*",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::named_time_zone_next_transition_requires_provider_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"
@@ -91,8 +93,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-getnamedtimezoneprevioustransition",
       "summary": "GetNamedTimeZonePreviousTransition ( _timeZoneIdentifier_: an available named time zone identifier, _epochNanoseconds_: a BigInt, ): either a BigInt or *null*",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::named_time_zone_previous_transition_requires_provider_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-local-time"

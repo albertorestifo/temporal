@@ -307,8 +307,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-get-temporal.plainyearmonth.prototype.era",
       "summary": "get Temporal.PlainYearMonth.prototype.era",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::plain_year_month_iso_era_is_absent_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/era/basic.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/era/branding.js",
@@ -325,8 +327,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-get-temporal.plainyearmonth.prototype.erayear",
       "summary": "get Temporal.PlainYearMonth.prototype.eraYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::plain_year_month_iso_era_year_is_absent_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/eraYear/basic.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/eraYear/branding.js",
@@ -484,8 +488,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-temporal.plainyearmonth.prototype.with",
       "summary": "Temporal.PlainYearMonth.prototype.with ( _temporalYearMonthLike_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/remaining_planned_test::plain_year_month_with_fields_replaces_typed_year_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/with/argument-calendar-field.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/with/argument-missing-fields.js",

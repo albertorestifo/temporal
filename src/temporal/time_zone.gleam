@@ -5,9 +5,11 @@
 //// on the core type.
 
 import gleam/int
+import gleam/option.{type Option}
 import gleam/string
 import temporal
 import temporal/instant
+import temporal/plain_date_time
 
 const nanoseconds_per_minute = 60_000_000_000
 
@@ -19,11 +21,20 @@ const nanoseconds_per_minute = 60_000_000_000
 pub opaque type TimeZone {
   Utc
   FixedOffset(total_minutes: Int)
+  Named(id: String)
 }
 
 /// Return the canonical UTC time zone.
 pub fn utc() -> TimeZone {
   Utc
+}
+
+/// Build a named-zone fixture for package tests.
+///
+/// Production callers must use `from_id` or `from_string`.
+@internal
+pub fn named_fixture(id: String) -> TimeZone {
+  Named(id)
 }
 
 /// Parse a supported time-zone identifier from its spec string.
@@ -71,6 +82,7 @@ pub fn to_string(time_zone: TimeZone) -> String {
   case time_zone {
     Utc -> "UTC"
     FixedOffset(total_minutes) -> format_offset_minutes(total_minutes)
+    Named(id) -> id
   }
 }
 
@@ -96,6 +108,7 @@ pub fn offset_nanoseconds_for(
   case time_zone {
     Utc -> Ok(0)
     FixedOffset(total_minutes) -> Ok(total_minutes * nanoseconds_per_minute)
+    Named(_) -> unavailable()
   }
 }
 
@@ -109,7 +122,32 @@ pub fn offset_iso_8601_for(
   case time_zone {
     Utc -> Ok("+00:00")
     FixedOffset(total_minutes) -> Ok(format_offset_minutes(total_minutes))
+    Named(_) -> unavailable()
   }
+}
+
+/// Return the first named-zone transition after an instant.
+pub fn next_transition(
+  _time_zone: TimeZone,
+  _instant: instant.Instant,
+) -> Result(Option(instant.Instant), temporal.Error) {
+  unavailable()
+}
+
+/// Return the first named-zone transition before an instant.
+pub fn previous_transition(
+  _time_zone: TimeZone,
+  _instant: instant.Instant,
+) -> Result(Option(instant.Instant), temporal.Error) {
+  unavailable()
+}
+
+/// Return possible instants for a local time in a named zone.
+pub fn possible_instants_for(
+  _time_zone: TimeZone,
+  _date_time: plain_date_time.PlainDateTime,
+) -> Result(List(instant.Instant), temporal.Error) {
+  unavailable()
 }
 
 fn parse_offset_parts(
@@ -158,4 +196,8 @@ fn two_digits(value: Int) -> String {
     True -> "0" <> int.to_string(value)
     False -> int.to_string(value)
   }
+}
+
+fn unavailable() -> Result(a, temporal.Error) {
+  Error(temporal.PlatformUnavailable(temporal.NamedTimeZoneProvider))
 }

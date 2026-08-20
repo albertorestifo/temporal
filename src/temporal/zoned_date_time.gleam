@@ -12,6 +12,7 @@ import temporal/calendar
 import temporal/duration
 import temporal/instant
 import temporal/plain_date_time
+import temporal/plain_time
 import temporal/time_zone
 
 /// An exact instant viewed through a time zone and calendar.
@@ -20,6 +21,23 @@ pub opaque type ZonedDateTime {
     instant: instant.Instant,
     time_zone: time_zone.TimeZone,
     calendar: calendar.Calendar,
+  )
+}
+
+/// Optional local fields used by `with_fields`.
+pub type PartialZonedDateTime {
+  PartialZonedDateTime(
+    year: Option(Int),
+    month: Option(Int),
+    month_code: Option(String),
+    day: Option(Int),
+    hour: Option(Int),
+    minute: Option(Int),
+    second: Option(Int),
+    millisecond: Option(Int),
+    microsecond: Option(Int),
+    nanosecond: Option(Int),
+    offset: Option(String),
   )
 }
 
@@ -121,6 +139,18 @@ pub fn nanosecond(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
   unavailable(temporal.ZonedDateTimeToPlainDateTime)
 }
 
+/// Return the calendar-specific era, or `None` for ISO 8601.
+pub fn era(
+  _value: ZonedDateTime,
+) -> Result(Option(calendar.Era), temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
+/// Return the calendar-specific era year, or `None` for ISO 8601.
+pub fn era_year(_value: ZonedDateTime) -> Result(Option(Int), temporal.Error) {
+  unavailable(temporal.ZonedDateTimeToPlainDateTime)
+}
+
 /// Return the local ISO day of week.
 pub fn day_of_week(_value: ZonedDateTime) -> Result(Int, temporal.Error) {
   unavailable(temporal.ZonedDateTimeToPlainDateTime)
@@ -210,6 +240,49 @@ pub fn equal(first: ZonedDateTime, second: ZonedDateTime) -> Bool {
   instant.compare(first.instant, second.instant) == Eq
   && time_zone.equal(first.time_zone, second.time_zone)
   && calendar.equal(first.calendar, second.calendar)
+}
+
+/// Replace the supplied local fields.
+pub fn with_fields(
+  _value: ZonedDateTime,
+  _fields: PartialZonedDateTime,
+  _overflow: temporal.Overflow,
+  _disambiguation: temporal.Disambiguation,
+  _offset_behavior: temporal.OffsetBehavior,
+) -> Result(ZonedDateTime, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeFromPlainDateTime)
+}
+
+/// Replace the local time, using midnight when absent.
+pub fn with_plain_time(
+  _value: ZonedDateTime,
+  _time: Option(plain_time.PlainTime),
+) -> Result(ZonedDateTime, temporal.Error) {
+  unavailable(temporal.ZonedDateTimeFromPlainDateTime)
+}
+
+/// View the same exact instant in another time zone.
+pub fn with_time_zone(
+  _value: ZonedDateTime,
+  _time_zone: time_zone.TimeZone,
+) -> Result(ZonedDateTime, temporal.Error) {
+  unavailable(temporal.NamedTimeZoneProvider)
+}
+
+/// Replace the calendar while retaining the exact instant and time zone.
+pub fn with_calendar(
+  _value: ZonedDateTime,
+  _calendar: calendar.Calendar,
+) -> Result(ZonedDateTime, temporal.Error) {
+  unavailable(temporal.NonIsoCalendarProvider)
+}
+
+/// Return the adjacent named-zone transition in a direction.
+pub fn get_time_zone_transition(
+  _value: ZonedDateTime,
+  _direction: temporal.Direction,
+) -> Result(Option(ZonedDateTime), temporal.Error) {
+  unavailable(temporal.NamedTimeZoneProvider)
 }
 
 /// Add a duration using zoned, calendar-aware arithmetic.

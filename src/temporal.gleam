@@ -69,6 +69,8 @@ pub type PlatformOperation {
   ZonedDateTimeStartOfDay
   ZonedDateTimeHoursInDay
   ZonedDateTimeToIso8601
+  NamedTimeZoneProvider
+  NonIsoCalendarProvider
 }
 
 /// How an operation handles a date or time field that falls outside its
@@ -103,6 +105,12 @@ pub type Display {
   Always
   Never
   Critical
+}
+
+/// Direction used when looking up a named time-zone transition.
+pub type Direction {
+  Next
+  Previous
 }
 
 /// Fractional-second precision used by serialization.
