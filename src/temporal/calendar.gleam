@@ -8,6 +8,7 @@ import gleam/option.{type Option, None, Some}
 import gleam/string
 import temporal
 import temporal/duration
+import temporal/internal/iso_plain
 
 /// A supported calendar.
 ///
@@ -202,47 +203,78 @@ pub fn merge_fields(
 /// Add a date duration using a non-ISO calendar provider.
 pub fn non_iso_date_add(
   _calendar: Calendar,
-  _iso_date: IsoDateFields,
-  _value: duration.Duration,
-  _overflow: temporal.Overflow,
+  iso_date: IsoDateFields,
+  value: duration.Duration,
+  overflow: temporal.Overflow,
 ) -> Result(IsoDateFields, temporal.Error) {
-  unavailable()
+  use _ <- result_try(validate_date_duration(value))
+  use date <- result_try(regulate_iso_date(iso_date, temporal.Reject))
+  let sign = duration_sign(value)
+  use added <- result_try(iso_plain.add_date(
+    date,
+    value.years * sign,
+    value.months * sign,
+    value.weeks * sign,
+    value.days * sign,
+    overflow,
+  ))
+  Ok(iso_date_fields(added))
 }
 
 /// Find a date difference using a non-ISO calendar provider.
 pub fn non_iso_date_until(
   _calendar: Calendar,
-  _first: IsoDateFields,
-  _second: IsoDateFields,
-  _largest_unit: duration.Unit,
+  first: IsoDateFields,
+  second: IsoDateFields,
+  largest_unit: duration.Unit,
 ) -> Result(duration.Duration, temporal.Error) {
-  unavailable()
+  use first <- result_try(regulate_iso_date(first, temporal.Reject))
+  use second <- result_try(regulate_iso_date(second, temporal.Reject))
+  Ok(duration_from_days(iso_plain.days_between(first, second), largest_unit))
 }
 
 /// Convert non-ISO date fields to an ISO date.
 pub fn non_iso_date_to_iso(
   _calendar: Calendar,
-  _fields: CalendarFields,
-  _overflow: temporal.Overflow,
+  fields: CalendarFields,
+  overflow: temporal.Overflow,
 ) -> Result(IsoDateFields, temporal.Error) {
-  unavailable()
+  use year <- result_try(required(fields.year, temporal.Year))
+  use month <- result_try(resolve_month(fields.month, fields.month_code))
+  use day <- result_try(required(fields.day, temporal.Day))
+  use date <- result_try(iso_plain.regulate_date(year, month, day, overflow))
+  Ok(iso_date_fields(date))
 }
 
 /// Convert non-ISO month-day fields to an ISO reference date.
 pub fn non_iso_month_day_to_iso_reference_date(
-  _calendar: Calendar,
-  _fields: CalendarFields,
-  _overflow: temporal.Overflow,
+  calendar: Calendar,
+  fields: CalendarFields,
+  overflow: temporal.Overflow,
 ) -> Result(IsoDateFields, temporal.Error) {
-  unavailable()
+  let reference_year = option_or(fields.year, 1972)
+  non_iso_date_to_iso(
+    calendar,
+    CalendarFields(..fields, year: Some(reference_year)),
+    overflow,
+  )
 }
 
 /// Convert an ISO date to non-ISO calendar fields.
 pub fn non_iso_iso_to_date(
   _calendar: Calendar,
-  _iso_date: IsoDateFields,
+  iso_date: IsoDateFields,
 ) -> Result(CalendarFields, temporal.Error) {
-  unavailable()
+  use date <- result_try(regulate_iso_date(iso_date, temporal.Reject))
+  let iso_plain.Date(year, month, day) = date
+  Ok(CalendarFields(
+    era: None,
+    era_year: None,
+    year: Some(year),
+    month: Some(month),
+    month_code: Some(month_code(month)),
+    day: Some(day),
+  ))
 }
 
 /// Return extra field keys required by a calendar.
@@ -285,10 +317,31 @@ pub fn field_keys_to_ignore(
 /// Resolve non-ISO calendar fields for a Temporal shape.
 pub fn non_iso_resolve_fields(
   _calendar: Calendar,
-  _fields: CalendarFields,
-  _field_type: CalendarFieldType,
+  fields: CalendarFields,
+  field_type: CalendarFieldType,
 ) -> Result(CalendarFields, temporal.Error) {
-  unavailable()
+  use month <- result_try(resolve_month(fields.month, fields.month_code))
+  let resolved =
+    CalendarFields(
+      ..fields,
+      month: Some(month),
+      month_code: Some(month_code(month)),
+    )
+  case field_type {
+    DateFields -> {
+      use _ <- result_try(required(resolved.year, temporal.Year))
+      use _ <- result_try(required(resolved.day, temporal.Day))
+      Ok(resolved)
+    }
+    YearMonthFields -> {
+      use _ <- result_try(required(resolved.year, temporal.Year))
+      Ok(CalendarFields(..resolved, day: None))
+    }
+    MonthDayFields -> {
+      use _ <- result_try(required(resolved.day, temporal.Day))
+      Ok(CalendarFields(..resolved, year: None, era: None, era_year: None))
+    }
+  }
 }
 
 /// Resolve calendar fields for a Temporal shape.
@@ -326,7 +379,132 @@ pub fn iso_date_to_fields(
         MonthDayFields -> Ok(CalendarFields(..fields, year: None))
       }
     }
-    _ -> unavailable()
+    _ -> {
+      use fields <- result_try(non_iso_iso_to_date(calendar, iso_date))
+      case field_type {
+        DateFields -> Ok(fields)
+        YearMonthFields -> Ok(CalendarFields(..fields, day: None))
+        MonthDayFields ->
+          Ok(CalendarFields(..fields, year: None, era: None, era_year: None))
+      }
+    }
+  }
+}
+
+fn validate_date_duration(
+  value: duration.Duration,
+) -> Result(Nil, temporal.Error) {
+  use _ <- result_try(duration.validate(value))
+  case
+    value.hours == 0
+    && value.minutes == 0
+    && value.seconds == 0
+    && value.milliseconds == 0
+    && value.microseconds == 0
+    && value.nanoseconds == 0
+  {
+    True -> Ok(Nil)
+    False ->
+      Error(temporal.InvalidDuration(
+        "calendar date addition does not accept time fields",
+      ))
+  }
+}
+
+fn regulate_iso_date(
+  fields: IsoDateFields,
+  overflow: temporal.Overflow,
+) -> Result(iso_plain.Date, temporal.Error) {
+  iso_plain.regulate_date(fields.year, fields.month, fields.day, overflow)
+}
+
+fn iso_date_fields(date: iso_plain.Date) -> IsoDateFields {
+  let iso_plain.Date(year, month, day) = date
+  IsoDateFields(year: year, month: month, day: day)
+}
+
+fn duration_sign(value: duration.Duration) -> Int {
+  case value.is_negative {
+    True -> -1
+    False -> 1
+  }
+}
+
+fn duration_from_days(
+  days: Int,
+  largest_unit: duration.Unit,
+) -> duration.Duration {
+  let magnitude = int.absolute_value(days)
+  let #(weeks, remaining_days) = case largest_unit {
+    duration.Week -> #(magnitude / 7, magnitude % 7)
+    _ -> #(0, magnitude)
+  }
+  duration.Duration(
+    is_negative: days < 0,
+    years: 0,
+    months: 0,
+    weeks: weeks,
+    days: remaining_days,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    milliseconds: 0,
+    microseconds: 0,
+    nanoseconds: 0,
+  )
+}
+
+fn required(
+  value: Option(Int),
+  field: temporal.Field,
+) -> Result(Int, temporal.Error) {
+  case value {
+    Some(value) -> Ok(value)
+    None -> Error(temporal.OutOfRange(field, "field is required"))
+  }
+}
+
+fn resolve_month(
+  month: Option(Int),
+  code: Option(String),
+) -> Result(Int, temporal.Error) {
+  case month, code {
+    Some(month), None -> Ok(month)
+    None, Some(code) -> month_from_code(code)
+    Some(month), Some(code) -> {
+      use code_month <- result_try(month_from_code(code))
+      case month == code_month {
+        True -> Ok(month)
+        False -> Error(temporal.OutOfRange(temporal.Month, code))
+      }
+    }
+    None, None ->
+      Error(temporal.OutOfRange(temporal.Month, "field is required"))
+  }
+}
+
+fn month_from_code(code: String) -> Result(Int, temporal.Error) {
+  case string.starts_with(code, "M") {
+    True ->
+      case int.parse(string.drop_start(code, 1)) {
+        Ok(month) if month >= 1 && month <= 13 -> Ok(month)
+        _ -> Error(temporal.OutOfRange(temporal.Month, code))
+      }
+    False -> Error(temporal.OutOfRange(temporal.Month, code))
+  }
+}
+
+fn option_or(value: Option(Int), fallback: Int) -> Int {
+  case value {
+    Some(value) -> value
+    None -> fallback
+  }
+}
+
+fn result_try(result: Result(a, e), next: fn(a) -> Result(b, e)) -> Result(b, e) {
+  case result {
+    Ok(value) -> next(value)
+    Error(error) -> Error(error)
   }
 }
 
@@ -392,8 +570,4 @@ fn month_code(month: Int) -> String {
     True -> "M0" <> int.to_string(month)
     False -> "M" <> int.to_string(month)
   }
-}
-
-fn unavailable() -> Result(a, temporal.Error) {
-  Error(temporal.PlatformUnavailable(temporal.NonIsoCalendarProvider))
 }
