@@ -16,9 +16,11 @@ const nanoseconds_per_minute = 60_000_000_000
 
 /// A validated time-zone kind.
 ///
-/// Core values are `Utc` or a validated `FixedOffset`. Named IANA identifiers
-/// are not a closed core set; `from_id` / `from_string` reject them with
-/// `UnknownTimeZone` until a versioned provider exists.
+/// Core values are `Utc` or a validated `FixedOffset`. `Utc` and the zero
+/// fixed offset `+00:00` are distinct identifiers even though they share an
+/// offset. Named IANA identifiers are not a closed core set; `from_id` /
+/// `from_string` reject them with `UnknownTimeZone` until a versioned provider
+/// exists.
 pub opaque type TimeZone {
   Utc
   FixedOffset(total_minutes: Int)
@@ -65,6 +67,9 @@ pub fn from_id(id: String) -> Result(TimeZone, temporal.Error) {
 ///
 /// Accepted offsets use `+HH:MM` or `-HH:MM`, with an absolute value less
 /// than 24 hours. Negative zero is canonicalized to `+00:00`.
+///
+/// A zero offset is the offset zone `+00:00`, which is a different identifier
+/// from `UTC`. Use `utc` or `from_string("UTC")` for the UTC identifier.
 pub fn from_offset(offset: String) -> Result(TimeZone, temporal.Error) {
   case string.to_graphemes(offset) {
     [sign, hour_tens, hour_ones, ":", minute_tens, minute_ones] ->
@@ -189,10 +194,7 @@ fn build_offset(
         True -> -magnitude
         False -> magnitude
       }
-      case total_minutes {
-        0 -> Ok(Utc)
-        _ -> Ok(FixedOffset(total_minutes))
-      }
+      Ok(FixedOffset(total_minutes))
     }
   }
 }
