@@ -49,10 +49,36 @@ Use a public record when all of these are true:
 
 Use an opaque custom type plus validating constructors when invalid values
 must be unrepresentable. `Instant`, `PlainDate`, `PlainTime`,
-`PlainDateTime`, `PlainYearMonth`, `PlainMonthDay`, `ZonedDateTime`,
-`Calendar`, and `TimeZone` should have opaque public representations even if an
-early implementation temporarily uses an alias. Do not expose backend-specific
-Erlang or JavaScript values.
+`PlainDateTime`, `PlainYearMonth`, `PlainMonthDay`, and `ZonedDateTime`
+should have opaque public representations even if an early implementation
+temporarily uses an alias. Do not expose backend-specific Erlang or
+JavaScript values.
+
+### Closed sets are variants, not strings
+
+When a value is one of a known, closed set, use a Gleam custom type with
+variants. Do not store Temporal's JavaScript strings (or other stringly-typed
+ids) as the representation. Parse strings only at the input boundary with
+`from_string` (or another `from_...` constructor) that returns `Result`.
+
+This applies to calendars, overflow, disambiguation, offset behavior,
+rounding modes, units, and other option enumerations. Time-zone *kind* is
+likewise a variant (`Utc`, `FixedOffset`); open-ended IANA names are not a
+core closed set and must not be a freely constructed `id: String` field.
+
+```gleam
+// Good
+pub type Calendar {
+  Iso8601
+}
+
+pub fn from_string(id: String) -> Result(Calendar, temporal.Error)
+
+// Bad: any string is representable; invalid ids are a runtime surprise
+pub type Calendar {
+  Calendar(id: String)
+}
+```
 
 Use labeled arguments for constructors with multiple same-typed values:
 

@@ -25,6 +25,11 @@ Final source declarations include implementations and `///` documentation.
 - Exact epoch nanoseconds use `bigi.BigInt` on both Erlang and JavaScript.
 - Conversion names use `from_...` and `to_...`. Serialization names the
   representation, for example `to_iso_8601`.
+- Closed option and identifier sets are custom types with variants, not
+  `String`. JavaScript option strings (`"constrain"`, `"iso8601"`, `"UTC"`,
+  …) are parsed at the boundary with `from_string` / `from_id` and serialized
+  with `to_string` / `id`. See [JavaScript strings mapped to Gleam
+  variants](#javascript-strings-mapped-to-gleam-variants).
 - The ISO 8601 calendar is required. Non-ISO calendar data and IANA time-zone
   rules are provider concerns and may ship separately.
 
@@ -79,14 +84,14 @@ pub type Disambiguation {
   Compatible
   Earlier
   Later
-  RejectAmbiguous
+  Reject
 }
 
 pub type OffsetBehavior {
   Prefer
   Use
   Ignore
-  RejectOffset
+  Reject
 }
 
 pub type Display {
@@ -121,6 +126,14 @@ pub type ToStringOptions {
   )
 }
 ```
+
+Gleam constructors share a module-level namespace. `Overflow`,
+`Disambiguation`, and `OffsetBehavior` each include Temporal's `"reject"`
+option. If those three types are declared together in `temporal`, only one
+constructor may be named `Reject`; keep `Reject` on `Overflow` and spell the
+others `RejectAmbiguous` and `RejectOffset`, or give each option type its own
+module so every `"reject"` mapping can be `Reject`. Call sites still pass the
+typed variant, never the JS string.
 
 Only relevant fields are read by each operation. Module-level convenience
 functions should provide sensible defaults, so callers do not have to build a
@@ -296,7 +309,7 @@ pub fn year(date: PlainDate) -> Int
 pub fn month(date: PlainDate) -> Int
 pub fn month_code(date: PlainDate) -> String
 pub fn day(date: PlainDate) -> Int
-pub fn calendar_id(date: PlainDate) -> String
+pub fn calendar(date: PlainDate) -> calendar.Calendar
 pub fn day_of_week(date: PlainDate) -> Int
 pub fn day_of_year(date: PlainDate) -> Int
 pub fn week_of_year(date: PlainDate) -> Option(Int)
@@ -428,7 +441,7 @@ pub fn second(value: PlainDateTime) -> Int
 pub fn millisecond(value: PlainDateTime) -> Int
 pub fn microsecond(value: PlainDateTime) -> Int
 pub fn nanosecond(value: PlainDateTime) -> Int
-pub fn calendar_id(value: PlainDateTime) -> String
+pub fn calendar(value: PlainDateTime) -> calendar.Calendar
 pub fn compare(first: PlainDateTime, second: PlainDateTime) -> order.Order
 pub fn equal(first: PlainDateTime, second: PlainDateTime) -> Bool
 pub fn add(
@@ -483,7 +496,7 @@ pub fn from_iso_8601(value: String) -> Result(PlainYearMonth, temporal.Error)
 pub fn year(value: PlainYearMonth) -> Int
 pub fn month(value: PlainYearMonth) -> Int
 pub fn month_code(value: PlainYearMonth) -> String
-pub fn calendar_id(value: PlainYearMonth) -> String
+pub fn calendar(value: PlainYearMonth) -> calendar.Calendar
 pub fn days_in_month(value: PlainYearMonth) -> Int
 pub fn days_in_year(value: PlainYearMonth) -> Int
 pub fn months_in_year(value: PlainYearMonth) -> Int
@@ -528,7 +541,7 @@ pub fn new(
 pub fn from_iso_8601(value: String) -> Result(PlainMonthDay, temporal.Error)
 pub fn month_code(value: PlainMonthDay) -> String
 pub fn day(value: PlainMonthDay) -> Int
-pub fn calendar_id(value: PlainMonthDay) -> String
+pub fn calendar(value: PlainMonthDay) -> calendar.Calendar
 pub fn equal(first: PlainMonthDay, second: PlainMonthDay) -> Bool
 pub fn to_iso_8601(value: PlainMonthDay) -> String
 ```
@@ -539,17 +552,26 @@ Temporal does not define ordering or duration arithmetic for
 ## `temporal/calendar`
 
 ```gleam
-pub opaque type Calendar
+pub type Calendar {
+  Iso8601
+}
 
 pub fn iso_8601() -> Calendar
+pub fn from_string(id: String) -> Result(Calendar, temporal.Error)
 pub fn from_id(id: String) -> Result(Calendar, temporal.Error)
+pub fn to_string(calendar: Calendar) -> String
 pub fn id(calendar: Calendar) -> String
 pub fn equal(first: Calendar, second: Calendar) -> Bool
 ```
 
-The first implementation supports only `iso8601`. Calendar-specific field
-access and arithmetic remain operations on the Plain types rather than a
-JavaScript-style calendar protocol object.
+`Calendar` is a closed variant type, not `Calendar(id: String)`. The first
+implementation provides only `Iso8601`. `from_string` / `from_id` parse the
+spec identifier (`"iso8601"`, case-insensitive) at the boundary;
+`to_string` / `id` emit the canonical spec string for serialization. In-process
+APIs take and return `Calendar`, never the identifier string.
+
+Calendar-specific field access and arithmetic remain operations on the Plain
+types rather than a JavaScript-style calendar protocol object.
 
 Additional built-in calendars require a data source and conformance plan.
 User-defined JavaScript calendar protocol objects, method interception, and
@@ -558,11 +580,16 @@ ECMA-402-only calendar behavior are out of scope.
 ## `temporal/time_zone`
 
 ```gleam
-pub opaque type TimeZone
+pub type TimeZone {
+  Utc
+  FixedOffset(total_minutes: Int)
+}
 
 pub fn utc() -> TimeZone
+pub fn from_string(id: String) -> Result(TimeZone, temporal.Error)
 pub fn from_id(id: String) -> Result(TimeZone, temporal.Error)
 pub fn from_offset(offset: String) -> Result(TimeZone, temporal.Error)
+pub fn to_string(time_zone: TimeZone) -> String
 pub fn id(time_zone: TimeZone) -> String
 pub fn equal(first: TimeZone, second: TimeZone) -> Bool
 pub fn offset_nanoseconds_for(
@@ -575,10 +602,12 @@ pub fn offset_iso_8601_for(
 ) -> Result(String, temporal.Error)
 ```
 
-UTC and fixed numeric offsets are part of the core target. Named IANA zones
-require an explicit, versioned time-zone database/provider. The core API must
-not delegate silently to host-local rules because that would make Erlang and
-JavaScript results differ.
+Time-zone *kind* is a variant type, not `TimeZone(id: String)`. UTC is `Utc`.
+Fixed offsets are `FixedOffset` with a validated minute count; `from_offset`
+parses `+HH:MM` / `-HH:MM` at the boundary. Named IANA zones are not a closed
+core set: they require an explicit, versioned provider and must not be a
+freely constructed string field. The core API must not delegate silently to
+host-local rules because that would make Erlang and JavaScript results differ.
 
 Custom JavaScript time-zone protocol objects and method interception are out
 of scope.
@@ -605,8 +634,8 @@ pub fn to_plain_date_time(
 ) -> Result(plain_date_time.PlainDateTime, temporal.Error)
 pub fn epoch_milliseconds(value: ZonedDateTime) -> Int
 pub fn epoch_nanoseconds(value: ZonedDateTime) -> bigi.BigInt
-pub fn time_zone_id(value: ZonedDateTime) -> String
-pub fn calendar_id(value: ZonedDateTime) -> String
+pub fn time_zone(value: ZonedDateTime) -> time_zone.TimeZone
+pub fn calendar(value: ZonedDateTime) -> calendar.Calendar
 pub fn offset_nanoseconds(value: ZonedDateTime) -> Result(Int, temporal.Error)
 pub fn offset(value: ZonedDateTime) -> Result(String, temporal.Error)
 pub fn year(value: ZonedDateTime) -> Result(Int, temporal.Error)
@@ -673,8 +702,10 @@ pub fn instant() -> Result(instant.Instant, temporal.Error)
 pub fn instant_with_clock(
   clock: Clock,
 ) -> Result(instant.Instant, temporal.Error)
-pub fn time_zone_id() -> Result(String, temporal.Error)
-pub fn time_zone_id_with_clock(clock: Clock) -> Result(String, temporal.Error)
+pub fn time_zone() -> Result(time_zone.TimeZone, temporal.Error)
+pub fn time_zone_with_clock(
+  clock: Clock,
+) -> Result(time_zone.TimeZone, temporal.Error)
 pub fn zoned_date_time_iso(
   time_zone: Option(time_zone.TimeZone),
 ) -> Result(zoned_date_time.ZonedDateTime, temporal.Error)
@@ -700,8 +731,9 @@ Erlang and JavaScript; all subsequent conversion remains target-neutral.
   `instant.from_epoch_milliseconds`.
 - `Temporal.Instant.fromEpochNanoseconds` →
   `instant.from_epoch_nanoseconds`.
-- Property getters such as `epochNanoseconds`, `calendarId`, and `timeZoneId`
-  → functions such as `epoch_nanoseconds`, `calendar_id`, and `time_zone_id`.
+- Property getters such as `epochNanoseconds` → `epoch_nanoseconds`.
+- `calendarId` / `timeZoneId` → `calendar(...)` / `time_zone(...)`, returning
+  `calendar.Calendar` / `time_zone.TimeZone`, not strings.
 - Prototype methods → module functions with the value first:
   `date.add(duration)` → `plain_date.add(date, duration, ...)`.
 - `toString` → `to_iso_8601`; configurable output uses
@@ -715,6 +747,73 @@ Erlang and JavaScript; all subsequent conversion remains target-neutral.
   partial-field records; never dynamic maps.
 - Throwing `RangeError` or `TypeError` → `Error(temporal.Error)`.
 - Omitted/`undefined` arguments → explicit defaults or `Option`.
+
+## JavaScript strings mapped to Gleam variants
+
+Pass these as variants in Gleam. Convert the JS/spec string only at a
+`from_string` (or `from_id` / `from_offset`) boundary.
+
+Calendar (`calendar.Calendar`):
+
+- `"iso8601"` → `Iso8601`
+
+Time zone (`time_zone.TimeZone`):
+
+- `"UTC"` → `Utc`
+- `"+HH:MM"` / `"-HH:MM"` → `FixedOffset(total_minutes)` (parsed by
+  `from_offset`)
+
+Overflow (`temporal.Overflow`):
+
+- `"constrain"` → `Constrain`
+- `"reject"` → `Reject`
+
+Disambiguation (`temporal.Disambiguation`):
+
+- `"compatible"` → `Compatible`
+- `"earlier"` → `Earlier`
+- `"later"` → `Later`
+- `"reject"` → `Reject`
+
+Offset option (`temporal.OffsetBehavior`):
+
+- `"prefer"` → `Prefer`
+- `"use"` → `Use`
+- `"ignore"` → `Ignore`
+- `"reject"` → `Reject`
+
+Rounding mode (`temporal.RoundingMode`):
+
+- `"ceil"` → `Ceil`
+- `"floor"` → `Floor`
+- `"trunc"` → `Trunc`
+- `"expand"` → `Expand`
+- `"halfCeil"` → `HalfCeil`
+- `"halfFloor"` → `HalfFloor`
+- `"halfTrunc"` → `HalfTrunc`
+- `"halfExpand"` → `HalfExpand`
+- `"halfEven"` → `HalfEven`
+
+Unit (`temporal.Unit`):
+
+- `"year"` → `Year`
+- `"month"` → `Month`
+- `"week"` → `Week`
+- `"day"` → `Day`
+- `"hour"` → `Hour`
+- `"minute"` → `Minute`
+- `"second"` → `Second`
+- `"millisecond"` → `Millisecond`
+- `"microsecond"` → `Microsecond`
+- `"nanosecond"` → `Nanosecond`
+
+Display (`temporal.Display`), for `ToStringOptions` annotation flags:
+
+- `"auto"` → `Auto`
+- `"always"` → `Always`
+- `"never"` → `Never`
+- `"critical"` → `Critical`
+
 
 ## Deliberately deferred or out of scope
 
