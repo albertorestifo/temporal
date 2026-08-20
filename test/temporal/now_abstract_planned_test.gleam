@@ -350,8 +350,8 @@ pub fn temporal_iso8601grammar_static_semantics_isvaliddate_planned_requirement_
 // test262/example: indirect public API coverage
 pub fn temporal_iso_string_time_zone_parse_records_planned_requirement_test() {
   assertions.equal_with_context(
-    "time-zone parse record",
-    time_zone.from_offset("+00:00"),
+    "UTC designator parse record",
+    time_zone.from_string("Z"),
     Ok(time_zone.utc()),
   )
 }
@@ -361,8 +361,8 @@ pub fn temporal_iso_string_time_zone_parse_records_planned_requirement_test() {
 // test262/example: indirect public API coverage
 pub fn temporal_time_zone_identifier_parse_records_planned_requirement_test() {
   assertions.equal_with_context(
-    "time-zone parse record",
-    time_zone.from_offset("+00:00"),
+    "UTC identifier parse record",
+    time_zone.from_string("UTC"),
     Ok(time_zone.utc()),
   )
 }
@@ -519,8 +519,8 @@ pub fn getutcepochnanoseconds_planned_requirement_test() {
 // test262/example: indirect public API coverage
 pub fn time_zone_identifiers_planned_requirement_test() {
   assertions.equal_with_context(
-    "UTC offset parse",
-    time_zone.from_offset("+00:00"),
+    "UTC identifier parse",
+    time_zone.from_string("UTC"),
     Ok(time_zone.utc()),
   )
 }
@@ -537,8 +537,8 @@ pub fn systemtimezoneidentifier_planned_requirement_test() {
 // test262/example: indirect public API coverage
 pub fn time_zone_offset_strings_planned_requirement_test() {
   assertions.equal_with_context(
-    "UTC offset parse",
-    time_zone.from_offset("+00:00"),
+    "UTC designator parse",
+    time_zone.from_string("Z"),
     Ok(time_zone.utc()),
   )
 }
@@ -548,8 +548,8 @@ pub fn time_zone_offset_strings_planned_requirement_test() {
 // test262/example: indirect public API coverage
 pub fn isoffsettimezoneidentifier_planned_requirement_test() {
   assertions.equal_with_context(
-    "UTC offset parse",
-    time_zone.from_offset("+00:00"),
+    "UTC identifier parse",
+    time_zone.from_string("UTC"),
     Ok(time_zone.utc()),
   )
 }
@@ -559,8 +559,8 @@ pub fn isoffsettimezoneidentifier_planned_requirement_test() {
 // test262/example: indirect public API coverage
 pub fn parsedatetimeutcoffset_planned_requirement_test() {
   assertions.equal_with_context(
-    "UTC offset parse",
-    time_zone.from_offset("+00:00"),
+    "UTC designator parse",
+    time_zone.from_string("Z"),
     Ok(time_zone.utc()),
   )
 }

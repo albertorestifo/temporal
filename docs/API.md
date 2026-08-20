@@ -879,9 +879,11 @@ pub fn possible_instants_for(
 ) -> Result(List(instant.Instant), temporal.Error)
 ```
 
-Time-zone *kind* is a variant type. UTC is `Utc`. Fixed offsets are
-`FixedOffset` with a validated minute count; `from_offset` parses `+HH:MM` /
-`-HH:MM` at the boundary. Named IANA zones are open-ended and represented by
+Time-zone *kind* is a variant type. UTC is `Utc`, parsed from `"UTC"` or the
+UTC designator `"Z"`. Fixed offsets are `FixedOffset` with a validated minute
+count; `from_offset` parses `+HH:MM` / `-HH:MM` at the boundary. A zero numeric
+offset is `FixedOffset(0)` and keeps the identifier `+00:00`, so it is not
+equal to `Utc`. Named IANA zones are open-ended and represented by
 an opaque `Named` payload that can only be constructed through validating
 `from_id` / `from_string`. Transition and local-time lookup use an explicit,
 versioned provider and return `PlatformUnavailable` until one is configured.
@@ -1078,9 +1080,9 @@ Calendar (`calendar.Calendar`):
 
 Time zone (`time_zone.TimeZone`):
 
-- `"UTC"` → `Utc`
+- `"UTC"` / `"Z"` → `Utc`
 - `"+HH:MM"` / `"-HH:MM"` → `FixedOffset(total_minutes)` (parsed by
-  `from_offset`)
+  `from_offset`, including `"+00:00"` → `FixedOffset(0)`)
 
 Overflow (`temporal.Overflow`):
 

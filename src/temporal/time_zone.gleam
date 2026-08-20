@@ -20,11 +20,12 @@ const nanoseconds_per_minute = 60_000_000_000
 
 /// A validated time-zone kind.
 ///
-/// Core values are `Utc` or a validated `FixedOffset`. A zero offset
-/// canonicalizes to `Utc`, so `+00:00` and `-00:00` are the UTC identifier.
-/// Named IANA identifiers are not a closed core set; `from_id` /
-/// `from_string` reject them with `UnknownTimeZone` until a versioned provider
-/// exists.
+/// Core values are `Utc` or a validated `FixedOffset`. A zero numeric offset
+/// is `FixedOffset(0)` and keeps the identifier `+00:00`; it is a distinct
+/// zone from `Utc`, so two zoned date-times that share an instant but differ
+/// between `UTC` and `+00:00` are not equal. Named IANA identifiers are not a
+/// closed core set; `from_id` / `from_string` reject them with
+/// `UnknownTimeZone` until a versioned provider exists.
 pub opaque type TimeZone {
   Utc
   FixedOffset(total_minutes: Int)
@@ -46,12 +47,13 @@ pub fn named_fixture(id: String) -> TimeZone {
 
 /// Parse a supported time-zone identifier from its spec string.
 ///
-/// `UTC` is matched case-insensitively. Numeric offsets must use `+HH:MM` or
-/// `-HH:MM`. Named IANA identifiers return `UnknownTimeZone` until a provider
-/// is configured.
+/// `UTC` and the UTC designator `Z` are matched case-insensitively and both
+/// give `utc()`. Numeric offsets must use `+HH:MM` or `-HH:MM`, and `+00:00`
+/// is the zero fixed offset rather than `utc()`. Named IANA identifiers return
+/// `UnknownTimeZone` until a provider is configured.
 pub fn from_string(id: String) -> Result(TimeZone, temporal.Error) {
   case string.lowercase(id) {
-    "utc" -> Ok(utc())
+    "utc" | "z" -> Ok(utc())
     _ ->
       case from_offset(id) {
         Ok(time_zone) -> Ok(time_zone)
@@ -70,7 +72,8 @@ pub fn from_id(id: String) -> Result(TimeZone, temporal.Error) {
 /// Parse and canonicalize a fixed numeric offset.
 ///
 /// Accepted offsets use `+HH:MM` or `-HH:MM`, with an absolute value less
-/// than 24 hours. Both `+00:00` and `-00:00` canonicalize to `utc()`.
+/// than 24 hours. Both `+00:00` and `-00:00` give the zero fixed offset, which
+/// is not `utc()`; parse `UTC` or `Z` with `from_string` for that.
 pub fn from_offset(offset: String) -> Result(TimeZone, temporal.Error) {
   case string.to_graphemes(offset) {
     [sign, hour_tens, hour_ones, ":", minute_tens, minute_ones] ->
@@ -237,10 +240,7 @@ fn build_offset(
         True -> -magnitude
         False -> magnitude
       }
-      case total_minutes {
-        0 -> Ok(Utc)
-        _ -> Ok(FixedOffset(total_minutes))
-      }
+      Ok(FixedOffset(total_minutes))
     }
   }
 }
