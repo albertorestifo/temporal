@@ -60,26 +60,47 @@ normative requirement counts.
 Section  Topic                    Direct  Indirect  N/A  Total
 01       Namespace                     0         1   13     14
 02       Now                           6         6    3     15
-03       PlainDate                    17        34    7     58
-04       PlainTime                    13        27    7     47
-05       PlainDateTime                18        41    7     66
-06       ZonedDateTime                22        41    7     70
-07       Duration                     13        56    7     76
-08       Instant                      15        16    7     38
-09       PlainYearMonth               13        21    7     41
-10       PlainMonthDay                 8         9    7     24
+03       PlainDate                    16        34    8     58
+04       PlainTime                    12        27    8     47
+05       PlainDateTime                17        41    8     66
+06       ZonedDateTime                21        41    8     70
+07       Duration                     12        56    8     76
+08       Instant                      14        16    8     38
+09       PlainYearMonth               12        21    8     41
+10       PlainMonthDay                 7         9    8     24
 11       Time zones                    0        18    0     18
 12       Calendars                     0        39    0     39
-13       Abstract operations           0        47    0     47
-14       ECMA-262 amendments           0        14   17     31
+13       Abstract operations           0        45    2     47
+14       ECMA-262 amendments           0        13   18     31
 15       ECMA-402 amendments           0         0   70     70
-Totals                              125       370  159    654
+Totals                              117       367  170    654
 ```
 
-Lifecycle totals are 164 `active`, 331 `planned`, and 159 `exempt`
-requirements. The inventory references 201 independently named Gleam tests.
-The 331 planned applicable requirements still have no Gleam test ID, so the
-inventory is traceable but the executable test-first suite is not complete.
+```text
+Section  Topic                    Planned  Active  Complete  Exempt
+01       Namespace                      0       1         0      13
+02       Now                            0      12         0       3
+03       PlainDate                      0      50         0       8
+04       PlainTime                      0      39         0       8
+05       PlainDateTime                  0      58         0       8
+06       ZonedDateTime                  0      62         0       8
+07       Duration                       0      68         0       8
+08       Instant                        0      30         0       8
+09       PlainYearMonth                 0      33         0       8
+10       PlainMonthDay                  0      16         0       8
+11       Time zones                     0      18         0       0
+12       Calendars                      0      39         0       0
+13       Abstract operations            0      45         0       2
+14       ECMA-262 amendments            0      13         0      18
+15       ECMA-402 amendments            0       0         0      70
+Totals                                  0     484         0     170
+```
+
+Lifecycle totals are 484 `active`, 0 `planned`, 0 `complete`, and 170 `exempt`
+requirements. Remaining non-exempt `planned` is 0: the last 40 leftover
+requirement IDs are now `active`. The inventory references 521 independently
+named Gleam tests. Applicable requirements now have Gleam test IDs; the
+test-first suite is still RED until implementations reach `complete`.
 
 ## Completeness audit
 
@@ -102,12 +123,10 @@ provenance mismatches, and placeholder rationales.
 
 ## Current RED and target status
 
-On Erlang, `gleam test` compiles and runs 205 tests: 112 pass and 93 are
-expected RED while behavior remains unimplemented. All 83 tests that formerly
-stopped in a shared `from_iso_8601` fixture now exercise the operation named by
-the test: 41 pass and 42 fail at their own requirement assertion.
+On Erlang, `gleam test` compiles and runs 525 tests: 173 pass and 352 are
+expected RED while behavior remains unimplemented.
 
-On JavaScript, the suite also compiles and runs, with 109 passing and 96
+On JavaScript, the suite also compiles and runs, with 170 passing and 355
 failing. The three additional failures are the real-system-clock tests:
 
 - `now_system_clock_returns_current_era_instant_test`
