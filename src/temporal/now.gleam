@@ -9,6 +9,9 @@ import gleam/result
 import temporal
 import temporal/calendar
 import temporal/instant
+import temporal/plain_date
+import temporal/plain_date_time
+import temporal/plain_time
 import temporal/time_zone
 import temporal/zoned_date_time
 
@@ -83,6 +86,11 @@ pub fn time_zone_id_with_clock(clock: Clock) -> Result(String, temporal.Error) {
   |> result.map(time_zone.id)
 }
 
+/// Reads the system clock's validated time zone.
+pub fn time_zone() -> Result(time_zone.TimeZone, temporal.Error) {
+  time_zone_with_clock(system_clock())
+}
+
 /// Reads the current instant as a zoned date-time in the ISO 8601 calendar.
 ///
 /// Passing `None` uses the clock's own zone.
@@ -110,7 +118,8 @@ pub fn zoned_date_time_iso_with_clock(
   )
 }
 
-fn time_zone_with_clock(
+/// Reads the validated time zone associated with `clock`.
+pub fn time_zone_with_clock(
   clock: Clock,
 ) -> Result(time_zone.TimeZone, temporal.Error) {
   case clock {
@@ -118,6 +127,30 @@ fn time_zone_with_clock(
     SystemClock ->
       Error(temporal.PlatformUnavailable(temporal.LocalTimeZoneDiscovery))
   }
+}
+
+/// Reads the current local date-time in the ISO 8601 calendar.
+pub fn plain_date_time_iso(
+  time_zone zone_option: Option(time_zone.TimeZone),
+) -> Result(plain_date_time.PlainDateTime, temporal.Error) {
+  use zoned <- result.try(zoned_date_time_iso(time_zone: zone_option))
+  zoned_date_time.to_plain_date_time(zoned)
+}
+
+/// Reads the current local date in the ISO 8601 calendar.
+pub fn plain_date_iso(
+  time_zone zone_option: Option(time_zone.TimeZone),
+) -> Result(plain_date.PlainDate, temporal.Error) {
+  use date_time <- result.try(plain_date_time_iso(time_zone: zone_option))
+  Ok(plain_date_time.to_plain_date(date_time))
+}
+
+/// Reads the current local time in the ISO 8601 calendar.
+pub fn plain_time_iso(
+  time_zone zone_option: Option(time_zone.TimeZone),
+) -> Result(plain_time.PlainTime, temporal.Error) {
+  use date_time <- result.try(plain_date_time_iso(time_zone: zone_option))
+  Ok(plain_date_time.to_plain_time(date_time))
 }
 
 fn platform_epoch_milliseconds() -> Result(Int, temporal.Error) {

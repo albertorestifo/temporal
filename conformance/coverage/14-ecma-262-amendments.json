@@ -61,8 +61,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-year-week-record-specification-type",
       "summary": "The Year-Week Record Specification Type",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::year_week_record_specification_type_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -73,8 +75,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-mathematical-operations",
       "summary": "Mathematical Operations",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::mathematical_operations_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -85,8 +89,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-ecma262-abstract-operations",
       "summary": "Abstract Operations",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::ecma262_abstract_operations_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -108,12 +114,12 @@
       "spec_anchor": "sec-tointegerifintegral",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-tointegerifintegral",
       "summary": "ToIntegerIfIntegral ( _argument_: an ECMAScript language value, ): either a normal completion containing an integer or a throw completion",
-      "disposition": "indirect",
-      "coverage_status": "planned",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": null
+      "rationale": "JavaScript numeric coercion is outside the typed Gleam semantic-port contract."
     },
     {
       "id": "TEMP-S14-SEC-OPERATIONS-FOR-READING-OPTIONS",
@@ -121,8 +127,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-operations-for-reading-options",
       "summary": "Operations for Reading Options",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::operations_for_reading_options_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -145,8 +153,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-temporal-getroundingmodeoption",
       "summary": "GetRoundingModeOption ( _options_: an Object, _fallback_: a rounding mode, ): either a normal completion containing a rounding mode, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_getroundingmodeoption_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -157,8 +167,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-temporal-getroundingincrementoption",
       "summary": "GetRoundingIncrementOption ( _options_: an Object, ): either a normal completion containing a positive integer in the inclusive interval from 1 to 109, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_getroundingincrementoption_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -181,8 +193,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-getutcepochnanoseconds",
       "summary": "GetUTCEpochNanoseconds ( _year_: an integer, _month_: an integer in the inclusive interval from 1 to 12, _day_: an integer in the inclusive interval from 1 to 31, _hour_: an integer in the inclusive interval from 0 to 23, _minute_: an integer in the inclusive interval from 0 to 59, _second_: an integer in the inclusive interval from 0 to 59, _millisecond_: an integer in the inclusive interval from 0 to 999, _microsecond_: an integer in the inclusive interval from 0 to 999, _nanosecond_: an integer in the inclusive interval from 0 to 999, _isoDateTime_: an ISO Date-Time Record, ): a BigInt",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::getutcepochnanoseconds_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -193,8 +207,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-time-zone-identifiers",
       "summary": "Time Zone Identifiers",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::time_zone_identifiers_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -217,8 +233,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-systemtimezoneidentifier",
       "summary": "SystemTimeZoneIdentifier ( ): an available time zone identifier",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::systemtimezoneidentifier_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -229,8 +247,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-time-zone-offset-strings",
       "summary": "Time Zone Offset String FormatFormats",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::time_zone_offset_strings_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -289,8 +309,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-isoffsettimezoneidentifier",
       "summary": "IsTimeZoneOffsetString ( _offsetString_: a String, ): a Boolean",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::isoffsettimezoneidentifier_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -301,8 +323,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-parsedatetimeutcoffset",
       "summary": "ParseTimeZoneOffsetString ( _offsetString_: a String, ): an integer",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::parsedatetimeutcoffset_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null

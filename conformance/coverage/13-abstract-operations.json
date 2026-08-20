@@ -73,8 +73,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-checkisodaysrange",
       "summary": "CheckISODaysRange ( _isoDate_: an ISO Date Record, ): either a normal completion containing ~unused~ or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::checkisodaysrange_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -85,8 +87,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-units",
       "summary": "Units",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_units_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -112,8 +116,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-gettemporaldisambiguationoption",
       "summary": "GetTemporalDisambiguationOption ( _options_: an Object, ): either a normal completion containing either ~compatible~, ~earlier~, ~later~, or ~reject~, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_gettemporaldisambiguationoption_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -138,8 +144,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-gettemporaloffsetoption",
       "summary": "GetTemporalOffsetOption ( _options_: an Object, _fallback_: one of ~prefer~, ~use~, ~ignore~, or ~reject~, ): either a normal completion containing either ~prefer~, ~use~, ~ignore~, or ~reject~, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_gettemporaloffsetoption_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -150,8 +158,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-gettemporalshowcalendarnameoption",
       "summary": "GetTemporalShowCalendarNameOption ( _options_: an Object, ): either a normal completion containing either ~auto~, ~always~, ~never~, or ~critical~, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_gettemporalshowcalendarnameoption_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -162,8 +172,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-gettemporalshowtimezonenameoption",
       "summary": "GetTemporalShowTimeZoneNameOption ( _options_: an Object, ): either a normal completion containing either ~auto~, ~never~, or ~critical~, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_gettemporalshowtimezonenameoption_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -174,8 +186,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-gettemporalshowoffsetoption",
       "summary": "GetTemporalShowOffsetOption ( _options_: an Object, ): either a normal completion containing either ~auto~ or ~never~, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_gettemporalshowoffsetoption_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -212,8 +226,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-gettemporalfractionalseconddigitsoption",
       "summary": "GetTemporalFractionalSecondDigitsOption ( _options_: an Object, ): either a normal completion containing either ~auto~ or an integer in the inclusive interval from 0 to 9, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_gettemporalfractionalseconddigitsoption_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -224,8 +240,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-tosecondsstringprecisionrecord",
       "summary": "ToSecondsStringPrecisionRecord ( _smallestUnit_: one of ~minute~, ~second~, ~millisecond~, ~microsecond~, ~nanosecond~, or ~unset~, _fractionalDigitCount_: either an integer in the inclusive interval from 0 to 9 or ~auto~, ): a Record with fields [[Precision]] (either an integer in the inclusive interval from 0 to 9, ~minute~, or ~auto~), [[Unit]] (one of ~minute~, ~second~, ~millisecond~, ~microsecond~, or ~nanosecond~), and [[Increment]] (one of 1, 10, or 100)",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_tosecondsstringprecisionrecord_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -236,8 +254,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-gettemporalunitvaluedoption",
       "summary": "GetTemporalUnitValuedOption ( _options_: an Object, _key_: a property key, _default_: either ~required~ or ~unset~, ): either a normal completion containing either a Temporal unit, ~unset~, or ~auto~, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_gettemporalunitvaluedoption_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -248,8 +268,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-validatetemporalunitvaluedoption",
       "summary": "ValidateTemporalUnitValue ( _value_: either a Temporal unit, ~unset~, or ~auto~, _unitGroup_: one of ~date~, ~time~, or ~datetime~, optional _extraValues_: a List of either Temporal units or ~auto~, ): either a normal completion containing ~unused~ or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_validatetemporalunitvaluedoption_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -260,8 +282,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-gettemporalrelativetooption",
       "summary": "GetTemporalRelativeToOption ( _options_: an Object, ): either a normal completion containing a Record with fields [[PlainRelativeTo]] (a Temporal.PlainDate or *undefined*) and [[ZonedRelativeTo]] (a Temporal.ZonedDateTime or *undefined*), or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_gettemporalrelativetooption_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -272,8 +296,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-largeroftwotemporalunits",
       "summary": "LargerOfTwoTemporalUnits ( _u1_: a Temporal unit, _u2_: a Temporal unit, ): a Temporal unit",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_largeroftwotemporalunits_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -284,8 +310,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-iscalendarunit",
       "summary": "IsCalendarUnit ( _unit_: a Temporal unit, ): a Boolean",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_iscalendarunit_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -296,8 +324,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-temporalunitcategory",
       "summary": "TemporalUnitCategory ( _unit_: a Temporal unit, ): either ~date~ or ~time~",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_temporalunitcategory_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -308,8 +338,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-maximumtemporaldurationroundingincrement",
       "summary": "MaximumTemporalDurationRoundingIncrement ( _unit_: a Temporal unit, ): one of 24, 60, 1000, or ~unset~",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_maximumtemporaldurationroundingincrement_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -360,8 +392,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-getunsignedroundingmode",
       "summary": "GetUnsignedRoundingMode ( _roundingMode_: a rounding mode, _sign_: either ~negative~ or ~positive~, ): an unsigned rounding mode",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::getunsignedroundingmode_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -372,8 +406,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-applyunsignedroundingmode",
       "summary": "ApplyUnsignedRoundingMode ( _x_: a mathematical value, _r1_: a mathematical value, _r2_: a mathematical value, _unsignedRoundingMode_: either a specification type from the \"Unsigned Rounding Mode\" column of or *undefined*, ): a mathematical value",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::applyunsignedroundingmode_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -399,8 +435,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-roundnumbertoincrementasifpositive",
       "summary": "RoundNumberToIncrementAsIfPositive ( _x_: a mathematical value, _increment_: a positive integer, _roundingMode_: a rounding mode, ): an integer",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_roundnumbertoincrementasifpositive_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -411,8 +449,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-iso8601grammar",
       "summary": "RFC 9557 / ISO 8601 grammar",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_iso8601grammar_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -423,8 +463,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-iso8601grammar-static-semantics-isvalidmonthday",
       "summary": "Static Semantics: IsValidMonthDay ( ): a Boolean",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_iso8601grammar_static_semantics_isvalidmonthday_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -435,8 +477,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-iso8601grammar-static-semantics-isvaliddate",
       "summary": "Static Semantics: IsValidDate ( ): a Boolean",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_iso8601grammar_static_semantics_isvaliddate_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -461,8 +505,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-iso-string-time-zone-parse-records",
       "summary": "ISO String Time Zone Parse Records",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_iso_string_time_zone_parse_records_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -473,8 +519,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-time-zone-identifier-parse-records",
       "summary": "Time Zone Identifier Parse Records",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_time_zone_identifier_parse_records_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -485,8 +533,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-iso-date-time-parse-records",
       "summary": "ISO Date-Time Parse Records",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_iso_date_time_parse_records_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -497,8 +547,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-parseisodatetime",
       "summary": "ParseISODateTime ( _isoString_: a String, _allowedFormats_: a List of nonterminals, ): either a normal completion containing an ISO Date-Time Parse Record or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_parseisodatetime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -509,8 +561,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-parsetemporalcalendarstring",
       "summary": "ParseTemporalCalendarString ( _string_: a String, ): either a normal completion containing a String or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_parsetemporalcalendarstring_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -535,8 +589,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-parsetemporaltimezonestring",
       "summary": "ParseTemporalTimeZoneString ( _timeZoneString_: a String, ): either a normal completion containing a Time Zone Identifier Parse Record, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_parsetemporaltimezonestring_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -546,24 +602,24 @@
       "spec_anchor": "sec-topositiveintegerwithtruncation",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-topositiveintegerwithtruncation",
       "summary": "ToPositiveIntegerWithTruncation ( _argument_: an ECMAScript language value, ): either a normal completion containing a positive integer or a throw completion",
-      "disposition": "indirect",
-      "coverage_status": "planned",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": null
+      "rationale": "JavaScript numeric coercion is outside the typed Gleam semantic-port contract."
     },
     {
       "id": "TEMP-S13-SEC-TOINTEGERWITHTRUNCATION",
       "spec_anchor": "sec-tointegerwithtruncation",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-tointegerwithtruncation",
       "summary": "ToIntegerWithTruncation ( _argument_: an ECMAScript language value, ): either a normal completion containing an integer or a throw completion",
-      "disposition": "indirect",
-      "coverage_status": "planned",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": null
+      "rationale": "JavaScript numeric coercion is outside the typed Gleam semantic-port contract."
     },
     {
       "id": "TEMP-S13-SEC-TEMPORAL-TOOFFSETSTRING",
@@ -571,8 +627,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-tooffsetstring",
       "summary": "ToOffsetString ( _argument_: an ECMAScript language value, ): either a normal completion containing a String or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_tooffsetstring_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -595,8 +653,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-getdifferencesettings",
       "summary": "GetDifferenceSettings ( _operation_: either ~since~ or ~until~, _options_: an Object, _unitGroup_: one of ~date~, ~time~, or ~datetime~, _disallowedUnits_: a List of Temporal units, _fallbackSmallestUnit_: a Temporal unit, _smallestLargestDefaultUnit_: a Temporal unit, ): either a normal completion containing a Record with fields [[SmallestUnit]] (a Temporal unit), [[LargestUnit]] (a Temporal unit), [[RoundingMode]] (a rounding mode), and [[RoundingIncrement]] (an integer in the inclusive interval from 1 to 109), or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_getdifferencesettings_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null

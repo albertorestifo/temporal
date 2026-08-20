@@ -89,6 +89,28 @@ pub type Disambiguation {
   RejectAmbiguous
 }
 
+/// How an annotated offset participates in local time-zone resolution.
+pub type OffsetBehavior {
+  Prefer
+  Use
+  Ignore
+  RejectOffset
+}
+
+/// Whether a serializable annotation is shown.
+pub type Display {
+  Auto
+  Always
+  Never
+  Critical
+}
+
+/// Fractional-second precision used by serialization.
+pub type Precision {
+  AutoPrecision
+  Digits(Int)
+}
+
 /// How a value that sits between two increments is rounded.
 ///
 /// The `Half*` modes apply only to exact ties; every other value rounds to the

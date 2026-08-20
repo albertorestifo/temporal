@@ -120,8 +120,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/temporal.html#sec-temporal.now.plaindatetimeiso",
       "summary": "Temporal.Now.plainDateTimeISO ( [ _temporalTimeZoneLike_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_now_plaindatetimeiso_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Now/plainDateTimeISO/extensible.js",
         "test/built-ins/Temporal/Now/plainDateTimeISO/length.js",
@@ -181,8 +183,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/temporal.html#sec-temporal.now.plaindateiso",
       "summary": "Temporal.Now.plainDateISO ( [ _temporalTimeZoneLike_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_now_plaindateiso_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Now/plainDateISO/length.js",
         "test/built-ins/Temporal/Now/plainDateISO/prop-desc.js",
@@ -205,8 +209,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/temporal.html#sec-temporal.now.plaintimeiso",
       "summary": "Temporal.Now.plainTimeISO ( [ _temporalTimeZoneLike_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_now_plaintimeiso_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Now/plainTimeISO/length.js",
         "test/built-ins/Temporal/Now/plainTimeISO/prop-desc.js",
@@ -294,8 +300,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/temporal.html#sec-temporal-systemdatetime",
       "summary": "SystemDateTime ( _temporalTimeZoneLike_: an ECMAScript language value, ): either a normal completion containing an ISO Date-Time Record or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_abstract_planned_test::temporal_systemdatetime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#current-date-and-time"
