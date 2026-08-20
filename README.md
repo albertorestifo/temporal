@@ -6,20 +6,6 @@
 
 A semantic port of [TC39 Temporal](https://tc39.es/proposal-temporal/) to Gleam.
 
-Temporal fixes JavaScript dates by separating exact instants from wall-clock
-values, making every value immutable, and making time zones and calendars
-explicit. This package keeps those semantics and the observables you rely on —
-ISO 8601 strings, the same field names, the same operation set — while dropping
-the JavaScript object model. There are no prototypes, no property bags, no
-coercion, no `undefined`, and no legacy `Date`. Instead you get modules,
-opaque types with validating constructors, closed variant types for options,
-`gleam/order.Order` for comparisons, and `Result(value, temporal.Error)` for
-everything that can fail.
-
-It compiles and behaves the same on both Erlang and JavaScript. Exact epoch
-nanoseconds are kept in [`bigi`](https://hexdocs.pm/bigi/) so the full Temporal
-range is safe on both targets.
-
 ```gleam
 import temporal
 import temporal/duration
@@ -48,56 +34,10 @@ pub fn main() {
 
 ## Install
 
-```sh
-gleam add temporal
-```
-
-The name `temporal` on Hex is currently held by an unrelated Elixir package, so
-until this package is published under a final name, depend on the repository
-directly:
-
 ```toml
 [dependencies]
 temporal = { git = "https://github.com/albertorestifo/temporal", ref = "main" }
 ```
-
-## Spec compliance
-
-Conformance is tracked against immutable pins, not against "whatever the spec
-says today". The pins live in
-[`conformance/sources.json`](conformance/sources.json):
-
-| Source | Pin |
-| --- | --- |
-| `proposal-temporal` spec and docs | [`e8cc03f`](https://github.com/tc39/proposal-temporal/commit/e8cc03fc970a65a3359e8870e3b35e687ac94e55) |
-| `test262` | [`3655e74`](https://github.com/tc39/test262/commit/3655e7464de3d52643ecddd4b5f9f4f3e7f62398) |
-
-Every normative clause of the pinned spec has a stable requirement ID and a
-coverage record under [`conformance/coverage/`](conformance/coverage). Running
-`python3 scripts/check_conformance.py` reports the current state:
-
-```text
-Conformance inventory OK: 15 sections, 654 requirements, 521 Gleam tests, 4603 test262 files
-```
-
-- **654 normative requirements** across the spec's 15 sections.
-- **170 are `n/a-js-runtime`** and stay visible rather than being deleted:
-  JavaScript prototypes, property descriptors, symbols, coercion hooks,
-  subclassing, legacy `Date`, and the 70 ECMA-402-only clauses. They are not
-  applicable to a Gleam library, and pretending otherwise would inflate the
-  numbers.
-- **484 applicable requirements** each link to independently named Gleam tests.
-- **521 named Gleam tests** are referenced by the inventory, and each mapping is
-  checked to exist and carry matching requirement and spec provenance.
-- **4,603 pinned test262 files** each map to exactly one requirement.
-- **525 tests pass on Erlang and 525 pass on JavaScript.** Both targets are
-  green, with no target-specific exclusions.
-
-One honest caveat about the numbers: applicable requirements are still recorded
-with `coverage_status: active` rather than `complete`. Green tests are evidence
-that the covered observables behave correctly, not a claim that every clause is
-finished. The inventory, not this README, is authoritative — see
-[`conformance/README.md`](conformance/README.md).
 
 ### Known limits
 
