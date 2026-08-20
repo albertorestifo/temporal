@@ -18,9 +18,7 @@
       "test262_paths": [
         "test/built-ins/Temporal/getOwnPropertyNames.js",
         "test/built-ins/Temporal/keys.js",
-        "test/built-ins/Temporal/prop-desc.js",
-        "test/built-ins/Temporal/toStringTag/prop-desc.js",
-        "test/built-ins/Temporal/toStringTag/string.js"
+        "test/built-ins/Temporal/prop-desc.js"
       ],
       "official_example_links": [],
       "rationale": "JavaScript namespace object properties, descriptors, prototypes, and constructor exposure are represented by Gleam modules and are outside the semantic-port contract."
@@ -45,7 +43,10 @@
       "disposition": "n/a-js-runtime",
       "coverage_status": "exempt",
       "gleam_test_ids": [],
-      "test262_paths": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/toStringTag/prop-desc.js",
+        "test/built-ins/Temporal/toStringTag/string.js"
+      ],
       "official_example_links": [],
       "rationale": "JavaScript namespace object properties, descriptors, prototypes, and constructor exposure are represented by Gleam modules and are outside the semantic-port contract."
     },

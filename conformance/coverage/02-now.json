@@ -17,12 +17,7 @@
       "gleam_test_ids": [
         "temporal/now_test::now_fixed_clocks_are_independent_values_test"
       ],
-      "test262_paths": [
-        "test/built-ins/Temporal/Now/builtin.js",
-        "test/built-ins/Temporal/Now/prop-desc.js",
-        "test/built-ins/Temporal/Now/toStringTag/prop-desc.js",
-        "test/built-ins/Temporal/Now/toStringTag/string.js"
-      ],
+      "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#current-date-and-time"
       ],
@@ -36,7 +31,10 @@
       "disposition": "n/a-js-runtime",
       "coverage_status": "exempt",
       "gleam_test_ids": [],
-      "test262_paths": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/Now/builtin.js",
+        "test/built-ins/Temporal/Now/prop-desc.js"
+      ],
       "official_example_links": [],
       "rationale": "The JavaScript Temporal.Now intrinsic and its namespace property descriptor have no Gleam object-model equivalent; current-time semantics are exposed by temporal/now functions."
     },
@@ -48,7 +46,10 @@
       "disposition": "n/a-js-runtime",
       "coverage_status": "exempt",
       "gleam_test_ids": [],
-      "test262_paths": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/Now/toStringTag/prop-desc.js",
+        "test/built-ins/Temporal/Now/toStringTag/string.js"
+      ],
       "official_example_links": [],
       "rationale": "Gleam modules do not have Symbol.toStringTag or JavaScript property descriptors."
     },

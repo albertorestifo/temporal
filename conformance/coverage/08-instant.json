@@ -16,8 +16,7 @@
       "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [
-        "test/built-ins/Temporal/Instant/prototype/builtin.js",
-        "test/built-ins/Temporal/Instant/prototype/toStringTag/prop-desc.js"
+        "test/built-ins/Temporal/Instant/prototype/builtin.js"
       ],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#unix-timestamp"
@@ -284,7 +283,9 @@
       "disposition": "n/a-js-runtime",
       "coverage_status": "exempt",
       "gleam_test_ids": [],
-      "test262_paths": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/Instant/prototype/toStringTag/prop-desc.js"
+      ],
       "official_example_links": [],
       "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
     },

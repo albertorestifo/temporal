@@ -17,30 +17,7 @@
       "gleam_test_ids": [
         "temporal/zoned_date_time_test::zoned_date_time_instance_preserves_exact_time_test"
       ],
-      "test262_paths": [
-        "test/built-ins/Temporal/ZonedDateTime/calendar-invalid-iso-string.js",
-        "test/built-ins/Temporal/ZonedDateTime/calendar-string.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/calendarId/basic.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/day/balance-negative-time-units.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/era/basic.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/eraYear/basic.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/hour/balance-negative-time-units.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/hoursInDay/basic.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/hoursInDay/get-start-of-day-throws.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/hoursInDay/next-day-out-of-range.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/microsecond/balance-negative-time-units.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/microsecond/negative-epochnanoseconds.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/millisecond/balance-negative-time-units.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/millisecond/negative-epochnanoseconds.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/minute/balance-negative-time-units.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/monthCode/basic.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/monthCode/no-leap-months.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/nanosecond/negative-epochnanoseconds.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/second/balance-negative-time-units.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/timeZoneId/basic.js",
-        "test/built-ins/Temporal/ZonedDateTime/prototype/toStringTag/prop-desc.js",
-        "test/built-ins/Temporal/ZonedDateTime/timezone-iso-string.js"
-      ],
+      "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#preserving-exact-time"
       ],
@@ -76,6 +53,8 @@
         "test/built-ins/Temporal/ZonedDateTime/argument-convert.js",
         "test/built-ins/Temporal/ZonedDateTime/builtin.js",
         "test/built-ins/Temporal/ZonedDateTime/calendar-case-insensitive.js",
+        "test/built-ins/Temporal/ZonedDateTime/calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/ZonedDateTime/calendar-string.js",
         "test/built-ins/Temporal/ZonedDateTime/calendar-undefined.js",
         "test/built-ins/Temporal/ZonedDateTime/calendar-wrong-type.js",
         "test/built-ins/Temporal/ZonedDateTime/construction-and-properties.js",
@@ -87,6 +66,7 @@
         "test/built-ins/Temporal/ZonedDateTime/name.js",
         "test/built-ins/Temporal/ZonedDateTime/prop-desc.js",
         "test/built-ins/Temporal/ZonedDateTime/subclass.js",
+        "test/built-ins/Temporal/ZonedDateTime/timezone-iso-string.js",
         "test/built-ins/Temporal/ZonedDateTime/timezone-string.js",
         "test/built-ins/Temporal/ZonedDateTime/timezone-wrong-type.js"
       ],
@@ -329,7 +309,9 @@
       "disposition": "n/a-js-runtime",
       "coverage_status": "exempt",
       "gleam_test_ids": [],
-      "test262_paths": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/ZonedDateTime/prototype/toStringTag/prop-desc.js"
+      ],
       "official_example_links": [],
       "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
     },
@@ -344,6 +326,7 @@
         "temporal/zoned_date_time_test::zoned_date_time_calendar_returns_iso_calendar_test"
       ],
       "test262_paths": [
+        "test/built-ins/Temporal/ZonedDateTime/prototype/calendarId/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/calendarId/branding.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/calendarId/prop-desc.js"
       ],
@@ -363,6 +346,7 @@
         "temporal/zoned_date_time_test::zoned_date_time_time_zone_returns_fixed_offset_test"
       ],
       "test262_paths": [
+        "test/built-ins/Temporal/ZonedDateTime/prototype/timeZoneId/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/timeZoneId/branding.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/timeZoneId/prop-desc.js"
       ],
@@ -380,6 +364,7 @@
       "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [
+        "test/built-ins/Temporal/ZonedDateTime/prototype/era/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/era/branding.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/era/prop-desc.js"
       ],
@@ -397,6 +382,7 @@
       "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [
+        "test/built-ins/Temporal/ZonedDateTime/prototype/eraYear/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/eraYear/branding.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/eraYear/prop-desc.js"
       ],
@@ -450,7 +436,9 @@
       "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [
+        "test/built-ins/Temporal/ZonedDateTime/prototype/monthCode/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/monthCode/branding.js",
+        "test/built-ins/Temporal/ZonedDateTime/prototype/monthCode/no-leap-months.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/monthCode/prop-desc.js"
       ],
       "official_example_links": [
@@ -467,6 +455,7 @@
       "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [
+        "test/built-ins/Temporal/ZonedDateTime/prototype/day/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/day/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/day/branding.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/day/prop-desc.js"
@@ -485,6 +474,7 @@
       "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [
+        "test/built-ins/Temporal/ZonedDateTime/prototype/hour/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/hour/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/hour/branding.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/hour/prop-desc.js"
@@ -503,6 +493,7 @@
       "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [
+        "test/built-ins/Temporal/ZonedDateTime/prototype/minute/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/minute/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/minute/branding.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/minute/prop-desc.js"
@@ -521,6 +512,7 @@
       "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [
+        "test/built-ins/Temporal/ZonedDateTime/prototype/second/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/second/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/second/branding.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/second/prop-desc.js"
@@ -539,8 +531,10 @@
       "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [
+        "test/built-ins/Temporal/ZonedDateTime/prototype/millisecond/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/millisecond/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/millisecond/branding.js",
+        "test/built-ins/Temporal/ZonedDateTime/prototype/millisecond/negative-epochnanoseconds.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/millisecond/prop-desc.js"
       ],
       "official_example_links": [
@@ -557,8 +551,10 @@
       "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [
+        "test/built-ins/Temporal/ZonedDateTime/prototype/microsecond/balance-negative-time-units.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/microsecond/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/microsecond/branding.js",
+        "test/built-ins/Temporal/ZonedDateTime/prototype/microsecond/negative-epochnanoseconds.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/microsecond/prop-desc.js"
       ],
       "official_example_links": [
@@ -577,6 +573,7 @@
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/nanosecond/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/nanosecond/branding.js",
+        "test/built-ins/Temporal/ZonedDateTime/prototype/nanosecond/negative-epochnanoseconds.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/nanosecond/prop-desc.js"
       ],
       "official_example_links": [
@@ -705,7 +702,10 @@
       "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [
+        "test/built-ins/Temporal/ZonedDateTime/prototype/hoursInDay/basic.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/hoursInDay/branding.js",
+        "test/built-ins/Temporal/ZonedDateTime/prototype/hoursInDay/get-start-of-day-throws.js",
+        "test/built-ins/Temporal/ZonedDateTime/prototype/hoursInDay/next-day-out-of-range.js",
         "test/built-ins/Temporal/ZonedDateTime/prototype/hoursInDay/prop-desc.js"
       ],
       "official_example_links": [

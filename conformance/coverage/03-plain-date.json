@@ -15,16 +15,7 @@
       "disposition": "indirect",
       "coverage_status": "planned",
       "gleam_test_ids": [],
-      "test262_paths": [
-        "test/built-ins/Temporal/PlainDate/calendar-invalid-iso-string.js",
-        "test/built-ins/Temporal/PlainDate/calendar-string.js",
-        "test/built-ins/Temporal/PlainDate/prototype/calendarId/basic.js",
-        "test/built-ins/Temporal/PlainDate/prototype/era/basic.js",
-        "test/built-ins/Temporal/PlainDate/prototype/eraYear/basic.js",
-        "test/built-ins/Temporal/PlainDate/prototype/monthCode/basic.js",
-        "test/built-ins/Temporal/PlainDate/prototype/monthCode/no-leap-months.js",
-        "test/built-ins/Temporal/PlainDate/prototype/toStringTag/prop-desc.js"
-      ],
+      "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
       ],
@@ -60,6 +51,8 @@
         "test/built-ins/Temporal/PlainDate/basic.js",
         "test/built-ins/Temporal/PlainDate/builtin.js",
         "test/built-ins/Temporal/PlainDate/calendar-case-insensitive.js",
+        "test/built-ins/Temporal/PlainDate/calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/calendar-string.js",
         "test/built-ins/Temporal/PlainDate/calendar-undefined.js",
         "test/built-ins/Temporal/PlainDate/calendar-wrong-type.js",
         "test/built-ins/Temporal/PlainDate/constructor.js",
@@ -284,7 +277,9 @@
       "disposition": "n/a-js-runtime",
       "coverage_status": "exempt",
       "gleam_test_ids": [],
-      "test262_paths": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/toStringTag/prop-desc.js"
+      ],
       "official_example_links": [],
       "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
     },
@@ -299,6 +294,7 @@
         "temporal/plain_date_test::plain_date_calendar_returns_iso8601_test"
       ],
       "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/calendarId/basic.js",
         "test/built-ins/Temporal/PlainDate/prototype/calendarId/branding.js",
         "test/built-ins/Temporal/PlainDate/prototype/calendarId/prop-desc.js"
       ],
@@ -316,6 +312,7 @@
       "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/era/basic.js",
         "test/built-ins/Temporal/PlainDate/prototype/era/branding.js",
         "test/built-ins/Temporal/PlainDate/prototype/era/prop-desc.js"
       ],
@@ -333,6 +330,7 @@
       "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/eraYear/basic.js",
         "test/built-ins/Temporal/PlainDate/prototype/eraYear/branding.js",
         "test/built-ins/Temporal/PlainDate/prototype/eraYear/prop-desc.js"
       ],
@@ -393,7 +391,9 @@
         "temporal/plain_date_test::plain_date_month_code_returns_iso_code_test"
       ],
       "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/monthCode/basic.js",
         "test/built-ins/Temporal/PlainDate/prototype/monthCode/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/monthCode/no-leap-months.js",
         "test/built-ins/Temporal/PlainDate/prototype/monthCode/prop-desc.js"
       ],
       "official_example_links": [
