@@ -1,5 +1,7 @@
 import gleam/float
+import gleam/option.{type Option}
 import gleam/result
+import temporal
 import temporal/internal/parser as p
 
 /// A Duration represents a duration of time which can be used in date/time arithmetic.
@@ -26,6 +28,14 @@ pub type Duration {
     microseconds: Int,
     nanoseconds: Int,
   )
+}
+
+/// A date or date-time that gives calendar meaning to years, months, and
+/// weeks during duration arithmetic.
+///
+/// Parsed from Temporal's annotated ISO form.
+pub opaque type RelativeTo {
+  RelativeTo(iso_8601: String)
 }
 
 type TemporaryDuration {
@@ -111,6 +121,27 @@ pub fn from_iso_8601(value: String) -> Result(Duration, Nil) {
     seconds: 0.0,
   ))
   |> to_duration()
+}
+
+/// Serializes a duration using Temporal's ISO 8601 representation.
+pub fn to_iso_8601(_duration: Duration) -> String {
+  ""
+}
+
+/// Adds two durations.
+///
+/// `relative_to` supplies the calendar context required when either duration
+/// carries years, months, or weeks; pass `None` for time-only durations.
+///
+/// Returns `Error(MissingRelativeTo)` when calendar units are present without
+/// a `relative_to` value, and `Error(OutOfRange(...))` when the sum leaves the
+/// representable range.
+pub fn add(
+  _first: Duration,
+  _second: Duration,
+  _relative_to: Option(RelativeTo),
+) -> Result(Duration, temporal.Error) {
+  Error(temporal.InvalidDuration(reason: "duration addition is not implemented"))
 }
 
 fn tokens_to_temporary_duration(

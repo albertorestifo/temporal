@@ -13,8 +13,13 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-abstract-ops",
       "summary": "Abstract Operations",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/foundations_test::foundations_duration_serialization_emits_fractional_seconds_test",
+        "temporal/foundations_test::foundations_balance_time_reports_day_overflow_test",
+        "temporal/foundations_test::foundations_duration_add_balances_time_units_test",
+        "temporal/foundations_test::foundations_duration_balance_time_carries_subseconds_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -25,8 +30,11 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-isodatetoepochdays",
       "summary": "ISODateToEpochDays ( _year_: an integer, _month_: an integer, _date_: an integer, ): an integer",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/foundations_test::foundations_iso_date_to_epoch_days_maps_unix_epoch_test",
+        "temporal/foundations_test::foundations_iso_date_to_epoch_days_handles_leap_century_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -37,8 +45,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-epochdaystoepochms",
       "summary": "EpochDaysToEpochMs ( _day_: an integer, _time_: an integer, ): an integer",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/foundations_test::foundations_epoch_days_to_epoch_milliseconds_includes_time_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -49,8 +59,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-date-equations",
       "summary": "Date Equations",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/foundations_test::foundations_balance_iso_date_carries_month_overflow_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -85,8 +97,11 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-gettemporaloverflowoption",
       "summary": "GetTemporalOverflowOption ( _options_: an Object, ): either a normal completion containing either ~constrain~ or ~reject~, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/foundations_test::foundations_overflow_option_accepts_constrain_test",
+        "temporal/foundations_test::foundations_overflow_option_accepts_reject_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -109,8 +124,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-negateroundingmode",
       "summary": "NegateRoundingMode ( _roundingMode_: a rounding mode, ): a rounding mode",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/foundations_test::foundations_negate_rounding_mode_swaps_ceil_and_floor_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -181,8 +198,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-validatetemporalroundingincrement",
       "summary": "ValidateTemporalRoundingIncrement ( _increment_: a positive integer, _dividend_: a positive integer, _inclusive_: a Boolean, ): either a normal completion containing ~unused~ or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/foundations_test::foundations_rounding_increment_accepts_divisor_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -313,8 +332,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-formatfractionalseconds",
       "summary": "FormatFractionalSeconds ( _subSecondNanoseconds_: an integer in the inclusive interval from 0 to 999999999, _precision_: either an integer in the inclusive interval from 0 to 9 or ~auto~, ): a String",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/foundations_test::foundations_format_fractional_seconds_emits_requested_precision_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -325,8 +346,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-formattimestring",
       "summary": "FormatTimeString ( _hour_: an integer in the inclusive interval from 0 to 23, _minute_: an integer in the inclusive interval from 0 to 59, _second_: an integer in the inclusive interval from 0 to 59, _subSecondNanoseconds_: an integer in the inclusive interval from 0 to 999999999, _precision_: either an integer in the inclusive interval from 0 to 9, ~minute~, or ~auto~, optional _style_: either ~separated~ or ~unseparated~, ): a String",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/foundations_test::foundations_format_time_string_emits_requested_precision_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -361,8 +384,11 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-roundnumbertoincrement",
       "summary": "RoundNumberToIncrement ( _x_: a mathematical value, _increment_: a positive integer, _roundingMode_: a rounding mode, ): an integer",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/foundations_test::foundations_round_number_half_expand_breaks_positive_tie_up_test",
+        "temporal/foundations_test::foundations_round_number_half_expand_breaks_negative_tie_down_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -421,8 +447,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-iso8601grammar-static-semantics-early-errors",
       "summary": "Static Semantics: Early Errors",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/foundations_test::foundations_duration_parser_rejects_fraction_before_smaller_unit_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
@@ -493,8 +521,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/abstractops.html#sec-temporal-parsetemporaldurationstring",
       "summary": "ParseTemporalDurationString ( _isoString_: a String, ): either a normal completion containing a Temporal.Duration or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/foundations_test::foundations_duration_parser_preserves_weeks_and_days_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
       "rationale": null
