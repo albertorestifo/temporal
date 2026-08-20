@@ -1,10 +1,11 @@
 //// ISO 8601 wall-clock times without a date or time zone.
 
 import gleam/int
-import gleam/option.{type Option}
+import gleam/option.{type Option, None, Some}
 import gleam/order.{type Order, Eq}
 import temporal
 import temporal/duration
+import temporal/internal/iso_plain as iso
 
 /// A validated ISO wall-clock time.
 pub opaque type PlainTime {
@@ -58,19 +59,24 @@ pub fn new(
   millisecond millisecond: Int,
   microsecond microsecond: Int,
   nanosecond nanosecond: Int,
-  overflow _overflow: temporal.Overflow,
+  overflow overflow: temporal.Overflow,
 ) -> Result(PlainTime, temporal.Error) {
-  Error(temporal.OutOfRange(
-    field: temporal.Time,
-    value: int_to_string(
-      hour + minute + second + millisecond + microsecond + nanosecond,
-    ),
+  use value <- result_try(iso.regulate_time(
+    hour,
+    minute,
+    second,
+    millisecond,
+    microsecond,
+    nanosecond,
+    overflow,
   ))
+  Ok(from_internal(value))
 }
 
 /// Parses an ISO 8601 wall-clock time.
 pub fn from_iso_8601(value: String) -> Result(PlainTime, temporal.Error) {
-  Error(temporal.InvalidIsoString(input: value))
+  use time <- result_try(iso.parse_time(value))
+  Ok(from_internal(time))
 }
 
 /// Returns the hour.
@@ -123,80 +129,115 @@ pub fn equal(first: PlainTime, second: PlainTime) -> Bool {
 
 /// Replace the supplied wall-clock fields.
 pub fn with_fields(
-  _time: PlainTime,
-  _fields: PartialTime,
-  _overflow: temporal.Overflow,
+  time: PlainTime,
+  fields: PartialTime,
+  overflow: temporal.Overflow,
 ) -> Result(PlainTime, temporal.Error) {
-  Error(temporal.InvalidOption(temporal.OverflowOption))
+  case has_any_fields(fields) {
+    False -> Error(temporal.OutOfRange(temporal.Time, "no fields"))
+    True ->
+      new(
+        hour: option_or(fields.hour, hour(time)),
+        minute: option_or(fields.minute, minute(time)),
+        second: option_or(fields.second, second(time)),
+        millisecond: option_or(fields.millisecond, millisecond(time)),
+        microsecond: option_or(fields.microsecond, microsecond(time)),
+        nanosecond: option_or(fields.nanosecond, nanosecond(time)),
+        overflow: overflow,
+      )
+  }
 }
 
 /// Adds a duration, wrapping across midnight.
 pub fn add(
-  _time: PlainTime,
-  _duration: duration.Duration,
+  time: PlainTime,
+  value: duration.Duration,
 ) -> Result(PlainTime, temporal.Error) {
-  Error(temporal.InvalidDuration(
-    reason: "plain time addition is not implemented",
-  ))
+  use delta <- result_try(duration_nanoseconds(value))
+  let #(_, result) =
+    iso.nanoseconds_to_time(iso.time_to_nanoseconds(to_internal(time)) + delta)
+  Ok(from_internal(result))
 }
 
 /// Subtracts a duration, wrapping across midnight.
 pub fn subtract(
-  _time: PlainTime,
-  _duration: duration.Duration,
+  time: PlainTime,
+  value: duration.Duration,
 ) -> Result(PlainTime, temporal.Error) {
-  Error(temporal.InvalidDuration(
-    reason: "plain time subtraction is not implemented",
-  ))
+  add(time, duration.Duration(..value, is_negative: !value.is_negative))
 }
 
 /// Returns the elapsed duration until another time.
 pub fn until(
-  _first: PlainTime,
-  _second: PlainTime,
+  first: PlainTime,
+  second: PlainTime,
   _options: duration.DifferenceOptions,
 ) -> Result(duration.Duration, temporal.Error) {
-  Error(temporal.InvalidOption(option: temporal.DifferenceOptions))
+  Ok(duration_from_nanoseconds(
+    iso.time_to_nanoseconds(to_internal(second))
+    - iso.time_to_nanoseconds(to_internal(first)),
+  ))
 }
 
 /// Returns the elapsed duration since another time.
 pub fn since(
-  _first: PlainTime,
-  _second: PlainTime,
-  _options: duration.DifferenceOptions,
+  first: PlainTime,
+  second: PlainTime,
+  options: duration.DifferenceOptions,
 ) -> Result(duration.Duration, temporal.Error) {
-  Error(temporal.InvalidOption(option: temporal.DifferenceOptions))
+  until(second, first, options)
 }
 
 /// Rounds a time to an increment of a unit.
 pub fn round(
-  _time: PlainTime,
-  _smallest_unit: duration.Unit,
-  _rounding_increment: Int,
-  _rounding_mode: temporal.RoundingMode,
+  time: PlainTime,
+  smallest_unit: duration.Unit,
+  rounding_increment: Int,
+  rounding_mode: temporal.RoundingMode,
 ) -> Result(PlainTime, temporal.Error) {
-  Error(temporal.InvalidDuration(
-    reason: "plain time rounding is not implemented",
-  ))
+  use unit <- result_try(unit_nanoseconds(smallest_unit))
+  case rounding_increment > 0 {
+    False -> Error(temporal.InvalidOption(temporal.RoundingIncrementOption))
+    True -> {
+      let rounded =
+        round_positive(
+          iso.time_to_nanoseconds(to_internal(time)),
+          unit * rounding_increment,
+          rounding_mode,
+        )
+      let #(_, result) = iso.nanoseconds_to_time(rounded)
+      Ok(from_internal(result))
+    }
+  }
 }
 
 /// Serializes a time using ISO 8601.
-pub fn to_iso_8601(_time: PlainTime) -> String {
-  ""
+pub fn to_iso_8601(time: PlainTime) -> String {
+  iso.format_time(to_internal(time))
 }
 
 /// Serializes a time using explicit formatting options.
 pub fn to_iso_8601_with_options(
-  _time: PlainTime,
+  time: PlainTime,
   _options: duration.ToStringOptions,
 ) -> Result(String, temporal.Error) {
-  Error(temporal.InvalidOption(option: temporal.ToStringOptions))
+  Ok(to_iso_8601(time))
 }
 
-fn int_to_string(value: Int) -> String {
+/// Report whether a typed partial time contains at least one field.
+pub fn has_any_fields(fields: PartialTime) -> Bool {
+  fields.hour != None
+  || fields.minute != None
+  || fields.second != None
+  || fields.millisecond != None
+  || fields.microsecond != None
+  || fields.nanosecond != None
+}
+
+fn option_or(value: Option(a), fallback: a) -> a {
   case value {
-    0 -> "0"
-    _ -> "invalid"
+    Some(value) -> value
+    None -> fallback
   }
 }
 
@@ -209,5 +250,131 @@ fn compare_fields(first: List(Int), second: List(Int)) -> Order {
         other -> other
       }
     _, _ -> Eq
+  }
+}
+
+fn to_internal(time: PlainTime) -> iso.Time {
+  iso.Time(
+    hour(time),
+    minute(time),
+    second(time),
+    millisecond(time),
+    microsecond(time),
+    nanosecond(time),
+  )
+}
+
+fn from_internal(time: iso.Time) -> PlainTime {
+  let iso.Time(hour, minute, second, millisecond, microsecond, nanosecond) =
+    time
+  PlainTime(hour, minute, second, millisecond, microsecond, nanosecond)
+}
+
+fn duration_nanoseconds(value: duration.Duration) -> Result(Int, temporal.Error) {
+  case
+    value.years == 0
+    && value.months == 0
+    && value.weeks == 0
+    && value.days >= 0
+    && value.hours >= 0
+    && value.minutes >= 0
+    && value.seconds >= 0
+    && value.milliseconds >= 0
+    && value.microseconds >= 0
+    && value.nanoseconds >= 0
+  {
+    False -> Error(temporal.InvalidDuration("invalid plain time duration"))
+    True -> {
+      let magnitude =
+        value.days
+        * 86_400_000_000_000
+        + value.hours
+        * 3_600_000_000_000
+        + value.minutes
+        * 60_000_000_000
+        + value.seconds
+        * 1_000_000_000
+        + value.milliseconds
+        * 1_000_000
+        + value.microseconds
+        * 1000
+        + value.nanoseconds
+      case value.is_negative {
+        True -> Ok(magnitude * -1)
+        False -> Ok(magnitude)
+      }
+    }
+  }
+}
+
+fn duration_from_nanoseconds(value: Int) -> duration.Duration {
+  let magnitude = int.absolute_value(value)
+  let hours = magnitude / 3_600_000_000_000
+  let after_hours = modulo(magnitude, 3_600_000_000_000)
+  let minutes = after_hours / 60_000_000_000
+  let after_minutes = modulo(after_hours, 60_000_000_000)
+  let seconds = after_minutes / 1_000_000_000
+  let after_seconds = modulo(after_minutes, 1_000_000_000)
+  let milliseconds = after_seconds / 1_000_000
+  let after_milliseconds = modulo(after_seconds, 1_000_000)
+  let microseconds = after_milliseconds / 1000
+  duration.Duration(
+    is_negative: value < 0,
+    years: 0,
+    months: 0,
+    weeks: 0,
+    days: 0,
+    hours: hours,
+    minutes: minutes,
+    seconds: seconds,
+    milliseconds: milliseconds,
+    microseconds: microseconds,
+    nanoseconds: modulo(after_milliseconds, 1000),
+  )
+}
+
+fn unit_nanoseconds(unit: duration.Unit) -> Result(Int, temporal.Error) {
+  case unit {
+    duration.Hour -> Ok(3_600_000_000_000)
+    duration.Minute -> Ok(60_000_000_000)
+    duration.Second -> Ok(1_000_000_000)
+    duration.Millisecond -> Ok(1_000_000)
+    duration.Microsecond -> Ok(1000)
+    duration.Nanosecond -> Ok(1)
+    _ -> Error(temporal.InvalidOption(temporal.RoundingIncrementOption))
+  }
+}
+
+fn round_positive(
+  value: Int,
+  increment: Int,
+  mode: temporal.RoundingMode,
+) -> Int {
+  let lower = value / increment * increment
+  let remainder = value - lower
+  case mode {
+    temporal.Ceil | temporal.Expand ->
+      case remainder == 0 {
+        True -> lower
+        False -> lower + increment
+      }
+    temporal.Floor | temporal.Trunc -> lower
+    _ ->
+      case remainder * 2 >= increment {
+        True -> lower + increment
+        False -> lower
+      }
+  }
+}
+
+fn modulo(value: Int, divisor: Int) -> Int {
+  let assert Ok(result) = int.modulo(value, divisor)
+  result
+}
+
+fn result_try(result: Result(a, e), next: fn(a) -> Result(b, e)) -> Result(b, e) {
+  case result {
+    Ok(value) -> next(value)
+    Error(error) -> Error(error)
   }
 }

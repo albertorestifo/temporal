@@ -1,8 +1,11 @@
 //// ISO 8601 recurring month-day values.
 
-import gleam/option.{type Option}
+import gleam/int
+import gleam/option.{type Option, None, Some}
+import gleam/string
 import temporal
 import temporal/calendar
+import temporal/internal/iso_plain as iso
 
 /// A validated ISO month-day with a reference year.
 pub opaque type PlainMonthDay {
@@ -33,18 +36,43 @@ pub fn new(
   month month: Int,
   day day: Int,
   reference_year reference_year: Int,
-  calendar _calendar: calendar.Calendar,
-  overflow _overflow: temporal.Overflow,
+  calendar calendar_value: calendar.Calendar,
+  overflow overflow: temporal.Overflow,
 ) -> Result(PlainMonthDay, temporal.Error) {
-  Error(temporal.OutOfRange(
-    field: temporal.MonthDay,
-    value: label(month, day, reference_year),
-  ))
+  case calendar_value {
+    calendar.Iso8601 -> {
+      use date <- result_try(iso.regulate_date(
+        reference_year,
+        month,
+        day,
+        overflow,
+      ))
+      let iso.Date(year, month, day) = date
+      Ok(PlainMonthDay(month, day, year))
+    }
+    _ -> Error(temporal.PlatformUnavailable(temporal.NonIsoCalendarProvider))
+  }
 }
 
 /// Parses an ISO 8601 month-day.
 pub fn from_iso_8601(value: String) -> Result(PlainMonthDay, temporal.Error) {
-  Error(temporal.InvalidIsoString(input: value))
+  case string.split(value, "-") {
+    [month, day] ->
+      case int.parse(month), int.parse(day) {
+        Ok(month), Ok(day) ->
+          new(month, day, 1972, calendar.Iso8601, temporal.Reject)
+          |> map_parse_error(value)
+        _, _ -> Error(temporal.InvalidIsoString(value))
+      }
+    [year, month, day] ->
+      case int.parse(year), int.parse(month), int.parse(day) {
+        Ok(year), Ok(month), Ok(day) ->
+          new(month, day, year, calendar.Iso8601, temporal.Reject)
+          |> map_parse_error(value)
+        _, _, _ -> Error(temporal.InvalidIsoString(value))
+      }
+    _ -> Error(temporal.InvalidIsoString(value))
+  }
 }
 
 /// Returns the ISO month code.
@@ -69,16 +97,32 @@ pub fn equal(first: PlainMonthDay, second: PlainMonthDay) -> Bool {
 
 /// Replace the supplied month-day fields.
 pub fn with_fields(
-  _value: PlainMonthDay,
-  _fields: PartialMonthDay,
-  _overflow: temporal.Overflow,
+  value: PlainMonthDay,
+  fields: PartialMonthDay,
+  overflow: temporal.Overflow,
 ) -> Result(PlainMonthDay, temporal.Error) {
-  Error(temporal.PlatformUnavailable(temporal.NonIsoCalendarProvider))
+  case fields.month == None && fields.month_code == None && fields.day == None {
+    True -> Error(temporal.OutOfRange(temporal.MonthDay, "no fields"))
+    False -> {
+      use month <- result_try(resolve_month(
+        fields.month,
+        fields.month_code,
+        value.month,
+      ))
+      new(
+        month,
+        option_or(fields.day, value.day),
+        value.reference_year,
+        calendar.Iso8601,
+        overflow,
+      )
+    }
+  }
 }
 
 /// Serializes a month-day using ISO 8601.
-pub fn to_iso_8601(_value: PlainMonthDay) -> String {
-  ""
+pub fn to_iso_8601(value: PlainMonthDay) -> String {
+  iso.format_month_day(value.month, value.day)
 }
 
 fn month_code_for(month: Int) -> String {
@@ -98,9 +142,65 @@ fn month_code_for(month: Int) -> String {
   }
 }
 
-fn label(month: Int, day: Int, year: Int) -> String {
-  case month + day + year {
-    0 -> "0"
-    _ -> "invalid"
+fn month_code_number(code: String) -> Int {
+  case code {
+    "M01" -> 1
+    "M02" -> 2
+    "M03" -> 3
+    "M04" -> 4
+    "M05" -> 5
+    "M06" -> 6
+    "M07" -> 7
+    "M08" -> 8
+    "M09" -> 9
+    "M10" -> 10
+    "M11" -> 11
+    "M12" -> 12
+    _ -> 0
+  }
+}
+
+fn resolve_month(
+  month: Option(Int),
+  code: Option(String),
+  fallback: Int,
+) -> Result(Int, temporal.Error) {
+  case month, code {
+    None, None -> Ok(fallback)
+    Some(month), None -> Ok(month)
+    None, Some(code) ->
+      case month_code_number(code) {
+        0 -> Error(temporal.OutOfRange(temporal.Month, code))
+        month -> Ok(month)
+      }
+    Some(month), Some(code) ->
+      case month_code_number(code) == month {
+        True -> Ok(month)
+        False -> Error(temporal.OutOfRange(temporal.Month, code))
+      }
+  }
+}
+
+fn option_or(value: Option(a), fallback: a) -> a {
+  case value {
+    Some(value) -> value
+    None -> fallback
+  }
+}
+
+fn map_parse_error(
+  result: Result(a, temporal.Error),
+  input: String,
+) -> Result(a, temporal.Error) {
+  case result {
+    Ok(value) -> Ok(value)
+    Error(_) -> Error(temporal.InvalidIsoString(input))
+  }
+}
+
+fn result_try(result: Result(a, e), next: fn(a) -> Result(b, e)) -> Result(b, e) {
+  case result {
+    Ok(value) -> next(value)
+    Error(error) -> Error(error)
   }
 }
