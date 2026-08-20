@@ -4,8 +4,9 @@
 //// by this core implementation. They are not represented as a string payload
 //// on the core type.
 
+import bigi
 import gleam/int
-import gleam/option.{type Option}
+import gleam/option.{type Option, None}
 import gleam/string
 import temporal
 import temporal/instant
@@ -128,26 +129,37 @@ pub fn offset_iso_8601_for(
 
 /// Return the first named-zone transition after an instant.
 pub fn next_transition(
-  _time_zone: TimeZone,
+  time_zone: TimeZone,
   _instant: instant.Instant,
 ) -> Result(Option(instant.Instant), temporal.Error) {
-  unavailable()
+  case time_zone {
+    Utc | FixedOffset(_) -> Ok(None)
+    Named(_) -> unavailable()
+  }
 }
 
 /// Return the first named-zone transition before an instant.
 pub fn previous_transition(
-  _time_zone: TimeZone,
+  time_zone: TimeZone,
   _instant: instant.Instant,
 ) -> Result(Option(instant.Instant), temporal.Error) {
-  unavailable()
+  case time_zone {
+    Utc | FixedOffset(_) -> Ok(None)
+    Named(_) -> unavailable()
+  }
 }
 
 /// Return possible instants for a local time in a named zone.
 pub fn possible_instants_for(
-  _time_zone: TimeZone,
-  _date_time: plain_date_time.PlainDateTime,
+  time_zone: TimeZone,
+  date_time: plain_date_time.PlainDateTime,
 ) -> Result(List(instant.Instant), temporal.Error) {
-  unavailable()
+  case time_zone {
+    Utc -> local_date_time_to_instant(date_time, 0)
+    FixedOffset(total_minutes) ->
+      local_date_time_to_instant(date_time, total_minutes)
+    Named(_) -> unavailable()
+  }
 }
 
 fn parse_offset_parts(
@@ -177,7 +189,10 @@ fn build_offset(
         True -> -magnitude
         False -> magnitude
       }
-      Ok(FixedOffset(total_minutes))
+      case total_minutes {
+        0 -> Ok(Utc)
+        _ -> Ok(FixedOffset(total_minutes))
+      }
     }
   }
 }
@@ -196,6 +211,71 @@ fn two_digits(value: Int) -> String {
     True -> "0" <> int.to_string(value)
     False -> int.to_string(value)
   }
+}
+
+fn local_date_time_to_instant(
+  date_time: plain_date_time.PlainDateTime,
+  offset_minutes: Int,
+) -> Result(List(instant.Instant), temporal.Error) {
+  let epoch_days =
+    days_from_civil(
+      plain_date_time.year(date_time),
+      plain_date_time.month(date_time),
+      plain_date_time.day(date_time),
+    )
+  let time_nanoseconds =
+    plain_date_time.hour(date_time)
+    * 3_600_000_000_000
+    + plain_date_time.minute(date_time)
+    * 60_000_000_000
+    + plain_date_time.second(date_time)
+    * 1_000_000_000
+    + plain_date_time.millisecond(date_time)
+    * 1_000_000
+    + plain_date_time.microsecond(date_time)
+    * 1000
+    + plain_date_time.nanosecond(date_time)
+
+  let local_nanoseconds =
+    epoch_days
+    |> bigi.from_int()
+    |> bigi.multiply(bigi.from_int(86_400_000_000_000))
+    |> bigi.add(bigi.from_int(time_nanoseconds))
+  let epoch_nanoseconds =
+    bigi.subtract(
+      local_nanoseconds,
+      bigi.from_int(offset_minutes * nanoseconds_per_minute),
+    )
+
+  case instant.from_epoch_nanoseconds(epoch_nanoseconds) {
+    Ok(value) -> Ok([value])
+    Error(_) ->
+      Error(temporal.OutOfRange(
+        field: temporal.EpochNanoseconds,
+        value: bigi.to_string(epoch_nanoseconds),
+      ))
+  }
+}
+
+fn days_from_civil(year: Int, month: Int, day: Int) -> Int {
+  let adjusted_year = case month <= 2 {
+    True -> year - 1
+    False -> year
+  }
+  let era_numerator = case adjusted_year >= 0 {
+    True -> adjusted_year
+    False -> adjusted_year - 399
+  }
+  let era = era_numerator / 400
+  let year_of_era = adjusted_year - era * 400
+  let shifted_month = case month > 2 {
+    True -> month - 3
+    False -> month + 9
+  }
+  let day_of_year = { 153 * shifted_month + 2 } / 5 + day - 1
+  let day_of_era =
+    year_of_era * 365 + year_of_era / 4 - year_of_era / 100 + day_of_year
+  era * 146_097 + day_of_era - 719_468
 }
 
 fn unavailable() -> Result(a, temporal.Error) {

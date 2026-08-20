@@ -3,7 +3,8 @@
 //// The core package currently provides the ISO 8601 calendar. Additional
 //// calendars require an explicit, versioned provider.
 
-import gleam/option.{type Option}
+import gleam/int
+import gleam/option.{type Option, None, Some}
 import gleam/string
 import temporal
 import temporal/duration
@@ -93,27 +94,10 @@ pub fn iso_8601() -> Calendar {
 /// Parse a calendar identifier from its spec string.
 ///
 /// Identifiers are matched case-insensitively. The core package accepts only
-/// built-in identifier; other identifiers return `UnknownCalendar`.
+/// the ISO 8601 identifier; other identifiers return `UnknownCalendar`.
 pub fn from_string(id: String) -> Result(Calendar, temporal.Error) {
   case string.lowercase(id) {
     "iso8601" -> Ok(iso_8601())
-    "buddhist" -> Ok(Buddhist)
-    "chinese" -> Ok(Chinese)
-    "coptic" -> Ok(Coptic)
-    "dangi" -> Ok(Dangi)
-    "ethioaa" -> Ok(Ethioaa)
-    "ethiopic" -> Ok(Ethiopian)
-    "gregory" -> Ok(Gregory)
-    "hebrew" -> Ok(Hebrew)
-    "indian" -> Ok(Indian)
-    "islamic" -> Ok(Islamic)
-    "islamic-civil" -> Ok(IslamicCivil)
-    "islamic-rgsa" -> Ok(IslamicRgsa)
-    "islamic-tbla" -> Ok(IslamicTabular)
-    "islamic-umalqura" -> Ok(IslamicUmalqura)
-    "japanese" -> Ok(Japanese)
-    "persian" -> Ok(Persian)
-    "roc" -> Ok(Roc)
     _ -> Error(temporal.UnknownCalendar(id))
   }
 }
@@ -164,23 +148,55 @@ pub fn equal(first: Calendar, second: Calendar) -> Bool {
 /// Prepare typed fields for a calendar operation.
 pub fn prepare_fields(
   _calendar: Calendar,
-  _fields: CalendarFields,
+  fields: CalendarFields,
 ) -> Result(CalendarFields, temporal.Error) {
-  unavailable()
+  Ok(fields)
 }
 
 /// Return the typed keys present in a calendar field record.
-pub fn field_keys_present(_fields: CalendarFields) -> List(FieldKey) {
+pub fn field_keys_present(fields: CalendarFields) -> List(FieldKey) {
   []
+  |> prepend_if_present(fields.day, DayField)
+  |> prepend_if_present(fields.month_code, MonthCodeField)
+  |> prepend_if_present(fields.month, MonthField)
+  |> prepend_if_present(fields.year, YearField)
+  |> prepend_if_present(fields.era_year, EraYearField)
+  |> prepend_if_present(fields.era, EraField)
 }
 
 /// Merge two typed calendar field records.
 pub fn merge_fields(
-  _calendar: Calendar,
-  _fields: CalendarFields,
-  _additional_fields: CalendarFields,
+  calendar: Calendar,
+  fields: CalendarFields,
+  additional_fields: CalendarFields,
 ) -> Result(CalendarFields, temporal.Error) {
-  unavailable()
+  let ignored =
+    field_keys_to_ignore(calendar, field_keys_present(additional_fields))
+  let #(month, month_code) = case
+    additional_fields.month,
+    additional_fields.month_code
+  {
+    None, None -> #(fields.month, fields.month_code)
+    month, month_code -> #(month, month_code)
+  }
+
+  Ok(CalendarFields(
+    era: prefer_present(
+      additional_fields.era,
+      clear_if_ignored(fields.era, ignored, EraField),
+    ),
+    era_year: prefer_present(
+      additional_fields.era_year,
+      clear_if_ignored(fields.era_year, ignored, EraYearField),
+    ),
+    year: prefer_present(
+      additional_fields.year,
+      clear_if_ignored(fields.year, ignored, YearField),
+    ),
+    month: month,
+    month_code: month_code,
+    day: prefer_present(additional_fields.day, fields.day),
+  ))
 }
 
 /// Add a date duration using a non-ISO calendar provider.
@@ -230,27 +246,40 @@ pub fn non_iso_iso_to_date(
 }
 
 /// Return extra field keys required by a calendar.
-pub fn extra_fields(
-  _calendar: Calendar,
-  _keys: List(FieldKey),
-) -> List(FieldKey) {
-  []
+pub fn extra_fields(calendar: Calendar, _keys: List(FieldKey)) -> List(FieldKey) {
+  case calendar_has_era(calendar) {
+    True -> [EraField, EraYearField]
+    False -> []
+  }
 }
 
 /// Return non-ISO field keys superseded by the supplied keys.
 pub fn non_iso_field_keys_to_ignore(
-  _calendar: Calendar,
-  _keys: List(FieldKey),
+  calendar: Calendar,
+  keys: List(FieldKey),
 ) -> List(FieldKey) {
-  []
+  case
+    calendar_has_era(calendar),
+    contains(keys, YearField),
+    contains(keys, EraYearField)
+  {
+    True, True, _ -> [EraYearField]
+    True, False, True -> [YearField]
+    _, _, _ -> []
+  }
 }
 
 /// Return field keys superseded by the supplied keys.
 pub fn field_keys_to_ignore(
-  _calendar: Calendar,
-  _keys: List(FieldKey),
+  calendar: Calendar,
+  keys: List(FieldKey),
 ) -> List(FieldKey) {
-  []
+  let calendar_keys = non_iso_field_keys_to_ignore(calendar, keys)
+  case contains(keys, MonthField), contains(keys, MonthCodeField) {
+    True, False -> append_unique(calendar_keys, MonthCodeField)
+    False, True -> append_unique(calendar_keys, MonthField)
+    _, _ -> calendar_keys
+  }
 }
 
 /// Resolve non-ISO calendar fields for a Temporal shape.
@@ -264,20 +293,105 @@ pub fn non_iso_resolve_fields(
 
 /// Resolve calendar fields for a Temporal shape.
 pub fn resolve_fields(
-  _calendar: Calendar,
-  _fields: CalendarFields,
-  _field_type: CalendarFieldType,
+  calendar: Calendar,
+  fields: CalendarFields,
+  field_type: CalendarFieldType,
 ) -> Result(CalendarFields, temporal.Error) {
-  unavailable()
+  case calendar {
+    Iso8601 -> Ok(fields)
+    _ -> non_iso_resolve_fields(calendar, fields, field_type)
+  }
 }
 
 /// Convert typed ISO fields to typed calendar fields.
 pub fn iso_date_to_fields(
-  _calendar: Calendar,
-  _iso_date: IsoDateFields,
-  _field_type: CalendarFieldType,
+  calendar: Calendar,
+  iso_date: IsoDateFields,
+  field_type: CalendarFieldType,
 ) -> Result(CalendarFields, temporal.Error) {
-  unavailable()
+  case calendar {
+    Iso8601 -> {
+      let fields =
+        CalendarFields(
+          era: None,
+          era_year: None,
+          year: Some(iso_date.year),
+          month: Some(iso_date.month),
+          month_code: Some(month_code(iso_date.month)),
+          day: Some(iso_date.day),
+        )
+      case field_type {
+        DateFields -> Ok(fields)
+        YearMonthFields -> Ok(CalendarFields(..fields, day: None))
+        MonthDayFields -> Ok(CalendarFields(..fields, year: None))
+      }
+    }
+    _ -> unavailable()
+  }
+}
+
+fn prepend_if_present(
+  values: List(FieldKey),
+  value: Option(a),
+  key: FieldKey,
+) -> List(FieldKey) {
+  case value {
+    Some(_) -> [key, ..values]
+    None -> values
+  }
+}
+
+fn prefer_present(preferred: Option(a), fallback: Option(a)) -> Option(a) {
+  case preferred {
+    Some(_) -> preferred
+    None -> fallback
+  }
+}
+
+fn clear_if_ignored(
+  value: Option(a),
+  ignored: List(FieldKey),
+  key: FieldKey,
+) -> Option(a) {
+  case contains(ignored, key) {
+    True -> None
+    False -> value
+  }
+}
+
+fn calendar_has_era(calendar: Calendar) -> Bool {
+  case calendar {
+    Buddhist | Coptic | Ethioaa | Ethiopian | Gregory | Japanese | Roc -> True
+    _ -> False
+  }
+}
+
+fn contains(keys: List(FieldKey), key: FieldKey) -> Bool {
+  case keys {
+    [] -> False
+    [first, ..rest] -> first == key || contains(rest, key)
+  }
+}
+
+fn append_unique(keys: List(FieldKey), key: FieldKey) -> List(FieldKey) {
+  case contains(keys, key) {
+    True -> keys
+    False -> append(keys, key)
+  }
+}
+
+fn append(keys: List(FieldKey), key: FieldKey) -> List(FieldKey) {
+  case keys {
+    [] -> [key]
+    [first, ..rest] -> [first, ..append(rest, key)]
+  }
+}
+
+fn month_code(month: Int) -> String {
+  case month < 10 {
+    True -> "M0" <> int.to_string(month)
+    False -> "M" <> int.to_string(month)
+  }
 }
 
 fn unavailable() -> Result(a, temporal.Error) {
