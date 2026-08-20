@@ -12,7 +12,7 @@ import temporal/plain_year_month
 
 /// A validated ISO calendar date.
 pub opaque type PlainDate {
-  PlainDate(year: Int, month: Int, day: Int)
+  PlainDate(year: Int, month: Int, day: Int, calendar: calendar.Calendar)
 }
 
 /// Optional date fields used by `with_fields`.
@@ -28,7 +28,7 @@ pub type PartialDate {
 /// Builds an unvalidated date fixture for package tests.
 @internal
 pub fn fixture(year year: Int, month month: Int, day day: Int) -> PlainDate {
-  PlainDate(year: year, month: month, day: day)
+  PlainDate(year: year, month: month, day: day, calendar: calendar.Iso8601)
 }
 
 /// Constructs an ISO calendar date.
@@ -46,7 +46,7 @@ pub fn new(
     calendar.Iso8601 -> {
       use value <- result_try(iso.regulate_date(year, month, day, overflow))
       let iso.Date(year, month, day) = value
-      Ok(PlainDate(year, month, day))
+      Ok(PlainDate(year, month, day, calendar_value))
     }
     _ -> Error(temporal.PlatformUnavailable(temporal.NonIsoCalendarProvider))
   }
@@ -56,7 +56,7 @@ pub fn new(
 pub fn from_iso_8601(value: String) -> Result(PlainDate, temporal.Error) {
   use date <- result_try(iso.parse_date(value))
   let iso.Date(year, month, day) = date
-  Ok(PlainDate(year, month, day))
+  Ok(PlainDate(year, month, day, calendar.Iso8601))
 }
 
 /// Combines a year-month with a day.
@@ -110,8 +110,8 @@ pub fn day(date: PlainDate) -> Int {
 }
 
 /// Returns the calendar of this date.
-pub fn calendar(_date: PlainDate) -> calendar.Calendar {
-  calendar.Iso8601
+pub fn calendar(date: PlainDate) -> calendar.Calendar {
+  date.calendar
 }
 
 /// Return the calendar-specific era, or `None` for ISO 8601.
@@ -197,21 +197,25 @@ pub fn with_fields(
   fields: PartialDate,
   overflow: temporal.Overflow,
 ) -> Result(PlainDate, temporal.Error) {
-  case has_any_fields(fields) {
-    False -> Error(temporal.OutOfRange(temporal.Date, "no fields"))
-    True -> {
-      let year = option_or(fields.year, date.year)
-      let month_result =
-        resolve_month(fields.month, fields.month_code, date.month)
-      use month <- result_try(month_result)
-      new(
-        year: year,
-        month: month,
-        day: option_or(fields.day, date.day),
-        calendar: calendar.Iso8601,
-        overflow: overflow,
-      )
-    }
+  case date.calendar {
+    calendar.Iso8601 ->
+      case has_any_fields(fields) {
+        False -> Error(temporal.OutOfRange(temporal.Date, "no fields"))
+        True -> {
+          let year = option_or(fields.year, date.year)
+          let month_result =
+            resolve_month(fields.month, fields.month_code, date.month)
+          use month <- result_try(month_result)
+          new(
+            year: year,
+            month: month,
+            day: option_or(fields.day, date.day),
+            calendar: calendar.Iso8601,
+            overflow: overflow,
+          )
+        }
+      }
+    _ -> Error(temporal.PlatformUnavailable(temporal.NonIsoCalendarProvider))
   }
 }
 
@@ -220,10 +224,7 @@ pub fn with_calendar(
   date: PlainDate,
   calendar_value: calendar.Calendar,
 ) -> Result(PlainDate, temporal.Error) {
-  case calendar_value {
-    calendar.Iso8601 -> Ok(date)
-    _ -> Error(temporal.PlatformUnavailable(temporal.NonIsoCalendarProvider))
-  }
+  Ok(PlainDate(..date, calendar: calendar_value))
 }
 
 /// Report whether a typed partial date contains at least one field.
@@ -240,17 +241,22 @@ pub fn add(
   value: duration.Duration,
   overflow: temporal.Overflow,
 ) -> Result(PlainDate, temporal.Error) {
-  use _ <- result_try(validate_date_duration(value))
-  let sign = duration_sign(value)
-  use result <- result_try(iso.add_date(
-    to_internal(date),
-    value.years * sign,
-    value.months * sign,
-    value.weeks * sign,
-    value.days * sign,
-    overflow,
-  ))
-  Ok(from_internal(result))
+  case date.calendar {
+    calendar.Iso8601 -> {
+      use _ <- result_try(validate_date_duration(value))
+      let sign = duration_sign(value)
+      use result <- result_try(iso.add_date(
+        to_internal(date),
+        value.years * sign,
+        value.months * sign,
+        value.weeks * sign,
+        value.days * sign,
+        overflow,
+      ))
+      Ok(from_internal(result))
+    }
+    _ -> Error(temporal.PlatformUnavailable(temporal.NonIsoCalendarProvider))
+  }
 }
 
 /// Subtracts a duration from a date.
@@ -368,7 +374,7 @@ fn to_internal(date: PlainDate) -> iso.Date {
 
 fn from_internal(date: iso.Date) -> PlainDate {
   let iso.Date(year, month, day) = date
-  PlainDate(year, month, day)
+  PlainDate(year, month, day, calendar.Iso8601)
 }
 
 fn duration_sign(value: duration.Duration) -> Int {
