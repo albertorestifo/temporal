@@ -1,23 +1,20 @@
 //// Access to the current instant through explicit clock values.
 ////
 //// Use `fixed_clock` for deterministic computations and tests. The system
-//// clock reads Unix epoch milliseconds on Erlang; targets without a clock
-//// adapter return `PlatformUnavailable`.
+//// clock reads Unix epoch milliseconds on both Erlang and JavaScript, so its
+//// instants are millisecond-aligned.
 
 import gleam/option.{type Option, None, Some}
 import gleam/result
 import temporal
 import temporal/calendar
 import temporal/instant
+import temporal/internal/now_clock
 import temporal/plain_date
 import temporal/plain_date_time
 import temporal/plain_time
 import temporal/time_zone
 import temporal/zoned_date_time
-
-type TimeUnit {
-  Millisecond
-}
 
 // Calendars and zones are the variant types owned by `temporal/calendar` and
 // `temporal/time_zone`; a clock never holds an unparsed identifier in their
@@ -48,7 +45,8 @@ pub fn fixed_clock(
 
 /// Reads the current instant from the system clock.
 ///
-/// Returns `PlatformUnavailable` when the target has no system-clock adapter.
+/// Returns `OutOfRange(EpochMilliseconds, ...)` when the host clock reports a
+/// time outside Temporal's range.
 pub fn instant() -> Result(instant.Instant, temporal.Error) {
   instant_with_clock(system_clock())
 }
@@ -59,13 +57,8 @@ pub fn instant_with_clock(
 ) -> Result(instant.Instant, temporal.Error) {
   case clock {
     FixedClock(instant:, ..) -> Ok(instant)
-    SystemClock -> {
-      use milliseconds <- result.try(platform_epoch_milliseconds())
-      instant.from_epoch_milliseconds(milliseconds)
-      |> result.map_error(fn(_) {
-        temporal.OutOfRange(temporal.EpochMilliseconds, "system clock")
-      })
-    }
+    SystemClock ->
+      instant.from_epoch_milliseconds(now_clock.epoch_milliseconds())
   }
 }
 
@@ -151,17 +144,4 @@ pub fn plain_time_iso(
 ) -> Result(plain_time.PlainTime, temporal.Error) {
   use date_time <- result.try(plain_date_time_iso(time_zone: zone_option))
   Ok(plain_date_time.to_plain_time(date_time))
-}
-
-fn platform_epoch_milliseconds() -> Result(Int, temporal.Error) {
-  case erlang_system_time(Millisecond) {
-    // The fallback body is used on targets without an adapter.
-    0 -> Error(temporal.PlatformUnavailable(temporal.SystemClock))
-    milliseconds -> Ok(milliseconds)
-  }
-}
-
-@external(erlang, "erlang", "system_time")
-fn erlang_system_time(_unit: TimeUnit) -> Int {
-  0
 }
