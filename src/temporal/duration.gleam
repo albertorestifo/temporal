@@ -197,6 +197,48 @@ pub fn validate(duration: Duration) -> Result(Duration, temporal.Error) {
   }
 }
 
+/// Balances the time fields into days through nanoseconds.
+///
+/// Calendar fields are preserved and zero durations are canonicalized to a
+/// non-negative sign.
+pub fn balance_time(duration: Duration) -> Result(Duration, temporal.Error) {
+  use duration <- result.try(validate(duration))
+  let total =
+    duration.hours
+    * nanoseconds_per_hour
+    + duration.minutes
+    * nanoseconds_per_minute
+    + duration.seconds
+    * nanoseconds_per_second
+    + duration.milliseconds
+    * nanoseconds_per_millisecond
+    + duration.microseconds
+    * nanoseconds_per_microsecond
+    + duration.nanoseconds
+  let days = total / nanoseconds_per_day
+  let after_days = total % nanoseconds_per_day
+  let hours = after_days / nanoseconds_per_hour
+  let after_hours = after_days % nanoseconds_per_hour
+  let minutes = after_hours / nanoseconds_per_minute
+  let after_minutes = after_hours % nanoseconds_per_minute
+  let seconds = after_minutes / nanoseconds_per_second
+  let after_seconds = after_minutes % nanoseconds_per_second
+  validate(
+    Duration(
+      ..duration,
+      days: duration.days + days,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds,
+      milliseconds: after_seconds / nanoseconds_per_millisecond,
+      microseconds: after_seconds
+        % nanoseconds_per_millisecond
+        / nanoseconds_per_microsecond,
+      nanoseconds: after_seconds % nanoseconds_per_microsecond,
+    ),
+  )
+}
+
 fn validate_time_range(duration: Duration) -> Result(Duration, temporal.Error) {
   let whole_seconds =
     duration.days

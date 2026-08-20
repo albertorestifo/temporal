@@ -1,105 +1,116 @@
-//// Stubbed §13 Temporal abstract operations used by the foundations tests.
+//// §13 Temporal abstract operations used by the foundations tests.
 ////
-//// These declarations pin the shape of the abstract operations while the
-//// implementations are still missing, so the conformance tests can be written
-//// and fail for the right reason. Every function here returns a placeholder
-//// value; nothing in this module is package API.
+//// This module keeps the test-facing operation names while delegating every
+//// implementation to package code.
 
 import temporal
 import temporal/duration.{type Duration}
 
 /// ISODateToEpochDays: the epoch day of an ISO calendar date.
 pub fn iso_date_to_epoch_days(
-  _year: Int,
-  _month: Int,
-  _day: Int,
+  year: Int,
+  month: Int,
+  day: Int,
 ) -> Result(Int, temporal.Error) {
-  Error(temporal.OutOfRange(field: temporal.IsoDate, value: "not implemented"))
+  temporal.iso_date_to_epoch_days(year, month, day)
 }
 
 /// EpochDaysToEpochMs: epoch milliseconds for an epoch day and a
 /// time-within-day in milliseconds.
 pub fn epoch_days_to_epoch_milliseconds(
-  _day: Int,
-  _milliseconds_within_day: Int,
+  day: Int,
+  milliseconds_within_day: Int,
 ) -> Result(Int, temporal.Error) {
-  Error(temporal.OutOfRange(field: temporal.EpochDays, value: "not implemented"))
+  temporal.epoch_days_to_epoch_milliseconds(day, milliseconds_within_day)
 }
 
 /// BalanceISODate: ISO date fields balanced into `#(year, month, day)`.
-pub fn balance_iso_date(_year: Int, _month: Int, _day: Int) -> #(Int, Int, Int) {
-  #(0, 0, 0)
+pub fn balance_iso_date(year: Int, month: Int, day: Int) -> #(Int, Int, Int) {
+  temporal.balance_iso_date(year, month, day)
 }
 
 /// BalanceTime: ISO time fields balanced into
 /// `#(day_overflow, hour, minute, second, millisecond, microsecond,
 /// nanosecond)`.
 pub fn balance_time(
-  _hour: Int,
-  _minute: Int,
-  _second: Int,
-  _millisecond: Int,
-  _microsecond: Int,
-  _nanosecond: Int,
+  hour: Int,
+  minute: Int,
+  second: Int,
+  millisecond: Int,
+  microsecond: Int,
+  nanosecond: Int,
 ) -> #(Int, Int, Int, Int, Int, Int, Int) {
-  #(0, 0, 0, 0, 0, 0, 0)
+  temporal.balance_time(
+    hour,
+    minute,
+    second,
+    millisecond,
+    microsecond,
+    nanosecond,
+  )
 }
 
 /// BalanceTimeDuration: the time fields of a duration carried into their
 /// larger units.
 pub fn balance_duration_time(
-  _duration: Duration,
+  value: Duration,
 ) -> Result(Duration, temporal.Error) {
-  Error(temporal.InvalidDuration(reason: "not implemented"))
+  duration.balance_time(value)
 }
 
 /// GetTemporalOverflowOption: the overflow option named by a string.
 pub fn overflow_option(
-  _value: String,
+  value: String,
 ) -> Result(temporal.Overflow, temporal.Error) {
-  Error(temporal.InvalidOption(option: temporal.OverflowOption))
+  temporal.overflow_from_string(value)
 }
 
 /// NegateRoundingMode: the rounding mode that a negated quantity uses.
 pub fn negate_rounding_mode(
   mode: temporal.RoundingMode,
 ) -> temporal.RoundingMode {
-  mode
+  temporal.negate_rounding_mode(mode)
 }
 
 /// ValidateTemporalRoundingIncrement: whether an increment divides a dividend.
 pub fn validate_rounding_increment(
-  _increment: Int,
-  _dividend: Int,
-  _inclusive: Bool,
+  increment: Int,
+  dividend: Int,
+  inclusive: Bool,
 ) -> Result(Nil, temporal.Error) {
-  Error(temporal.InvalidOption(option: temporal.RoundingIncrementOption))
+  temporal.validate_rounding_increment(increment, dividend, inclusive)
 }
 
 /// RoundNumberToIncrement: a value rounded to a positive increment.
 pub fn round_number_to_increment(
-  _value: Int,
-  _increment: Int,
-  _mode: temporal.RoundingMode,
+  value: Int,
+  increment: Int,
+  mode: temporal.RoundingMode,
 ) -> Result(Int, temporal.Error) {
-  Error(temporal.InvalidOption(option: temporal.RoundingModeOption))
+  temporal.round_number_to_increment(value, increment, mode)
 }
 
 /// FormatFractionalSeconds: subsecond nanoseconds at the requested precision.
 pub fn format_fractional_seconds(
-  _subsecond_nanoseconds: Int,
-  _precision: Int,
+  subsecond_nanoseconds: Int,
+  precision: Int,
 ) -> String {
-  ""
+  temporal.format_fractional_seconds(subsecond_nanoseconds, precision)
 }
 
 /// FormatTimeString: a time at the requested fractional-second precision.
 pub fn format_time_string(
-  _hour: Int,
-  _minute: Int,
-  _second: Int,
-  _subsecond_nanoseconds: Int,
-  _precision: Int,
+  hour: Int,
+  minute: Int,
+  second: Int,
+  subsecond_nanoseconds: Int,
+  precision: Int,
 ) -> String {
-  ""
+  temporal.format_time_string(
+    hour,
+    minute,
+    second,
+    subsecond_nanoseconds,
+    precision,
+  )
 }
