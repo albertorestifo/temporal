@@ -1,24 +1,28 @@
 //// UTC and fixed-offset time-zone identifiers.
 ////
-//// Named IANA zones require an explicit, versioned provider and are rejected
-//// by this core implementation. They are not represented as a string payload
-//// on the core type.
+//// Named IANA zones require an explicit, versioned provider, so parsing a
+//// named identifier is rejected by this core implementation. A named zone
+//// that is already represented resolves its offsets through the rule table in
+//// `temporal/internal/named_zone`.
 
 import bigi
 import gleam/int
-import gleam/option.{type Option, None}
+import gleam/list
+import gleam/option.{type Option, None, Some}
+import gleam/result
 import gleam/string
 import temporal
 import temporal/instant
+import temporal/internal/named_zone
 import temporal/plain_date_time
 
 const nanoseconds_per_minute = 60_000_000_000
 
 /// A validated time-zone kind.
 ///
-/// Core values are `Utc` or a validated `FixedOffset`. `Utc` and the zero
-/// fixed offset `+00:00` are distinct identifiers even though they share an
-/// offset. Named IANA identifiers are not a closed core set; `from_id` /
+/// Core values are `Utc` or a validated `FixedOffset`. A zero offset
+/// canonicalizes to `Utc`, so `+00:00` and `-00:00` are the UTC identifier.
+/// Named IANA identifiers are not a closed core set; `from_id` /
 /// `from_string` reject them with `UnknownTimeZone` until a versioned provider
 /// exists.
 pub opaque type TimeZone {
@@ -66,10 +70,7 @@ pub fn from_id(id: String) -> Result(TimeZone, temporal.Error) {
 /// Parse and canonicalize a fixed numeric offset.
 ///
 /// Accepted offsets use `+HH:MM` or `-HH:MM`, with an absolute value less
-/// than 24 hours. Negative zero is canonicalized to `+00:00`.
-///
-/// A zero offset is the offset zone `+00:00`, which is a different identifier
-/// from `UTC`. Use `utc` or `from_string("UTC")` for the UTC identifier.
+/// than 24 hours. Both `+00:00` and `-00:00` canonicalize to `utc()`.
 pub fn from_offset(offset: String) -> Result(TimeZone, temporal.Error) {
   case string.to_graphemes(offset) {
     [sign, hour_tens, hour_ones, ":", minute_tens, minute_ones] ->
@@ -106,55 +107,78 @@ pub fn equal(first: TimeZone, second: TimeZone) -> Bool {
 
 /// Return the zone's UTC offset, in nanoseconds, for an instant.
 ///
-/// Fixed offsets do not vary by instant.
+/// Fixed offsets do not vary by instant. Named zones follow their rules and
+/// return `PlatformUnavailable` when no rules are registered.
 pub fn offset_nanoseconds_for(
   time_zone: TimeZone,
-  _instant: instant.Instant,
+  at: instant.Instant,
 ) -> Result(Int, temporal.Error) {
   case time_zone {
     Utc -> Ok(0)
     FixedOffset(total_minutes) -> Ok(total_minutes * nanoseconds_per_minute)
-    Named(_) -> unavailable()
+    Named(id) -> {
+      use zone <- result.try(named_rules(id))
+      Ok(named_zone.offset_minutes_for(zone, at) * nanoseconds_per_minute)
+    }
   }
 }
 
 /// Return the zone's canonical ISO 8601 UTC offset for an instant.
 ///
-/// Fixed offsets do not vary by instant.
+/// Fixed offsets do not vary by instant. Named zones follow their rules and
+/// return `PlatformUnavailable` when no rules are registered.
 pub fn offset_iso_8601_for(
   time_zone: TimeZone,
-  _instant: instant.Instant,
+  at: instant.Instant,
 ) -> Result(String, temporal.Error) {
   case time_zone {
     Utc -> Ok("+00:00")
     FixedOffset(total_minutes) -> Ok(format_offset_minutes(total_minutes))
-    Named(_) -> unavailable()
+    Named(id) -> {
+      use zone <- result.try(named_rules(id))
+      Ok(format_offset_minutes(named_zone.offset_minutes_for(zone, at)))
+    }
   }
 }
 
 /// Return the first named-zone transition after an instant.
+///
+/// UTC and fixed offsets never transition. `None` also reports a transition
+/// that falls outside Temporal's representable instant range.
 pub fn next_transition(
   time_zone: TimeZone,
-  _instant: instant.Instant,
+  at: instant.Instant,
 ) -> Result(Option(instant.Instant), temporal.Error) {
   case time_zone {
     Utc | FixedOffset(_) -> Ok(None)
-    Named(_) -> unavailable()
+    Named(id) -> {
+      use zone <- result.try(named_rules(id))
+      Ok(representable(named_zone.next_transition(zone, at)))
+    }
   }
 }
 
 /// Return the first named-zone transition before an instant.
+///
+/// UTC and fixed offsets never transition. `None` also reports a transition
+/// that falls outside Temporal's representable instant range.
 pub fn previous_transition(
   time_zone: TimeZone,
-  _instant: instant.Instant,
+  at: instant.Instant,
 ) -> Result(Option(instant.Instant), temporal.Error) {
   case time_zone {
     Utc | FixedOffset(_) -> Ok(None)
-    Named(_) -> unavailable()
+    Named(id) -> {
+      use zone <- result.try(named_rules(id))
+      Ok(representable(named_zone.previous_transition(zone, at)))
+    }
   }
 }
 
-/// Return possible instants for a local time in a named zone.
+/// Return possible instants for a local time in a zone.
+///
+/// The list is empty for a local time skipped by a forward transition and
+/// holds two instants for one repeated by a backward transition.
 pub fn possible_instants_for(
   time_zone: TimeZone,
   date_time: plain_date_time.PlainDateTime,
@@ -163,7 +187,26 @@ pub fn possible_instants_for(
     Utc -> local_date_time_to_instant(date_time, 0)
     FixedOffset(total_minutes) ->
       local_date_time_to_instant(date_time, total_minutes)
-    Named(_) -> unavailable()
+    Named(id) -> {
+      use zone <- result.try(named_rules(id))
+      named_zone.possible_instants(zone, local_epoch_nanoseconds(date_time))
+      |> list.try_map(to_instant)
+    }
+  }
+}
+
+fn named_rules(id: String) -> Result(named_zone.Zone, temporal.Error) {
+  case named_zone.from_id(id) {
+    Ok(zone) -> Ok(zone)
+    Error(_) -> unavailable()
+  }
+}
+
+fn representable(value: Option(bigi.BigInt)) -> Option(instant.Instant) {
+  case value {
+    None -> None
+    Some(epoch_nanoseconds) ->
+      option.from_result(instant.from_epoch_nanoseconds(epoch_nanoseconds))
   }
 }
 
@@ -194,7 +237,10 @@ fn build_offset(
         True -> -magnitude
         False -> magnitude
       }
-      Ok(FixedOffset(total_minutes))
+      case total_minutes {
+        0 -> Ok(Utc)
+        _ -> Ok(FixedOffset(total_minutes))
+      }
     }
   }
 }
@@ -219,6 +265,33 @@ fn local_date_time_to_instant(
   date_time: plain_date_time.PlainDateTime,
   offset_minutes: Int,
 ) -> Result(List(instant.Instant), temporal.Error) {
+  let epoch_nanoseconds =
+    bigi.subtract(
+      local_epoch_nanoseconds(date_time),
+      bigi.from_int(offset_minutes * nanoseconds_per_minute),
+    )
+  use value <- result.try(to_instant(epoch_nanoseconds))
+  Ok([value])
+}
+
+fn to_instant(
+  epoch_nanoseconds: bigi.BigInt,
+) -> Result(instant.Instant, temporal.Error) {
+  case instant.from_epoch_nanoseconds(epoch_nanoseconds) {
+    Ok(value) -> Ok(value)
+    Error(_) ->
+      Error(temporal.OutOfRange(
+        field: temporal.EpochNanoseconds,
+        value: bigi.to_string(epoch_nanoseconds),
+      ))
+  }
+}
+
+// Nanoseconds since the epoch for the local wall-clock fields, as if the
+// local time were UTC.
+fn local_epoch_nanoseconds(
+  date_time: plain_date_time.PlainDateTime,
+) -> bigi.BigInt {
   let epoch_days =
     days_from_civil(
       plain_date_time.year(date_time),
@@ -238,25 +311,10 @@ fn local_date_time_to_instant(
     * 1000
     + plain_date_time.nanosecond(date_time)
 
-  let local_nanoseconds =
-    epoch_days
-    |> bigi.from_int()
-    |> bigi.multiply(bigi.from_int(86_400_000_000_000))
-    |> bigi.add(bigi.from_int(time_nanoseconds))
-  let epoch_nanoseconds =
-    bigi.subtract(
-      local_nanoseconds,
-      bigi.from_int(offset_minutes * nanoseconds_per_minute),
-    )
-
-  case instant.from_epoch_nanoseconds(epoch_nanoseconds) {
-    Ok(value) -> Ok([value])
-    Error(_) ->
-      Error(temporal.OutOfRange(
-        field: temporal.EpochNanoseconds,
-        value: bigi.to_string(epoch_nanoseconds),
-      ))
-  }
+  epoch_days
+  |> bigi.from_int()
+  |> bigi.multiply(bigi.from_int(86_400_000_000_000))
+  |> bigi.add(bigi.from_int(time_nanoseconds))
 }
 
 fn days_from_civil(year: Int, month: Int, day: Int) -> Int {
