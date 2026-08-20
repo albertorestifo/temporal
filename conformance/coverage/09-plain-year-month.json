@@ -50,8 +50,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-temporal.plainyearmonth",
       "summary": "Temporal.PlainYearMonth ( _isoYear_, _isoMonth_ [ , _calendar_ [ , _referenceISODay_ ] ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_new_accepts_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/argument-convert.js",
         "test/built-ins/Temporal/PlainYearMonth/argument-invalid.js",
@@ -111,8 +113,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-temporal.plainyearmonth.from",
       "summary": "Temporal.PlainYearMonth.from ( _item_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_from_iso_8601_parses_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/from/argument-number.js",
         "test/built-ins/Temporal/PlainYearMonth/from/argument-object.js",
@@ -190,8 +194,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-temporal.plainyearmonth.compare",
       "summary": "Temporal.PlainYearMonth.compare ( _one_, _two_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_compare_orders_iso_fields_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/compare/argument-cast.js",
         "test/built-ins/Temporal/PlainYearMonth/compare/argument-number.js",
@@ -282,8 +288,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-get-temporal.plainyearmonth.prototype.calendarid",
       "summary": "get Temporal.PlainYearMonth.prototype.calendarId",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_calendar_id_returns_iso8601_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/calendarId/branding.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/calendarId/prop-desc.js"
@@ -333,8 +341,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-get-temporal.plainyearmonth.prototype.year",
       "summary": "get Temporal.PlainYearMonth.prototype.year",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_year_returns_year_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/year/basic.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/year/branding.js",
@@ -351,8 +361,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-get-temporal.plainyearmonth.prototype.month",
       "summary": "get Temporal.PlainYearMonth.prototype.month",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_month_returns_month_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/month/basic.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/month/branding.js",
@@ -369,8 +381,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-get-temporal.plainyearmonth.prototype.monthcode",
       "summary": "get Temporal.PlainYearMonth.prototype.monthCode",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_month_code_returns_iso_code_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/monthCode/branding.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/monthCode/prop-desc.js"
@@ -386,8 +400,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-get-temporal.plainyearmonth.prototype.daysinyear",
       "summary": "get Temporal.PlainYearMonth.prototype.daysInYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_days_in_year_returns_common_length_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/daysInYear/basic.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/daysInYear/branding.js",
@@ -404,8 +420,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-get-temporal.plainyearmonth.prototype.daysinmonth",
       "summary": "get Temporal.PlainYearMonth.prototype.daysInMonth",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_days_in_month_returns_august_length_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/daysInMonth/basic.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/daysInMonth/branding.js",
@@ -422,8 +440,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-get-temporal.plainyearmonth.prototype.monthsinyear",
       "summary": "get Temporal.PlainYearMonth.prototype.monthsInYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_months_in_year_returns_twelve_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/monthsInYear/basic.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/monthsInYear/branding.js",
@@ -440,8 +460,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-get-temporal.plainyearmonth.prototype.inleapyear",
       "summary": "get Temporal.PlainYearMonth.prototype.inLeapYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_in_leap_year_returns_false_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/inLeapYear/basic.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/inLeapYear/branding.js",
@@ -495,8 +517,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-temporal.plainyearmonth.prototype.add",
       "summary": "Temporal.PlainYearMonth.prototype.add ( _temporalDurationLike_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_add_applies_duration_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/add/argument-duration-max.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/add/argument-duration-object.js",
@@ -546,8 +570,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-temporal.plainyearmonth.prototype.subtract",
       "summary": "Temporal.PlainYearMonth.prototype.subtract ( _temporalDurationLike_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_subtract_applies_duration_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/subtract/argument-duration-max.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/subtract/argument-duration-object.js",
@@ -598,8 +624,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-temporal.plainyearmonth.prototype.until",
       "summary": "Temporal.PlainYearMonth.prototype.until ( _other_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_until_returns_duration_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/until/argument-casting.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/until/argument-number.js",
@@ -694,8 +722,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-temporal.plainyearmonth.prototype.since",
       "summary": "Temporal.PlainYearMonth.prototype.since ( _other_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_since_returns_duration_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/since/argument-casting.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/since/argument-number.js",
@@ -792,8 +822,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-temporal.plainyearmonth.prototype.equals",
       "summary": "Temporal.PlainYearMonth.prototype.equals ( _other_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_equal_matches_same_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/equals/argument-cast.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/equals/argument-number.js",
@@ -847,8 +879,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-temporal.plainyearmonth.prototype.tostring",
       "summary": "Temporal.PlainYearMonth.prototype.toString ( [ _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_year_month_test::plain_year_month_to_iso_8601_formats_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainYearMonth/prototype/toString/branding.js",
         "test/built-ins/Temporal/PlainYearMonth/prototype/toString/builtin.js",

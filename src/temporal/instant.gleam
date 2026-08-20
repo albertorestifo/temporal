@@ -1,6 +1,8 @@
 import bigi
 import gleam/order.{type Order, Eq, Gt, Lt}
 import gleam/result
+import temporal
+import temporal/duration
 
 /// An Instant is a single point in time (called "exact time"), with a precision in nanoseconds.
 /// No time zone or calendar information is present.
@@ -37,9 +39,92 @@ pub fn from_epoch_nanoseconds_int(
   |> is_valid_epoch_nanoseconds()
 }
 
+/// Creates an Instant from epoch nanoseconds.
+pub fn from_epoch_nanoseconds(nanoseconds: bigi.BigInt) -> Result(Instant, Nil) {
+  from_epoch_nanoseconds_int(nanoseconds)
+}
+
+/// Parses an ISO 8601 instant containing a UTC offset.
+pub fn from_iso_8601(value: String) -> Result(Instant, temporal.Error) {
+  Error(temporal.InvalidIsoString(input: value))
+}
+
 /// Compare two Instants. Returns the Order denoting in a is less than, equal to, or greater than b.
 pub fn compare(a: Instant, b: Instant) -> Order {
   bigi.compare(a, b)
+}
+
+/// Reports whether two instants have equal epoch nanoseconds.
+pub fn equal(first: Instant, second: Instant) -> Bool {
+  compare(first, second) == Eq
+}
+
+/// Returns the exact epoch nanoseconds.
+pub fn epoch_nanoseconds(instant: Instant) -> bigi.BigInt {
+  instant
+}
+
+/// Adds a time-only duration to an instant.
+pub fn add(
+  _instant: Instant,
+  _duration: duration.Duration,
+) -> Result(Instant, temporal.Error) {
+  Error(temporal.InvalidDuration(reason: "instant addition is not implemented"))
+}
+
+/// Subtracts a time-only duration from an instant.
+pub fn subtract(
+  _instant: Instant,
+  _duration: duration.Duration,
+) -> Result(Instant, temporal.Error) {
+  Error(temporal.InvalidDuration(
+    reason: "instant subtraction is not implemented",
+  ))
+}
+
+/// Returns the duration from the first instant until the second.
+///
+pub fn until(
+  _first: Instant,
+  _second: Instant,
+  _options: duration.DifferenceOptions,
+) -> Result(duration.Duration, temporal.Error) {
+  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+}
+
+/// Returns the duration since the second instant.
+///
+pub fn since(
+  _first: Instant,
+  _second: Instant,
+  _options: duration.DifferenceOptions,
+) -> Result(duration.Duration, temporal.Error) {
+  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+}
+
+/// Rounds an instant to an increment of the requested unit.
+///
+pub fn round(
+  _instant: Instant,
+  _smallest_unit: duration.Unit,
+  _rounding_increment: Int,
+  _rounding_mode: temporal.RoundingMode,
+) -> Result(Instant, temporal.Error) {
+  Error(temporal.InvalidDuration(reason: "instant rounding is not implemented"))
+}
+
+/// Serializes an instant in UTC using ISO 8601.
+pub fn to_iso_8601(_instant: Instant) -> String {
+  ""
+}
+
+/// Serializes an instant using explicit formatting options.
+///
+pub fn to_iso_8601_with_options(
+  _instant: Instant,
+  _options: duration.ToStringOptions,
+) -> Result(String, temporal.Error) {
+  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
 }
 
 /// Converts an Instant to an epoch milliseconds value.

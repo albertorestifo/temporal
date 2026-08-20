@@ -43,8 +43,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration",
       "summary": "Temporal.Duration ( [ _years_ [ , _months_ [ , _weeks_ [ , _days_ [ , _hours_ [ , _minutes_ [ , _seconds_ [ , _milliseconds_ [ , _microseconds_ [ , _nanoseconds_ ] ] ] ] ] ] ] ] ] ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_test::duration_validate_accepts_canonical_literal_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/basic.js",
         "test/built-ins/Temporal/Duration/builtin.js",
@@ -175,8 +177,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.compare",
       "summary": "Temporal.Duration.compare ( _one_, _two_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_test::duration_compare_orders_time_durations_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/compare/argument-cast.js",
         "test/built-ins/Temporal/Duration/compare/argument-duration-max.js",
@@ -543,8 +547,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.negated",
       "summary": "Temporal.Duration.prototype.negated ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_test::duration_negated_reverses_sign_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/negated/basic.js",
         "test/built-ins/Temporal/Duration/prototype/negated/branding.js",
@@ -566,8 +572,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.abs",
       "summary": "Temporal.Duration.prototype.abs ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_test::duration_absolute_removes_negative_sign_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/abs/basic.js",
         "test/built-ins/Temporal/Duration/prototype/abs/branding.js",
@@ -590,8 +598,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.add",
       "summary": "Temporal.Duration.prototype.add ( _other_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_test::duration_add_combines_time_fields_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/from/argument-string-negative-fractional-units.js",
         "test/built-ins/Temporal/Duration/prototype/add/argument-duration-max.js",
@@ -640,8 +650,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.subtract",
       "summary": "Temporal.Duration.prototype.subtract ( _other_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_test::duration_subtract_combines_time_fields_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/subtract/argument-duration-max.js",
         "test/built-ins/Temporal/Duration/prototype/subtract/argument-duration-out-of-range.js",
@@ -689,8 +701,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.round",
       "summary": "Temporal.Duration.prototype.round ( _roundTo_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_test::duration_round_uses_typed_units_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/round/balance-negative-result.js",
         "test/built-ins/Temporal/Duration/prototype/round/balance-subseconds.js",
@@ -829,8 +843,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.total",
       "summary": "Temporal.Duration.prototype.total ( _totalOf_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_test::duration_total_uses_typed_unit_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/total/balance-negative-result.js",
         "test/built-ins/Temporal/Duration/prototype/total/balance-subseconds.js",
@@ -921,8 +937,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.tostring",
       "summary": "Temporal.Duration.prototype.toString ( [ _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_test::duration_to_iso_8601_formats_duration_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/toString/balance-subseconds.js",
         "test/built-ins/Temporal/Duration/prototype/toString/balance.js",
@@ -980,8 +998,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.tojson",
       "summary": "Temporal.Duration.prototype.toJSON ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/duration_test::duration_to_iso_8601_is_json_representation_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Duration/prototype/toJSON/balance-subseconds.js",
         "test/built-ins/Temporal/Duration/prototype/toJSON/basic.js",

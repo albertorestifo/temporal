@@ -97,8 +97,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.from",
       "summary": "Temporal.Instant.from ( _item_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_test::instant_from_iso_8601_parses_offset_string_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/from/argument-instant.js",
         "test/built-ins/Temporal/Instant/from/argument-object-tostring.js",
@@ -313,8 +315,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-get-temporal.instant.prototype.epochnanoseconds",
       "summary": "get Temporal.Instant.prototype.epochNanoseconds",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_test::instant_epoch_nanoseconds_returns_exact_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/prototype/epochNanoseconds/basic.js",
         "test/built-ins/Temporal/Instant/prototype/epochNanoseconds/branding.js",
@@ -331,8 +335,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.prototype.add",
       "summary": "Temporal.Instant.prototype.add ( _temporalDurationLike_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_test::instant_add_applies_time_duration_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/prototype/add/add-large-subseconds.js",
         "test/built-ins/Temporal/Instant/prototype/add/argument-duration-max.js",
@@ -374,8 +380,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.prototype.subtract",
       "summary": "Temporal.Instant.prototype.subtract ( _temporalDurationLike_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_test::instant_subtract_applies_time_duration_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/prototype/subtract/argument-duration-max.js",
         "test/built-ins/Temporal/Instant/prototype/subtract/argument-duration-out-of-range.js",
@@ -416,8 +424,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.prototype.until",
       "summary": "Temporal.Instant.prototype.until ( _other_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_test::instant_until_returns_duration_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/prototype/equals/argument-zoneddatetime.js",
         "test/built-ins/Temporal/Instant/prototype/until/add-subtract.js",
@@ -502,8 +512,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.prototype.since",
       "summary": "Temporal.Instant.prototype.since ( _other_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_test::instant_since_returns_duration_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/prototype/since/add-subtract.js",
         "test/built-ins/Temporal/Instant/prototype/since/argument-object-tostring.js",
@@ -588,8 +600,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.prototype.round",
       "summary": "Temporal.Instant.prototype.round ( _roundTo_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_test::instant_round_uses_typed_unit_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/prototype/round/accepts-plural-units.js",
         "test/built-ins/Temporal/Instant/prototype/round/accepts-string-parameter-for-smallestunit.js",
@@ -644,8 +658,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.prototype.equals",
       "summary": "Temporal.Instant.prototype.equals ( _other_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_test::instant_equal_matches_same_epoch_nanoseconds_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/prototype/equals/argument-object-tostring.js",
         "test/built-ins/Temporal/Instant/prototype/equals/argument-string-calendar-annotation-invalid-key.js",
@@ -688,8 +704,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.prototype.tostring",
       "summary": "Temporal.Instant.prototype.toString ( [ _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_test::instant_to_iso_8601_formats_utc_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/prototype/toString/basic.js",
         "test/built-ins/Temporal/Instant/prototype/toString/branding.js",
@@ -779,8 +797,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.prototype.tojson",
       "summary": "Temporal.Instant.prototype.toJSON ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_test::instant_to_iso_8601_is_json_representation_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/prototype/toJSON/basic.js",
         "test/built-ins/Temporal/Instant/prototype/toJSON/branding.js",

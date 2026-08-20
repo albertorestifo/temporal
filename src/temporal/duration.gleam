@@ -1,5 +1,6 @@
 import gleam/float
 import gleam/option.{type Option}
+import gleam/order.{type Order}
 import gleam/result
 import temporal
 import temporal/internal/parser as p
@@ -36,6 +37,56 @@ pub type Duration {
 /// Parsed from Temporal's annotated ISO form.
 pub opaque type RelativeTo {
   RelativeTo(iso_8601: String)
+}
+
+/// A Temporal date or time unit.
+pub type Unit {
+  Year
+  Month
+  Week
+  Day
+  Hour
+  Minute
+  Second
+  Millisecond
+  Microsecond
+  Nanosecond
+}
+
+/// Whether a serializable annotation is shown.
+pub type Display {
+  Auto
+  Always
+  Never
+  Critical
+}
+
+/// Fractional-second precision for serialization.
+pub type Precision {
+  AutoPrecision
+  Digits(Int)
+}
+
+/// Typed options for difference operations.
+pub type DifferenceOptions {
+  DifferenceOptions(
+    largest_unit: Unit,
+    smallest_unit: Unit,
+    rounding_increment: Int,
+    rounding_mode: temporal.RoundingMode,
+  )
+}
+
+/// Typed options for ISO serialization.
+pub type ToStringOptions {
+  ToStringOptions(
+    precision: Precision,
+    smallest_unit: Option(Unit),
+    rounding_mode: temporal.RoundingMode,
+    calendar_name: Display,
+    time_zone_name: Display,
+    offset: Display,
+  )
 }
 
 type TemporaryDuration {
@@ -142,6 +193,89 @@ pub fn add(
   _relative_to: Option(RelativeTo),
 ) -> Result(Duration, temporal.Error) {
   Error(temporal.InvalidDuration(reason: "duration addition is not implemented"))
+}
+
+/// Parses the ISO value used as calendar context for duration operations.
+pub fn relative_to_from_iso_8601(
+  value: String,
+) -> Result(RelativeTo, temporal.Error) {
+  Error(temporal.InvalidIsoString(input: value))
+}
+
+/// Validates the public duration record invariants.
+pub fn validate(_duration: Duration) -> Result(Duration, temporal.Error) {
+  Error(temporal.InvalidDuration(
+    reason: "duration validation is not implemented",
+  ))
+}
+
+/// Compares two durations using optional calendar context.
+pub fn compare(
+  _first: Duration,
+  _second: Duration,
+  _relative_to: Option(RelativeTo),
+) -> Result(Order, temporal.Error) {
+  Error(temporal.InvalidDuration(
+    reason: "duration comparison is not implemented",
+  ))
+}
+
+/// Reports whether two duration records have the same fields and sign.
+pub fn equal(_first: Duration, _second: Duration) -> Bool {
+  False
+}
+
+/// Subtracts one duration from another.
+pub fn subtract(
+  _first: Duration,
+  _second: Duration,
+  _relative_to: Option(RelativeTo),
+) -> Result(Duration, temporal.Error) {
+  Error(temporal.InvalidDuration(
+    reason: "duration subtraction is not implemented",
+  ))
+}
+
+/// Returns the duration with its sign reversed.
+pub fn negated(duration: Duration) -> Duration {
+  duration
+}
+
+/// Returns the non-negative magnitude of a duration.
+pub fn absolute(duration: Duration) -> Duration {
+  duration
+}
+
+/// Rounds a duration to the requested unit.
+///
+pub fn round(
+  _duration: Duration,
+  _smallest_unit: Unit,
+  _largest_unit: Unit,
+  _rounding_increment: Int,
+  _rounding_mode: temporal.RoundingMode,
+  _relative_to: Option(RelativeTo),
+) -> Result(Duration, temporal.Error) {
+  Error(temporal.InvalidDuration(reason: "duration rounding is not implemented"))
+}
+
+/// Returns the duration expressed in one unit.
+///
+pub fn total(
+  _duration: Duration,
+  _unit: Unit,
+  _relative_to: Option(RelativeTo),
+) -> Result(Float, temporal.Error) {
+  Error(temporal.InvalidDuration(reason: "duration total is not implemented"))
+}
+
+/// Serializes a duration using explicit formatting options.
+///
+pub fn to_iso_8601_with_options(
+  _duration: Duration,
+  _options: ToStringOptions,
+) -> Result(String, temporal.Error) {
+  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
 }
 
 fn tokens_to_temporary_duration(

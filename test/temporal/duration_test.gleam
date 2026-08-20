@@ -1,5 +1,9 @@
+import gleam/option.{None}
+import gleam/order.{Eq}
+import temporal
 import temporal/duration.{type Duration, Duration, from_iso_8601}
 import temporal/support/assertions
+import temporal/support/plain_fixtures
 
 fn assert_parses(input: String, expected: Duration) {
   assertions.equal_with_context(input, from_iso_8601(input), Ok(expected))
@@ -398,5 +402,120 @@ pub fn duration_from_parses_small_fractional_second_test() {
       microseconds: 0,
       nanoseconds: 11,
     ),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration
+// test262: test/built-ins/Temporal/Duration/basic.js
+pub fn duration_validate_accepts_canonical_literal_test() {
+  assertions.is_ok_with_context(
+    "canonical literal",
+    duration.validate(plain_fixtures.one_day()),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-COMPARE
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.compare
+// test262: test/built-ins/Temporal/Duration/compare/basic.js
+pub fn duration_compare_orders_time_durations_test() {
+  assertions.equal_with_context(
+    "equal duration",
+    duration.compare(plain_fixtures.one_day(), plain_fixtures.one_day(), None),
+    Ok(Eq),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-PROTOTYPE-NEGATED
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.negated
+// test262: test/built-ins/Temporal/Duration/prototype/negated/basic.js
+pub fn duration_negated_reverses_sign_test() {
+  let value = plain_fixtures.one_day()
+  assertions.equal_with_context(
+    "negative duration",
+    duration.negated(value),
+    Duration(..value, is_negative: True),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-PROTOTYPE-ABS
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.abs
+// test262: test/built-ins/Temporal/Duration/prototype/abs/basic.js
+pub fn duration_absolute_removes_negative_sign_test() {
+  let value = Duration(..plain_fixtures.one_day(), is_negative: True)
+  assertions.equal_with_context(
+    "absolute duration",
+    duration.absolute(value),
+    Duration(..value, is_negative: False),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-PROTOTYPE-ADD
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.add
+// test262: test/built-ins/Temporal/Duration/prototype/add/basic.js
+pub fn duration_add_combines_time_fields_test() {
+  assertions.is_ok_with_context(
+    "duration addition",
+    duration.add(plain_fixtures.one_day(), plain_fixtures.one_day(), None),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-PROTOTYPE-SUBTRACT
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.subtract
+// test262: test/built-ins/Temporal/Duration/prototype/subtract/basic.js
+pub fn duration_subtract_combines_time_fields_test() {
+  assertions.is_ok_with_context(
+    "duration subtraction",
+    duration.subtract(plain_fixtures.one_day(), plain_fixtures.one_day(), None),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-PROTOTYPE-ROUND
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.round
+// test262: test/built-ins/Temporal/Duration/prototype/round/roundingincrement-hours.js
+pub fn duration_round_uses_typed_units_test() {
+  assertions.is_ok_with_context(
+    "duration rounding",
+    duration.round(
+      plain_fixtures.one_day(),
+      duration.Hour,
+      duration.Day,
+      1,
+      temporal.HalfExpand,
+      None,
+    ),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-PROTOTYPE-TOTAL
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.total
+// test262: test/built-ins/Temporal/Duration/prototype/total/basic.js
+pub fn duration_total_uses_typed_unit_test() {
+  assertions.equal_with_context(
+    "total hours",
+    duration.total(plain_fixtures.one_day(), duration.Hour, None),
+    Ok(24.0),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-PROTOTYPE-TOSTRING
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.tostring
+// test262: test/built-ins/Temporal/Duration/prototype/toString/basic.js
+pub fn duration_to_iso_8601_formats_duration_test() {
+  assertions.equal_with_context(
+    "ISO duration",
+    duration.to_iso_8601(plain_fixtures.one_day()),
+    "P1D",
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-PROTOTYPE-TOJSON
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.prototype.tojson
+// test262: test/built-ins/Temporal/Duration/prototype/toJSON/basic.js
+pub fn duration_to_iso_8601_is_json_representation_test() {
+  assertions.equal_with_context(
+    "JSON duration",
+    duration.to_iso_8601(plain_fixtures.one_day()),
+    "P1D",
   )
 }

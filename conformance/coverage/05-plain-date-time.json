@@ -51,8 +51,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime",
       "summary": "Temporal.PlainDateTime ( _isoYear_, _isoMonth_, _isoDay_ [ , _hour_ [ , _minute_ [ , _second_ [ , _millisecond_ [ , _microsecond_ [ , _nanosecond_ [ , _calendar_ ] ] ] ] ] ] ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_new_accepts_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/argument-convert.js",
         "test/built-ins/Temporal/PlainDateTime/builtin.js",
@@ -118,8 +120,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.from",
       "summary": "Temporal.PlainDateTime.from ( _item_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_from_iso_8601_parses_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/from/argument-number.js",
         "test/built-ins/Temporal/PlainDateTime/from/argument-object-month.js",
@@ -203,8 +207,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.compare",
       "summary": "Temporal.PlainDateTime.compare ( _one_, _two_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_compare_orders_iso_fields_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/compare/argument-number.js",
         "test/built-ins/Temporal/PlainDateTime/compare/argument-object-insufficient-data.js",
@@ -297,8 +303,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.calendarid",
       "summary": "get Temporal.PlainDateTime.prototype.calendarId",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_calendar_id_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/calendarId/branding.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/calendarId/prop-desc.js"
@@ -348,8 +356,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.year",
       "summary": "get Temporal.PlainDateTime.prototype.year",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_year_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/year/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/year/branding.js",
@@ -366,8 +376,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.month",
       "summary": "get Temporal.PlainDateTime.prototype.month",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_month_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/month/branding.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/month/prop-desc.js"
@@ -383,8 +395,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.monthcode",
       "summary": "get Temporal.PlainDateTime.prototype.monthCode",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_month_code_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/monthCode/branding.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/monthCode/prop-desc.js"
@@ -400,8 +414,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.day",
       "summary": "get Temporal.PlainDateTime.prototype.day",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_day_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/day/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/day/branding.js",
@@ -418,8 +434,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.hour",
       "summary": "get Temporal.PlainDateTime.prototype.hour",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_hour_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/hour/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/hour/branding.js",
@@ -436,8 +454,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.minute",
       "summary": "get Temporal.PlainDateTime.prototype.minute",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_minute_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/minute/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/minute/branding.js",
@@ -454,8 +474,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.second",
       "summary": "get Temporal.PlainDateTime.prototype.second",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_second_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/second/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/second/branding.js",
@@ -472,8 +494,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.millisecond",
       "summary": "get Temporal.PlainDateTime.prototype.millisecond",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_millisecond_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/millisecond/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/millisecond/branding.js",
@@ -490,8 +514,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.microsecond",
       "summary": "get Temporal.PlainDateTime.prototype.microsecond",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_microsecond_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/microsecond/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/microsecond/branding.js",
@@ -508,8 +534,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.nanosecond",
       "summary": "get Temporal.PlainDateTime.prototype.nanosecond",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_nanosecond_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/nanosecond/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/nanosecond/branding.js",
@@ -526,8 +554,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.dayofweek",
       "summary": "get Temporal.PlainDateTime.prototype.dayOfWeek",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_day_of_week_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/dayOfWeek/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/dayOfWeek/branding.js",
@@ -544,8 +574,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.dayofyear",
       "summary": "get Temporal.PlainDateTime.prototype.dayOfYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_day_of_year_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/dayOfYear/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/dayOfYear/branding.js",
@@ -562,8 +594,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.weekofyear",
       "summary": "get Temporal.PlainDateTime.prototype.weekOfYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_week_of_year_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/weekOfYear/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/weekOfYear/branding.js",
@@ -580,8 +614,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.yearofweek",
       "summary": "get Temporal.PlainDateTime.prototype.yearOfWeek",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_year_of_week_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/yearOfWeek/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/yearOfWeek/branding.js",
@@ -598,8 +634,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.daysinweek",
       "summary": "get Temporal.PlainDateTime.prototype.daysInWeek",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_days_in_week_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/daysInWeek/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/daysInWeek/branding.js",
@@ -616,8 +654,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.daysinmonth",
       "summary": "get Temporal.PlainDateTime.prototype.daysInMonth",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_days_in_month_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/daysInMonth/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/daysInMonth/branding.js",
@@ -634,8 +674,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.daysinyear",
       "summary": "get Temporal.PlainDateTime.prototype.daysInYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_days_in_year_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/daysInYear/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/daysInYear/branding.js",
@@ -652,8 +694,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.monthsinyear",
       "summary": "get Temporal.PlainDateTime.prototype.monthsInYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_months_in_year_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/monthsInYear/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/monthsInYear/branding.js",
@@ -670,8 +714,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-get-temporal.plaindatetime.prototype.inleapyear",
       "summary": "get Temporal.PlainDateTime.prototype.inLeapYear",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_in_leap_year_returns_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/inLeapYear/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/inLeapYear/branding.js",
@@ -818,8 +864,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.prototype.add",
       "summary": "Temporal.PlainDateTime.prototype.add ( _temporalDurationLike_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_add_applies_duration_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/add/add-large-subseconds.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/add/ambiguous-date.js",
@@ -875,8 +923,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.prototype.subtract",
       "summary": "Temporal.PlainDateTime.prototype.subtract ( _temporalDurationLike_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_subtract_applies_duration_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/subtract/ambiguous-date.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/subtract/argument-duration-max-plus-min-date.js",
@@ -931,8 +981,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.prototype.until",
       "summary": "Temporal.PlainDateTime.prototype.until ( _other_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_until_returns_duration_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/until/argument-number.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/until/argument-object.js",
@@ -1044,8 +1096,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.prototype.since",
       "summary": "Temporal.PlainDateTime.prototype.since ( _other_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_since_returns_duration_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/since/argument-number.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/since/argument-object.js",
@@ -1154,8 +1208,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.prototype.round",
       "summary": "Temporal.PlainDateTime.prototype.round ( _roundTo_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_round_uses_typed_unit_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/round/balance.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/round/branding.js",
@@ -1213,8 +1269,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.prototype.equals",
       "summary": "Temporal.PlainDateTime.prototype.equals ( _other_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_equal_matches_same_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/equals/argument-number.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/equals/argument-object-insufficient-data.js",
@@ -1269,8 +1327,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.prototype.tostring",
       "summary": "Temporal.PlainDateTime.prototype.toString ( [ _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_date_time_test::plain_date_time_to_iso_8601_formats_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/toString/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/toString/branding.js",

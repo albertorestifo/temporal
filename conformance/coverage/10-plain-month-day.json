@@ -46,8 +46,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday",
       "summary": "Temporal.PlainMonthDay ( _isoMonth_, _isoDay_ [ , _calendar_ [ , _referenceISOYear_ ] ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_month_day_test::plain_month_day_new_accepts_iso_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainMonthDay/argument-convert.js",
         "test/built-ins/Temporal/PlainMonthDay/argument-invalid.js",
@@ -107,8 +109,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.from",
       "summary": "Temporal.PlainMonthDay.from ( _item_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_month_day_test::plain_month_day_from_iso_8601_parses_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainMonthDay/from/argument-number.js",
         "test/built-ins/Temporal/PlainMonthDay/from/argument-plainmonthday.js",
@@ -219,8 +223,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-get-temporal.plainmonthday.prototype.calendarid",
       "summary": "get Temporal.PlainMonthDay.prototype.calendarId",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_month_day_test::plain_month_day_calendar_id_returns_iso8601_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainMonthDay/prototype/calendarId/branding.js",
         "test/built-ins/Temporal/PlainMonthDay/prototype/calendarId/prop-desc.js"
@@ -236,8 +242,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-get-temporal.plainmonthday.prototype.monthcode",
       "summary": "get Temporal.PlainMonthDay.prototype.monthCode",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_month_day_test::plain_month_day_month_code_returns_iso_code_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainMonthDay/prototype/monthCode/basic.js",
         "test/built-ins/Temporal/PlainMonthDay/prototype/monthCode/branding.js",
@@ -254,8 +262,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-get-temporal.plainmonthday.prototype.day",
       "summary": "get Temporal.PlainMonthDay.prototype.day",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_month_day_test::plain_month_day_day_returns_day_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainMonthDay/prototype/day/basic.js",
         "test/built-ins/Temporal/PlainMonthDay/prototype/day/branding.js",
@@ -308,8 +318,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype.equals",
       "summary": "Temporal.PlainMonthDay.prototype.equals ( _other_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_month_day_test::plain_month_day_equal_matches_same_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-number.js",
         "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-propertybag-calendar-case-insensitive.js",
@@ -359,8 +371,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype.tostring",
       "summary": "Temporal.PlainMonthDay.prototype.toString ( [ _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_month_day_test::plain_month_day_to_iso_8601_formats_value_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainMonthDay/prototype/toString/branding.js",
         "test/built-ins/Temporal/PlainMonthDay/prototype/toString/builtin.js",
