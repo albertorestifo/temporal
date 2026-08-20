@@ -337,21 +337,11 @@ pub fn add(
       nanoseconds: 0,
     )
   use date <- result_try(plain_date.add(value.date, date_amount, overflow))
-  let carry =
-    duration.Duration(
-      is_negative: day_carry < 0,
-      years: 0,
-      months: 0,
-      weeks: 0,
-      days: absolute(day_carry),
-      hours: 0,
-      minutes: 0,
-      seconds: 0,
-      milliseconds: 0,
-      microseconds: 0,
-      nanoseconds: 0,
-    )
-  use final_date <- result_try(plain_date.add(date, carry, overflow))
+  use final_date <- result_try(plain_date.add(
+    date,
+    days_duration(day_carry),
+    overflow,
+  ))
   let iso.Time(h, m, s, ms, us, ns) = balanced_time
   use final_time <- result_try(plain_time.new(
     h,
@@ -405,19 +395,48 @@ pub fn since(
 }
 
 /// Rounds a date-time.
+///
+/// Fields finer than `smallest_unit` are kept, so an increment of one unit
+/// returns the date-time unchanged. Rounding the time past midnight moves the
+/// date to the next day.
+///
+/// Returns `Error(InvalidOption(...))` for a calendar unit or an increment
+/// below one.
 pub fn round(
   value: PlainDateTime,
   smallest_unit: duration.Unit,
   rounding_increment: Int,
   rounding_mode: temporal.RoundingMode,
 ) -> Result(PlainDateTime, temporal.Error) {
-  use time <- result_try(plain_time.round(
-    value.time,
-    smallest_unit,
-    rounding_increment,
-    rounding_mode,
-  ))
-  Ok(PlainDateTime(value.date, time))
+  use unit <- result_try(iso.unit_nanoseconds(smallest_unit))
+  case rounding_increment > 0 {
+    False -> Error(temporal.InvalidOption(temporal.RoundingIncrementOption))
+    True -> {
+      let #(day_carry, rounded) =
+        iso.round_time(
+          internal_time(value.time),
+          unit_nanoseconds: unit,
+          increment: rounding_increment,
+          mode: rounding_mode,
+        )
+      let iso.Time(h, m, s, ms, us, ns) = rounded
+      use time <- result_try(plain_time.new(
+        h,
+        m,
+        s,
+        ms,
+        us,
+        ns,
+        temporal.Reject,
+      ))
+      use date <- result_try(plain_date.add(
+        value.date,
+        days_duration(day_carry),
+        temporal.Reject,
+      ))
+      Ok(PlainDateTime(date, time))
+    }
+  }
 }
 
 /// Serializes a date-time using ISO 8601.
@@ -453,15 +472,35 @@ fn internal_date(date: plain_date.PlainDate) -> iso.Date {
   iso.Date(plain_date.year(date), plain_date.month(date), plain_date.day(date))
 }
 
-fn plain_time_nanoseconds(time: plain_time.PlainTime) -> Int {
-  iso.time_to_nanoseconds(iso.Time(
+fn internal_time(time: plain_time.PlainTime) -> iso.Time {
+  iso.Time(
     plain_time.hour(time),
     plain_time.minute(time),
     plain_time.second(time),
     plain_time.millisecond(time),
     plain_time.microsecond(time),
     plain_time.nanosecond(time),
-  ))
+  )
+}
+
+fn plain_time_nanoseconds(time: plain_time.PlainTime) -> Int {
+  iso.time_to_nanoseconds(internal_time(time))
+}
+
+fn days_duration(days: Int) -> duration.Duration {
+  duration.Duration(
+    is_negative: days < 0,
+    years: 0,
+    months: 0,
+    weeks: 0,
+    days: absolute(days),
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    milliseconds: 0,
+    microseconds: 0,
+    nanoseconds: 0,
+  )
 }
 
 fn validate_duration(value: duration.Duration) -> Result(Nil, temporal.Error) {

@@ -189,24 +189,30 @@ pub fn since(
 }
 
 /// Rounds a time to an increment of a unit.
+///
+/// Fields finer than `smallest_unit` are kept, so an increment of one unit
+/// returns the time unchanged. Rounding past midnight wraps within the day.
+///
+/// Returns `Error(InvalidOption(...))` for a calendar unit or an increment
+/// below one.
 pub fn round(
   time: PlainTime,
   smallest_unit: duration.Unit,
   rounding_increment: Int,
   rounding_mode: temporal.RoundingMode,
 ) -> Result(PlainTime, temporal.Error) {
-  use unit <- result_try(unit_nanoseconds(smallest_unit))
+  use unit <- result_try(iso.unit_nanoseconds(smallest_unit))
   case rounding_increment > 0 {
     False -> Error(temporal.InvalidOption(temporal.RoundingIncrementOption))
     True -> {
-      let rounded =
-        round_positive(
-          iso.time_to_nanoseconds(to_internal(time)),
-          unit * rounding_increment,
-          rounding_mode,
+      let #(_, rounded) =
+        iso.round_time(
+          to_internal(time),
+          unit_nanoseconds: unit,
+          increment: rounding_increment,
+          mode: rounding_mode,
         )
-      let #(_, result) = iso.nanoseconds_to_time(rounded)
-      Ok(from_internal(result))
+      Ok(from_internal(rounded))
     }
   }
 }
@@ -331,40 +337,6 @@ fn duration_from_nanoseconds(value: Int) -> duration.Duration {
     microseconds: microseconds,
     nanoseconds: modulo(after_milliseconds, 1000),
   )
-}
-
-fn unit_nanoseconds(unit: duration.Unit) -> Result(Int, temporal.Error) {
-  case unit {
-    duration.Hour -> Ok(3_600_000_000_000)
-    duration.Minute -> Ok(60_000_000_000)
-    duration.Second -> Ok(1_000_000_000)
-    duration.Millisecond -> Ok(1_000_000)
-    duration.Microsecond -> Ok(1000)
-    duration.Nanosecond -> Ok(1)
-    _ -> Error(temporal.InvalidOption(temporal.RoundingIncrementOption))
-  }
-}
-
-fn round_positive(
-  value: Int,
-  increment: Int,
-  mode: temporal.RoundingMode,
-) -> Int {
-  let lower = value / increment * increment
-  let remainder = value - lower
-  case mode {
-    temporal.Ceil | temporal.Expand ->
-      case remainder == 0 {
-        True -> lower
-        False -> lower + increment
-      }
-    temporal.Floor | temporal.Trunc -> lower
-    _ ->
-      case remainder * 2 >= increment {
-        True -> lower + increment
-        False -> lower
-      }
-  }
 }
 
 fn modulo(value: Int, divisor: Int) -> Int {

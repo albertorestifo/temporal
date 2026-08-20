@@ -3,6 +3,7 @@
 import gleam/int
 import gleam/string
 import temporal
+import temporal/duration
 
 /// Validated ISO date fields.
 pub type Date {
@@ -269,6 +270,82 @@ pub fn nanoseconds_to_time(total: Int) -> #(Int, Time) {
   let microsecond = floor_div(after_millisecond, 1000)
   let nanosecond = positive_mod(after_millisecond, 1000)
   #(day, Time(hour, minute, second, millisecond, microsecond, nanosecond))
+}
+
+/// Returns the number of nanoseconds in a time unit.
+///
+/// Calendar units have no fixed nanosecond length and return
+/// `Error(InvalidOption(...))`.
+pub fn unit_nanoseconds(unit: duration.Unit) -> Result(Int, temporal.Error) {
+  case unit {
+    duration.Day -> Ok(86_400_000_000_000)
+    duration.Hour -> Ok(3_600_000_000_000)
+    duration.Minute -> Ok(60_000_000_000)
+    duration.Second -> Ok(1_000_000_000)
+    duration.Millisecond -> Ok(1_000_000)
+    duration.Microsecond -> Ok(1000)
+    duration.Nanosecond -> Ok(1)
+    duration.Year | duration.Month | duration.Week ->
+      Error(temporal.InvalidOption(temporal.RoundingIncrementOption))
+  }
+}
+
+/// Rounds the part of a time at or above one unit to a multiple of
+/// `increment` units.
+///
+/// Fields finer than the unit are retained unchanged, so rounding to an
+/// increment of one unit leaves the time as it was. The first element of the
+/// returned pair is the number of days the rounded time carried past midnight.
+pub fn round_time(
+  time: Time,
+  unit_nanoseconds unit_nanoseconds: Int,
+  increment increment: Int,
+  mode mode: temporal.RoundingMode,
+) -> #(Int, Time) {
+  let total = time_to_nanoseconds(time)
+  let retained = positive_mod(total, unit_nanoseconds)
+  let rounded =
+    round_to_increment(total - retained, unit_nanoseconds * increment, mode)
+  nanoseconds_to_time(rounded + retained)
+}
+
+fn round_to_increment(
+  value: Int,
+  increment: Int,
+  mode: temporal.RoundingMode,
+) -> Int {
+  let lower = value - positive_mod(value, increment)
+  let doubled_remainder = { value - lower } * 2
+  case doubled_remainder == 0 {
+    True -> value
+    False ->
+      case mode {
+        temporal.Ceil | temporal.Expand -> lower + increment
+        temporal.Floor | temporal.Trunc -> lower
+        temporal.HalfCeil | temporal.HalfExpand ->
+          expand_when(doubled_remainder >= increment, lower, increment)
+        temporal.HalfFloor | temporal.HalfTrunc ->
+          expand_when(doubled_remainder > increment, lower, increment)
+        temporal.HalfEven ->
+          case doubled_remainder == increment {
+            True ->
+              expand_when(
+                positive_mod(lower / increment, 2) != 0,
+                lower,
+                increment,
+              )
+            False ->
+              expand_when(doubled_remainder > increment, lower, increment)
+          }
+      }
+  }
+}
+
+fn expand_when(expand: Bool, lower: Int, increment: Int) -> Int {
+  case expand {
+    True -> lower + increment
+    False -> lower
+  }
 }
 
 fn parse_seconds(value: String) -> Result(#(Int, Int, Int, Int), Nil) {
