@@ -89,7 +89,7 @@ pub fn until(
   _second: Instant,
   _options: duration.DifferenceOptions,
 ) -> Result(duration.Duration, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.DifferenceOptions))
 }
 
 /// Returns the duration since the second instant.
@@ -99,7 +99,7 @@ pub fn since(
   _second: Instant,
   _options: duration.DifferenceOptions,
 ) -> Result(duration.Duration, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.DifferenceOptions))
 }
 
 /// Rounds an instant to an increment of the requested unit.
@@ -124,7 +124,7 @@ pub fn to_iso_8601_with_options(
   _instant: Instant,
   _options: duration.ToStringOptions,
 ) -> Result(String, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.ToStringOptions))
 }
 
 /// Converts an Instant to an epoch milliseconds value.

@@ -8,20 +8,63 @@
 ///
 /// `InvalidIsoString` carries the rejected input, `OutOfRange` names the field
 /// and the value that fell outside its documented limits, `InvalidOption`
-/// names the option and the unsupported value, and `PlatformUnavailable`
-/// names the platform operation that could not be performed.
+/// names the option, and `PlatformUnavailable` names the platform operation
+/// that could not be performed.
 pub type Error {
   InvalidIsoString(input: String)
-  OutOfRange(field: String, value: String)
+  OutOfRange(field: Field, value: String)
   InvalidDuration(reason: String)
-  InvalidOption(name: String, value: String)
+  InvalidOption(option: OptionKind)
   MissingRelativeTo
   UnknownCalendar(id: String)
   UnknownTimeZone(id: String)
   AmbiguousLocalTime
   NonexistentLocalTime
   OffsetMismatch
-  PlatformUnavailable(operation: String)
+  PlatformUnavailable(operation: PlatformOperation)
+}
+
+/// A field whose value can fall outside Temporal's supported range.
+pub type Field {
+  Year
+  Month
+  Day
+  Hour
+  Minute
+  Second
+  Millisecond
+  Microsecond
+  Nanosecond
+  Offset
+  EpochMilliseconds
+  EpochNanoseconds
+  Date
+  Time
+  YearMonth
+  MonthDay
+  IsoDate
+  EpochDays
+}
+
+/// A closed option category that can contain an unsupported value.
+pub type OptionKind {
+  OverflowOption
+  RoundingIncrementOption
+  RoundingModeOption
+  DifferenceOptions
+  ToStringOptions
+}
+
+/// A platform-dependent operation that may be unavailable.
+pub type PlatformOperation {
+  SystemClock
+  LocalTimeZoneDiscovery
+  ZonedDateTimeFromIso8601
+  ZonedDateTimeAdd
+  ZonedDateTimeSubtract
+  ZonedDateTimeStartOfDay
+  ZonedDateTimeHoursInDay
+  ZonedDateTimeToIso8601
 }
 
 /// How an operation handles a date or time field that falls outside its

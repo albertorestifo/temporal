@@ -210,7 +210,7 @@ pub fn until(
   _second: PlainDateTime,
   _options: duration.DifferenceOptions,
 ) -> Result(duration.Duration, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.DifferenceOptions))
 }
 
 /// Returns the elapsed duration since another date-time.
@@ -219,7 +219,7 @@ pub fn since(
   _second: PlainDateTime,
   _options: duration.DifferenceOptions,
 ) -> Result(duration.Duration, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.DifferenceOptions))
 }
 
 /// Rounds a date-time.
@@ -244,7 +244,7 @@ pub fn to_iso_8601_with_options(
   _value: PlainDateTime,
   _options: duration.ToStringOptions,
 ) -> Result(String, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.ToStringOptions))
 }
 
 fn result_try(result: Result(a, e), next: fn(a) -> Result(b, e)) -> Result(b, e) {

@@ -19,7 +19,7 @@ pub fn new(
   overflow _overflow: temporal.Overflow,
 ) -> Result(PlainYearMonth, temporal.Error) {
   Error(temporal.OutOfRange(
-    field: "year_month",
+    field: temporal.YearMonth,
     value: label(year, month, reference_day),
   ))
 }
@@ -110,7 +110,7 @@ pub fn until(
   _second: PlainYearMonth,
   _options: duration.DifferenceOptions,
 ) -> Result(duration.Duration, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.DifferenceOptions))
 }
 
 /// Returns the elapsed duration since another year-month.
@@ -119,7 +119,7 @@ pub fn since(
   _second: PlainYearMonth,
   _options: duration.DifferenceOptions,
 ) -> Result(duration.Duration, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.DifferenceOptions))
 }
 
 /// Serializes a year-month using ISO 8601.

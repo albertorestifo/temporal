@@ -17,7 +17,7 @@ pub fn new(
   overflow _overflow: temporal.Overflow,
 ) -> Result(PlainMonthDay, temporal.Error) {
   Error(temporal.OutOfRange(
-    field: "month_day",
+    field: temporal.MonthDay,
     value: label(month, day, reference_year),
   ))
 }

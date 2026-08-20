@@ -275,7 +275,7 @@ pub fn to_iso_8601_with_options(
   _duration: Duration,
   _options: ToStringOptions,
 ) -> Result(String, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.ToStringOptions))
 }
 
 fn tokens_to_temporary_duration(

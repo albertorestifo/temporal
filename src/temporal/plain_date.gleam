@@ -24,7 +24,10 @@ pub fn new(
   calendar _calendar: calendar.Calendar,
   overflow _overflow: temporal.Overflow,
 ) -> Result(PlainDate, temporal.Error) {
-  Error(temporal.OutOfRange(field: "date", value: value_label(year, month, day)))
+  Error(temporal.OutOfRange(
+    field: temporal.Date,
+    value: value_label(year, month, day),
+  ))
 }
 
 /// Parses an ISO 8601 calendar date.
@@ -173,7 +176,7 @@ pub fn until(
   _second: PlainDate,
   _options: duration.DifferenceOptions,
 ) -> Result(duration.Duration, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.DifferenceOptions))
 }
 
 /// Returns the elapsed duration since another date.
@@ -182,7 +185,7 @@ pub fn since(
   _second: PlainDate,
   _options: duration.DifferenceOptions,
 ) -> Result(duration.Duration, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.DifferenceOptions))
 }
 
 /// Serializes a date using ISO 8601.
@@ -195,7 +198,7 @@ pub fn to_iso_8601_with_options(
   _date: PlainDate,
   _options: duration.ToStringOptions,
 ) -> Result(String, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.ToStringOptions))
 }
 
 fn month_code_for(month: Int) -> String {

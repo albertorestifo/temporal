@@ -24,8 +24,8 @@ pub opaque type ZonedDateTime {
 /// Parse an annotated Temporal zoned date-time string.
 ///
 /// Parsing is unavailable until local ISO date-time conversion is provided.
-pub fn from_iso_8601(value: String) -> Result(ZonedDateTime, temporal.Error) {
-  Error(temporal.PlatformUnavailable("zoned_date_time.from_iso_8601:" <> value))
+pub fn from_iso_8601(_value: String) -> Result(ZonedDateTime, temporal.Error) {
+  Error(temporal.PlatformUnavailable(temporal.ZonedDateTimeFromIso8601))
 }
 
 /// Combine an exact instant with a validated time zone and calendar.
@@ -39,7 +39,10 @@ pub fn from_instant(
   case instant.from_epoch_nanoseconds_int(value) {
     Ok(valid) -> Ok(ZonedDateTime(valid, time_zone_value, calendar_value))
     Error(_) ->
-      Error(temporal.OutOfRange("epoch_nanoseconds", bigi.to_string(value)))
+      Error(temporal.OutOfRange(
+        temporal.EpochNanoseconds,
+        bigi.to_string(value),
+      ))
   }
 }
 
@@ -99,7 +102,7 @@ pub fn add(
   _duration: duration.Duration,
   _overflow: temporal.Overflow,
 ) -> Result(ZonedDateTime, temporal.Error) {
-  unavailable("zoned_date_time.add")
+  unavailable(temporal.ZonedDateTimeAdd)
 }
 
 /// Subtract a duration using zoned, calendar-aware arithmetic.
@@ -111,7 +114,7 @@ pub fn subtract(
   _duration: duration.Duration,
   _overflow: temporal.Overflow,
 ) -> Result(ZonedDateTime, temporal.Error) {
-  unavailable("zoned_date_time.subtract")
+  unavailable(temporal.ZonedDateTimeSubtract)
 }
 
 /// Return the start of the local calendar day.
@@ -121,7 +124,7 @@ pub fn subtract(
 pub fn start_of_day(
   _value: ZonedDateTime,
 ) -> Result(ZonedDateTime, temporal.Error) {
-  unavailable("zoned_date_time.start_of_day")
+  unavailable(temporal.ZonedDateTimeStartOfDay)
 }
 
 /// Return the length of the local day in hours.
@@ -129,7 +132,7 @@ pub fn start_of_day(
 /// This operation is unavailable until named-zone transition data is
 /// provided.
 pub fn hours_in_day(_value: ZonedDateTime) -> Result(Float, temporal.Error) {
-  unavailable("zoned_date_time.hours_in_day")
+  unavailable(temporal.ZonedDateTimeHoursInDay)
 }
 
 /// Serialize a zoned date-time in annotated ISO 8601 form.
@@ -137,9 +140,11 @@ pub fn hours_in_day(_value: ZonedDateTime) -> Result(Float, temporal.Error) {
 /// This operation is unavailable until local date-time conversion is
 /// implemented.
 pub fn to_iso_8601(_value: ZonedDateTime) -> Result(String, temporal.Error) {
-  unavailable("zoned_date_time.to_iso_8601")
+  unavailable(temporal.ZonedDateTimeToIso8601)
 }
 
-fn unavailable(operation: String) -> Result(a, temporal.Error) {
+fn unavailable(
+  operation: temporal.PlatformOperation,
+) -> Result(a, temporal.Error) {
   Error(temporal.PlatformUnavailable(operation))
 }

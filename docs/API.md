@@ -38,16 +38,56 @@ Final source declarations include implementations and `///` documentation.
 ```gleam
 pub type Error {
   InvalidIsoString(input: String)
-  OutOfRange(field: String, value: String)
+  OutOfRange(field: Field, value: String)
   InvalidDuration(reason: String)
-  InvalidOption(name: String, value: String)
+  InvalidOption(option: OptionKind)
   MissingRelativeTo
   UnknownCalendar(id: String)
   UnknownTimeZone(id: String)
   AmbiguousLocalTime
   NonexistentLocalTime
   OffsetMismatch
-  PlatformUnavailable(operation: String)
+  PlatformUnavailable(operation: PlatformOperation)
+}
+
+pub type Field {
+  Year
+  Month
+  Day
+  Hour
+  Minute
+  Second
+  Millisecond
+  Microsecond
+  Nanosecond
+  Offset
+  EpochMilliseconds
+  EpochNanoseconds
+  Date
+  Time
+  YearMonth
+  MonthDay
+  IsoDate
+  EpochDays
+}
+
+pub type OptionKind {
+  OverflowOption
+  RoundingIncrementOption
+  RoundingModeOption
+  DifferenceOptions
+  ToStringOptions
+}
+
+pub type PlatformOperation {
+  SystemClock
+  LocalTimeZoneDiscovery
+  ZonedDateTimeFromIso8601
+  ZonedDateTimeAdd
+  ZonedDateTimeSubtract
+  ZonedDateTimeStartOfDay
+  ZonedDateTimeHoursInDay
+  ZonedDateTimeToIso8601
 }
 
 pub type Unit {

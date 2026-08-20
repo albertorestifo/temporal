@@ -60,7 +60,7 @@ pub fn instant_with_clock(
       use milliseconds <- result.try(platform_epoch_milliseconds())
       instant.from_epoch_milliseconds(milliseconds)
       |> result.map_error(fn(_) {
-        temporal.OutOfRange("epoch_milliseconds", "system clock")
+        temporal.OutOfRange(temporal.EpochMilliseconds, "system clock")
       })
     }
   }
@@ -116,14 +116,14 @@ fn time_zone_with_clock(
   case clock {
     FixedClock(time_zone: zone, ..) -> Ok(zone)
     SystemClock ->
-      Error(temporal.PlatformUnavailable("local time-zone discovery"))
+      Error(temporal.PlatformUnavailable(temporal.LocalTimeZoneDiscovery))
   }
 }
 
 fn platform_epoch_milliseconds() -> Result(Int, temporal.Error) {
   case erlang_system_time(Millisecond) {
     // The fallback body is used on targets without an adapter.
-    0 -> Error(temporal.PlatformUnavailable("system clock"))
+    0 -> Error(temporal.PlatformUnavailable(temporal.SystemClock))
     milliseconds -> Ok(milliseconds)
   }
 }

@@ -14,7 +14,7 @@ pub fn iso_date_to_epoch_days(
   _month: Int,
   _day: Int,
 ) -> Result(Int, temporal.Error) {
-  Error(temporal.OutOfRange(field: "iso_date", value: "not implemented"))
+  Error(temporal.OutOfRange(field: temporal.IsoDate, value: "not implemented"))
 }
 
 /// EpochDaysToEpochMs: epoch milliseconds for an epoch day and a
@@ -23,7 +23,7 @@ pub fn epoch_days_to_epoch_milliseconds(
   _day: Int,
   _milliseconds_within_day: Int,
 ) -> Result(Int, temporal.Error) {
-  Error(temporal.OutOfRange(field: "epoch_days", value: "not implemented"))
+  Error(temporal.OutOfRange(field: temporal.EpochDays, value: "not implemented"))
 }
 
 /// BalanceISODate: ISO date fields balanced into `#(year, month, day)`.
@@ -55,9 +55,9 @@ pub fn balance_duration_time(
 
 /// GetTemporalOverflowOption: the overflow option named by a string.
 pub fn overflow_option(
-  value: String,
+  _value: String,
 ) -> Result(temporal.Overflow, temporal.Error) {
-  Error(temporal.InvalidOption(name: "overflow", value: value))
+  Error(temporal.InvalidOption(option: temporal.OverflowOption))
 }
 
 /// NegateRoundingMode: the rounding mode that a negated quantity uses.
@@ -73,7 +73,7 @@ pub fn validate_rounding_increment(
   _dividend: Int,
   _inclusive: Bool,
 ) -> Result(Nil, temporal.Error) {
-  Error(temporal.InvalidOption(name: "rounding_increment", value: "unchecked"))
+  Error(temporal.InvalidOption(option: temporal.RoundingIncrementOption))
 }
 
 /// RoundNumberToIncrement: a value rounded to a positive increment.
@@ -82,7 +82,7 @@ pub fn round_number_to_increment(
   _increment: Int,
   _mode: temporal.RoundingMode,
 ) -> Result(Int, temporal.Error) {
-  Error(temporal.InvalidOption(name: "rounding_mode", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.RoundingModeOption))
 }
 
 /// FormatFractionalSeconds: subsecond nanoseconds at the requested precision.

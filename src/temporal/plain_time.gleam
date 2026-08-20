@@ -21,7 +21,7 @@ pub fn new(
   overflow _overflow: temporal.Overflow,
 ) -> Result(PlainTime, temporal.Error) {
   Error(temporal.OutOfRange(
-    field: "time",
+    field: temporal.Time,
     value: int_to_string(
       hour + minute + second + millisecond + microsecond + nanosecond,
     ),
@@ -107,7 +107,7 @@ pub fn until(
   _second: PlainTime,
   _options: duration.DifferenceOptions,
 ) -> Result(duration.Duration, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.DifferenceOptions))
 }
 
 /// Returns the elapsed duration since another time.
@@ -116,7 +116,7 @@ pub fn since(
   _second: PlainTime,
   _options: duration.DifferenceOptions,
 ) -> Result(duration.Duration, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.DifferenceOptions))
 }
 
 /// Rounds a time to an increment of a unit.
@@ -141,7 +141,7 @@ pub fn to_iso_8601_with_options(
   _time: PlainTime,
   _options: duration.ToStringOptions,
 ) -> Result(String, temporal.Error) {
-  Error(temporal.InvalidOption(name: "options", value: "not implemented"))
+  Error(temporal.InvalidOption(option: temporal.ToStringOptions))
 }
 
 fn int_to_string(value: Int) -> String {
