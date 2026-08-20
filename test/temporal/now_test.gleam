@@ -1,6 +1,7 @@
 import bigi
 import gleam/option.{None, Some}
 import gleam/order.{Gt}
+import temporal/calendar
 import temporal/instant
 import temporal/now
 import temporal/support/assertions
@@ -83,9 +84,9 @@ pub fn now_zoned_date_time_iso_uses_iso_calendar_test() {
       now.zoned_date_time_iso_with_clock(clock, time_zone: None),
     )
   assertions.equal_with_context(
-    "calendar identifier",
-    zoned_date_time.calendar_id(value),
-    "iso8601",
+    "ISO 8601 calendar",
+    zoned_date_time.calendar(value),
+    calendar.iso_8601(),
   )
   assertions.equal_with_context(
     "epoch nanoseconds",
@@ -99,18 +100,16 @@ pub fn now_zoned_date_time_iso_uses_iso_calendar_test() {
 // test262: test/built-ins/Temporal/Now/zonedDateTimeISO/timezone-string.js
 pub fn now_zoned_date_time_iso_uses_requested_time_zone_test() {
   let clock = fixed_clock_at(1000, time_zone.utc())
+  let requested = offset_zone("-08:00")
   let value =
     assertions.is_ok_with_context(
       "zoned date-time in requested zone",
-      now.zoned_date_time_iso_with_clock(
-        clock,
-        time_zone: Some(offset_zone("-08:00")),
-      ),
+      now.zoned_date_time_iso_with_clock(clock, time_zone: Some(requested)),
     )
   assertions.equal_with_context(
-    "time-zone identifier",
-    zoned_date_time.time_zone_id(value),
-    "-08:00",
+    "requested time zone",
+    zoned_date_time.time_zone(value),
+    requested,
   )
 }
 
