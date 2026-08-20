@@ -1,0 +1,547 @@
+{
+  "schema_version": 1,
+  "section": 10,
+  "section_slug": "plain-month-day",
+  "title": "Temporal.PlainMonthDay",
+  "source_file": "spec/plainmonthday.html",
+  "section_anchor": "sec-temporal-plainmonthday-objects",
+  "section_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal-plainmonthday-objects",
+  "requirements": [
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-OBJECTS",
+      "spec_anchor": "sec-temporal-plainmonthday-objects",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal-plainmonthday-objects",
+      "summary": "Temporal.PlainMonthDay Objects",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/calendar-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/calendarId/basic.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toStringTag/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-CONSTRUCTOR",
+      "spec_anchor": "sec-temporal-plainmonthday-constructor",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal-plainmonthday-constructor",
+      "summary": "The Temporal.PlainMonthDay Constructor",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY",
+      "spec_anchor": "sec-temporal.plainmonthday",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday",
+      "summary": "Temporal.PlainMonthDay ( _isoMonth_, _isoDay_ [ , _calendar_ [ , _referenceISOYear_ ] ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/argument-convert.js",
+        "test/built-ins/Temporal/PlainMonthDay/argument-invalid.js",
+        "test/built-ins/Temporal/PlainMonthDay/basic.js",
+        "test/built-ins/Temporal/PlainMonthDay/builtin.js",
+        "test/built-ins/Temporal/PlainMonthDay/calendar-always.js",
+        "test/built-ins/Temporal/PlainMonthDay/calendar-case-insensitive.js",
+        "test/built-ins/Temporal/PlainMonthDay/calendar-invalid.js",
+        "test/built-ins/Temporal/PlainMonthDay/calendar-undefined.js",
+        "test/built-ins/Temporal/PlainMonthDay/calendar-wrong-type.js",
+        "test/built-ins/Temporal/PlainMonthDay/constructor.js",
+        "test/built-ins/Temporal/PlainMonthDay/get-prototype-from-constructor-throws.js",
+        "test/built-ins/Temporal/PlainMonthDay/infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainMonthDay/length.js",
+        "test/built-ins/Temporal/PlainMonthDay/missing-arguments.js",
+        "test/built-ins/Temporal/PlainMonthDay/name.js",
+        "test/built-ins/Temporal/PlainMonthDay/negative-infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainMonthDay/prop-desc.js",
+        "test/built-ins/Temporal/PlainMonthDay/refisoyear-out-of-range.js",
+        "test/built-ins/Temporal/PlainMonthDay/refisoyear-undefined.js",
+        "test/built-ins/Temporal/PlainMonthDay/subclass.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-PROPERTIES-OF-THE-TEMPORAL-PLAINMONTHDAY-CONSTRUCTOR",
+      "spec_anchor": "sec-properties-of-the-temporal-plainmonthday-constructor",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-properties-of-the-temporal-plainmonthday-constructor",
+      "summary": "Properties of the Temporal.PlainMonthDay Constructor",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [],
+      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-PROTOTYPE",
+      "spec_anchor": "sec-temporal.plainmonthday.prototype",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype",
+      "summary": "Temporal.PlainMonthDay.prototype",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/prototype/prop-desc.js"
+      ],
+      "official_example_links": [],
+      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-FROM",
+      "spec_anchor": "sec-temporal.plainmonthday.from",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.from",
+      "summary": "Temporal.PlainMonthDay.from ( _item_ [ , _options_ ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-number.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-plainmonthday.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-propertybag-calendar-case-insensitive.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-propertybag-calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-propertybag-calendar-iso-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-propertybag-calendar-leap-second.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-propertybag-calendar-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-propertybag-calendar-wrong-type.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-propertybag-calendar-year-zero.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-string-calendar-annotation-invalid-key.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-string-calendar-annotation.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-string-calendar-case-insensitive.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-string-calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-string-critical-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-string-date-with-utc-offset.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-string-minus-sign.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-string-multiple-calendar.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-string-multiple-time-zone.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-string-time-separators.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-string-time-zone-annotation.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-string-too-many-decimals.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-string-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-string-with-utc-designator.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/argument-wrong-type.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/basic.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/builtin.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/calendar-temporal-object.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/calendarresolvefields-error-ordering.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/constrain-to-leap-day.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/fields-leap-day.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/fields-missing-properties.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/fields-object.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/fields-plainmonthday.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/fields-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/iso-year-used-only-for-overflow.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/leap-second.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/length.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/monthcode-invalid.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/name.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/negative-month-or-day.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/no-fractional-minutes-hours.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/observable-get-overflow-argument-primitive.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/observable-get-overflow-argument-string-invalid.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/one-of-era-erayear-undefined.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/options-invalid.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/options-object.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/options-read-before-algorithmic-validation.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/options-undefined.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/options-wrong-type.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/order-of-operations.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/overflow-invalid-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/overflow-undefined.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/overflow-wrong-type.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/overflow.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/prop-desc.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/subclassing-ignored.js",
+        "test/built-ins/Temporal/PlainMonthDay/from/year-zero.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-PROPERTIES-OF-THE-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-OBJECT",
+      "spec_anchor": "sec-properties-of-the-temporal-plainmonthday-prototype-object",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-properties-of-the-temporal-plainmonthday-prototype-object",
+      "summary": "Properties of the Temporal.PlainMonthDay Prototype Object",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [],
+      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-CONSTRUCTOR",
+      "spec_anchor": "sec-temporal.plainmonthday.prototype.constructor",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype.constructor",
+      "summary": "Temporal.PlainMonthDay.prototype.constructor",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/prototype/constructor.js"
+      ],
+      "official_example_links": [],
+      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-SYMBOL-TOSTRINGTAG",
+      "spec_anchor": "sec-temporal.plainmonthday.prototype-%symbol.tostringtag%",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype-%symbol.tostringtag%",
+      "summary": "Temporal.PlainMonthDay.prototype[ %Symbol.toStringTag% ]",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [],
+      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+    },
+    {
+      "id": "TEMP-S10-SEC-GET-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-CALENDARID",
+      "spec_anchor": "sec-get-temporal.plainmonthday.prototype.calendarid",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-get-temporal.plainmonthday.prototype.calendarid",
+      "summary": "get Temporal.PlainMonthDay.prototype.calendarId",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/prototype/calendarId/branding.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/calendarId/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-GET-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-MONTHCODE",
+      "spec_anchor": "sec-get-temporal.plainmonthday.prototype.monthcode",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-get-temporal.plainmonthday.prototype.monthcode",
+      "summary": "get Temporal.PlainMonthDay.prototype.monthCode",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/prototype/monthCode/basic.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/monthCode/branding.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/monthCode/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-GET-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-DAY",
+      "spec_anchor": "sec-get-temporal.plainmonthday.prototype.day",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-get-temporal.plainmonthday.prototype.day",
+      "summary": "get Temporal.PlainMonthDay.prototype.day",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/prototype/day/basic.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/day/branding.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/day/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-WITH",
+      "spec_anchor": "sec-temporal.plainmonthday.prototype.with",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype.with",
+      "summary": "Temporal.PlainMonthDay.prototype.with ( _temporalMonthDayLike_ [ , _options_ ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/basic.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/branding.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/builtin.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/copy-properties-not-undefined.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/iso-year-used-only-for-overflow.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/length.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/monthdaylike-invalid.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/name.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/options-invalid.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/options-object.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/options-read-before-algorithmic-validation.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/options-undefined.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/options-wrong-type.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/order-of-operations.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/overflow-invalid-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/overflow-undefined.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/overflow-wrong-type.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/prop-desc.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/with/subclassing-ignored.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-EQUALS",
+      "spec_anchor": "sec-temporal.plainmonthday.prototype.equals",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype.equals",
+      "summary": "Temporal.PlainMonthDay.prototype.equals ( _other_ )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-number.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-propertybag-calendar-case-insensitive.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-propertybag-calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-propertybag-calendar-iso-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-propertybag-calendar-leap-second.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-propertybag-calendar-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-propertybag-calendar-wrong-type.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-propertybag-calendar-year-zero.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string-calendar-annotation-invalid-key.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string-calendar-annotation.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string-calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string-critical-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string-date-with-utc-offset.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string-invalid.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string-minus-sign.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string-multiple-calendar.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string-multiple-time-zone.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string-time-separators.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string-time-zone-annotation.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string-too-many-decimals.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string-with-utc-designator.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/argument-wrong-type.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/basic.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/branding.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/builtin.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/calendar-temporal-object.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/leap-second.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/length.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/name.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/no-fractional-minutes-hours.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/prop-desc.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/equals/year-zero.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-TOSTRING",
+      "spec_anchor": "sec-temporal.plainmonthday.prototype.tostring",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype.tostring",
+      "summary": "Temporal.PlainMonthDay.prototype.toString ( [ _options_ ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/branding.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/builtin.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/calendarname-always.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/calendarname-auto.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/calendarname-critical.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/calendarname-invalid-string.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/calendarname-never.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/calendarname-undefined.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/calendarname-wrong-type.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/length.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/name.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/options-object.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/options-wrong-type.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/order-of-operations.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toString/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-TOLOCALESTRING",
+      "spec_anchor": "sec-temporal.plainmonthday.prototype.tolocalestring",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype.tolocalestring",
+      "summary": "Temporal.PlainMonthDay.prototype.toLocaleString ( [ _locales_ [ , _options_ ] ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toLocaleString/branding.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toLocaleString/builtin.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toLocaleString/length.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toLocaleString/name.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toLocaleString/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toLocaleString/prop-desc.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toLocaleString/return-string.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-TOJSON",
+      "spec_anchor": "sec-temporal.plainmonthday.prototype.tojson",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype.tojson",
+      "summary": "Temporal.PlainMonthDay.prototype.toJSON ( )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toJSON/basic.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toJSON/branding.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toJSON/builtin.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toJSON/length.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toJSON/name.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toJSON/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toJSON/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-VALUEOF",
+      "spec_anchor": "sec-temporal.plainmonthday.prototype.valueof",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype.valueof",
+      "summary": "Temporal.PlainMonthDay.prototype.valueOf ( )",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/prototype/valueOf/basic.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/valueOf/branding.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/valueOf/builtin.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/valueOf/length.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/valueOf/name.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/valueOf/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/valueOf/prop-desc.js"
+      ],
+      "official_example_links": [],
+      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-TOPLAINDATE",
+      "spec_anchor": "sec-temporal.plainmonthday.prototype.toplaindate",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype.toplaindate",
+      "summary": "Temporal.PlainMonthDay.prototype.toPlainDate ( _item_ )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toPlainDate/argument-not-object.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toPlainDate/basic.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toPlainDate/branding.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toPlainDate/builtin.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toPlainDate/default-overflow-behaviour.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toPlainDate/infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toPlainDate/length.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toPlainDate/limits.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toPlainDate/name.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toPlainDate/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toPlainDate/order-of-operations.js",
+        "test/built-ins/Temporal/PlainMonthDay/prototype/toPlainDate/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-PROPERTIES-OF-TEMPORAL-PLAINMONTHDAY-INSTANCES",
+      "spec_anchor": "sec-properties-of-temporal-plainmonthday-instances",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-properties-of-temporal-plainmonthday-instances",
+      "summary": "Properties of Temporal.PlainMonthDay Instances",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [],
+      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-ABSTRACT-OPS",
+      "spec_anchor": "sec-temporal-plainmonthday-abstract-ops",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal-plainmonthday-abstract-ops",
+      "summary": "Abstract Operations",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-TOTEMPORALMONTHDAY",
+      "spec_anchor": "sec-temporal-totemporalmonthday",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal-totemporalmonthday",
+      "summary": "ToTemporalMonthDay ( _item_: an ECMAScript language value, optional _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.PlainMonthDay or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-CREATETEMPORALMONTHDAY",
+      "spec_anchor": "sec-temporal-createtemporalmonthday",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal-createtemporalmonthday",
+      "summary": "CreateTemporalMonthDay ( _isoDate_: an ISO Date Record, _calendar_: a calendar type, optional _newTarget_: a constructor, ): either a normal completion containing a Temporal.PlainMonthDay or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S10-SEC-TEMPORAL-TEMPORALMONTHDAYTOSTRING",
+      "spec_anchor": "sec-temporal-temporalmonthdaytostring",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal-temporalmonthdaytostring",
+      "summary": "TemporalMonthDayToString ( _monthDay_: a Temporal.PlainMonthDay, _showCalendar_: one of ~auto~, ~always~, ~never~, or ~critical~, ): a String",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
+      ],
+      "rationale": null
+    }
+  ]
+}

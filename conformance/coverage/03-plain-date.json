@@ -1,0 +1,1501 @@
+{
+  "schema_version": 1,
+  "section": 3,
+  "section_slug": "plain-date",
+  "title": "Temporal.PlainDate",
+  "source_file": "spec/plaindate.html",
+  "section_anchor": "sec-temporal-plaindate-objects",
+  "section_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-plaindate-objects",
+  "requirements": [
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-OBJECTS",
+      "spec_anchor": "sec-temporal-plaindate-objects",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-plaindate-objects",
+      "summary": "Temporal.PlainDate Objects",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/calendar-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/calendarId/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/era/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/eraYear/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/monthCode/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/monthCode/no-leap-months.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toStringTag/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-CONSTRUCTOR",
+      "spec_anchor": "sec-temporal-plaindate-constructor",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-plaindate-constructor",
+      "summary": "The Temporal.PlainDate Constructor",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE",
+      "spec_anchor": "sec-temporal.plaindate",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate",
+      "summary": "Temporal.PlainDate ( _isoYear_, _isoMonth_, _isoDay_ [ , _calendar_ ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/argument-convert.js",
+        "test/built-ins/Temporal/PlainDate/argument-invalid.js",
+        "test/built-ins/Temporal/PlainDate/basic.js",
+        "test/built-ins/Temporal/PlainDate/builtin.js",
+        "test/built-ins/Temporal/PlainDate/calendar-case-insensitive.js",
+        "test/built-ins/Temporal/PlainDate/calendar-undefined.js",
+        "test/built-ins/Temporal/PlainDate/calendar-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/constructor.js",
+        "test/built-ins/Temporal/PlainDate/get-prototype-from-constructor-throws.js",
+        "test/built-ins/Temporal/PlainDate/infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainDate/length.js",
+        "test/built-ins/Temporal/PlainDate/limits.js",
+        "test/built-ins/Temporal/PlainDate/missing-arguments.js",
+        "test/built-ins/Temporal/PlainDate/name.js",
+        "test/built-ins/Temporal/PlainDate/negative-infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainDate/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/subclass.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-PROPERTIES-OF-THE-TEMPORAL-PLAINDATE-CONSTRUCTOR",
+      "spec_anchor": "sec-properties-of-the-temporal-plaindate-constructor",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-properties-of-the-temporal-plaindate-constructor",
+      "summary": "Properties of the Temporal.PlainDate Constructor",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [],
+      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE",
+      "spec_anchor": "sec-temporal.plaindate.prototype",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype",
+      "summary": "Temporal.PlainDate.prototype",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/prop-desc.js"
+      ],
+      "official_example_links": [],
+      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-FROM",
+      "spec_anchor": "sec-temporal.plaindate.from",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.from",
+      "summary": "Temporal.PlainDate.from ( _item_ [ , _options_ ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/from/argument-leap-second.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-number.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-object-invalid.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-object-valid.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-plaindate.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-plaindatetime.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-propertybag-calendar-case-insensitive.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-propertybag-calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-propertybag-calendar-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-propertybag-calendar-leap-second.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-propertybag-calendar-string.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-propertybag-calendar-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-propertybag-calendar-year-zero.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-propertybag-calendar.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-calendar-annotation-invalid-key.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-calendar-annotation.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-calendar-case-insensitive.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-critical-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-date-with-utc-offset.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-invalid.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-limits.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-minus-sign.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-multiple-calendar.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-multiple-time-zone.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-time-separators.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-time-zone-annotation.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-too-many-decimals.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-trailing-junk.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string-with-utc-designator.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-string.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-zoneddatetime-slots.js",
+        "test/built-ins/Temporal/PlainDate/from/argument-zoneddatetime.js",
+        "test/built-ins/Temporal/PlainDate/from/builtin.js",
+        "test/built-ins/Temporal/PlainDate/from/calendar-temporal-object.js",
+        "test/built-ins/Temporal/PlainDate/from/calendarresolvefields-error-ordering.js",
+        "test/built-ins/Temporal/PlainDate/from/infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainDate/from/length.js",
+        "test/built-ins/Temporal/PlainDate/from/limits.js",
+        "test/built-ins/Temporal/PlainDate/from/month-code-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/from/monthcode-invalid.js",
+        "test/built-ins/Temporal/PlainDate/from/name.js",
+        "test/built-ins/Temporal/PlainDate/from/negative-month-or-day.js",
+        "test/built-ins/Temporal/PlainDate/from/no-fractional-minutes-hours.js",
+        "test/built-ins/Temporal/PlainDate/from/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/from/observable-get-overflow-argument-primitive.js",
+        "test/built-ins/Temporal/PlainDate/from/observable-get-overflow-argument-string-invalid.js",
+        "test/built-ins/Temporal/PlainDate/from/one-of-era-erayear-undefined.js",
+        "test/built-ins/Temporal/PlainDate/from/options-basic.js",
+        "test/built-ins/Temporal/PlainDate/from/options-object.js",
+        "test/built-ins/Temporal/PlainDate/from/options-read-before-algorithmic-validation.js",
+        "test/built-ins/Temporal/PlainDate/from/options-undefined.js",
+        "test/built-ins/Temporal/PlainDate/from/options-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/from/order-of-operations.js",
+        "test/built-ins/Temporal/PlainDate/from/out-of-range.js",
+        "test/built-ins/Temporal/PlainDate/from/overflow-invalid-string.js",
+        "test/built-ins/Temporal/PlainDate/from/overflow-reject.js",
+        "test/built-ins/Temporal/PlainDate/from/overflow-undefined.js",
+        "test/built-ins/Temporal/PlainDate/from/overflow-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/from/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/from/roundtrip-from-iso.js",
+        "test/built-ins/Temporal/PlainDate/from/roundtrip-from-property-bag.js",
+        "test/built-ins/Temporal/PlainDate/from/roundtrip-from-string.js",
+        "test/built-ins/Temporal/PlainDate/from/subclassing-ignored.js",
+        "test/built-ins/Temporal/PlainDate/from/with-year-month-day-need-constrain.js",
+        "test/built-ins/Temporal/PlainDate/from/with-year-month-day.js",
+        "test/built-ins/Temporal/PlainDate/from/with-year-monthCode-day-need-constrain.js",
+        "test/built-ins/Temporal/PlainDate/from/with-year-monthCode-day.js",
+        "test/built-ins/Temporal/PlainDate/from/year-zero.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-COMPARE",
+      "spec_anchor": "sec-temporal.plaindate.compare",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.compare",
+      "summary": "Temporal.PlainDate.compare ( _one_, _two_ )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/compare/argument-number.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-object.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-plaindatetime.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-propertybag-calendar-case-insensitive.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-propertybag-calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-propertybag-calendar-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-propertybag-calendar-leap-second.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-propertybag-calendar-string.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-propertybag-calendar-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-propertybag-calendar-year-zero.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-calendar-annotation-invalid-key.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-calendar-annotation.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-critical-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-date-with-utc-offset.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-invalid.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-limits.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-minus-sign.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-multiple-calendar.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-multiple-time-zone.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-time-separators.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-time-zone-annotation.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-too-many-decimals.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string-with-utc-designator.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-string.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-zoneddatetime-slots.js",
+        "test/built-ins/Temporal/PlainDate/compare/argument-zoneddatetime.js",
+        "test/built-ins/Temporal/PlainDate/compare/basic.js",
+        "test/built-ins/Temporal/PlainDate/compare/builtin.js",
+        "test/built-ins/Temporal/PlainDate/compare/calendar-temporal-object.js",
+        "test/built-ins/Temporal/PlainDate/compare/infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainDate/compare/leap-second.js",
+        "test/built-ins/Temporal/PlainDate/compare/length.js",
+        "test/built-ins/Temporal/PlainDate/compare/name.js",
+        "test/built-ins/Temporal/PlainDate/compare/no-fractional-minutes-hours.js",
+        "test/built-ins/Temporal/PlainDate/compare/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/compare/not-same-object.js",
+        "test/built-ins/Temporal/PlainDate/compare/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/compare/year-zero.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-PROPERTIES-OF-THE-TEMPORAL-PLAINDATE-PROTOTYPE-OBJECT",
+      "spec_anchor": "sec-properties-of-the-temporal-plaindate-prototype-object",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-properties-of-the-temporal-plaindate-prototype-object",
+      "summary": "Properties of the Temporal.PlainDate Prototype Object",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [],
+      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-CONSTRUCTOR",
+      "spec_anchor": "sec-temporal.plaindate.prototype.constructor",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.constructor",
+      "summary": "Temporal.PlainDate.prototype.constructor",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/constructor.js"
+      ],
+      "official_example_links": [],
+      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-SYMBOL-TOSTRINGTAG",
+      "spec_anchor": "sec-temporal.plaindate.prototype-%symbol.tostringtag%",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype-%symbol.tostringtag%",
+      "summary": "Temporal.PlainDate.prototype[ %Symbol.toStringTag% ]",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [],
+      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-CALENDARID",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.calendarid",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.calendarid",
+      "summary": "get Temporal.PlainDate.prototype.calendarId",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/calendarId/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/calendarId/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-ERA",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.era",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.era",
+      "summary": "get Temporal.PlainDate.prototype.era",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/era/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/era/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-ERAYEAR",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.erayear",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.erayear",
+      "summary": "get Temporal.PlainDate.prototype.eraYear",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/eraYear/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/eraYear/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-YEAR",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.year",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.year",
+      "summary": "get Temporal.PlainDate.prototype.year",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/year/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/year/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/year/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-MONTH",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.month",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.month",
+      "summary": "get Temporal.PlainDate.prototype.month",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/month/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/month/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/month/prop-desc.js",
+        "test/built-ins/Temporal/PlainDateTime/prototype/month/basic.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-MONTHCODE",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.monthcode",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.monthcode",
+      "summary": "get Temporal.PlainDate.prototype.monthCode",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/monthCode/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/monthCode/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-DAY",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.day",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.day",
+      "summary": "get Temporal.PlainDate.prototype.day",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/day/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/day/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/day/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-DAYOFWEEK",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.dayofweek",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.dayofweek",
+      "summary": "get Temporal.PlainDate.prototype.dayOfWeek",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/dayOfWeek/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/dayOfWeek/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/dayOfWeek/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-DAYOFYEAR",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.dayofyear",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.dayofyear",
+      "summary": "get Temporal.PlainDate.prototype.dayOfYear",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/dayOfYear/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/dayOfYear/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/dayOfYear/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-WEEKOFYEAR",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.weekofyear",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.weekofyear",
+      "summary": "get Temporal.PlainDate.prototype.weekOfYear",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/weekOfYear/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/weekOfYear/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/weekOfYear/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-YEAROFWEEK",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.yearofweek",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.yearofweek",
+      "summary": "get Temporal.PlainDate.prototype.yearOfWeek",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/yearOfWeek/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/yearOfWeek/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/yearOfWeek/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-DAYSINWEEK",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.daysinweek",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.daysinweek",
+      "summary": "get Temporal.PlainDate.prototype.daysInWeek",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/daysInWeek/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/daysInWeek/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/daysInWeek/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-DAYSINMONTH",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.daysinmonth",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.daysinmonth",
+      "summary": "get Temporal.PlainDate.prototype.daysInMonth",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/daysInMonth/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/daysInMonth/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/daysInMonth/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-DAYSINYEAR",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.daysinyear",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.daysinyear",
+      "summary": "get Temporal.PlainDate.prototype.daysInYear",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/daysInYear/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/daysInYear/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/daysInYear/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-MONTHSINYEAR",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.monthsinyear",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.monthsinyear",
+      "summary": "get Temporal.PlainDate.prototype.monthsInYear",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/monthsInYear/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/monthsInYear/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/monthsInYear/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-GET-TEMPORAL-PLAINDATE-PROTOTYPE-INLEAPYEAR",
+      "spec_anchor": "sec-get-temporal.plaindate.prototype.inleapyear",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-get-temporal.plaindate.prototype.inleapyear",
+      "summary": "get Temporal.PlainDate.prototype.inLeapYear",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/inLeapYear/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/inLeapYear/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/inLeapYear/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-TOPLAINYEARMONTH",
+      "spec_anchor": "sec-temporal.plaindate.prototype.toplainyearmonth",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.toplainyearmonth",
+      "summary": "Temporal.PlainDate.prototype.toPlainYearMonth ( )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainYearMonth/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainYearMonth/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainYearMonth/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainYearMonth/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainYearMonth/limits.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainYearMonth/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainYearMonth/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainYearMonth/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-TOPLAINMONTHDAY",
+      "spec_anchor": "sec-temporal.plaindate.prototype.toplainmonthday",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.toplainmonthday",
+      "summary": "Temporal.PlainDate.prototype.toPlainMonthDay ( )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainMonthDay/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainMonthDay/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainMonthDay/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainMonthDay/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainMonthDay/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainMonthDay/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainMonthDay/prop-desc.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-ADD",
+      "spec_anchor": "sec-temporal.plaindate.prototype.add",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.add",
+      "summary": "Temporal.PlainDate.prototype.add ( _temporalDurationLike_ [ , _options_ ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/add/argument-duration-max-plus-min-date.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/argument-duration-max.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/argument-duration-out-of-range.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/argument-invalid-property.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/argument-mixed-sign.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/argument-not-object.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/argument-propertybag-optional-properties.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/argument-singular-properties.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/argument-string-invalid.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/argument-string-negative-fractional-units.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/argument-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/balance-smaller-units-basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/balance-smaller-units.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/basic-arithmetic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/blank-duration.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/constrain-days.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/leap-year-arithmetic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/limits.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/month-boundary.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/negative-infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/non-integer-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/options-object.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/options-read-before-algorithmic-validation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/options-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/options-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/order-of-operations.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/overflow-adding-months-to-max-year.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/overflow-invalid-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/overflow-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/overflow-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/add/subclassing-ignored.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-SUBTRACT",
+      "spec_anchor": "sec-temporal.plaindate.prototype.subtract",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.subtract",
+      "summary": "Temporal.PlainDate.prototype.subtract ( _temporalDurationLike_ [ , _options_ ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/argument-duration-max-plus-min-date.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/argument-duration-max.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/argument-duration-out-of-range.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/argument-invalid-property.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/argument-mixed-sign.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/argument-not-object.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/argument-propertybag-optional-properties.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/argument-singular-properties.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/argument-string-negative-fractional-units.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/argument-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/balance-smaller-units-basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/balance-smaller-units.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/basic-arithmetic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/blank-duration.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/limits.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/month-boundary.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/negative-infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/non-integer-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/options-object.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/options-read-before-algorithmic-validation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/options-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/options-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/order-of-operations.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/overflow-constrain.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/overflow-invalid-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/overflow-reject.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/overflow-subtracting-months-from-min-year.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/overflow-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/overflow-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/subtract/subclassing-ignored.js",
+        "test/built-ins/Temporal/PlainDateTime/prototype/subtract/overflow-undefined.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-WITH",
+      "spec_anchor": "sec-temporal.plaindate.prototype.with",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.with",
+      "summary": "Temporal.PlainDate.prototype.with ( _temporalDateLike_ [ , _options_ ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/with/basic-year-month-day.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/constrain-day.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/constrain-days.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/copy-properties-not-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/leap-year.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/options-object.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/options-read-before-algorithmic-validation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/options-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/options-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/order-of-operations.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/overflow-invalid-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/overflow-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/overflow-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/overflow.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/plaindatelike-invalid.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/plural-units-ignored.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/subclassing-ignored.js",
+        "test/built-ins/Temporal/PlainDate/prototype/with/time-units-ignored.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-WITHCALENDAR",
+      "spec_anchor": "sec-temporal.plaindate.prototype.withcalendar",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.withcalendar",
+      "summary": "Temporal.PlainDate.prototype.withCalendar ( _calendarLike_ )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/calendar-case-insensitive.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/calendar-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/calendar-string-leap-second.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/calendar-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/calendar-temporal-object.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/calendar-time-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/calendar-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/missing-argument.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/withCalendar/subclassing-ignored.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-UNTIL",
+      "spec_anchor": "sec-temporal.plaindate.prototype.until",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.until",
+      "summary": "Temporal.PlainDate.prototype.until ( _other_ [ , _options_ ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/since/basic-arithmetic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-leap-second.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-number.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-plaindatetime.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-propertybag-calendar-case-insensitive.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-propertybag-calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-propertybag-calendar-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-propertybag-calendar-leap-second.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-propertybag-calendar-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-propertybag-calendar-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-propertybag-calendar-year-zero.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-calendar-annotation-invalid-key.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-calendar-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-critical-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-date-with-utc-offset.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-invalid.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-limits.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-minus-sign.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-multiple-calendar.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-multiple-time-zone.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-time-separators.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-time-zone-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-too-many-decimals.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-string-with-utc-designator.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/argument-zoneddatetime-slots.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/basic-arithmetic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/basic-conversions.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/blank-result.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/calendar-id-match.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/calendar-temporal-object.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/exact-multiple-of-larger-unit.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/largestunit-default.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/largestunit-invalid-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/largestunit-plurals-accepted.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/largestunit-smallestunit-mismatch.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/largestunit-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/largestunit-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/leap-year-arithmetic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/no-fractional-minutes-hours.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/no-options.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/options-object.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/options-read-before-algorithmic-validation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/options-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/order-of-operations.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/round-cross-unit-boundary.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/rounding-near-minimum-date.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/rounding-relative.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingincrement-nan.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingincrement-non-integer.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingincrement-out-of-range.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingincrement-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingincrement-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingincrement.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingmode-ceil.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingmode-expand.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingmode-floor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingmode-half-boundary.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingmode-halfCeil.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingmode-halfEven.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingmode-halfExpand.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingmode-halfFloor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingmode-halfTrunc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingmode-invalid-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingmode-trunc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingmode-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/roundingmode-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/smallestunit-higher-units.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/smallestunit-invalid-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/smallestunit-plurals-accepted.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/smallestunit-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/smallestunit-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/throws-if-rounded-date-outside-valid-iso-range.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/throws-with-time-units.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/weeks-months.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/year-zero.js",
+        "test/built-ins/Temporal/PlainDate/prototype/until/zero-length-duration-result.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-SINCE",
+      "spec_anchor": "sec-temporal.plaindate.prototype.since",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.since",
+      "summary": "Temporal.PlainDate.prototype.since ( _other_ [ , _options_ ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-leap-second.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-number.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-plaindatetime.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-propertybag-calendar-case-insensitive.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-propertybag-calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-propertybag-calendar-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-propertybag-calendar-leap-second.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-propertybag-calendar-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-propertybag-calendar-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-propertybag-calendar-year-zero.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-calendar-annotation-invalid-key.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-calendar-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-critical-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-date-with-utc-offset.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-invalid.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-limits.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-minus-sign.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-multiple-calendar.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-multiple-time-zone.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-time-separators.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-time-zone-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-too-many-decimals.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-string-with-utc-designator.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/argument-zoneddatetime-slots.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/basic-conversions.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/blank-result.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/calendar-id-match.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/calendar-temporal-object.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/days-in-month.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/days-in-year.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/exact-multiple-of-larger-unit.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/largestunit-default.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/largestunit-higher-units.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/largestunit-invalid-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/largestunit-plurals-accepted.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/largestunit-smallestunit-mismatch.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/largestunit-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/largestunit-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/largestunit.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/no-fractional-minutes-hours.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/options-object.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/options-read-before-algorithmic-validation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/options-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/order-of-operations.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/round-cross-unit-boundary.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/rounding-near-minimum-date.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/rounding-relative.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingincrement-nan.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingincrement-non-integer.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingincrement-out-of-range.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingincrement-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingincrement-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingincrement.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingmode-ceil.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingmode-expand.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingmode-floor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingmode-half-boundary.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingmode-halfCeil.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingmode-halfEven.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingmode-halfExpand.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingmode-halfFloor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingmode-halfTrunc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingmode-invalid-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingmode-trunc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingmode-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/roundingmode-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/smallestunit-higher-units.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/smallestunit-invalid-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/smallestunit-plurals-accepted.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/smallestunit-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/smallestunit-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/throws-if-rounded-date-outside-valid-iso-range.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/throws-with-time-units.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/weeks-months.js",
+        "test/built-ins/Temporal/PlainDate/prototype/since/year-zero.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-EQUALS",
+      "spec_anchor": "sec-temporal.plaindate.prototype.equals",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.equals",
+      "summary": "Temporal.PlainDate.prototype.equals ( _other_ )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-leap-second.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-number.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-object-invalid.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-plaindatetime.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-propertybag-calendar-case-insensitive.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-propertybag-calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-propertybag-calendar-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-propertybag-calendar-leap-second.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-propertybag-calendar-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-propertybag-calendar-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-propertybag-calendar-year-zero.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-calendar-annotation-invalid-key.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-calendar-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-calendar-invalid-iso-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-critical-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-date-with-utc-offset.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-invalid.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-limits.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-minus-sign.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-multiple-calendar.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-multiple-time-zone.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-time-separators.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-time-zone-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-too-many-decimals.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string-with-utc-designator.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/argument-zoneddatetime-slots.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/calendar-temporal-object.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/infinity-throws-rangeerror.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/no-fractional-minutes-hours.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/equals/year-zero.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-TOPLAINDATETIME",
+      "spec_anchor": "sec-temporal.plaindate.prototype.toplaindatetime",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.toplaindatetime",
+      "summary": "Temporal.PlainDate.prototype.toPlainDateTime ( [ _temporalTime_ ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-number.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-object.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-propertybag-optional-properties.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-calendar-annotation-invalid-key.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-calendar-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-critical-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-date-with-utc-offset.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-minus-sign.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-multiple-calendar.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-multiple-time-zone.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-no-implicit-midnight.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-time-designator-required-for-disambiguation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-time-separators.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-time-zone-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-too-many-decimals.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-with-time-designator.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-string-with-utc-designator.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-zoneddatetime-balance-negative-time-units.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-zoneddatetime-negative-epochnanoseconds.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/leap-second.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/limits.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/order-of-operations.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/plaintime-propertybag-no-time-units.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/time-invalid.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/time-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/year-zero.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-TOZONEDDATETIME",
+      "spec_anchor": "sec-temporal.plaindate.prototype.tozoneddatetime",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.tozoneddatetime",
+      "summary": "Temporal.PlainDate.prototype.toZonedDateTime ( _item_ )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-number.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-object-get-plainTime-throws.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-object-get-timezone-throws.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-object-timezone-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-propertybag-optional-properties.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-calendar-annotation-invalid-key.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-calendar-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-critical-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-date-with-utc-offset.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-minus-sign.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-multiple-calendar.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-multiple-time-zone.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-no-implicit-midnight.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-time-designator-required-for-disambiguation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-time-separators.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-time-zone-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-too-many-decimals.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-unknown-annotation.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-with-time-designator.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-string-with-utc-designator.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-zoneddatetime-negative-epochnanoseconds.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/get-epoch-nanoseconds-for-throws.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/get-start-of-day-throws.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/leap-second.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/no-observable-array-iteration.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/order-of-operations.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/plaintime-argument-zoneddatetime-balance-negative-time-units.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/plaintime-propertybag-no-time-units.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/throws-if-combined-date-time-outside-valid-iso-range.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/timezone-case-insensitive.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/timezone-string-datetime.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/timezone-string-leap-second.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/timezone-string-multiple-offsets.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/timezone-string-sub-minute-offset.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/timezone-string-year-zero.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/timezone-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/timezone-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/year-zero.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-TOSTRING",
+      "spec_anchor": "sec-temporal.plaindate.prototype.tostring",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.tostring",
+      "summary": "Temporal.PlainDate.prototype.toString ( [ _options_ ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/toString/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/calendarname-always.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/calendarname-auto.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/calendarname-critical.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/calendarname-invalid-string.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/calendarname-never.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/calendarname-undefined.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/calendarname-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/options-object.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/options-wrong-type.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/order-of-operations.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toString/year-format.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-TOLOCALESTRING",
+      "spec_anchor": "sec-temporal.plaindate.prototype.tolocalestring",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.tolocalestring",
+      "summary": "Temporal.PlainDate.prototype.toLocaleString ( [ _locales_ [ , _options_ ] ] )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/toLocaleString/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toLocaleString/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toLocaleString/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toLocaleString/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toLocaleString/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toLocaleString/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toLocaleString/return-string.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-TOJSON",
+      "spec_anchor": "sec-temporal.plaindate.prototype.tojson",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.tojson",
+      "summary": "Temporal.PlainDate.prototype.toJSON ( )",
+      "disposition": "direct",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/toJSON/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toJSON/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toJSON/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toJSON/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toJSON/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toJSON/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toJSON/prop-desc.js",
+        "test/built-ins/Temporal/PlainDate/prototype/toJSON/year-format.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-VALUEOF",
+      "spec_anchor": "sec-temporal.plaindate.prototype.valueof",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.valueof",
+      "summary": "Temporal.PlainDate.prototype.valueOf ( )",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/prototype/valueOf/basic.js",
+        "test/built-ins/Temporal/PlainDate/prototype/valueOf/branding.js",
+        "test/built-ins/Temporal/PlainDate/prototype/valueOf/builtin.js",
+        "test/built-ins/Temporal/PlainDate/prototype/valueOf/length.js",
+        "test/built-ins/Temporal/PlainDate/prototype/valueOf/name.js",
+        "test/built-ins/Temporal/PlainDate/prototype/valueOf/not-a-constructor.js",
+        "test/built-ins/Temporal/PlainDate/prototype/valueOf/prop-desc.js"
+      ],
+      "official_example_links": [],
+      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+    },
+    {
+      "id": "TEMP-S03-SEC-PROPERTIES-OF-TEMPORAL-PLAINDATE-INSTANCES",
+      "spec_anchor": "sec-properties-of-temporal-plaindate-instances",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-properties-of-temporal-plaindate-instances",
+      "summary": "Properties of Temporal.PlainDate Instances",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [],
+      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-ABSTRACT-OPS",
+      "spec_anchor": "sec-temporal-plaindate-abstract-ops",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-plaindate-abstract-ops",
+      "summary": "Abstract Operations for Temporal.PlainDate Objects",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-ISO-DATE-RECORDS",
+      "spec_anchor": "sec-temporal-iso-date-records",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-iso-date-records",
+      "summary": "ISO Date Records",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-CREATE-ISO-DATE-RECORD",
+      "spec_anchor": "sec-temporal-create-iso-date-record",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-create-iso-date-record",
+      "summary": "CreateISODateRecord ( _year_: an integer, _month_: an integer between 1 and 12 inclusive, _day_: an integer between 1 and 31 inclusive, ): an ISO Date Record",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-CREATETEMPORALDATE",
+      "spec_anchor": "sec-temporal-createtemporaldate",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-createtemporaldate",
+      "summary": "CreateTemporalDate ( _isoDate_: an ISO Date Record, _calendar_: a calendar type, optional _newTarget_: a constructor, ): either a normal completion containing a Temporal.PlainDate or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-TOTEMPORALDATE",
+      "spec_anchor": "sec-temporal-totemporaldate",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-totemporaldate",
+      "summary": "ToTemporalDate ( _item_: an ECMAScript language value, optional _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.PlainDate or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-COMPARESURPASSES",
+      "spec_anchor": "sec-temporal-comparesurpasses",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-comparesurpasses",
+      "summary": "CompareSurpasses ( _sign_: either -1 or 1, _year_: an integer, _monthOrCode_: either an integer or a month code, _day_: an integer, _target_: a Calendar Date Record, ): a Boolean",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-ISODATESURPASSES",
+      "spec_anchor": "sec-temporal-isodatesurpasses",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-isodatesurpasses",
+      "summary": "ISODateSurpasses ( _sign_: either -1 or 1, _baseDate_: an ISO Date Record, _isoDate2_: an ISO Date Record, _years_: an integer, _months_: an integer, _weeks_: an integer, _days_: an integer, ): a Boolean",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-REGULATEISODATE",
+      "spec_anchor": "sec-temporal-regulateisodate",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-regulateisodate",
+      "summary": "RegulateISODate ( _year_: an integer, _month_: an integer, _day_: an integer, _overflow_: either ~constrain~ or ~reject~, ): either a normal completion containing an ISO Date Record or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-ISVALIDISODATE",
+      "spec_anchor": "sec-temporal-isvalidisodate",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-isvalidisodate",
+      "summary": "IsValidISODate ( _year_: an integer, _month_: an integer, _day_: an integer, ): a Boolean",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-ADDDAYSTOISODATE",
+      "spec_anchor": "sec-temporal-adddaystoisodate",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-adddaystoisodate",
+      "summary": "AddDaysToISODate ( _isoDate_: an ISO Date Record, _days_: an integer, ): an ISO Date Record",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-PADISOYEAR",
+      "spec_anchor": "sec-temporal-padisoyear",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-padisoyear",
+      "summary": "PadISOYear ( _y_: an integer, ): a String",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-TEMPORALDATETOSTRING",
+      "spec_anchor": "sec-temporal-temporaldatetostring",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-temporaldatetostring",
+      "summary": "TemporalDateToString ( _temporalDate_: a Temporal.PlainDate, _showCalendar_: one of ~auto~, ~always~, ~never~, or ~critical~, ): a String",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-ISODATEWITHINLIMITS",
+      "spec_anchor": "sec-temporal-isodatewithinlimits",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-isodatewithinlimits",
+      "summary": "ISODateWithinLimits ( _isoDate_: an ISO Date Record, ): a Boolean",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-COMPAREISODATE",
+      "spec_anchor": "sec-temporal-compareisodate",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-compareisodate",
+      "summary": "CompareISODate ( _isoDate1_: an ISO Date Record, _isoDate2_: an ISO Date Record, ): one of -1, 0, or 1",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [
+        "test/built-ins/Temporal/PlainDate/compare/use-internal-slots.js"
+      ],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-DIFFERENCETEMPORALPLAINDATE",
+      "spec_anchor": "sec-temporal-differencetemporalplaindate",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-differencetemporalplaindate",
+      "summary": "DifferenceTemporalPlainDate ( _operation_: either ~since~ or ~until~, _temporalDate_: a Temporal.PlainDate, _other_: an ECMAScript language value, _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.Duration or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S03-SEC-TEMPORAL-ADDDURATIONTODATE",
+      "spec_anchor": "sec-temporal-adddurationtodate",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-adddurationtodate",
+      "summary": "AddDurationToDate ( _operation_: either ~add~ or ~subtract~, _temporalDate_: a Temporal.PlainDate, _temporalDurationLike_: an ECMAScript language value, _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.PlainDate or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
+      ],
+      "rationale": null
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "temporal_spec": {
+      "repository": "https://github.com/tc39/proposal-temporal",
+      "commit": "e8cc03fc970a65a3359e8870e3b35e687ac94e55",
+      "commit_url": "https://github.com/tc39/proposal-temporal/commit/e8cc03fc970a65a3359e8870e3b35e687ac94e55",
+      "source_url": "https://raw.githubusercontent.com/tc39/proposal-temporal/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec.html",
+      "license": "BSD-3-Clause",
+      "notice": "LICENSES/temporal-spec-BSD-3-Clause.txt"
+    },
+    "proposal_docs": {
+      "repository": "https://github.com/tc39/proposal-temporal",
+      "commit": "e8cc03fc970a65a3359e8870e3b35e687ac94e55",
+      "commit_url": "https://github.com/tc39/proposal-temporal/commit/e8cc03fc970a65a3359e8870e3b35e687ac94e55",
+      "source_url": "https://github.com/tc39/proposal-temporal/tree/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs",
+      "cookbook_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md",
+      "license": "ISC",
+      "notice": "LICENSES/proposal-docs-ISC.txt"
+    },
+    "test262": {
+      "repository": "https://github.com/tc39/test262",
+      "commit": "3655e7464de3d52643ecddd4b5f9f4f3e7f62398",
+      "commit_url": "https://github.com/tc39/test262/commit/3655e7464de3d52643ecddd4b5f9f4f3e7f62398",
+      "source_url": "https://github.com/tc39/test262/tree/3655e7464de3d52643ecddd4b5f9f4f3e7f62398/test/built-ins/Temporal",
+      "license": "BSD-3-Clause",
+      "notice": "LICENSES/test262-BSD-3-Clause.txt"
+    }
+  }
+}

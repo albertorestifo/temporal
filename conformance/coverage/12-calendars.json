@@ -1,0 +1,557 @@
+{
+  "schema_version": 1,
+  "section": 12,
+  "section_slug": "calendars",
+  "title": "Calendars",
+  "source_file": "spec/calendar.html",
+  "section_anchor": "sec-temporal-calendars",
+  "section_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendars",
+  "requirements": [
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDARS",
+      "spec_anchor": "sec-temporal-calendars",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendars",
+      "summary": "Calendars",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-CALENDAR-TYPES",
+      "spec_anchor": "sec-calendar-types",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-calendar-types",
+      "summary": "Calendar Types",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CANONICALIZECALENDAR",
+      "spec_anchor": "sec-temporal-canonicalizecalendar",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-canonicalizecalendar",
+      "summary": "CanonicalizeCalendar ( _id_: a String, ): either a normal completion containing a calendar type, or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-AVAILABLECALENDARS",
+      "spec_anchor": "sec-availablecalendars",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-availablecalendars",
+      "summary": "AvailableCalendars ( ): a List of calendar types",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-MONTH-CODES",
+      "spec_anchor": "sec-temporal-month-codes",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-month-codes",
+      "summary": "Month Codes",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-PARSEMONTHCODE",
+      "spec_anchor": "sec-temporal-parsemonthcode",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-parsemonthcode",
+      "summary": "ParseMonthCode ( _argument_: an ECMAScript language value, ): either a normal completion containing a Record with fields [[MonthNumber]] (an integer) and [[IsLeapMonth]] (a Boolean) or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CREATEMONTHCODE",
+      "spec_anchor": "sec-temporal-createmonthcode",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-createmonthcode",
+      "summary": "CreateMonthCode ( _monthNumber_: an integer in the inclusive interval from 0 to 99, _isLeapMonth_: a Boolean, ): a month code",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDAR-ABSTRACT-OPS",
+      "spec_anchor": "sec-temporal-calendar-abstract-ops",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendar-abstract-ops",
+      "summary": "Abstract Operations",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDAR-DATE-RECORDS",
+      "spec_anchor": "sec-temporal-calendar-date-records",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendar-date-records",
+      "summary": "Calendar Date Records",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDAR-FIELDS-RECORDS",
+      "spec_anchor": "sec-temporal-calendar-fields-records",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendar-fields-records",
+      "summary": "Calendar Fields Records",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-PREPARECALENDARFIELDS",
+      "spec_anchor": "sec-temporal-preparecalendarfields",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-preparecalendarfields",
+      "summary": "PrepareCalendarFields ( _calendar_: a calendar type, _fields_: an Object, _calendarFieldNames_: a List of values from the Enumeration Key column of , _nonCalendarFieldNames_: a List of values from the Enumeration Key column of , _requiredFieldNames_: either a List of values from the Enumeration Key column of or ~partial~, ): either a normal completion containing a Calendar Fields Record, or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDARFIELDKEYSPRESENT",
+      "spec_anchor": "sec-temporal-calendarfieldkeyspresent",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendarfieldkeyspresent",
+      "summary": "CalendarFieldKeysPresent ( _fields_: a Calendar Fields Record, ): a List of values from the Enumeration Key column of",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDARMERGEFIELDS",
+      "spec_anchor": "sec-temporal-calendarmergefields",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendarmergefields",
+      "summary": "CalendarMergeFields ( _calendar_: a calendar type, _fields_: a Calendar Fields Record, _additionalFields_: a Calendar Fields Record, ): a Calendar Fields Record",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-NONISODATEADD",
+      "spec_anchor": "sec-temporal-nonisodateadd",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-nonisodateadd",
+      "summary": "NonISODateAdd ( _calendar_: a calendar type that is not *\"iso8601\"*, _isoDate_: an ISO Date Record, _duration_: a Date Duration Record, _overflow_: either ~constrain~ or ~reject~, ): either a normal completion containing an ISO Date Record or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDARDATEADD",
+      "spec_anchor": "sec-temporal-calendardateadd",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendardateadd",
+      "summary": "CalendarDateAdd ( _calendar_: a calendar type, _isoDate_: an ISO Date Record, _duration_: a Date Duration Record, _overflow_: either ~constrain~ or ~reject~, ): either a normal completion containing an ISO Date Record or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-NONISODATEUNTIL",
+      "spec_anchor": "sec-temporal-nonisodateuntil",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-nonisodateuntil",
+      "summary": "NonISODateUntil ( _calendar_: a calendar type that is not *\"iso8601\"*, _one_: an ISO Date Record, _two_: an ISO Date Record, _largestUnit_: a date unit, ): a Date Duration Record",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDARDATEUNTIL",
+      "spec_anchor": "sec-temporal-calendardateuntil",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendardateuntil",
+      "summary": "CalendarDateUntil ( _calendar_: a calendar type, _one_: an ISO Date Record, _two_: an ISO Date Record, _largestUnit_: a date unit, ): a Date Duration Record",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-TOTEMPORALCALENDARIDENTIFIER",
+      "spec_anchor": "sec-temporal-totemporalcalendaridentifier",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-totemporalcalendaridentifier",
+      "summary": "ToTemporalCalendarIdentifier ( _temporalCalendarLike_: an ECMAScript value, ): either a normal completion containing a calendar type or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-GETTEMPORALCALENDARSLOTVALUEWITHISODEFAULT",
+      "spec_anchor": "sec-temporal-gettemporalcalendarslotvaluewithisodefault",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-gettemporalcalendarslotvaluewithisodefault",
+      "summary": "GetTemporalCalendarIdentifierWithISODefault ( _item_: an Object, ): either a normal completion containing a calendar type or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDARDATEFROMFIELDS",
+      "spec_anchor": "sec-temporal-calendardatefromfields",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendardatefromfields",
+      "summary": "CalendarDateFromFields ( _calendar_: a calendar type, _fields_: a Calendar Fields Record, _overflow_: either ~constrain~ or ~reject~, ): either a normal completion containing an ISO Date Record or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDARYEARMONTHFROMFIELDS",
+      "spec_anchor": "sec-temporal-calendaryearmonthfromfields",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendaryearmonthfromfields",
+      "summary": "CalendarYearMonthFromFields ( _calendar_: a calendar type, _fields_: a Calendar Fields Record, _overflow_: either ~constrain~ or ~reject~, ): either a normal completion containing an ISO Date Record or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDARMONTHDAYFROMFIELDS",
+      "spec_anchor": "sec-temporal-calendarmonthdayfromfields",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendarmonthdayfromfields",
+      "summary": "CalendarMonthDayFromFields ( _calendar_: a calendar type, _fields_: a Calendar Fields Record, _overflow_: either ~constrain~ or ~reject~, ): either a normal completion containing an ISO Date Record or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-FORMATCALENDARANNOTATION",
+      "spec_anchor": "sec-temporal-formatcalendarannotation",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-formatcalendarannotation",
+      "summary": "FormatCalendarAnnotation ( _id_: a calendar type, _showCalendar_: one of ~auto~, ~always~, ~never~, or ~critical~, ): a String",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDAREQUALS",
+      "spec_anchor": "sec-temporal-calendarequals",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendarequals",
+      "summary": "CalendarEquals ( _one_: a calendar type, _two_: a calendar type, ): a Boolean",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-ISODAYSINMONTH",
+      "spec_anchor": "sec-temporal-isodaysinmonth",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-isodaysinmonth",
+      "summary": "ISODaysInMonth ( _year_: an integer, _month_: an integer in the inclusive interval from 1 to 12, ): a positive integer",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-ISOWEEKOFYEAR",
+      "spec_anchor": "sec-temporal-isoweekofyear",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-isoweekofyear",
+      "summary": "ISOWeekOfYear ( _isoDate_: an ISO Date Record, ): a Year-Week Record",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-ISODAYOFYEAR",
+      "spec_anchor": "sec-temporal-isodayofyear",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-isodayofyear",
+      "summary": "ISODayOfYear ( _isoDate_: an ISO Date Record, ): an integer",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-ISODAYOFWEEK",
+      "spec_anchor": "sec-temporal-isodayofweek",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-isodayofweek",
+      "summary": "ISODayOfWeek ( _isoDate_: an ISO Date Record, ): an integer",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-NONISOCALENDARDATETOISO",
+      "spec_anchor": "sec-temporal-nonisocalendardatetoiso",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-nonisocalendardatetoiso",
+      "summary": "NonISOCalendarDateToISO ( _calendar_: a calendar type that is not *\"iso8601\"*, _fields_: a Calendar Fields Record, _overflow_: either ~constrain~ or ~reject~, ): either a normal completion containing an ISO Date Record or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDARDATETOISO",
+      "spec_anchor": "sec-temporal-calendardatetoiso",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendardatetoiso",
+      "summary": "CalendarDateToISO ( _calendar_: a calendar type, _fields_: a Calendar Fields Record, _overflow_: either ~constrain~ or ~reject~, ): either a normal completion containing an ISO Date Record or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-NONISOMONTHDAYTOISOREFERENCEDATE",
+      "spec_anchor": "sec-temporal-nonisomonthdaytoisoreferencedate",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-nonisomonthdaytoisoreferencedate",
+      "summary": "NonISOMonthDayToISOReferenceDate ( _calendar_: a calendar type that is not *\"iso8601\"*, _fields_: a Calendar Fields Record, _overflow_: either ~constrain~ or ~reject~, ): either a normal completion containing an ISO Date Record or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDARMONTHDAYTOISOREFERENCEDATE",
+      "spec_anchor": "sec-temporal-calendarmonthdaytoisoreferencedate",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendarmonthdaytoisoreferencedate",
+      "summary": "CalendarMonthDayToISOReferenceDate ( _calendar_: a calendar type, _fields_: a Calendar Fields Record, _overflow_: either ~constrain~ or ~reject~, ): either a normal completion containing an ISO Date Record or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-NONISOCALENDARISOTODATE",
+      "spec_anchor": "sec-temporal-nonisocalendarisotodate",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-nonisocalendarisotodate",
+      "summary": "NonISOCalendarISOToDate ( _calendar_: a calendar type that is not *\"iso8601\"*, _isoDate_: an ISO Date Record, ): a Calendar Date Record",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDARISOTODATE",
+      "spec_anchor": "sec-temporal-calendarisotodate",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendarisotodate",
+      "summary": "CalendarISOToDate ( _calendar_: a calendar type, _isoDate_: an ISO Date Record, ): a Calendar Date Record",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDAREXTRAFIELDS",
+      "spec_anchor": "sec-temporal-calendarextrafields",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendarextrafields",
+      "summary": "CalendarExtraFields ( _calendar_: a calendar type, _fields_: a List of values from the Enumeration Key column of , ): a List of values from the Enumeration Key column of",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-NONISOFIELDKEYSTOIGNORE",
+      "spec_anchor": "sec-temporal-nonisofieldkeystoignore",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-nonisofieldkeystoignore",
+      "summary": "NonISOFieldKeysToIgnore ( _calendar_: a calendar type that is not *\"iso8601\"*, _keys_: a List of values from the Enumeration Key column of , ): a List of values from the Enumeration Key column of",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDARFIELDKEYSTOIGNORE",
+      "spec_anchor": "sec-temporal-calendarfieldkeystoignore",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendarfieldkeystoignore",
+      "summary": "CalendarFieldKeysToIgnore ( _calendar_: a calendar type, _keys_: a List of values from the Enumeration Key column of , ): a List of values from the Enumeration Key column of",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-NONISORESOLVEFIELDS",
+      "spec_anchor": "sec-temporal-nonisoresolvefields",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-nonisoresolvefields",
+      "summary": "NonISOResolveFields ( _calendar_: a calendar type that is not *\"iso8601\"*, _fields_: a Calendar Fields Record, _type_: one of ~date~, ~year-month~, or ~month-day~, ): either a normal completion containing ~unused~ or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    },
+    {
+      "id": "TEMP-S12-SEC-TEMPORAL-CALENDARRESOLVEFIELDS",
+      "spec_anchor": "sec-temporal-calendarresolvefields",
+      "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/calendar.html#sec-temporal-calendarresolvefields",
+      "summary": "CalendarResolveFields ( _calendar_: a calendar type, _fields_: a Calendar Fields Record, _type_: one of ~date~, ~year-month~, or ~month-day~, ): either a normal completion containing ~unused~ or a throw completion",
+      "disposition": "indirect",
+      "coverage_status": "planned",
+      "gleam_test_ids": [],
+      "test262_paths": [],
+      "official_example_links": [
+        "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook-nepali-calendar.md"
+      ],
+      "rationale": null
+    }
+  ]
+}
