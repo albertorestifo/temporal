@@ -60,36 +60,36 @@
       "spec_anchor": "sec-year-week-record-specification-type",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-year-week-record-specification-type",
       "summary": "The Year-Week Record Specification Type",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
+      "disposition": "indirect",
+      "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "This ECMA-262 amendment concerns legacy Date, JavaScript language semantics, intrinsics, coercion, or object-model integration outside the Gleam runtime contract."
+      "rationale": null
     },
     {
       "id": "TEMP-S14-SEC-MATHEMATICAL-OPERATIONS",
       "spec_anchor": "sec-mathematical-operations",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-mathematical-operations",
       "summary": "Mathematical Operations",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
+      "disposition": "indirect",
+      "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "This ECMA-262 amendment concerns legacy Date, JavaScript language semantics, intrinsics, coercion, or object-model integration outside the Gleam runtime contract."
+      "rationale": null
     },
     {
       "id": "TEMP-S14-SEC-ECMA262-ABSTRACT-OPERATIONS",
       "spec_anchor": "sec-ecma262-abstract-operations",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-ecma262-abstract-operations",
       "summary": "Abstract Operations",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
+      "disposition": "indirect",
+      "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "This ECMA-262 amendment concerns legacy Date, JavaScript language semantics, intrinsics, coercion, or object-model integration outside the Gleam runtime contract."
+      "rationale": null
     },
     {
       "id": "TEMP-S14-SEC-ECMA262-TYPE-CONVERSION",
@@ -108,24 +108,24 @@
       "spec_anchor": "sec-tointegerifintegral",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-tointegerifintegral",
       "summary": "ToIntegerIfIntegral ( _argument_: an ECMAScript language value, ): either a normal completion containing an integer or a throw completion",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
+      "disposition": "indirect",
+      "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "This ECMA-262 amendment concerns legacy Date, JavaScript language semantics, intrinsics, coercion, or object-model integration outside the Gleam runtime contract."
+      "rationale": null
     },
     {
       "id": "TEMP-S14-SEC-OPERATIONS-FOR-READING-OPTIONS",
       "spec_anchor": "sec-operations-for-reading-options",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-operations-for-reading-options",
       "summary": "Operations for Reading Options",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
+      "disposition": "indirect",
+      "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "This ECMA-262 amendment concerns legacy Date, JavaScript language semantics, intrinsics, coercion, or object-model integration outside the Gleam runtime contract."
+      "rationale": null
     },
     {
       "id": "TEMP-S14-SEC-GETOPTION",
@@ -144,24 +144,24 @@
       "spec_anchor": "sec-temporal-getroundingmodeoption",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-temporal-getroundingmodeoption",
       "summary": "GetRoundingModeOption ( _options_: an Object, _fallback_: a rounding mode, ): either a normal completion containing a rounding mode, or a throw completion",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
+      "disposition": "indirect",
+      "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "This ECMA-262 amendment concerns legacy Date, JavaScript language semantics, intrinsics, coercion, or object-model integration outside the Gleam runtime contract."
+      "rationale": null
     },
     {
       "id": "TEMP-S14-SEC-TEMPORAL-GETROUNDINGINCREMENTOPTION",
       "spec_anchor": "sec-temporal-getroundingincrementoption",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-temporal-getroundingincrementoption",
       "summary": "GetRoundingIncrementOption ( _options_: an Object, ): either a normal completion containing a positive integer in the inclusive interval from 1 to 109, or a throw completion",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
+      "disposition": "indirect",
+      "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "This ECMA-262 amendment concerns legacy Date, JavaScript language semantics, intrinsics, coercion, or object-model integration outside the Gleam runtime contract."
+      "rationale": null
     },
     {
       "id": "TEMP-S14-SEC-OVERVIEW-OF-DATE-OBJECTS-AND-DEFINITIONS-OF-ABSTRACT-OPERATIONS",
@@ -180,60 +180,60 @@
       "spec_anchor": "sec-getutcepochnanoseconds",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-getutcepochnanoseconds",
       "summary": "GetUTCEpochNanoseconds ( _year_: an integer, _month_: an integer in the inclusive interval from 1 to 12, _day_: an integer in the inclusive interval from 1 to 31, _hour_: an integer in the inclusive interval from 0 to 23, _minute_: an integer in the inclusive interval from 0 to 59, _second_: an integer in the inclusive interval from 0 to 59, _millisecond_: an integer in the inclusive interval from 0 to 999, _microsecond_: an integer in the inclusive interval from 0 to 999, _nanosecond_: an integer in the inclusive interval from 0 to 999, _isoDateTime_: an ISO Date-Time Record, ): a BigInt",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
+      "disposition": "indirect",
+      "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "This ECMA-262 amendment concerns legacy Date, JavaScript language semantics, intrinsics, coercion, or object-model integration outside the Gleam runtime contract."
+      "rationale": null
     },
     {
       "id": "TEMP-S14-SEC-TIME-ZONE-IDENTIFIERS",
       "spec_anchor": "sec-time-zone-identifiers",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-time-zone-identifiers",
       "summary": "Time Zone Identifiers",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
+      "disposition": "indirect",
+      "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "This ECMA-262 amendment concerns legacy Date, JavaScript language semantics, intrinsics, coercion, or object-model integration outside the Gleam runtime contract."
+      "rationale": null
     },
     {
       "id": "TEMP-S14-SEC-GETNAMEDTIMEZONEEPOCHNANOSECONDS",
       "spec_anchor": "sec-getnamedtimezoneepochnanoseconds",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-getnamedtimezoneepochnanoseconds",
       "summary": "GetNamedTimeZoneEpochNanoseconds ( _timeZoneIdentifier_: a String, _year_: an integer, _month_: an integer in the inclusive interval from 1 to 12, _day_: an integer in the inclusive interval from 1 to 31, _hour_: an integer in the inclusive interval from 0 to 23, _minute_: an integer in the inclusive interval from 0 to 59, _second_: an integer in the inclusive interval from 0 to 59, _millisecond_: an integer in the inclusive interval from 0 to 999, _microsecond_: an integer in the inclusive interval from 0 to 999, _nanosecond_: an integer in the inclusive interval from 0 to 999, _isoDateTime_: an ISO Date-Time Record, ): a List of BigInts",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
+      "disposition": "indirect",
+      "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "This ECMA-262 amendment concerns legacy Date, JavaScript language semantics, intrinsics, coercion, or object-model integration outside the Gleam runtime contract."
+      "rationale": null
     },
     {
       "id": "TEMP-S14-SEC-SYSTEMTIMEZONEIDENTIFIER",
       "spec_anchor": "sec-systemtimezoneidentifier",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-systemtimezoneidentifier",
       "summary": "SystemTimeZoneIdentifier ( ): an available time zone identifier",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
+      "disposition": "indirect",
+      "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "This ECMA-262 amendment concerns legacy Date, JavaScript language semantics, intrinsics, coercion, or object-model integration outside the Gleam runtime contract."
+      "rationale": null
     },
     {
       "id": "TEMP-S14-SEC-TIME-ZONE-OFFSET-STRINGS",
       "spec_anchor": "sec-time-zone-offset-strings",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-time-zone-offset-strings",
       "summary": "Time Zone Offset String FormatFormats",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
+      "disposition": "indirect",
+      "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "This ECMA-262 amendment concerns legacy Date, JavaScript language semantics, intrinsics, coercion, or object-model integration outside the Gleam runtime contract."
+      "rationale": null
     },
     {
       "id": "TEMP-S14-SEC-LOCALTIME",
@@ -288,24 +288,24 @@
       "spec_anchor": "sec-isoffsettimezoneidentifier",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-isoffsettimezoneidentifier",
       "summary": "IsTimeZoneOffsetString ( _offsetString_: a String, ): a Boolean",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
+      "disposition": "indirect",
+      "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "This ECMA-262 amendment concerns legacy Date, JavaScript language semantics, intrinsics, coercion, or object-model integration outside the Gleam runtime contract."
+      "rationale": null
     },
     {
       "id": "TEMP-S14-SEC-PARSEDATETIMEUTCOFFSET",
       "spec_anchor": "sec-parsedatetimeutcoffset",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/mainadditions.html#sec-parsedatetimeutcoffset",
       "summary": "ParseTimeZoneOffsetString ( _offsetString_: a String, ): an integer",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
+      "disposition": "indirect",
+      "coverage_status": "planned",
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "This ECMA-262 amendment concerns legacy Date, JavaScript language semantics, intrinsics, coercion, or object-model integration outside the Gleam runtime contract."
+      "rationale": null
     },
     {
       "id": "TEMP-S14-SEC-TEMPORAL-DATE-CONSTRUCTOR",

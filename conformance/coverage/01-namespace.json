@@ -174,12 +174,14 @@
       "spec_anchor": "sec-temporal-now",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/temporal.html#sec-temporal-now",
       "summary": "Temporal.Now",
-      "disposition": "n/a-js-runtime",
-      "coverage_status": "exempt",
-      "gleam_test_ids": [],
+      "disposition": "indirect",
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_test::temporal_now_module_exposes_clock_semantics_test"
+      ],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "JavaScript namespace object properties, descriptors, prototypes, and constructor exposure are represented by Gleam modules and are outside the semantic-port contract."
+      "rationale": null
     }
   ]
 }

@@ -13,8 +13,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/temporal.html#sec-temporal-now-object",
       "summary": "The Temporal.Now Object",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_test::now_fixed_clocks_are_independent_values_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Now/builtin.js",
         "test/built-ins/Temporal/Now/prop-desc.js",
@@ -36,7 +38,7 @@
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+      "rationale": "The JavaScript Temporal.Now intrinsic and its namespace property descriptor have no Gleam object-model equivalent; current-time semantics are exposed by temporal/now functions."
     },
     {
       "id": "TEMP-S02-SEC-TEMPORAL-NOW-SYMBOL-TOSTRINGTAG",
@@ -48,7 +50,7 @@
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+      "rationale": "Gleam modules do not have Symbol.toStringTag or JavaScript property descriptors."
     },
     {
       "id": "TEMP-S02-SEC-FUNCTION-PROPERTIES-OF-THE-TEMPORAL-NOW-OBJECT",
@@ -60,7 +62,7 @@
       "gleam_test_ids": [],
       "test262_paths": [],
       "official_example_links": [],
-      "rationale": "JavaScript prototype, property-descriptor, coercion, symbol, subclassing, or intrinsic-object behavior is outside the Gleam semantic-port contract."
+      "rationale": "This structural heading specifies JavaScript function-valued namespace properties and their descriptors; the callable time semantics are covered by the individual temporal/now operations below."
     },
     {
       "id": "TEMP-S02-SEC-TEMPORAL-NOW-TIMEZONEID",
@@ -68,8 +70,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/temporal.html#sec-temporal.now.timezoneid",
       "summary": "Temporal.Now.timeZoneId ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_test::now_fixed_clock_returns_time_zone_id_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Now/timeZoneId/extensible.js",
         "test/built-ins/Temporal/Now/timeZoneId/length.js",
@@ -89,8 +93,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/temporal.html#sec-temporal.now.instant",
       "summary": "Temporal.Now.instant ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_test::now_fixed_clock_returns_exact_instant_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Now/instant/extensible.js",
         "test/built-ins/Temporal/Now/instant/length.js",
@@ -141,8 +147,11 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/temporal.html#sec-temporal.now.zoneddatetimeiso",
       "summary": "Temporal.Now.zonedDateTimeISO ( [ _temporalTimeZoneLike_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_test::now_zoned_date_time_iso_uses_iso_calendar_test",
+        "temporal/now_test::now_zoned_date_time_iso_uses_requested_time_zone_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Now/zonedDateTimeISO/extensible.js",
         "test/built-ins/Temporal/Now/zonedDateTimeISO/length.js",
@@ -220,8 +229,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/temporal.html#sec-temporal-now-abstract-ops",
       "summary": "Abstract Operations",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_test::now_fixed_clock_repeats_without_global_state_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#current-date-and-time"
@@ -234,8 +245,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/temporal.html#sec-hostsystemutcepochnanoseconds",
       "summary": "HostSystemUTCEpochNanoseconds ( _global_: a global object, ): an integer",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_test::now_system_clock_returns_current_era_instant_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#current-date-and-time"
@@ -248,8 +261,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/temporal.html#sec-temporal-systemutcepochmilliseconds",
       "summary": "SystemUTCEpochMilliseconds ( ): a Number",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_test::now_system_clock_instant_has_millisecond_precision_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#current-date-and-time"
@@ -262,8 +277,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/temporal.html#sec-temporal-systemutcepochnanoseconds",
       "summary": "SystemUTCEpochNanoseconds ( ): a BigInt",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/now_test::now_system_clock_instant_is_within_temporal_range_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#current-date-and-time"
