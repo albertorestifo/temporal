@@ -13,8 +13,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-plaindatetime-objects",
       "summary": "Temporal.PlainDateTime Objects",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindatetime_objects_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -27,8 +29,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-plaindatetime-constructor",
       "summary": "The Temporal.PlainDateTime Constructor",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindatetime_constructor_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1392,8 +1396,8 @@
       "spec_anchor": "sec-temporal.plaindatetime.prototype.tolocalestring",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.prototype.tolocalestring",
       "summary": "Temporal.PlainDateTime.prototype.toLocaleString ( [ _locales_ [ , _options_ ] ] )",
-      "disposition": "direct",
-      "coverage_status": "planned",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
       "gleam_test_ids": [],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/toLocaleString/branding.js",
@@ -1407,7 +1411,7 @@
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
       ],
-      "rationale": null
+      "rationale": "Locale formatting is ECMA-402 behavior and is explicitly outside the documented Gleam API."
     },
     {
       "id": "TEMP-S05-SEC-TEMPORAL-PLAINDATETIME-PROTOTYPE-TOJSON",
@@ -1415,8 +1419,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.prototype.tojson",
       "summary": "Temporal.PlainDateTime.prototype.toJSON ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindatetime_prototype_tojson_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/toJSON/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/toJSON/branding.js",
@@ -1458,8 +1464,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.prototype.tozoneddatetime",
       "summary": "Temporal.PlainDateTime.prototype.toZonedDateTime ( _temporalTimeZoneLike_ [ , _options_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindatetime_prototype_tozoneddatetime_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/toZonedDateTime/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/toZonedDateTime/branding.js",
@@ -1502,8 +1510,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.prototype.toplaindate",
       "summary": "Temporal.PlainDateTime.prototype.toPlainDate ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindatetime_prototype_toplaindate_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/toPlainDate/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/toPlainDate/branding.js",
@@ -1525,8 +1535,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.prototype.toplaintime",
       "summary": "Temporal.PlainDateTime.prototype.toPlainTime ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindatetime_prototype_toplaintime_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/prototype/toPlainTime/basic.js",
         "test/built-ins/Temporal/PlainDateTime/prototype/toPlainTime/branding.js",
@@ -1559,8 +1571,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-plaindatetime-abstract-ops",
       "summary": "Abstract Operations",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindatetime_abstract_ops_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1573,8 +1587,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-iso-date-time-records",
       "summary": "ISO Date-Time Records",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_iso_date_time_records_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1587,8 +1603,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-timevaluetoisodatetimerecord",
       "summary": "TimeValueToISODateTimeRecord ( _t_: a finite time value, ): an ISO Date-Time Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_timevaluetoisodatetimerecord_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1601,8 +1619,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-combineisodateandtimerecord",
       "summary": "CombineISODateAndTimeRecord ( _isoDate_: an ISO Date Record, _time_: a Time Record, ): an ISO Date-Time Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_combineisodateandtimerecord_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1615,8 +1635,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-isodatetimewithinlimits",
       "summary": "ISODateTimeWithinLimits ( _isoDateTime_: an ISO Date-Time Record, ): a Boolean",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_isodatetimewithinlimits_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1629,8 +1651,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-interprettemporaldatetimefields",
       "summary": "InterpretTemporalDateTimeFields ( _calendar_: a calendar type, _fields_: a Calendar Fields Record, _overflow_: either ~constrain~ or ~reject~, ): either a normal completion containing an ISO Date-Time Record, or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_interprettemporaldatetimefields_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1643,8 +1667,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-totemporaldatetime",
       "summary": "ToTemporalDateTime ( _item_: an ECMAScript language value, optional _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.PlainDateTime or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_totemporaldatetime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1657,8 +1683,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-balanceisodatetime",
       "summary": "BalanceISODateTime ( _year_: an integer, _month_: an integer, _day_: an integer, _hour_: an integer, _minute_: an integer, _second_: an integer, _millisecond_: an integer, _microsecond_: an integer, _nanosecond_: an integer, ): an ISO Date-Time Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_balanceisodatetime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1671,8 +1699,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-createtemporaldatetime",
       "summary": "CreateTemporalDateTime ( _isoDateTime_: an ISO Date-Time Record, _calendar_: a calendar type, optional _newTarget_: a constructor, ): either a normal completion containing a Temporal.PlainDateTime or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_createtemporaldatetime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1685,8 +1715,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-isodatetimetostring",
       "summary": "ISODateTimeToString ( _isoDateTime_: an ISO Date-Time Record, _calendar_: a calendar type, _precision_: either an integer in the inclusive interval from 0 to 9, ~minute~, or ~auto~, _showCalendar_: one of ~auto~, ~always~, ~never~, or ~critical~, ): a String",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_isodatetimetostring_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1699,8 +1731,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-compareisodatetime",
       "summary": "CompareISODateTime ( _isoDateTime1_: an ISO Date-Time Record, _isoDateTime2_: an ISO Date-Time Record, ): one of -1, 0, or 1",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_compareisodatetime_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDateTime/compare/use-internal-slots.js"
       ],
@@ -1715,8 +1749,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-roundisodatetime",
       "summary": "RoundISODateTime ( _isoDateTime_: an ISO Date-Time Record, _increment_: a positive integer, _unit_: either a time unit or ~day~, _roundingMode_: a rounding mode, ): an ISO Date-Time Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_roundisodatetime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1729,8 +1765,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-differenceisodatetime",
       "summary": "DifferenceISODateTime ( _isoDateTime1_: an ISO Date-Time Record, _isoDateTime2_: an ISO Date-Time Record, _calendar_: a calendar type, _largestUnit_: a Temporal unit, ): an Internal Duration Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_differenceisodatetime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1743,8 +1781,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-differenceplaindatetimewithrounding",
       "summary": "DifferencePlainDateTimeWithRounding ( _isoDateTime1_: an ISO Date-Time Record, _isoDateTime2_: an ISO Date-Time Record, _calendar_: a calendar type, _largestUnit_: a Temporal unit, _roundingIncrement_: a positive integer, _smallestUnit_: a Temporal unit, _roundingMode_: a rounding mode, ): either a normal completion containing an Internal Duration Record or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_differenceplaindatetimewithrounding_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1757,8 +1797,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-differenceplaindatetimewithtotal",
       "summary": "DifferencePlainDateTimeWithTotal ( _isoDateTime1_: an ISO Date-Time Record, _isoDateTime2_: an ISO Date-Time Record, _calendar_: a calendar type, _unit_: a Temporal unit, ): either a normal completion containing a mathematical value or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_differenceplaindatetimewithtotal_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1771,8 +1813,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-differencetemporalplaindatetime",
       "summary": "DifferenceTemporalPlainDateTime ( _operation_: either ~since~ or ~until~, _dateTime_: a Temporal.PlainDateTime, _other_: an ECMAScript language value, _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.Duration or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_differencetemporalplaindatetime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"
@@ -1785,8 +1829,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal-adddurationtodatetime",
       "summary": "AddDurationToDateTime ( _operation_: either ~add~ or ~subtract~, _dateTime_: a Temporal.PlainDateTime, _temporalDurationLike_: an ECMAScript language value, _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.PlainDateTime or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_adddurationtodatetime_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#noon-on-a-particular-date"

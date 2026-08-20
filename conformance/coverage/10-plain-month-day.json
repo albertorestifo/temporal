@@ -13,8 +13,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal-plainmonthday-objects",
       "summary": "Temporal.PlainMonthDay Objects",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plainmonthday_objects_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
@@ -27,8 +29,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal-plainmonthday-constructor",
       "summary": "The Temporal.PlainMonthDay Constructor",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plainmonthday_constructor_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
@@ -403,8 +407,8 @@
       "spec_anchor": "sec-temporal.plainmonthday.prototype.tolocalestring",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype.tolocalestring",
       "summary": "Temporal.PlainMonthDay.prototype.toLocaleString ( [ _locales_ [ , _options_ ] ] )",
-      "disposition": "direct",
-      "coverage_status": "planned",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
       "gleam_test_ids": [],
       "test262_paths": [
         "test/built-ins/Temporal/PlainMonthDay/prototype/toLocaleString/branding.js",
@@ -418,7 +422,7 @@
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
       ],
-      "rationale": null
+      "rationale": "Locale formatting is ECMA-402 behavior and is explicitly outside the documented Gleam API."
     },
     {
       "id": "TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY-PROTOTYPE-TOJSON",
@@ -426,8 +430,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype.tojson",
       "summary": "Temporal.PlainMonthDay.prototype.toJSON ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plainmonthday_prototype_tojson_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainMonthDay/prototype/toJSON/basic.js",
         "test/built-ins/Temporal/PlainMonthDay/prototype/toJSON/branding.js",
@@ -468,8 +474,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal.plainmonthday.prototype.toplaindate",
       "summary": "Temporal.PlainMonthDay.prototype.toPlainDate ( _item_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plainmonthday_prototype_toplaindate_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainMonthDay/prototype/toPlainDate/argument-not-object.js",
         "test/built-ins/Temporal/PlainMonthDay/prototype/toPlainDate/basic.js",
@@ -507,8 +515,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal-plainmonthday-abstract-ops",
       "summary": "Abstract Operations",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plainmonthday_abstract_ops_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
@@ -521,8 +531,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal-totemporalmonthday",
       "summary": "ToTemporalMonthDay ( _item_: an ECMAScript language value, optional _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.PlainMonthDay or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_totemporalmonthday_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
@@ -535,8 +547,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal-createtemporalmonthday",
       "summary": "CreateTemporalMonthDay ( _isoDate_: an ISO Date Record, _calendar_: a calendar type, optional _newTarget_: a constructor, ): either a normal completion containing a Temporal.PlainMonthDay or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_createtemporalmonthday_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"
@@ -549,8 +563,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainmonthday.html#sec-temporal-temporalmonthdaytostring",
       "summary": "TemporalMonthDayToString ( _monthDay_: a Temporal.PlainMonthDay, _showCalendar_: one of ~auto~, ~always~, ~never~, or ~critical~, ): a String",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_temporalmonthdaytostring_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#birthday-in-2030"

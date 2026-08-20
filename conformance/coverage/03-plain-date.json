@@ -13,8 +13,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-plaindate-objects",
       "summary": "Temporal.PlainDate Objects",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindate_objects_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -27,8 +29,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-plaindate-constructor",
       "summary": "The Temporal.PlainDate Constructor",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindate_constructor_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -607,8 +611,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.toplainyearmonth",
       "summary": "Temporal.PlainDate.prototype.toPlainYearMonth ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindate_prototype_toplainyearmonth_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDate/prototype/toPlainYearMonth/basic.js",
         "test/built-ins/Temporal/PlainDate/prototype/toPlainYearMonth/branding.js",
@@ -630,8 +636,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.toplainmonthday",
       "summary": "Temporal.PlainDate.prototype.toPlainMonthDay ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindate_prototype_toplainmonthday_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDate/prototype/toPlainMonthDay/basic.js",
         "test/built-ins/Temporal/PlainDate/prototype/toPlainMonthDay/branding.js",
@@ -1100,8 +1108,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.toplaindatetime",
       "summary": "Temporal.PlainDate.prototype.toPlainDateTime ( [ _temporalTime_ ] )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindate_prototype_toplaindatetime_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-number.js",
         "test/built-ins/Temporal/PlainDate/prototype/toPlainDateTime/argument-object.js",
@@ -1150,8 +1160,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.tozoneddatetime",
       "summary": "Temporal.PlainDate.prototype.toZonedDateTime ( _item_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindate_prototype_tozoneddatetime_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-number.js",
         "test/built-ins/Temporal/PlainDate/prototype/toZonedDateTime/argument-object-get-plainTime-throws.js",
@@ -1245,8 +1257,8 @@
       "spec_anchor": "sec-temporal.plaindate.prototype.tolocalestring",
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.tolocalestring",
       "summary": "Temporal.PlainDate.prototype.toLocaleString ( [ _locales_ [ , _options_ ] ] )",
-      "disposition": "direct",
-      "coverage_status": "planned",
+      "disposition": "n/a-js-runtime",
+      "coverage_status": "exempt",
       "gleam_test_ids": [],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDate/prototype/toLocaleString/branding.js",
@@ -1260,7 +1272,7 @@
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
       ],
-      "rationale": null
+      "rationale": "Locale formatting is ECMA-402 behavior and is explicitly outside the documented Gleam API."
     },
     {
       "id": "TEMP-S03-SEC-TEMPORAL-PLAINDATE-PROTOTYPE-TOJSON",
@@ -1268,8 +1280,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal.plaindate.prototype.tojson",
       "summary": "Temporal.PlainDate.prototype.toJSON ( )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindate_prototype_tojson_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDate/prototype/toJSON/basic.js",
         "test/built-ins/Temporal/PlainDate/prototype/toJSON/branding.js",
@@ -1323,8 +1337,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-plaindate-abstract-ops",
       "summary": "Abstract Operations for Temporal.PlainDate Objects",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_plaindate_abstract_ops_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -1337,8 +1353,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-iso-date-records",
       "summary": "ISO Date Records",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_iso_date_records_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -1351,8 +1369,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-create-iso-date-record",
       "summary": "CreateISODateRecord ( _year_: an integer, _month_: an integer between 1 and 12 inclusive, _day_: an integer between 1 and 31 inclusive, ): an ISO Date Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_create_iso_date_record_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -1365,8 +1385,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-createtemporaldate",
       "summary": "CreateTemporalDate ( _isoDate_: an ISO Date Record, _calendar_: a calendar type, optional _newTarget_: a constructor, ): either a normal completion containing a Temporal.PlainDate or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_createtemporaldate_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -1379,8 +1401,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-totemporaldate",
       "summary": "ToTemporalDate ( _item_: an ECMAScript language value, optional _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.PlainDate or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_totemporaldate_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -1393,8 +1417,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-comparesurpasses",
       "summary": "CompareSurpasses ( _sign_: either -1 or 1, _year_: an integer, _monthOrCode_: either an integer or a month code, _day_: an integer, _target_: a Calendar Date Record, ): a Boolean",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_comparesurpasses_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -1407,8 +1433,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-isodatesurpasses",
       "summary": "ISODateSurpasses ( _sign_: either -1 or 1, _baseDate_: an ISO Date Record, _isoDate2_: an ISO Date Record, _years_: an integer, _months_: an integer, _weeks_: an integer, _days_: an integer, ): a Boolean",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_isodatesurpasses_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -1421,8 +1449,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-regulateisodate",
       "summary": "RegulateISODate ( _year_: an integer, _month_: an integer, _day_: an integer, _overflow_: either ~constrain~ or ~reject~, ): either a normal completion containing an ISO Date Record or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_regulateisodate_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -1435,8 +1465,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-isvalidisodate",
       "summary": "IsValidISODate ( _year_: an integer, _month_: an integer, _day_: an integer, ): a Boolean",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_isvalidisodate_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -1449,8 +1481,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-adddaystoisodate",
       "summary": "AddDaysToISODate ( _isoDate_: an ISO Date Record, _days_: an integer, ): an ISO Date Record",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_adddaystoisodate_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -1463,8 +1497,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-padisoyear",
       "summary": "PadISOYear ( _y_: an integer, ): a String",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_padisoyear_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -1477,8 +1513,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-temporaldatetostring",
       "summary": "TemporalDateToString ( _temporalDate_: a Temporal.PlainDate, _showCalendar_: one of ~auto~, ~always~, ~never~, or ~critical~, ): a String",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_temporaldatetostring_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -1491,8 +1529,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-isodatewithinlimits",
       "summary": "ISODateWithinLimits ( _isoDate_: an ISO Date Record, ): a Boolean",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_isodatewithinlimits_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -1505,8 +1545,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-compareisodate",
       "summary": "CompareISODate ( _isoDate1_: an ISO Date Record, _isoDate2_: an ISO Date Record, ): one of -1, 0, or 1",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_compareisodate_planned_requirement_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/PlainDate/compare/use-internal-slots.js"
       ],
@@ -1521,8 +1563,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-differencetemporalplaindate",
       "summary": "DifferenceTemporalPlainDate ( _operation_: either ~since~ or ~until~, _temporalDate_: a Temporal.PlainDate, _other_: an ECMAScript language value, _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.Duration or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_differencetemporalplaindate_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"
@@ -1535,8 +1579,10 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindate.html#sec-temporal-adddurationtodate",
       "summary": "AddDurationToDate ( _operation_: either ~add~ or ~subtract~, _temporalDate_: a Temporal.PlainDate, _temporalDurationLike_: an ECMAScript language value, _options_: an ECMAScript language value, ): either a normal completion containing a Temporal.PlainDate or a throw completion",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/plain_planned_test::temporal_adddurationtodate_planned_requirement_test"
+      ],
       "test262_paths": [],
       "official_example_links": [
         "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/docs/cookbook.md#how-many-days-until-a-future-date"

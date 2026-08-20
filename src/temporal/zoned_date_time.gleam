@@ -10,6 +10,7 @@ import temporal
 import temporal/calendar
 import temporal/duration
 import temporal/instant
+import temporal/plain_date_time
 import temporal/time_zone
 
 /// An exact instant viewed through a time zone and calendar.
@@ -44,6 +45,17 @@ pub fn from_instant(
         bigi.to_string(value),
       ))
   }
+}
+
+/// Resolve a local date-time in a validated time zone.
+///
+/// This remains unavailable until local time-zone resolution is implemented.
+pub fn from_plain_date_time(
+  _date_time: plain_date_time.PlainDateTime,
+  _time_zone: time_zone.TimeZone,
+  _disambiguation: temporal.Disambiguation,
+) -> Result(ZonedDateTime, temporal.Error) {
+  Error(temporal.PlatformUnavailable(temporal.ZonedDateTimeFromPlainDateTime))
 }
 
 /// Return the exact instant represented by a zoned date-time.

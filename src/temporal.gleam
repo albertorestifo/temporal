@@ -60,6 +60,7 @@ pub type PlatformOperation {
   SystemClock
   LocalTimeZoneDiscovery
   ZonedDateTimeFromIso8601
+  ZonedDateTimeFromPlainDateTime
   ZonedDateTimeAdd
   ZonedDateTimeSubtract
   ZonedDateTimeStartOfDay
@@ -75,6 +76,14 @@ pub type PlatformOperation {
 pub type Overflow {
   Constrain
   Reject
+}
+
+/// How a local date-time is resolved when the time zone has a gap or overlap.
+pub type Disambiguation {
+  Compatible
+  Earlier
+  Later
+  RejectAmbiguous
 }
 
 /// How a value that sits between two increments is rounded.
