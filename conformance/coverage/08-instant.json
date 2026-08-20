@@ -144,8 +144,14 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.fromepochmilliseconds",
       "summary": "Temporal.Instant.fromEpochMilliseconds ( _epochMilliseconds_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_test::instant_from_epoch_milliseconds_constructs_exact_value_test",
+        "temporal/instant_test::instant_from_epoch_milliseconds_accepts_positive_limit_test",
+        "temporal/instant_test::instant_from_epoch_milliseconds_accepts_negative_limit_test",
+        "temporal/instant_test::instant_from_epoch_milliseconds_rejects_above_positive_limit_test",
+        "temporal/instant_test::instant_from_epoch_milliseconds_rejects_below_negative_limit_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/fromEpochMilliseconds/argument.js",
         "test/built-ins/Temporal/Instant/fromEpochMilliseconds/basic.js",
@@ -169,8 +175,14 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.fromepochnanoseconds",
       "summary": "Temporal.Instant.fromEpochNanoseconds ( _epochNanoseconds_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_test::instant_from_epoch_nanoseconds_constructs_exact_value_test",
+        "temporal/instant_test::instant_from_epoch_nanoseconds_accepts_positive_limit_test",
+        "temporal/instant_test::instant_from_epoch_nanoseconds_accepts_negative_limit_test",
+        "temporal/instant_test::instant_from_epoch_nanoseconds_rejects_above_positive_limit_test",
+        "temporal/instant_test::instant_from_epoch_nanoseconds_rejects_below_negative_limit_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/fromEpochNanoseconds/argument.js",
         "test/built-ins/Temporal/Instant/fromEpochNanoseconds/basic.js",
@@ -193,8 +205,12 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.compare",
       "summary": "Temporal.Instant.compare ( _one_, _two_ )",
       "disposition": "direct",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_test::instant_compare_returns_less_than_test",
+        "temporal/instant_test::instant_compare_returns_equal_test",
+        "temporal/instant_test::instant_compare_returns_greater_than_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/compare/argument-object-tostring.js",
         "test/built-ins/Temporal/Instant/compare/argument-string-calendar-annotation-invalid-key.js",
@@ -276,8 +292,11 @@
       "spec_url": "https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-get-temporal.instant.prototype.epochmilliseconds",
       "summary": "get Temporal.Instant.prototype.epochMilliseconds",
       "disposition": "indirect",
-      "coverage_status": "planned",
-      "gleam_test_ids": [],
+      "coverage_status": "active",
+      "gleam_test_ids": [
+        "temporal/instant_test::instant_epoch_milliseconds_floors_positive_submilliseconds_test",
+        "temporal/instant_test::instant_epoch_milliseconds_floors_negative_submilliseconds_test"
+      ],
       "test262_paths": [
         "test/built-ins/Temporal/Instant/prototype/epochMilliseconds/basic.js",
         "test/built-ins/Temporal/Instant/prototype/epochMilliseconds/branding.js",

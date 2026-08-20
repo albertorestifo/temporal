@@ -1,316 +1,181 @@
-import gleam/list
-import gleam/string
-import temporal/duration.{Duration, from_iso_8601}
+import temporal/duration.{type Duration, Duration, from_iso_8601}
+import temporal/support/assertions
 
-pub fn from_iso_8601_test() {
-  let cases = [
-    #(
-      "P3W1D",
-      Ok(Duration(
-        is_negative: False,
-        years: 0,
-        months: 0,
-        weeks: 3,
-        days: 1,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        microseconds: 0,
-        milliseconds: 0,
-        nanoseconds: 0,
-      )),
-    ),
-    #(
-      "-P1Y1M",
-      Ok(Duration(
-        is_negative: True,
-        years: 1,
-        months: 1,
-        weeks: 0,
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        microseconds: 0,
-        milliseconds: 0,
-        nanoseconds: 0,
-      )),
-    ),
-    #(
-      "+P1Y1M",
-      Ok(Duration(
-        is_negative: False,
-        years: 1,
-        months: 1,
-        weeks: 0,
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        microseconds: 0,
-        milliseconds: 0,
-        nanoseconds: 0,
-      )),
-    ),
-    #(
-      "P1Y1M1DT1H1M1.1S",
-      Ok(Duration(
-        is_negative: False,
-        years: 1,
-        months: 1,
-        weeks: 0,
-        days: 1,
-        hours: 1,
-        minutes: 1,
-        seconds: 1,
-        milliseconds: 100,
-        microseconds: 0,
-        nanoseconds: 0,
-      )),
-    ),
-    #(
-      "P40D",
-      Ok(Duration(
-        is_negative: False,
-        years: 0,
-        months: 0,
-        weeks: 0,
-        days: 40,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        microseconds: 0,
-        milliseconds: 0,
-        nanoseconds: 0,
-      )),
-    ),
-    #(
-      "P1Y1D",
-      Ok(Duration(
-        is_negative: False,
-        years: 1,
-        months: 0,
-        weeks: 0,
-        days: 1,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        microseconds: 0,
-        milliseconds: 0,
-        nanoseconds: 0,
-      )),
-    ),
-    #(
-      "P3DT4H59M",
-      Ok(Duration(
-        is_negative: False,
-        years: 0,
-        months: 0,
-        weeks: 0,
-        days: 3,
-        hours: 4,
-        minutes: 59,
-        seconds: 0,
-        microseconds: 0,
-        milliseconds: 0,
-        nanoseconds: 0,
-      )),
-    ),
-    #(
-      "PT2H30M",
-      Ok(Duration(
-        is_negative: False,
-        years: 0,
-        months: 0,
-        weeks: 0,
-        days: 0,
-        hours: 2,
-        minutes: 30,
-        seconds: 0,
-        microseconds: 0,
-        milliseconds: 0,
-        nanoseconds: 0,
-      )),
-    ),
-    #(
-      "P1M",
-      Ok(Duration(
-        is_negative: False,
-        years: 0,
-        months: 1,
-        weeks: 0,
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        microseconds: 0,
-        milliseconds: 0,
-        nanoseconds: 0,
-      )),
-    ),
-    #(
-      "PT0.0021S",
-      Ok(Duration(
-        is_negative: False,
-        years: 0,
-        months: 0,
-        weeks: 0,
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        milliseconds: 2,
-        microseconds: 100,
-        nanoseconds: 0,
-      )),
-    ),
-    #(
-      "PT0S",
-      Ok(Duration(
-        is_negative: False,
-        years: 0,
-        months: 0,
-        weeks: 0,
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        microseconds: 0,
-        milliseconds: 0,
-        nanoseconds: 0,
-      )),
-    ),
-    #(
-      "P0D",
-      Ok(Duration(
-        is_negative: False,
-        years: 0,
-        months: 0,
-        weeks: 0,
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        microseconds: 0,
-        milliseconds: 0,
-        nanoseconds: 0,
-      )),
-    ),
-    #(
-      "PT0.999999999H",
-      Ok(Duration(
-        is_negative: False,
-        years: 0,
-        months: 0,
-        weeks: 0,
-        days: 0,
-        hours: 0,
-        minutes: 59,
-        seconds: 59,
-        milliseconds: 999,
-        microseconds: 996,
-        nanoseconds: 400,
-      )),
-    ),
-    #(
-      "PT0.000000011H",
-      Ok(Duration(
-        is_negative: False,
-        years: 0,
-        months: 0,
-        weeks: 0,
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        milliseconds: 0,
-        microseconds: 39,
-        nanoseconds: 600,
-      )),
-    ),
-    #(
-      "PT0.999999999M",
-      Ok(Duration(
-        is_negative: False,
-        years: 0,
-        months: 0,
-        weeks: 0,
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 59,
-        milliseconds: 999,
-        microseconds: 999,
-        nanoseconds: 940,
-      )),
-    ),
-    #(
-      "PT0.000000011M",
-      Ok(Duration(
-        is_negative: False,
-        years: 0,
-        months: 0,
-        weeks: 0,
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        milliseconds: 0,
-        microseconds: 0,
-        nanoseconds: 660,
-      )),
-    ),
-    #(
-      "PT0.999999999S",
-      Ok(Duration(
-        is_negative: False,
-        years: 0,
-        months: 0,
-        weeks: 0,
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        milliseconds: 999,
-        microseconds: 999,
-        nanoseconds: 999,
-      )),
-    ),
-    #(
-      "PT0.000000011S",
-      Ok(Duration(
-        is_negative: False,
-        years: 0,
-        months: 0,
-        weeks: 0,
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        milliseconds: 0,
-        microseconds: 0,
-        nanoseconds: 11,
-      )),
-    ),
-  ]
-
-  list.each(cases, fn(the_case) {
-    let #(input, expected) = the_case
-
-    equal(input, from_iso_8601(input), expected)
-  })
+fn duration(
+  is_negative: Bool,
+  years: Int,
+  months: Int,
+  weeks: Int,
+  days: Int,
+  hours: Int,
+  minutes: Int,
+  seconds: Int,
+  milliseconds: Int,
+  microseconds: Int,
+  nanoseconds: Int,
+) -> Duration {
+  Duration(
+    is_negative: is_negative,
+    years: years,
+    months: months,
+    weeks: weeks,
+    days: days,
+    hours: hours,
+    minutes: minutes,
+    seconds: seconds,
+    milliseconds: milliseconds,
+    microseconds: microseconds,
+    nanoseconds: nanoseconds,
+  )
 }
 
-fn equal(input: String, got: a, want: a) -> Nil {
-  case got == want {
-    True -> Nil
-    _ ->
-      panic as string.concat([
-        input,
-        " => ",
-        string.inspect(got),
-        " should equal ",
-        string.inspect(want),
-      ])
-  }
+fn assert_parses(input: String, expected: Duration) {
+  assertions.equal_with_context(input, from_iso_8601(input), Ok(expected))
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/string-with-skipped-units.js
+pub fn duration_from_parses_weeks_and_days_test() {
+  assert_parses("P3W1D", duration(False, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0))
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/argument-string.js
+pub fn duration_from_parses_negative_years_and_months_test() {
+  assert_parses("-P1Y1M", duration(True, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0))
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/argument-string.js
+pub fn duration_from_parses_explicit_positive_sign_test() {
+  assert_parses("+P1Y1M", duration(False, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0))
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/argument-string.js
+pub fn duration_from_parses_fractional_seconds_test() {
+  assert_parses(
+    "P1Y1M1DT1H1M1.1S",
+    duration(False, 1, 1, 0, 1, 1, 1, 1, 100, 0, 0),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/argument-string.js
+pub fn duration_from_preserves_unbalanced_days_test() {
+  assert_parses("P40D", duration(False, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0))
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/string-with-skipped-units.js
+pub fn duration_from_parses_years_and_days_test() {
+  assert_parses("P1Y1D", duration(False, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0))
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/string-with-skipped-units.js
+pub fn duration_from_parses_days_hours_and_minutes_test() {
+  assert_parses("P3DT4H59M", duration(False, 0, 0, 0, 3, 4, 59, 0, 0, 0, 0))
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/string-with-skipped-units.js
+pub fn duration_from_parses_hours_and_minutes_test() {
+  assert_parses("PT2H30M", duration(False, 0, 0, 0, 0, 2, 30, 0, 0, 0, 0))
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/string-with-skipped-units.js
+pub fn duration_from_parses_months_test() {
+  assert_parses("P1M", duration(False, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0))
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/argument-string.js
+pub fn duration_from_parses_fractional_subseconds_test() {
+  assert_parses("PT0.0021S", duration(False, 0, 0, 0, 0, 0, 0, 0, 2, 100, 0))
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/blank-duration.js
+pub fn duration_from_parses_zero_seconds_test() {
+  assert_parses("PT0S", duration(False, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0))
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/blank-duration.js
+pub fn duration_from_parses_zero_days_test() {
+  assert_parses("P0D", duration(False, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0))
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/argument-string-fractional-precision.js
+pub fn duration_from_parses_fractional_hour_near_one_test() {
+  assert_parses(
+    "PT0.999999999H",
+    duration(False, 0, 0, 0, 0, 0, 59, 59, 999, 996, 400),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/argument-string-fractional-precision.js
+pub fn duration_from_parses_small_fractional_hour_test() {
+  assert_parses(
+    "PT0.000000011H",
+    duration(False, 0, 0, 0, 0, 0, 0, 0, 0, 39, 600),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/argument-string-fractional-precision.js
+pub fn duration_from_parses_fractional_minute_near_one_test() {
+  assert_parses(
+    "PT0.999999999M",
+    duration(False, 0, 0, 0, 0, 0, 0, 59, 999, 999, 940),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/argument-string-fractional-precision.js
+pub fn duration_from_parses_small_fractional_minute_test() {
+  assert_parses(
+    "PT0.000000011M",
+    duration(False, 0, 0, 0, 0, 0, 0, 0, 0, 0, 660),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/argument-string-fractional-precision.js
+pub fn duration_from_parses_fractional_second_near_one_test() {
+  assert_parses(
+    "PT0.999999999S",
+    duration(False, 0, 0, 0, 0, 0, 0, 0, 999, 999, 999),
+  )
+}
+
+// Requirement: TEMP-S07-SEC-TEMPORAL-DURATION-FROM
+// Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/duration.html#sec-temporal.duration.from
+// test262: test/built-ins/Temporal/Duration/from/argument-string-fractional-precision.js
+pub fn duration_from_parses_small_fractional_second_test() {
+  assert_parses(
+    "PT0.000000011S",
+    duration(False, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11),
+  )
 }
