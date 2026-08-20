@@ -2,7 +2,8 @@
 ////
 //// Use `fixed_clock` for deterministic computations and tests. The system
 //// clock reads Unix epoch milliseconds on both Erlang and JavaScript, so its
-//// instants are millisecond-aligned.
+//// instants are millisecond-aligned, and it discovers the host zone as that
+//// host's current UTC offset.
 
 import gleam/option.{type Option, None, Some}
 import gleam/result
@@ -10,6 +11,7 @@ import temporal
 import temporal/calendar
 import temporal/instant
 import temporal/internal/now_clock
+import temporal/internal/now_local_zone
 import temporal/plain_date
 import temporal/plain_date_time
 import temporal/plain_time
@@ -64,8 +66,8 @@ pub fn instant_with_clock(
 
 /// Reads the system clock's canonical time-zone identifier.
 ///
-/// Local time-zone discovery is unavailable until target-specific adapters
-/// are provided.
+/// The host's zone is discovered as its current UTC offset, so the identifier
+/// is an offset such as `"+02:00"` rather than an IANA name.
 pub fn time_zone_id() -> Result(String, temporal.Error) {
   time_zone_id_with_clock(system_clock())
 }
@@ -80,6 +82,9 @@ pub fn time_zone_id_with_clock(clock: Clock) -> Result(String, temporal.Error) {
 }
 
 /// Reads the system clock's validated time zone.
+///
+/// The zone is the host's current UTC offset; a daylight-saving transition
+/// changes the value a later read reports.
 pub fn time_zone() -> Result(time_zone.TimeZone, temporal.Error) {
   time_zone_with_clock(system_clock())
 }
@@ -117,8 +122,7 @@ pub fn time_zone_with_clock(
 ) -> Result(time_zone.TimeZone, temporal.Error) {
   case clock {
     FixedClock(time_zone: zone, ..) -> Ok(zone)
-    SystemClock ->
-      Error(temporal.PlatformUnavailable(temporal.LocalTimeZoneDiscovery))
+    SystemClock -> now_local_zone.discover()
   }
 }
 
