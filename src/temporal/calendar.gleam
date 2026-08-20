@@ -38,10 +38,17 @@ pub fn from_id(id: String) -> Result(Calendar, temporal.Error) {
 }
 
 /// Return the canonical calendar identifier.
-pub fn id(calendar: Calendar) -> String {
+pub fn to_string(calendar: Calendar) -> String {
   case calendar {
     Iso8601 -> "iso8601"
   }
+}
+
+/// Return the canonical calendar identifier.
+///
+/// This is the identifier-named form of `to_string`.
+pub fn id(calendar: Calendar) -> String {
+  to_string(calendar)
 }
 
 /// Return whether two calendar variants are equal.

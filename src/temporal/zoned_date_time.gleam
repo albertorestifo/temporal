@@ -58,14 +58,14 @@ pub fn epoch_nanoseconds(value: ZonedDateTime) -> bigi.BigInt {
   value.instant
 }
 
-/// Return the canonical time-zone identifier.
-pub fn time_zone_id(value: ZonedDateTime) -> String {
-  time_zone.id(value.time_zone)
+/// Return the time zone attached to this value.
+pub fn time_zone(value: ZonedDateTime) -> time_zone.TimeZone {
+  value.time_zone
 }
 
-/// Return the canonical calendar identifier.
-pub fn calendar_id(value: ZonedDateTime) -> String {
-  calendar.id(value.calendar)
+/// Return the calendar attached to this value.
+pub fn calendar(value: ZonedDateTime) -> calendar.Calendar {
+  value.calendar
 }
 
 /// Return the UTC offset in nanoseconds at this instant.

@@ -341,7 +341,7 @@
       "disposition": "indirect",
       "coverage_status": "active",
       "gleam_test_ids": [
-        "temporal/zoned_date_time_test::zoned_date_time_calendar_id_returns_iso_calendar_test"
+        "temporal/zoned_date_time_test::zoned_date_time_calendar_returns_iso_calendar_test"
       ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/calendarId/branding.js",
@@ -360,7 +360,7 @@
       "disposition": "indirect",
       "coverage_status": "active",
       "gleam_test_ids": [
-        "temporal/zoned_date_time_test::zoned_date_time_time_zone_id_returns_fixed_offset_test"
+        "temporal/zoned_date_time_test::zoned_date_time_time_zone_returns_fixed_offset_test"
       ],
       "test262_paths": [
         "test/built-ins/Temporal/ZonedDateTime/prototype/timeZoneId/branding.js",

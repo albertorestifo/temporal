@@ -8,7 +8,7 @@ import temporal/time_zone
 pub fn time_zone_utc_returns_canonical_id_test() {
   assertions.equal_with_context(
     "UTC identifier",
-    time_zone.id(time_zone.utc()),
+    time_zone.to_string(time_zone.utc()),
     "UTC",
   )
 }
@@ -18,7 +18,7 @@ pub fn time_zone_utc_returns_canonical_id_test() {
 pub fn time_zone_named_identifier_requires_provider_test() {
   assertions.equal_with_context(
     "named zone without provider",
-    time_zone.from_id("Europe/Madrid"),
+    time_zone.from_string("Europe/Madrid"),
     Error(temporal.UnknownTimeZone("Europe/Madrid")),
   )
 }
@@ -33,7 +33,7 @@ pub fn time_zone_from_offset_preserves_canonical_offset_test() {
     )
   assertions.equal_with_context(
     "canonical fixed offset",
-    time_zone.id(value),
+    time_zone.to_string(value),
     "+01:30",
   )
 }
@@ -55,13 +55,13 @@ pub fn time_zone_offset_iso_8601_formats_negative_offset_test() {
 
 // Requirement: TEMP-S11-SEC-TEMPORAL-TOTEMPORALTIMEZONEIDENTIFIER
 // Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/timezone.html#sec-temporal-totemporaltimezoneidentifier
-pub fn time_zone_from_id_canonicalizes_utc_case_test() {
+pub fn time_zone_from_string_canonicalizes_utc_case_test() {
   let value =
     assertions.is_ok_with_context(
       "case-insensitive UTC",
-      time_zone.from_id("utc"),
+      time_zone.from_string("utc"),
     )
-  assertions.equal_with_context("canonical UTC", time_zone.id(value), "UTC")
+  assertions.equal_with_context("canonical UTC", value, time_zone.utc())
 }
 
 // Requirement: TEMP-S11-SEC-TEMPORAL-GETOFFSETNANOSECONDSFOR

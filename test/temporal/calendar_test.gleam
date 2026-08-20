@@ -7,7 +7,7 @@ import temporal/support/assertions
 pub fn calendar_iso_8601_returns_canonical_id_test() {
   assertions.equal_with_context(
     "ISO calendar identifier",
-    calendar.id(calendar.iso_8601()),
+    calendar.to_string(calendar.Iso8601),
     "iso8601",
   )
 }
@@ -20,11 +20,7 @@ pub fn calendar_from_string_canonicalizes_case_test() {
       "case-insensitive ISO identifier",
       calendar.from_string("ISO8601"),
     )
-  assertions.equal_with_context(
-    "canonical identifier",
-    calendar.id(value),
-    "iso8601",
-  )
+  assertions.equal_with_context("canonical calendar", value, calendar.Iso8601)
 }
 
 // Requirement: TEMP-S12-SEC-AVAILABLECALENDARS
@@ -33,7 +29,7 @@ pub fn calendar_core_exposes_iso_calendar_test() {
   assertions.equal_with_context(
     "available core calendar",
     calendar.iso_8601(),
-    calendar.iso_8601(),
+    calendar.Iso8601,
   )
 }
 

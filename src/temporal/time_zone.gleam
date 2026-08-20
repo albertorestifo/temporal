@@ -1,7 +1,8 @@
 //// UTC and fixed-offset time-zone identifiers.
 ////
 //// Named IANA zones require an explicit, versioned provider and are rejected
-//// by this core implementation.
+//// by this core implementation. They are not represented as a string payload
+//// on the core type.
 
 import gleam/int
 import gleam/string
@@ -12,13 +13,12 @@ const nanoseconds_per_minute = 60_000_000_000
 
 /// A validated time-zone kind.
 ///
-/// UTC, fixed offsets, and open-ended IANA names are distinct variants. The
-/// core constructors currently produce UTC and fixed-offset values only;
-/// named IANA zones require a provider.
+/// Core values are `Utc` or a validated `FixedOffset`. Named IANA identifiers
+/// are not a closed core set; `from_id` / `from_string` reject them with
+/// `UnknownTimeZone` until a versioned provider exists.
 pub opaque type TimeZone {
   Utc
   FixedOffset(total_minutes: Int)
-  NamedIana(name: String)
 }
 
 /// Return the canonical UTC time zone.
@@ -26,12 +26,12 @@ pub fn utc() -> TimeZone {
   Utc
 }
 
-/// Parse a supported time-zone identifier.
+/// Parse a supported time-zone identifier from its spec string.
 ///
 /// `UTC` is matched case-insensitively. Numeric offsets must use `+HH:MM` or
 /// `-HH:MM`. Named IANA identifiers return `UnknownTimeZone` until a provider
 /// is configured.
-pub fn from_id(id: String) -> Result(TimeZone, temporal.Error) {
+pub fn from_string(id: String) -> Result(TimeZone, temporal.Error) {
   case string.lowercase(id) {
     "utc" -> Ok(utc())
     _ ->
@@ -40,6 +40,13 @@ pub fn from_id(id: String) -> Result(TimeZone, temporal.Error) {
         Error(_) -> Error(temporal.UnknownTimeZone(id))
       }
   }
+}
+
+/// Parse a supported time-zone identifier.
+///
+/// This is the identifier-named form of `from_string`.
+pub fn from_id(id: String) -> Result(TimeZone, temporal.Error) {
+  from_string(id)
 }
 
 /// Parse and canonicalize a fixed numeric offset.
@@ -60,12 +67,18 @@ pub fn from_offset(offset: String) -> Result(TimeZone, temporal.Error) {
 }
 
 /// Return the canonical time-zone identifier.
-pub fn id(time_zone: TimeZone) -> String {
+pub fn to_string(time_zone: TimeZone) -> String {
   case time_zone {
     Utc -> "UTC"
     FixedOffset(total_minutes) -> format_offset_minutes(total_minutes)
-    NamedIana(name) -> name
   }
+}
+
+/// Return the canonical time-zone identifier.
+///
+/// This is the identifier-named form of `to_string`.
+pub fn id(time_zone: TimeZone) -> String {
+  to_string(time_zone)
 }
 
 /// Return whether two time-zone variants are equal.
@@ -83,8 +96,6 @@ pub fn offset_nanoseconds_for(
   case time_zone {
     Utc -> Ok(0)
     FixedOffset(total_minutes) -> Ok(total_minutes * nanoseconds_per_minute)
-    NamedIana(name) ->
-      Error(temporal.PlatformUnavailable("time_zone.offset:" <> name))
   }
 }
 
@@ -98,8 +109,6 @@ pub fn offset_iso_8601_for(
   case time_zone {
     Utc -> Ok("+00:00")
     FixedOffset(total_minutes) -> Ok(format_offset_minutes(total_minutes))
-    NamedIana(name) ->
-      Error(temporal.PlatformUnavailable("time_zone.offset:" <> name))
   }
 }
 

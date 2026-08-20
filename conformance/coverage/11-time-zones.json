@@ -149,7 +149,7 @@
       "disposition": "indirect",
       "coverage_status": "active",
       "gleam_test_ids": [
-        "temporal/time_zone_test::time_zone_from_id_canonicalizes_utc_case_test"
+        "temporal/time_zone_test::time_zone_from_string_canonicalizes_utc_case_test"
       ],
       "test262_paths": [],
       "official_example_links": [

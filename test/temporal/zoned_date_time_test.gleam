@@ -100,26 +100,26 @@ pub fn zoned_date_time_compare_uses_exact_time_test() {
 
 // Requirement: TEMP-S06-SEC-GET-TEMPORAL-ZONEDDATETIME-PROTOTYPE-CALENDARID
 // Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.calendarid
-pub fn zoned_date_time_calendar_id_returns_iso_calendar_test() {
+pub fn zoned_date_time_calendar_returns_iso_calendar_test() {
   assertions.equal_with_context(
-    "calendar identifier",
-    zoned_date_time.calendar_id(at(bigi.from_int(0), time_zone.utc())),
-    "iso8601",
+    "calendar",
+    zoned_date_time.calendar(at(bigi.from_int(0), time_zone.utc())),
+    calendar.Iso8601,
   )
 }
 
 // Requirement: TEMP-S06-SEC-GET-TEMPORAL-ZONEDDATETIME-PROTOTYPE-TIMEZONEID
 // Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/zoneddatetime.html#sec-get-temporal.zoneddatetime.prototype.timezoneid
-pub fn zoned_date_time_time_zone_id_returns_fixed_offset_test() {
+pub fn zoned_date_time_time_zone_returns_fixed_offset_test() {
   let zone =
     assertions.is_ok_with_context(
       "fixed offset",
       time_zone.from_offset("+01:30"),
     )
   assertions.equal_with_context(
-    "time-zone identifier",
-    zoned_date_time.time_zone_id(at(bigi.from_int(0), zone)),
-    "+01:30",
+    "time zone",
+    zoned_date_time.time_zone(at(bigi.from_int(0), zone)),
+    zone,
   )
 }
 
@@ -208,8 +208,8 @@ pub fn zoned_date_time_to_instant_preserves_epoch_nanoseconds_test() {
 pub fn zoned_date_time_creation_retains_canonical_identifiers_test() {
   let value = at(bigi.from_int(0), time_zone.utc())
   assertions.equal_with_context(
-    "canonical identifiers",
-    #(zoned_date_time.time_zone_id(value), zoned_date_time.calendar_id(value)),
-    #("UTC", "iso8601"),
+    "canonical calendar and time zone",
+    #(zoned_date_time.time_zone(value), zoned_date_time.calendar(value)),
+    #(time_zone.utc(), calendar.Iso8601),
   )
 }
