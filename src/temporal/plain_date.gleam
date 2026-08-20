@@ -13,6 +13,12 @@ pub opaque type PlainDate {
   PlainDate(year: Int, month: Int, day: Int)
 }
 
+/// Builds an unvalidated date fixture for package tests.
+@internal
+pub fn fixture(year year: Int, month month: Int, day day: Int) -> PlainDate {
+  PlainDate(year: year, month: month, day: day)
+}
+
 /// Constructs an ISO calendar date.
 ///
 /// Calendar is temporarily the identifier `iso8601` until the calendar module

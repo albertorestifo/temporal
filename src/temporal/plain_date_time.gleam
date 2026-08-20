@@ -13,6 +13,15 @@ pub opaque type PlainDateTime {
   PlainDateTime(date: plain_date.PlainDate, time: plain_time.PlainTime)
 }
 
+/// Builds an unvalidated date-time fixture for package tests.
+@internal
+pub fn fixture(
+  date date: plain_date.PlainDate,
+  time time: plain_time.PlainTime,
+) -> PlainDateTime {
+  PlainDateTime(date: date, time: time)
+}
+
 /// Constructs an ISO date-time.
 pub fn new(
   year year: Int,

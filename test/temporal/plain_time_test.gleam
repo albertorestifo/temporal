@@ -6,8 +6,14 @@ import temporal/support/assertions
 import temporal/support/plain_fixtures
 
 fn fixture() {
-  let assert Ok(value) = plain_time.from_iso_8601("12:34:56.123456789")
-  value
+  plain_time.fixture(
+    hour: 12,
+    minute: 34,
+    second: 56,
+    millisecond: 123,
+    microsecond: 456,
+    nanosecond: 789,
+  )
 }
 
 // Requirement: TEMP-S04-SEC-TEMPORAL-PLAINTIME
@@ -108,7 +114,15 @@ pub fn plain_time_nanosecond_returns_nanosecond_test() {
 // Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaintime.html#sec-temporal.plaintime.compare
 // test262: test/built-ins/Temporal/PlainTime/compare/basic.js
 pub fn plain_time_compare_orders_fields_test() {
-  let assert Ok(later) = plain_time.from_iso_8601("13:00")
+  let later =
+    plain_time.fixture(
+      hour: 13,
+      minute: 0,
+      second: 0,
+      millisecond: 0,
+      microsecond: 0,
+      nanosecond: 0,
+    )
   assertions.equal_with_context(
     "time order",
     plain_time.compare(fixture(), later),

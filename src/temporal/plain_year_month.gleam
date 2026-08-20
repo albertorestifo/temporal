@@ -10,6 +10,16 @@ pub opaque type PlainYearMonth {
   PlainYearMonth(year: Int, month: Int, reference_day: Int)
 }
 
+/// Builds an unvalidated year-month fixture for package tests.
+@internal
+pub fn fixture(
+  year year: Int,
+  month month: Int,
+  reference_day reference_day: Int,
+) -> PlainYearMonth {
+  PlainYearMonth(year: year, month: month, reference_day: reference_day)
+}
+
 /// Constructs an ISO year-month.
 pub fn new(
   year year: Int,

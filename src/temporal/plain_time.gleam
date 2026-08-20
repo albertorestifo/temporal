@@ -7,7 +7,34 @@ import temporal/duration
 
 /// A validated ISO wall-clock time.
 pub opaque type PlainTime {
-  PlainTime(Int, Int, Int, Int, Int, Int)
+  PlainTime(
+    hour: Int,
+    minute: Int,
+    second: Int,
+    millisecond: Int,
+    microsecond: Int,
+    nanosecond: Int,
+  )
+}
+
+/// Builds an unvalidated time fixture for package tests.
+@internal
+pub fn fixture(
+  hour hour: Int,
+  minute minute: Int,
+  second second: Int,
+  millisecond millisecond: Int,
+  microsecond microsecond: Int,
+  nanosecond nanosecond: Int,
+) -> PlainTime {
+  PlainTime(
+    hour: hour,
+    minute: minute,
+    second: second,
+    millisecond: millisecond,
+    microsecond: microsecond,
+    nanosecond: nanosecond,
+  )
 }
 
 /// Constructs an ISO wall-clock time.

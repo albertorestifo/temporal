@@ -102,14 +102,12 @@ provenance mismatches, and placeholder rationales.
 
 ## Current RED and target status
 
-On Erlang, `gleam test` compiles and runs 205 tests: 71 pass and 134 are
-expected RED while behavior remains unimplemented. Of those RED tests, 83
-currently stop in a shared `from_iso_8601` fixture before reaching the
-operation named by the test. Their input strings are valid, but these failures
-must be rechecked after parser construction is implemented because they do not
-yet exercise the intended assertion.
+On Erlang, `gleam test` compiles and runs 205 tests: 112 pass and 93 are
+expected RED while behavior remains unimplemented. All 83 tests that formerly
+stopped in a shared `from_iso_8601` fixture now exercise the operation named by
+the test: 41 pass and 42 fail at their own requirement assertion.
 
-On JavaScript, the suite also compiles and runs, with 68 passing and 137
+On JavaScript, the suite also compiles and runs, with 109 passing and 96
 failing. The three additional failures are the real-system-clock tests:
 
 - `now_system_clock_returns_current_era_instant_test`
@@ -117,8 +115,6 @@ failing. The three additional failures are the real-system-clock tests:
 - `now_system_clock_instant_is_within_temporal_range_test`
 
 They are target-specific exclusions until a JavaScript system-clock adapter is
-provided; deterministic fixed-clock Now tests run on both targets. JavaScript
-also warns that two Instant test fixtures and the 2017 Now threshold construct
-`bigi.BigInt` values through unsafe Gleam `Int` literals. Those fixtures must
-be changed to exact decimal-string construction before they can be trusted as
-cross-target evidence.
+provided; deterministic fixed-clock Now tests run on both targets. Exact
+decimal-string construction keeps the two large Instant fixtures and the 2017
+Now threshold reliable on both targets without unsafe-integer warnings.

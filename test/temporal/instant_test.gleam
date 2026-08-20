@@ -24,6 +24,13 @@ fn decrement(value: bigi.BigInt) {
   bigi.add(value, bigi.from_int(-1))
 }
 
+fn decimal_big_int(value: String) {
+  assertions.is_ok_with_context(
+    "exact decimal BigInt fixture",
+    bigi.from_string(value),
+  )
+}
+
 // Requirement: TEMP-S08-SEC-TEMPORAL-INSTANT-FROMEPOCHMILLISECONDS
 // Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-temporal.instant.fromepochmilliseconds
 // test262: test/built-ins/Temporal/Instant/fromEpochMilliseconds/basic.js
@@ -172,7 +179,7 @@ pub fn instant_compare_returns_greater_than_test() {
 // Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-get-temporal.instant.prototype.epochmilliseconds
 // test262: test/built-ins/Temporal/Instant/prototype/epochMilliseconds/basic.js
 pub fn instant_epoch_milliseconds_floors_positive_submilliseconds_test() {
-  let value = bigi.from_int(217_175_010_123_456_789)
+  let value = decimal_big_int("217175010123456789")
   assertions.equal_with_context(
     "positive epoch milliseconds",
     instant.epoch_milliseconds(value),
@@ -184,7 +191,7 @@ pub fn instant_epoch_milliseconds_floors_positive_submilliseconds_test() {
 // Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/instant.html#sec-get-temporal.instant.prototype.epochmilliseconds
 // test262: test/built-ins/Temporal/Instant/prototype/epochMilliseconds/basic.js
 pub fn instant_epoch_milliseconds_floors_negative_submilliseconds_test() {
-  let value = bigi.from_int(-217_175_010_876_543_211)
+  let value = decimal_big_int("-217175010876543211")
   assertions.equal_with_context(
     "negative epoch milliseconds",
     instant.epoch_milliseconds(value),

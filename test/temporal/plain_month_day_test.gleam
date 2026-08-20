@@ -5,8 +5,7 @@ import temporal/support/assertions
 import temporal/support/plain_fixtures
 
 fn fixture() {
-  let assert Ok(value) = plain_month_day.from_iso_8601("08-20")
-  value
+  plain_month_day.fixture(month: 8, day: 20, reference_year: 1972)
 }
 
 // Requirement: TEMP-S10-SEC-TEMPORAL-PLAINMONTHDAY

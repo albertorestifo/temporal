@@ -6,8 +6,7 @@ import temporal/support/assertions
 import temporal/support/plain_fixtures
 
 fn fixture() {
-  let assert Ok(value) = plain_year_month.from_iso_8601("2026-08")
-  value
+  plain_year_month.fixture(year: 2026, month: 8, reference_day: 1)
 }
 
 // Requirement: TEMP-S09-SEC-TEMPORAL-PLAINYEARMONTH
@@ -128,7 +127,7 @@ pub fn plain_year_month_in_leap_year_returns_false_test() {
 // Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plainyearmonth.html#sec-temporal.plainyearmonth.compare
 // test262: test/built-ins/Temporal/PlainYearMonth/compare/basic.js
 pub fn plain_year_month_compare_orders_iso_fields_test() {
-  let assert Ok(later) = plain_year_month.from_iso_8601("2026-09")
+  let later = plain_year_month.fixture(year: 2026, month: 9, reference_day: 1)
   assertions.equal_with_context(
     "year-month order",
     plain_year_month.compare(fixture(), later),

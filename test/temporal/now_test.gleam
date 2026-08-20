@@ -19,6 +19,13 @@ fn offset_zone(offset: String) -> time_zone.TimeZone {
   )
 }
 
+fn decimal_big_int(value: String) {
+  assertions.is_ok_with_context(
+    "exact decimal BigInt fixture",
+    bigi.from_string(value),
+  )
+}
+
 // Requirement: TEMP-S01-SEC-TEMPORAL-NOW
 // Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/temporal.html#sec-temporal-now
 pub fn temporal_now_module_exposes_clock_semantics_test() {
@@ -127,7 +134,7 @@ pub fn now_fixed_clock_repeats_without_global_state_test() {
 pub fn now_system_clock_returns_current_era_instant_test() {
   let current =
     assertions.is_ok_with_context("system clock instant", now.instant())
-  let year_2017 = bigi.from_int(1_500_000_000_000_000_000)
+  let year_2017 = decimal_big_int("1500000000000000000")
   assertions.equal_with_context(
     "system instant is after 2017",
     instant.compare(current, year_2017),

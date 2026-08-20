@@ -3,14 +3,32 @@ import gleam/order.{Lt}
 import temporal
 import temporal/calendar
 import temporal/duration
+import temporal/plain_date
 import temporal/plain_date_time
+import temporal/plain_time
 import temporal/support/assertions
 import temporal/support/plain_fixtures
 
 fn fixture() {
-  let assert Ok(value) =
-    plain_date_time.from_iso_8601("2026-08-20T12:34:56.123456789")
-  value
+  plain_date_time.fixture(
+    date: plain_date_time_fixture_date(),
+    time: plain_date_time_fixture_time(hour: 12),
+  )
+}
+
+fn plain_date_time_fixture_date() {
+  plain_date.fixture(year: 2026, month: 8, day: 20)
+}
+
+fn plain_date_time_fixture_time(hour hour: Int) {
+  plain_time.fixture(
+    hour: hour,
+    minute: 34,
+    second: 56,
+    millisecond: 123,
+    microsecond: 456,
+    nanosecond: 789,
+  )
 }
 
 // Requirement: TEMP-S05-SEC-TEMPORAL-PLAINDATETIME
@@ -245,7 +263,18 @@ pub fn plain_date_time_in_leap_year_returns_iso_value_test() {
 // Spec: https://github.com/tc39/proposal-temporal/blob/e8cc03fc970a65a3359e8870e3b35e687ac94e55/spec/plaindatetime.html#sec-temporal.plaindatetime.compare
 // test262: test/built-ins/Temporal/PlainDateTime/compare/basic.js
 pub fn plain_date_time_compare_orders_iso_fields_test() {
-  let assert Ok(later) = plain_date_time.from_iso_8601("2026-08-20T13:00")
+  let later =
+    plain_date_time.fixture(
+      date: plain_date_time_fixture_date(),
+      time: plain_time.fixture(
+        hour: 13,
+        minute: 0,
+        second: 0,
+        millisecond: 0,
+        microsecond: 0,
+        nanosecond: 0,
+      ),
+    )
   assertions.equal_with_context(
     "date-time order",
     plain_date_time.compare(fixture(), later),

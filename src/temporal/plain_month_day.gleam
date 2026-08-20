@@ -8,6 +8,16 @@ pub opaque type PlainMonthDay {
   PlainMonthDay(month: Int, day: Int, reference_year: Int)
 }
 
+/// Builds an unvalidated month-day fixture for package tests.
+@internal
+pub fn fixture(
+  month month: Int,
+  day day: Int,
+  reference_year reference_year: Int,
+) -> PlainMonthDay {
+  PlainMonthDay(month: month, day: day, reference_year: reference_year)
+}
+
 /// Constructs an ISO month-day.
 pub fn new(
   month month: Int,
