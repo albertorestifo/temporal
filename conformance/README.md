@@ -21,8 +21,10 @@ stable requirement ID and these fields:
 
 `planned` is the inventory state used before a section batch starts, so its
 test list may be empty. A batch changes an applicable record to `active` when
-it introduces the RED test and to `complete` once the implementation passes.
-The checker rejects `active` or `complete` applicable records without tests.
+it introduces named tests for the clause. `complete` is a later inventory
+decision that the clause itself is finished, not a side effect of a green
+suite. The checker rejects `active` or `complete` applicable records without
+tests. It does not promote `active` to `complete`.
 
 JavaScript prototypes, descriptors, symbols, coercion hooks, subclassing,
 legacy `Date`, and ECMA-402-only behavior stay visible as `n/a-js-runtime`
@@ -96,11 +98,19 @@ Section  Topic                    Planned  Active  Complete  Exempt
 Totals                                  0     484         0     170
 ```
 
+`python3 scripts/check_conformance.py` reports:
+
+```text
+Conformance inventory OK: 15 sections, 654 requirements, 521 Gleam tests, 4603 test262 files
+```
+
 Lifecycle totals are 484 `active`, 0 `planned`, 0 `complete`, and 170 `exempt`
-requirements. Remaining non-exempt `planned` is 0: the last 40 leftover
-requirement IDs are now `active`. The inventory references 521 independently
-named Gleam tests. Applicable requirements now have Gleam test IDs; the
-test-first suite is still RED until implementations reach `complete`.
+requirements. Remaining non-exempt `planned` is 0. The inventory references
+521 independently named Gleam tests, and every applicable requirement has
+Gleam test IDs. Those 484 applicable records stay `active`: a passing suite
+is evidence of covered observables, not a claim that every spec clause is
+finished. Do not treat `active` as `complete` without changing the coverage
+JSON.
 
 ## Completeness audit
 
@@ -121,19 +131,16 @@ carries the matching immutable requirement and specification provenance. It
 rejects missing or extra pinned clauses and test262 paths, unresolved test IDs,
 provenance mismatches, and placeholder rationales.
 
-## Current RED and target status
+## Current status
 
-On Erlang, `gleam test` compiles and runs 525 tests: 173 pass and 352 are
-expected RED while behavior remains unimplemented.
+Both targets are green. `gleam test` and `gleam test --target javascript`
+each run 525 tests with 0 failures. There are no target-specific exclusions;
+the former JavaScript system-clock failures now pass on both runtimes. The
+executable suite is four tests larger than the 521 IDs the inventory
+references.
 
-On JavaScript, the suite also compiles and runs, with 170 passing and 355
-failing. The three additional failures are the real-system-clock tests:
-
-- `now_system_clock_returns_current_era_instant_test`
-- `now_system_clock_instant_has_millisecond_precision_test`
-- `now_system_clock_instant_is_within_temporal_range_test`
-
-They are target-specific exclusions until a JavaScript system-clock adapter is
-provided; deterministic fixed-clock Now tests run on both targets. Exact
-decimal-string construction keeps the two large Instant fixtures and the 2017
-Now threshold reliable on both targets without unsafe-integer warnings.
+Green tests do not change coverage JSON. Applicable requirements remain
+`active` (484) rather than `complete` (0). Passing cases show that the
+mapped observables behave correctly; they do not mean every pinned clause
+is fully implemented. Known product limits (for example named IANA time
+zones) are documented in the package README and stay outside these counts.
